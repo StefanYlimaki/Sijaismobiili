@@ -1,14 +1,14 @@
-import { Button, Text, View, StyleSheet } from "react-native";
+import { Button, Text, View, StyleSheet } from 'react-native'
 import {
   Ionicons,
   Feather,
   FontAwesome,
   Entypo,
   FontAwesome5,
-} from "@expo/vector-icons";
+} from '@expo/vector-icons'
 
 const SubstitutionScreen = ({ route, navigation }) => {
-  const { substitution } = route.params;
+  const { substitution } = route.params
   return (
     <View style={styles.substitutionContainer}>
       <View style={styles.substitutionElement}>
@@ -67,21 +67,21 @@ const SubstitutionScreen = ({ route, navigation }) => {
         </Text>
       </View>
     </View>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   substitutionContainer: {
     flex: 1,
     paddingHorizontal: 16,
     marginTop: 32,
-    alignItems: "center",
+    alignItems: 'center',
   },
   substitutionElement: {
-    flexDirection: "row",
-    alignItems: "center",
-    width: "100%",
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: '100%',
   },
-});
+})
 
-export default SubstitutionScreen;
+export default SubstitutionScreen

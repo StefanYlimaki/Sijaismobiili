@@ -1,13 +1,13 @@
-import { View, Text, StyleSheet, Pressable } from "react-native";
-import { Feather, Ionicons, Entypo, FontAwesome5 } from "@expo/vector-icons";
+import { View, Text, StyleSheet, Pressable } from 'react-native'
+import { Feather, Ionicons, Entypo, FontAwesome5 } from '@expo/vector-icons'
 
 const SubstitutionItem = ({ substitution, navigation }) => {
   return (
     <View style={styles.substitutionItemContainer}>
       <Pressable
-        android_ripple={{ color: "#210644" }}
+        android_ripple={{ color: '#210644' }}
         onPress={() =>
-          navigation.navigate("Substitution", {
+          navigation.navigate('Substitution', {
             substitution: substitution,
           })
         }
@@ -57,42 +57,31 @@ const SubstitutionItem = ({ substitution, navigation }) => {
         </View>
       </Pressable>
     </View>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   substitutionItemContainer: {
-    width: "100%",
+    width: '100%',
     marginTop: 4,
     borderWidth: 2,
     borderRadius: 5,
-    backgroundColor: "#5e0acc",
-    borderColor: "#5e0acc",
+    backgroundColor: '#5e0acc',
+    borderColor: '#5e0acc',
   },
   pressedSubstitutionItem: {
     opacity: 0.5,
   },
   substitutionPreviewComponent: {
     flex: 1,
-    flexDirection: "row",
-    alignItems: "center",
-    color: "white",
-    padding: 10,
-  },
-  substitutionItemAbout: {
-    color: "white",
-    padding: 10,
-  },
-  substitutionItemLocation: {
-    flex: 1,
-    flexDirection: "row",
-    alignItems: "center",
-    color: "white",
+    flexDirection: 'row',
+    alignItems: 'center',
+    color: 'white',
     padding: 10,
   },
   substitutionItemText: {
-    color: "white",
+    color: 'white',
   },
-});
+})
 
-export default SubstitutionItem;
+export default SubstitutionItem
