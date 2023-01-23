@@ -17,4 +17,4 @@
 
 ##### 3.1 Enter this URL: exp://exp.host/@clamantmountain64/Sijaismobiili?release-channel=default
 
-#### 4. The application is downloaded and soon it's ready to use
+#### 4. The application is downloaded, and soon it's ready to use!
