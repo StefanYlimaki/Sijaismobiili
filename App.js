@@ -1,11 +1,13 @@
-import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import React from 'react'
 
-import SubstitutionsScreen from "./components/SubstitutionsScreen";
-import ProfileScreen from "./components/ProfileScreen";
-import SubstitutionScreen from "./components/SubstitutionScreen";
+import { NavigationContainer } from '@react-navigation/native'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
-const Stack = createNativeStackNavigator();
+import SubstitutionsScreen from './components/SubstitutionsScreen'
+import ProfileScreen from './components/ProfileScreen'
+import SubstitutionScreen from './components/SubstitutionScreen'
+
+const Stack = createNativeStackNavigator()
 
 export default function App() {
   return (
@@ -14,15 +16,15 @@ export default function App() {
         <Stack.Screen
           name="Substitutions"
           component={SubstitutionsScreen}
-          options={{ title: "Avoimet sijaisuudet" }}
+          options={{ title: 'Avoimet sijaisuudet' }}
         />
         <Stack.Screen name="Profile" component={ProfileScreen} />
         <Stack.Screen
           name="Substitution"
           component={SubstitutionScreen}
-          options={{ title: "Sijaisuus" }}
+          options={{ title: 'Sijaisuus' }}
         />
       </Stack.Navigator>
     </NavigationContainer>
-  );
+  )
 }
