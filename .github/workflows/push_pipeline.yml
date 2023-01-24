@@ -42,8 +42,15 @@ jobs:
       - name: 🚀 Publish app
         run: expo publish --non-interactive
 
+      - name: 👷 Create preview comment
+        uses: expo/expo-github-action/preview-comment@v7
+        id: preview
+        with:
+          comment: false
+          channel: production
+
       - name: Comment about Failure in Discord
-        if: ${{ failure() }}
+        if: failure()
         uses: rjstone/discord-webhook-notify@v1
         with: 
           severity: error
@@ -51,9 +58,9 @@ jobs:
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
       
       - name: Comment about Success in Discord
-        if: ${{ !failure() }}
+        if: success()
         uses: rjstone/discord-webhook-notify@v1
         with: 
-          severity: error
-          details: 'New deployment is ready!\n- Preview: ${{ steps.preview.outputs.projectQR }}'
+          severity: info
+          details: 'New deployment is ready! - Preview: ${{ steps.preview.outputs.projectQR }}'
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}

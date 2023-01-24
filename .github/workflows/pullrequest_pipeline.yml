@@ -1,10 +1,16 @@
-name: Pull Request Checks
+name: Pull Request Pipeline
 
 on: [pull_request]
 
 jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Lint check
+        run: npm run eslint
   publish_preview:
     runs-on: ubuntu-latest
+    needs: [checks]
     steps:
       - name: 🏗 Setup Repo
         uses: actions/checkout@v3
@@ -32,10 +38,18 @@ jobs:
         with:
           comment: false
           channel: production
-      - name: Comment in Discord
+      - name: Comment about success in Discord
         uses: rjstone/discord-webhook-notify@v1
+        if: success()
+        with: 
+          severity: info
+          details: 'New deployment is ready! - Preview: ${{ steps.preview.outputs.projectQR }}'
+          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
+      - name: Comment about failure in Discord
+        uses: rjstone/discord-webhook-notify@v1
+        if: failure()
         with: 
           severity: error
-          details: 'New deployment is ready!\n- Preview: ${{ steps.preview.outputs.projectQR }}'
+          details: 'Publishing of Preview failed - Go to github to re-run the failed!'
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
 
