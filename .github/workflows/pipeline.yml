@@ -8,8 +8,8 @@ on:
       - opened
       - synchorize
 
-jobs: 
-  test_job:
+jobs:
+  a_test_job:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
