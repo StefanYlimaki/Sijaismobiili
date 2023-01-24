@@ -47,14 +47,14 @@ jobs:
         id: preview
         with:
           comment: false
-          channel: production
+          channel: default
 
       - name: Comment about Failure in Discord
         if: failure()
         uses: rjstone/discord-webhook-notify@v1
         with: 
           severity: error
-          details: 'New deployment is ready!\n- Preview: ${{ steps.preview.outputs.projectQR }}'
+          details: 'New deployment failed - Go to github to re-run the failed jobs!'
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
       
       - name: Comment about Success in Discord
@@ -62,5 +62,5 @@ jobs:
         uses: rjstone/discord-webhook-notify@v1
         with: 
           severity: info
-          details: 'New deployment is ready! - Preview: ${{ steps.preview.outputs.projectQR }}'
+          details: 'New deployment is ready! - App: ${{ steps.preview.outputs.projectQR }}'
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
