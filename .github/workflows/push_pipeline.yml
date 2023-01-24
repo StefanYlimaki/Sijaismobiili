@@ -64,3 +64,17 @@ jobs:
           severity: info
           details: 'New deployment is ready! - App: ${{ steps.preview.outputs.projectQR }}'
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
+  tag:
+    needs: [publish_production]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+      - name: Bump version and push tag
+        uses: anothrNick/github-tag-action@1.36.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DEFAULT_BUMP: patch
+          WITH_V: true
