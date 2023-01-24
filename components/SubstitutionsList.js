@@ -5,6 +5,7 @@ import SubstitutionItem from './SubstitutionItem'
 const SubstitutionsList = ({ navigation }) => {
   const substitutions = [
     {
+      id: 1,
       title: 'Keittiöapulainen / Tarjoilija',
       description:
         'Salaatin teko, tiskaus, astioiden nouto ja paikoilleen vienti. Kuumennuskeittiö. Lounaalla syöjiä 450.',
@@ -15,6 +16,7 @@ const SubstitutionsList = ({ navigation }) => {
       contactInfo: 'palmia@kouluravintola.fi',
     },
     {
+      id: 2,
       title: 'Myymäläavustaja',
       description:
         'Tuotteiden paikalleen laittoa, inventaariota, tavaroiden järjestelyä, kassalla oloa.',
