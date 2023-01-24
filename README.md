@@ -2,6 +2,8 @@
 
 ### How to test the application
 
+#### 0. NOTICE! If you use iOS-device and want to test the application using the Expo Go -application, contact 
+
 #### 1. Download Expo Go on your mobile device of choice.
 
 ##### Android: https://play.google.com/store/apps/details?id=host.exp.exponent
