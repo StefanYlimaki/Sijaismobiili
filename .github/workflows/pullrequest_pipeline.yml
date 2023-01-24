@@ -32,7 +32,7 @@ jobs:
         with:
           comment: false
           channel: production
-      name: Comment in Discord
+      - name: Comment in Discord
         uses: rjstone/discord-webhook-notify@v1
         with: 
           severity: error
