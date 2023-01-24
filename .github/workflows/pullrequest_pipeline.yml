@@ -26,8 +26,16 @@ jobs:
       - name: 🚀 Publish preview
         run: expo publish --release-channel=pr-${{ github.event.number }} --non-interactive
 
-      - name: 💬 Comment preview
+      - name: 👷 Create preview comment
         uses: expo/expo-github-action/preview-comment@v7
+        id: preview
         with:
-          channel: pr-${{ github.event.number }}
+          comment: false
+          channel: production
+      name: Comment in Discord
+        uses: rjstone/discord-webhook-notify@v1
+        with: 
+          severity: error
+          details: 'New deployment is ready!\n- Preview: ${{ steps.preview.outputs.projectQR }}'
+          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
 
