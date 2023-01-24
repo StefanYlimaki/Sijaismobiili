@@ -71,13 +71,14 @@ jobs:
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
   tag:
     needs: [publish_production]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          fetch-depth: '0'
-      - name: Github Tag Bump
-        uses: anothrNick/github-tag-action@1.61.0
+          node-version: "16"
+      - name: Bump version and push tag
+        uses: anothrNick/github-tag-action@1.36.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DEFAULT_BUMP: patch
