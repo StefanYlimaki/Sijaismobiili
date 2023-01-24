@@ -45,7 +45,9 @@ jobs:
 
       - name: 👷 Create preview comment
         uses: expo/expo-github-action/preview-comment@v7
+        id: preview
         with:
+          comment: false
           channel: pr-${{ github.event.number }}
 
       - name: Comment about success in Discord
