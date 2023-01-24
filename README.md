@@ -33,3 +33,4 @@
 #### 2. Run `npm install` and `expo start`
 
 #### 3. Scan the QR-code on your devices or launch open in a simulator of your choice 
+
