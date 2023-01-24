@@ -1,15 +1,9 @@
-name: Pull Request Checks
+name: Merging Pipeline
 
 on:
   push:
     branches:
       - master
-  pull_request:
-    branches:
-      - master
-    types:
-      - opened
-      - synchorize
 
 jobs:
   a_test_job:
@@ -28,7 +22,7 @@ jobs:
         env:
           COMMIT_MESSAGES: ${{ toJson(github.event.commits.*.message) }}
         run: echo "$COMMIT_MESSAGES"
-  expo_publish:
+  publish_production:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v3
@@ -47,4 +41,3 @@ jobs:
 
       - name: 🚀 Publish app
         run: expo publish --non-interactive
-
