@@ -7,8 +7,6 @@ import SubstitutionsScreen from './components/SubstitutionsScreen'
 import ProfileScreen from './components/ProfileScreen'
 import SubstitutionScreen from './components/SubstitutionScreen'
 
-import substitutions from './assets/data/substitutionsData.json'
-
 const Stack = createNativeStackNavigator()
 
 export default function App() {
@@ -19,7 +17,6 @@ export default function App() {
           name="Substitutions"
           component={SubstitutionsScreen}
           options={{ title: 'Avoimet sijaisuudet' }}
-          initialParams={{ 'substitutions': substitutions }}
         />
         <Stack.Screen name="Profile" component={ProfileScreen} />
         <Stack.Screen
