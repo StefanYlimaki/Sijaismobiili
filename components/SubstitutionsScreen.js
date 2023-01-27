@@ -2,10 +2,10 @@ import { Button, Text, View, StyleSheet } from 'react-native'
 
 import SubstitutionsList from './SubstitutionsList'
 
-const SubstitutionsScreen = ({ navigation }) => {
+const SubstitutionsScreen = ({ navigation, substitutions }) => {
   return (
     <View style={styles.substitutionsContainer}>
-      <SubstitutionsList navigation={navigation} />
+      <SubstitutionsList navigation={navigation} substitutions={substitutions}/>
     </View>
   )
 }

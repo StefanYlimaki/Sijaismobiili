@@ -1,0 +1,24 @@
+[
+    {
+      "id": 1,
+      "title": "Keittiöapulainen / Tarjoilija",
+      "description":
+        "Salaatin teko, tiskaus, astioiden nouto ja paikoilleen vienti. Kuumennuskeittiö. Lounaalla syöjiä 450.",
+      "organisation": "Kouluravintola Palmia",
+      "location": "Kauppakuja 1, 00100 Helsinki",
+      "timing": "LA 18.2. klo 9:15-15.30",
+      "hourlyPay": "15€/h",
+      "contactInfo": "palmia@kouluravintola.fi"
+    },
+    {
+      "id": 2,
+      "title": "Myymäläavustaja",
+      "description":
+        "Tuotteiden paikalleen laittoa, inventaariota, tavaroiden järjestelyä, kassalla oloa.",
+      "organisation": "K-Kauppa Esko",
+      "location": "Järvitie 5, 90100 Oulu",
+      "timing": "PE 24.2 klo 7.45-16.15",
+      "hourlyPay": "14€/h",
+      "contactInfo": "esko@k-kauppa.fi"
+    }
+]
