@@ -18,7 +18,6 @@ export default function App() {
           component={SubstitutionsScreen}
           options={{ title: 'Avoimet sijaisuudet' }}
         />
-        <Stack.Screen name="Profile" component={ProfileScreen} />
         <Stack.Screen
           name="Substitution"
           component={SubstitutionScreen}
