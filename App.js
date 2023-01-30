@@ -1,10 +1,9 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
 import SubstitutionsScreen from './components/SubstitutionsScreen'
-import ProfileScreen from './components/ProfileScreen'
 import SubstitutionScreen from './components/SubstitutionScreen'
 
 const Stack = createNativeStackNavigator()
