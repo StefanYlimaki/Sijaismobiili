@@ -8,6 +8,10 @@
             "description": "Unique identifier for substitution",
             "type": "integer"
         },
+        "date": {
+            "description": "The date the job ad was left in the format returned by Javascripts Date.toJSON(), example: 1975-08-19T23:15:30.000Z",
+            "type": "string"
+        },
         "title": {
             "description": "Job title",
             "type": "string"
@@ -33,7 +37,7 @@
             "type": "object",
             "properties": {
                 "startTime": {
-                    "description": "The starting time of a shift in the format returned by Javascripts Date.toJSON(), example: 1975-08-19T23:15:30.000Z",
+                    "description": "The starting time of a shift in the format returned by Javascripts Date.toJSON()",
                     "type": "string"
                 },
                 "duration": {

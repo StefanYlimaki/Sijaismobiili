@@ -1,0 +1,55 @@
+{
+    "$schema": "https://json-schema.org/draft-06/schema",
+    "title": "User",
+    "description": "Describes all user related information",
+    "type": "object",
+    "properties": {
+        "id": {
+            "description": "Unique user id",
+            "type": "integer"
+        },
+        "title": {
+            "description": "Job title",
+            "type": "string"
+        },
+        "location": {
+            "description": "Location of the job, should resemble this format: Käsityöläiskatu 2, 20100 TURKU",
+            "type": "string"
+        },
+        "availability": {
+            "description": "List of time windows when the user is NOT available",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "startingAt": {
+                        "description": "Format returned by Javascripts Date.toJSON(), example: 1975-08-19T23:15:30.000Z",
+                        "type": "string"
+                    },
+                    "duration": {
+                        "description": "In minutes",
+                        "type": "integer"
+                    }
+                },
+                "required": [ "startingAt", "duration" ]
+            }
+        },
+        "personalInfo": {
+            "description": "Contact info of the employee",
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "phoneNumber": {
+                    "type": "string"
+                }
+            },
+            "required": [ "name", "email", "phoneNumber" ]
+        }
+    },
+    "required": [ "id", "personalInfo" ]
+}
