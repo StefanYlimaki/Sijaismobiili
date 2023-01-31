@@ -1,28 +1,25 @@
 import React from 'react'
 
 import { NavigationContainer } from '@react-navigation/native'
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
+import { StatusBar } from 'react-native'
 
-import SubstitutionsScreen from './components/SubstitutionsScreen'
-import SubstitutionScreen from './components/SubstitutionScreen'
+import SavedSubstitutionsStackScreen from './screens/SavedSubstitutionsStackScreen'
+import AllSubstitutionsStackScreen from './screens/AllSubstitutionsStackScreen'
+import TailoredSubstitutionsStackScreen from './screens/TailoredSubstitutionsStackScreen'
 
-const Stack = createNativeStackNavigator()
-
+const Tab = createMaterialTopTabNavigator()
 export default function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="Substitutions"
-          component={SubstitutionsScreen}
-          options={{ title: 'Avoimet sijaisuudet' }}
-        />
-        <Stack.Screen
-          name="Substitution"
-          component={SubstitutionScreen}
-          options={{ title: 'Sijaisuus' }}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <>
+      <StatusBar barStyle={'light-content'}/>
+      <NavigationContainer>
+        <Tab.Navigator >
+          <Tab.Screen name="Tykätyt" component={SavedSubstitutionsStackScreen} />
+          <Tab.Screen name="Sinulle" component={TailoredSubstitutionsStackScreen} />
+          <Tab.Screen name="Kaikki" component={AllSubstitutionsStackScreen} />
+        </Tab.Navigator>
+      </NavigationContainer>
+    </>
   )
 }
