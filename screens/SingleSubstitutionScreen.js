@@ -7,7 +7,7 @@ import {
   FontAwesome5,
 } from '@expo/vector-icons'
 
-const SubstitutionScreen = ({ route, navigation }) => {
+const SingleSubstitutionScreen = ({ route, navigation }) => {
   const { substitution } = route.params
   return (
     <View style={styles.substitutionContainer}>
@@ -26,7 +26,7 @@ const SubstitutionScreen = ({ route, navigation }) => {
             paddingVertical: 8,
           }}
         />
-        <Text>{substitution.item.timing}</Text>
+        <Text>{substitution.item.date}</Text>
       </View>
       <View style={styles.substitutionElement}>
         <FontAwesome5
@@ -38,7 +38,7 @@ const SubstitutionScreen = ({ route, navigation }) => {
             paddingVertical: 8,
           }}
         />
-        <Text>{substitution.item.hourlyPay}</Text>
+        <Text>{substitution.item.hourlyPay}€/h</Text>
       </View>
       <View style={styles.substitutionElement}>
         <Entypo
@@ -84,4 +84,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default SubstitutionScreen
+export default SingleSubstitutionScreen

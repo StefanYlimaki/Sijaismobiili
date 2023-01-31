@@ -1,7 +1,19 @@
 import { View, Text, StyleSheet, Pressable } from 'react-native'
-import { Feather, Ionicons, Entypo, FontAwesome5 } from '@expo/vector-icons'
 
 const SubstitutionItem = ({ substitution, navigation }) => {
+
+  const getDay = () => {
+    return('31.1')
+  }
+
+  const getTime = () => {
+    return('11.00-16.00')
+  }
+
+  const getDistance = () => {
+    return('2km')
+  }
+
   return (
     <View style={styles.substitutionItemContainer}>
       <Pressable
@@ -14,46 +26,51 @@ const SubstitutionItem = ({ substitution, navigation }) => {
         style={({ pressed }) => pressed && styles.pressedSubstitutionItem}
       >
         <View style={styles.substitutionPreviewComponent}>
-          <Feather
-            name="clock"
-            size={24}
-            color="white"
-            style={{ paddingRight: 12 }}
-          />
-          <Text style={styles.substitutionItemText}>
-            {substitution.item.timing}
-          </Text>
-          <FontAwesome5
-            name="coins"
-            size={24}
-            color="white"
-            style={{ paddingHorizontal: 12 }}
-          />
-          <Text style={styles.substitutionItemText}>
-            {substitution.item.hourlyPay}
-          </Text>
-        </View>
-        <View style={styles.substitutionPreviewComponent}>
-          <Ionicons
-            name="person"
-            size={24}
-            color="white"
-            style={{ paddingRight: 12 }}
-          />
-          <Text style={styles.substitutionItemText}>
-            {substitution.item.title}
-          </Text>
-        </View>
-        <View style={styles.substitutionPreviewComponent}>
-          <Entypo
-            name="location-pin"
-            size={24}
-            color="white"
-            style={{ paddingRight: 12 }}
-          />
-          <Text style={styles.substitutionItemText}>
-            {substitution.item.location}
-          </Text>
+          <View style={styles.substitutionPreviewComponentTopElement}>
+            <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+              <Text style={styles.whiteText}>
+                {getDay(substitution.item.date)}
+              </Text>
+              <Text style={styles.whiteText}>
+                {substitution.item.organisation}
+              </Text>
+            </View>
+            <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+              <Text style={styles.whiteText}>
+                {getTime(substitution.item.date)}
+              </Text>
+              <Text style={styles.whiteText}>
+                {getDistance(substitution.item.location)}
+              </Text>
+            </View>
+          </View>
+          <View style={styles.substitutionPreviewComponentBottomElement}>
+            <View style={{ flexDirection: 'row', justifyContent: 'space-between'}}>
+              <View style={{ flexDirection: 'column'}}>
+                <Text style={{ fontSize: 20}}>
+                  {substitution.item.title}
+                </Text>
+                <Text>
+                  {substitution.item.department}
+                </Text>
+              </View>
+              <View style={{ flexDirection: 'column'}}>
+                <Text style={{paddingRight: 16, fontWeight: 'bold'}}>
+                  {substitution.item.hourlyPay}€/h (60.75€)
+                </Text>
+                {substitution.item.benefits.length !== 0
+                  ? <>
+                    {substitution.item.benefits.map(b => 
+                      <Text key={ b } style={{backgroundColor: '#167FAC', color: '#FFFFFF', padding: 4, borderBottomLeftRadius: 5, borderTopLeftRadius: 5, marginBottom: 2}}>
+                        {b}
+                      </Text>)}
+                  </>
+                  :<></>
+                }
+                
+              </View>
+            </View>
+          </View>
         </View>
       </Pressable>
     </View>
@@ -63,24 +80,35 @@ const SubstitutionItem = ({ substitution, navigation }) => {
 const styles = StyleSheet.create({
   substitutionItemContainer: {
     width: '100%',
-    marginTop: 4,
-    borderWidth: 2,
-    borderRadius: 5,
-    backgroundColor: '#5e0acc',
-    borderColor: '#5e0acc',
+    marginTop: 20,
+  },
+  substitutionPreviewComponent: {
+    flex: 1,
+    flexDirection: 'column',
+    color: 'white',
+    borderRadius: 20
+  },
+  substitutionPreviewComponentTopElement: {
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    backgroundColor: '#1D847E',
+    height: 50,
+  },
+  substitutionPreviewComponentBottomElement: {
+    paddingLeft: 16,
+    paddingVertical: 8,
+    borderBottomRightRadius: 20,
+    borderBottomLeftRadius: 20,
+    backgroundColor: '#D9D9D9',
+    paddingBottom: 16
   },
   pressedSubstitutionItem: {
     opacity: 0.5,
   },
-  substitutionPreviewComponent: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    color: 'white',
-    padding: 10,
-  },
-  substitutionItemText: {
-    color: 'white',
+  whiteText: {
+    color: '#FFFFFF'
   },
 })
 

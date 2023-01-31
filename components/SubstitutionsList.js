@@ -19,6 +19,7 @@ const SubstitutionsList = ({ navigation, substitutions }) => {
         keyExtractor={(substitution, index) => {
           return substitution.id
         }}
+        showsVerticalScrollIndicator={false}
       />
     </View>
   )
@@ -27,7 +28,7 @@ const SubstitutionsList = ({ navigation, substitutions }) => {
 const styles = StyleSheet.create({
   substitutionsListContainer: {
     paddingTop: 64,
-    marginHorizontal: 32,
+    marginHorizontal: 16,
     height: '100%',
   },
 })
