@@ -3,9 +3,10 @@ import React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
 import {SafeAreaView, StatusBar, StyleSheet} from 'react-native'
-import SavedSubstitutionsStackScreen from './screens/SavedSubstitutionsStackScreen'
-import AllSubstitutionsStackScreen from './screens/AllSubstitutionsStackScreen'
-import TailoredSubstitutionsStackScreen from './screens/TailoredSubstitutionsStackScreen'
+
+import SavedSubstitutionsStack from './screens/SavedSubstitutionsStack'
+import AllSubstitutionsStack from './screens/AllSubstitutionsStack'
+import TailoredSubstitutionsStack from './screens/TailoredSubstitutionsStack'
 
 const Tab = createMaterialTopTabNavigator()
 export default function App() {
@@ -14,9 +15,9 @@ export default function App() {
       <StatusBar/>
       <NavigationContainer>
         <Tab.Navigator >
-          <Tab.Screen name="Tykätyt" component={SavedSubstitutionsStackScreen} />
-          <Tab.Screen name="Sinulle" component={TailoredSubstitutionsStackScreen} />
-          <Tab.Screen name="Kaikki" component={AllSubstitutionsStackScreen} />
+          <Tab.Screen name="Tykätyt" component={SavedSubstitutionsStack} />
+          <Tab.Screen name="Sinulle" component={TailoredSubstitutionsStack} />
+          <Tab.Screen name="Kaikki" component={AllSubstitutionsStack} />
         </Tab.Navigator>
       </NavigationContainer>
     </SafeAreaView>
@@ -25,7 +26,7 @@ export default function App() {
 
 //väliaikaisesti varmaan nyt näin, keksitään jokin
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-    },
-});
+  container: {
+    flex: 1,
+  },
+})

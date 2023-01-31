@@ -2,7 +2,7 @@ import { Text, View } from 'react-native'
 import React from 'react'
 
 import SubstitutionsList from '../components/SubstitutionsList'
-import substitutions from '../assets/data/substitutionsData.json'
+import substitutions from '../assets/data/substitutionsData_new.json'
 
 const AllSubstitutions = ({ navigation }) => {
   return (
