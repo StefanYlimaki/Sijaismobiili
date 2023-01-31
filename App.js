@@ -7,6 +7,7 @@ import {SafeAreaView, StatusBar, StyleSheet} from 'react-native'
 import SavedSubstitutionsStack from './screens/SavedSubstitutionsStack'
 import AllSubstitutionsStack from './screens/AllSubstitutionsStack'
 import TailoredSubstitutionsStack from './screens/TailoredSubstitutionsStack'
+import styles from './assets/styles/styles.js'
 
 const Tab = createMaterialTopTabNavigator()
 export default function App() {
@@ -39,10 +40,3 @@ export default function App() {
         </SafeAreaView>
     )
 };
-
-//väliaikaisesti varmaan nyt näin, keksitään jokin
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-    },
-})
