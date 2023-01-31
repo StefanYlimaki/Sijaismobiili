@@ -4,20 +4,20 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
 import { StatusBar } from 'react-native'
 
-import SavedSubstitutionsStackScreen from './screens/SavedSubstitutionsStackScreen'
-import AllSubstitutionsStackScreen from './screens/AllSubstitutionsStackScreen'
-import TailoredSubstitutionsStackScreen from './screens/TailoredSubstitutionsStackScreen'
+import SavedSubstitutionsStack from './screens/SavedSubstitutionsStack'
+import AllSubstitutionsStackn from './screens/AllSubstitutionsStack'
+import TailoredSubstitutionsStack from './screens/TailoredSubstitutionsStack'
 
 const Tab = createMaterialTopTabNavigator()
 export default function App() {
   return (
     <>
-      <StatusBar barStyle={'light-content'}/>
+      <StatusBar barStyle='light-content'/>
       <NavigationContainer>
         <Tab.Navigator >
-          <Tab.Screen name="Tykätyt" component={SavedSubstitutionsStackScreen} />
-          <Tab.Screen name="Sinulle" component={TailoredSubstitutionsStackScreen} />
-          <Tab.Screen name="Kaikki" component={AllSubstitutionsStackScreen} />
+          <Tab.Screen name="Tykätyt" component={SavedSubstitutionsStack} />
+          <Tab.Screen name="Sinulle" component={TailoredSubstitutionsStack} />
+          <Tab.Screen name="Kaikki" component={AllSubstitutionsStackn} />
         </Tab.Navigator>
       </NavigationContainer>
     </>
