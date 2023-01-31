@@ -6,6 +6,7 @@ import {
   Entypo,
   FontAwesome5,
 } from '@expo/vector-icons'
+import styles from "../assets/styles/styles";
 
 const SingleSubstitutionScreen = ({ route, navigation }) => {
   const { substitution } = route.params
@@ -69,19 +70,5 @@ const SingleSubstitutionScreen = ({ route, navigation }) => {
     </View>
   )
 }
-
-const styles = StyleSheet.create({
-  substitutionContainer: {
-    flex: 1,
-    paddingHorizontal: 16,
-    marginTop: 32,
-    alignItems: 'center',
-  },
-  substitutionElement: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    width: '100%',
-  },
-})
 
 export default SingleSubstitutionScreen

@@ -1,4 +1,5 @@
 import { View, Text, StyleSheet, Pressable } from 'react-native'
+import styles from "../assets/styles/styles";
 
 const SubstitutionItem = ({ substitution, navigation }) => {
 
@@ -61,7 +62,7 @@ const SubstitutionItem = ({ substitution, navigation }) => {
                 {substitution.item.benefits.length !== 0
                   ? <>
                     {substitution.item.benefits.map(b => 
-                      <Text key={ b } style={{backgroundColor: '#167FAC', color: '#FFFFFF', padding: 4, borderBottomLeftRadius: 5, borderTopLeftRadius: 5, marginBottom: 2}}>
+                      <Text key={ b } style={styles.substitutionItem}>
                         {b}
                       </Text>)}
                   </>
@@ -76,40 +77,5 @@ const SubstitutionItem = ({ substitution, navigation }) => {
     </View>
   )
 }
-
-const styles = StyleSheet.create({
-  substitutionItemContainer: {
-    width: '100%',
-    marginTop: 20,
-  },
-  substitutionPreviewComponent: {
-    flex: 1,
-    flexDirection: 'column',
-    color: 'white',
-    borderRadius: 20
-  },
-  substitutionPreviewComponentTopElement: {
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
-    backgroundColor: '#1D847E',
-    height: 50,
-  },
-  substitutionPreviewComponentBottomElement: {
-    paddingLeft: 16,
-    paddingVertical: 8,
-    borderBottomRightRadius: 20,
-    borderBottomLeftRadius: 20,
-    backgroundColor: '#D9D9D9',
-    paddingBottom: 16
-  },
-  pressedSubstitutionItem: {
-    opacity: 0.5,
-  },
-  whiteText: {
-    color: '#FFFFFF'
-  },
-})
 
 export default SubstitutionItem
