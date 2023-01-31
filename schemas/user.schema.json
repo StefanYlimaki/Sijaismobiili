@@ -23,7 +23,7 @@
                 "type": "object",
                 "properties": {
                     "startingAt": {
-                        "description": "Format returned by Javascripts Date.toJSON(), example: 1975-08-19T23:15:30.000Z",
+                        "description": "In a format that adheres to ISO 8601, for example output of Javascripts Date.toJSON()",
                         "type": "string"
                     },
                     "duration": {

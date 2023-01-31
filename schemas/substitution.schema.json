@@ -9,7 +9,7 @@
             "type": "integer"
         },
         "date": {
-            "description": "The date the job ad was left in the format returned by Javascripts Date.toJSON(), example: 1975-08-19T23:15:30.000Z",
+            "description": "The date the job ad was left in a format that adheres to ISO 8601, for example output of Javascripts Date.toJSON()",
             "type": "string"
         },
         "title": {
@@ -37,7 +37,7 @@
             "type": "object",
             "properties": {
                 "startTime": {
-                    "description": "The starting time of a shift in the format returned by Javascripts Date.toJSON()",
+                    "description": "The starting time of a shift in a format that adheres to ISO 8601",
                     "type": "string"
                 },
                 "duration": {
