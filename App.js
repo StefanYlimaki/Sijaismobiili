@@ -25,7 +25,7 @@ export default function App() {
 
 //väliaikaisesti varmaan nyt näin, keksitään jokin
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-    },
+  container: {
+    flex: 1,
+  },
 });
