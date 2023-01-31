@@ -1,0 +1,77 @@
+{
+    "$schema": "https://json-schema.org/draft-06/schema",
+    "title": "Substitution",
+    "description": "Describes a job ad for a substitution",
+    "type": "object",
+    "properties": {
+        "id": {
+            "description": "Unique identifier for substitution",
+            "type": "integer"
+        },
+        "title": {
+            "description": "Job title",
+            "type": "string"
+        },
+        "description": {
+            "description": "Short description for the job",
+            "type": "string"
+        },
+        "department": {
+            "description": "Name of the department the job is located in",
+            "type": "string"
+        },
+        "organisation": {
+            "description": "Name of the organisation",
+            "type": "string"
+        },
+        "location": {
+            "description": "Location of the job, should resemble this format: Käsityöläiskatu 2, 20100 TURKU",
+            "type": "string"
+        },
+        "timing": {
+            "description": "Shift start time and duration",
+            "type": "object",
+            "properties": {
+                "startTime": {
+                    "description": "The starting time of a shift in the format returned by Javascripts Date.toJSON(), example: 1975-08-19T23:15:30.000Z",
+                    "type": "string"
+                },
+                "duration": {
+                    "description": "Duration of the shift in minutes",
+                    "type": "integer",
+                    "exclusiveMinimum": 0
+                },
+                "isFlexible": {
+                    "description": "Describes if the shift timing is flexible",
+                    "type": "boolean"
+                }
+            },
+            "required": [ "startTime", "duration" ]
+        },
+        "hourlyPay": {
+            "description": "Hourly pay in euros",
+            "type": "number",
+            "exclusiveMinimum": 0
+        },
+        "benefits": {
+            "description": "List of benefits like lunch or bonuses",
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "contactInfo": {
+            "description": "Contact info of the employer",
+            "type": "object",
+            "properties": {
+                "email": {
+                    "type": "string"
+                },
+                "phoneNumber": {
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "required": [ "id", "title", "description", "organisation", "location", "timing", "hourlyPay" ]
+}
