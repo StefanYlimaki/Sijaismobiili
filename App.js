@@ -1,9 +1,8 @@
 import React from 'react'
-
 import {NavigationContainer} from '@react-navigation/native'
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs'
-import {SafeAreaView, StatusBar, StyleSheet} from 'react-native'
-
+import {View} from 'react-native'
+import { StatusBar } from 'expo-status-bar';
 import SavedSubstitutionsStack from './screens/SavedSubstitutionsStack'
 import AllSubstitutionsStack from './screens/AllSubstitutionsStack'
 import TailoredSubstitutionsStack from './screens/TailoredSubstitutionsStack'
@@ -12,8 +11,8 @@ import styles from './assets/styles/styles.js'
 const Tab = createMaterialTopTabNavigator()
 export default function App() {
     return (
-        <SafeAreaView style={styles.container}>
-            <StatusBar/>
+        <View style={styles.container}>
+            <StatusBar style="auto"/>
             <NavigationContainer>
                 <Tab.Navigator
                     screenOptions={{
@@ -37,6 +36,6 @@ export default function App() {
                     <Tab.Screen name="Kaikki" component={AllSubstitutionsStack}/>
                 </Tab.Navigator>
             </NavigationContainer>
-        </SafeAreaView>
+        </View>
     )
 };
