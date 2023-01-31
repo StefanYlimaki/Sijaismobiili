@@ -11,7 +11,7 @@ const Tab = createMaterialTopTabNavigator()
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar barStyle={'light-content'}/>
+      <StatusBar/>
       <NavigationContainer>
         <Tab.Navigator >
           <Tab.Screen name="Tykätyt" component={SavedSubstitutionsStackScreen} />
