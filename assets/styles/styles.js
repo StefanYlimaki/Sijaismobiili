@@ -4,7 +4,6 @@ export default StyleSheet.create({
 
   container: {
     flex: 1,
-    backgroundColor: Colors.cherry,
   },
   substitutionContainer: {
     flex: 1,
