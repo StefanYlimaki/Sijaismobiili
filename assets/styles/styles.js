@@ -55,7 +55,12 @@ export default StyleSheet.create({
     opacity: 0.5,
   },
   whiteText: {
-    color: '#FFFFFF'
+    color: '#FFFFFF',
+    opacity: 0.8,
+  },
+      blackText: {
+    color: '#000000',
+    opacity: 0.8,
   },
 
 }

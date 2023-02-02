@@ -56,7 +56,7 @@ const SubstitutionItem = ({ substitution, navigation }) => {
                 </Text>
               </View>
               <View style={{ flexDirection: 'column'}}>
-                <Text style={{paddingRight: 16, fontWeight: 'bold'}}>
+                <Text style={ [styles.blackText, {paddingRight: 16, fontWeight: 'bold'}]}>
                   {substitution.item.hourlyPay}€/h (60.75€)
                 </Text>
                 {substitution.item.benefits.length !== 0
