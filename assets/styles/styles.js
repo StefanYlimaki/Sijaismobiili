@@ -17,14 +17,6 @@ export default StyleSheet.create({
     alignItems: 'center',
     width: '100%',
   },
-  substitutionItem: {
-    backgroundColor: Colors.krBlue,
-    color: '#FFFFFF',
-    padding: 4,
-    borderBottomLeftRadius: 5,
-    borderTopLeftRadius: 5,
-    marginBottom: 2
-  },
   substitutionItemContainer: {
     width: '100%',
     marginTop: 20,
@@ -50,6 +42,14 @@ export default StyleSheet.create({
     borderBottomLeftRadius: 20,
     backgroundColor: '#D9D9D9',
     paddingBottom: 16
+  },
+  substitutionItemBenefitsItem: {
+    backgroundColor: Colors.krBlue,
+    color: '#FFFFFF',
+    padding: 4,
+    marginBottom: 2,
+    borderBottomLeftRadius: 5,
+    borderTopLeftRadius: 5
   },
   pressedSubstitutionItem: {
     opacity: 0.5,
