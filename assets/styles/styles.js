@@ -60,6 +60,5 @@ export default StyleSheet.create({
     color: Colors.textDark,
     opacity: 0.8,
   },
-
 }
 )
