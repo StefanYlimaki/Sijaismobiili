@@ -7,6 +7,7 @@ const SubstitutionsList = ({ navigation, substitutions }) => {
   return (
     <View style={styles.substitutionsListContainer}>
       <FlatList
+        contentContainerStyle={{ paddingBottom: 80}}
         data={substitutions}
         renderItem={(substitution) => {
           return (
