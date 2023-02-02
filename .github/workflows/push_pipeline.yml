@@ -65,6 +65,7 @@ jobs:
           details: 'New deployment is ready! - App: ${{ steps.preview.outputs.projectQR }}'
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
   tag:
+    permissions: read-all|write-all
     needs: [publish_production]
     runs-on: ubuntu-20.04
     steps:
