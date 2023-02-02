@@ -60,9 +60,9 @@ const SubstitutionItem = ({ substitution, navigation }) => {
                   {substitution.item.hourlyPay}€/h (60.75€)
                 </Text>
                 {substitution.item.benefits.length !== 0
-                  ? <View style={[styles.substitutionItemBenefitsItem]}>
+                  ? <View style={styles.substitutionItemBenefitsItem}>
                     {substitution.item.benefits.map(b => 
-                      <Text style={[styles.whiteText]} key={ b }>
+                      <Text style={styles.whiteText} key={ b }>
                         {b}
                       </Text>)}
                   </View>

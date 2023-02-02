@@ -57,7 +57,7 @@ export default StyleSheet.create({
     color: '#FFFFFF',
     opacity: 0.8,
   },
-      blackText: {
+  blackText: {
     color: '#000000',
     opacity: 0.8,
   },
