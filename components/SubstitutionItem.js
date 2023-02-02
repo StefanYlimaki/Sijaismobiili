@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet, Pressable } from 'react-native'
-import styles from "../assets/styles/styles";
+import styles from '../assets/styles/styles'
 
 const SubstitutionItem = ({ substitution, navigation }) => {
 
