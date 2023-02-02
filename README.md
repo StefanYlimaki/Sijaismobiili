@@ -15,6 +15,8 @@
 
 #### 3. Select "Enter URL manually"
 
+##### 3.1 Scan this QR-code: ![Capture7](https://user-images.githubusercontent.com/71447366/216351205-f5f2f5d9-b41e-4cd9-9cf0-417f4d89e0fe.PNG)
+
 ##### 3.1 Enter this URL: exp://exp.host/@sijaismobiili/Sijaismobiili?release-channel=default
 
 #### 4. The application is being downloaded, and soon it's ready to use!
