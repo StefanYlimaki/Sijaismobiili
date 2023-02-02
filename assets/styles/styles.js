@@ -45,7 +45,6 @@ export default StyleSheet.create({
   },
   substitutionItemBenefitsItem: {
     backgroundColor: Colors.krBlue,
-    color: '#FFFFFF',
     padding: 4,
     marginBottom: 2,
     borderBottomLeftRadius: 5,
