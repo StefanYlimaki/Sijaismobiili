@@ -32,7 +32,6 @@ export default function App() {
                     }}
                 >
 
-                    <Tab.Screen name="Karuselli" component={RecommendationView}/>
                     <Tab.Screen name="Tykätyt" component={SavedSubstitutionsStack}/>
                     <Tab.Screen name="Tailored" component={TailoredSubstitutionsStack} options={{ title: 'Sinulle' }}/>
                     <Tab.Screen name="Kaikki" component={AllSubstitutionsStack}/>
