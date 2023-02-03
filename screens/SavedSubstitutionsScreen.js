@@ -10,7 +10,6 @@ const SavedSubstitutions = ({ navigation }) => {
 
   return (
     <View>
-      <button></button>
       <Text>Tässä listassa on joka 12 sijaisuus</Text>
       <SubstitutionsList navigation={navigation} substitutions={saved}/>
     </View>

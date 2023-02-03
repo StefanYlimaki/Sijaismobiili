@@ -6,7 +6,6 @@ import { StatusBar } from 'expo-status-bar';
 import SavedSubstitutionsStack from './screens/SavedSubstitutionsStack'
 import AllSubstitutionsStack from './screens/AllSubstitutionsStack'
 import TailoredSubstitutionsStack from './screens/TailoredSubstitutionsStack'
-import RecommendationView from './screens/RecommendationView'
 import styles from './assets/styles/styles.js'
 
 const Tab = createMaterialTopTabNavigator()
