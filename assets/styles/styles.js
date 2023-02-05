@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native'
 import * as Colors from './colors.js'
+import {krGreen} from "./colors.js";
 export default StyleSheet.create({
 
   container: {
@@ -10,6 +11,11 @@ export default StyleSheet.create({
     paddingHorizontal: 16,
     marginTop: 32,
     alignItems: 'center',
+  },
+  pageContainer: {
+    flex: 1,
+    paddingHorizontal: 16,
+    marginTop: 32,
   },
   substitutionElement: {
     flexDirection: 'row',
@@ -60,5 +66,47 @@ export default StyleSheet.create({
     color: Colors.textDark,
     opacity: 0.8,
   },
-}
+  h1: {
+    fontSize: 50,
+    fontWeight: 'semibold'
+  },
+  h2: {
+    paddingTop: 20,
+    paddingBottom: 20,
+    fontSize: 20,
+    fontWeight: '900',
+    textTransform: 'uppercase'
+  },
+  label: {
+    color: Colors.krGreenDark,
+    padding: 12,
+    fontSize: 12,
+    fontWeight: '800',
+    textTransform: 'uppercase',
+  },
+  tag: {
+    backgroundColor: Colors.krGreenLight,
+    borderRadius: 24,
+    width: 'auto',
+  },
+  sliderList: {
+    alignItems: 'baseline'
+  },
+  prefSlider: {
+    thumbTintColor : Colors.krGreen,
+    paddingTop: 20,
+    paddingBottom: 20,
+    width: '100%',
+  },  
+  input: {
+    backgroundColor: '#efefef',
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+    borderBottomWidth: 2,
+    borderBottomColor: Colors.krGreen,
+    borderRadius: 10,
+    padding: 10,
+  },
+},
 )
