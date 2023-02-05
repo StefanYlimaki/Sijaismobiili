@@ -8,6 +8,7 @@ import { SafeAreaView, SafeAreaProvider, useSafeAreaInsets} from 'react-native-s
 import SavedSubstitutionsStack from './screens/SavedSubstitutionsStack'
 import AllSubstitutionsStack from './screens/AllSubstitutionsStack'
 import TailoredSubstitutionsStack from './screens/TailoredSubstitutionsStack'
+import UserInfoScreen from './screens/UserInfoScreen'
 import styles from './assets/styles/styles.js'
 import colors, { krGreen } from './assets/styles/colors'
 
@@ -59,6 +60,7 @@ export default function App() {
             <Tab.Screen name="Tykätyt" component={SavedSubstitutionsStack}/>
             <Tab.Screen name="Tailored" component={TailoredSubstitutionsStack} options={{ title: 'Sinulle' }}/>
             <Tab.Screen name="Kaikki" component={AllSubstitutionsStack}/>
+            <Tab.Screen name="Käyttäjä" component={UserInfoScreen}/>
           </Tab.Navigator>
         </NavigationContainer>
       </View>

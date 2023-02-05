@@ -1,0 +1,23 @@
+[
+  {
+    "id": 0,
+    "fistname": "Aino-Kerttuli",
+    "lastname": "Marsipaani",
+    "jobcode": "2 SAIRAANHOITAJA",
+    "isStudent": false,
+    "email": "tuhmakerttuli88@gmail.com",
+    "phoneNumber": "0551234567",
+    "adress": "Kaakattajankatu 3 A 25",
+    "postNumber": 90100,
+    "city": "Oulu",
+    "homeLocation": "Maybe Coordinates here?",
+    "personNumber": "060588-0142",
+    "preferences": {
+      "morning": 5,
+      "evening": 3,
+      "night": 1,
+      "pay": 4,
+      "fullShift": 5
+    }
+  }
+]
