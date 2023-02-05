@@ -1,10 +1,11 @@
 import { StyleSheet } from 'react-native'
 import * as Colors from './colors.js'
-import {krGreen} from './colors.js'
+
 export default StyleSheet.create({
 
   container: {
     flex: 1,
+    fontFamily: 'Inter-Display'
   },
   substitutionContainer: {
     flex: 1,
@@ -67,21 +68,22 @@ export default StyleSheet.create({
     opacity: 0.8,
   },
   h1: {
-    fontSize: 50,
-    fontWeight: 'semibold',
+    fontSize: 40,
+    fontFamily: 'Inter-DisplaySemiBold',
   },
   h2: {
     paddingTop: 20,
     paddingBottom: 20,
     fontSize: 20,
-    fontWeight: '900',
+    fontFamily: 'Inter-DisplayBlack',
     textTransform: 'uppercase'
   },
   label: {
     color: Colors.krGreenDark,
-    padding: 12,
+    paddingHorizontal: '3%',
+    paddingVertical: '1%',
     fontSize: 12,
-    fontWeight: '800',
+    fontFamily: 'Inter-DisplayExtraBold',
     textTransform: 'uppercase',
   },
   tag: {
@@ -114,7 +116,12 @@ export default StyleSheet.create({
   userContent: {
     paddingHorizontal: '5%',
   },
-  
+  substitutionsListContainer: {
+    marginHorizontal: 16,
+    height: '100%',
+  },
+  userIcon: undefined
+
 
 },
 )
