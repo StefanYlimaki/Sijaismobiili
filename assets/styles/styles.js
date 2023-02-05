@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native'
 import * as Colors from './colors.js'
-import {krGreen} from "./colors.js";
+import {krGreen} from './colors.js'
 export default StyleSheet.create({
 
   container: {
@@ -68,7 +68,7 @@ export default StyleSheet.create({
   },
   h1: {
     fontSize: 50,
-    fontWeight: 'semibold'
+    fontWeight: 'semibold',
   },
   h2: {
     paddingTop: 20,
@@ -107,6 +107,14 @@ export default StyleSheet.create({
     borderBottomColor: Colors.krGreen,
     borderRadius: 10,
     padding: 10,
+  }, 
+  userContainer: {
+    flex: 1,
   },
+  userContent: {
+    paddingHorizontal: '5%',
+  },
+  
+
 },
 )

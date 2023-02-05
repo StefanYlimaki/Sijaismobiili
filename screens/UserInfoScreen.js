@@ -23,10 +23,10 @@ function UserInfoScreen()  {
   return(
 
     <KeyboardAvoidingView
-      style={styles.pageContainer}
+      style={styles.userContainer}
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <ScrollView>
+        <ScrollView style={styles.userContent}>
           <View>
             <Text>
               <Text style={styles.h1}>Moi</Text>
