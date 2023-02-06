@@ -24,7 +24,7 @@ function UserInfoScreen()  {
         <ScrollView style={[styles.userContent, styles.blackText]}>
           <View>
             <Text>
-              <Text style={styles.h1}>Heippa vain</Text>
+              <Text style={styles.h1}>Moi</Text>
               <Text style={ [styles.h1, {color: Colors.krBlue, fontFamily: 'Inter-DisplayExtraBold'}]}> {userData.firstname}!</Text>
             </Text>
             <Text>Mitä työtä mielesi tekevi?</Text>
