@@ -72,8 +72,8 @@ export default StyleSheet.create({
     fontFamily: 'Inter-DisplaySemiBold',
   },
   h2: {
-    paddingTop: 20,
-    paddingBottom: 20,
+    paddingTop: 10,
+    paddingBottom: 10,
     fontSize: 20,
     fontFamily: 'Inter-DisplayBlack',
     textTransform: 'uppercase'
@@ -103,13 +103,14 @@ export default StyleSheet.create({
   input: {
     backgroundColor: '#efefef',
     height: 40,
-    margin: 12,
     borderWidth: 1,
     borderBottomWidth: 2,
     borderBottomColor: Colors.krGreen,
     borderRadius: 10,
     padding: 10,
-  }, 
+  },   inputlist: {
+    paddingHorizontal: '5%',
+  },
   userContainer: {
     flex: 1,
   },
@@ -121,7 +122,9 @@ export default StyleSheet.create({
     height: '100%',
   },
   textfieldlist: {
-    fontFamily: 'Inter-DisplaySemiBold'
+    fontFamily: 'Inter-DisplaySemiBold',
+    paddingTop: '5%',
+    paddingBottom: '2%'
   },
   userIcon: undefined
 

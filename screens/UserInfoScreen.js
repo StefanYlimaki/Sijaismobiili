@@ -7,7 +7,6 @@ import {
   ScrollView,
   KeyboardAvoidingView,
   TouchableWithoutFeedback,
-  Keyboard
 } from 'react-native'
 import Slider from '@react-native-community/slider'
 import * as Colors from '../assets/styles/colors.js'
@@ -22,7 +21,7 @@ function UserInfoScreen()  {
       //behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
     >
       <TouchableWithoutFeedback>
-        <ScrollView style={styles.userContent}>
+        <ScrollView style={[styles.userContent, styles.blackText]}>
           <View>
             <Text>
               <Text style={styles.h1}>Heippa vain</Text>
