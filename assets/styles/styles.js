@@ -1,15 +1,22 @@
 import { StyleSheet } from 'react-native'
 import * as Colors from './colors.js'
+
 export default StyleSheet.create({
 
   container: {
     flex: 1,
+    fontFamily: 'Inter-Display'
   },
   substitutionContainer: {
     flex: 1,
     paddingHorizontal: 16,
     marginTop: 32,
     alignItems: 'center',
+  },
+  pageContainer: {
+    flex: 1,
+    paddingHorizontal: 16,
+    marginTop: 32,
   },
   substitutionElement: {
     flexDirection: 'row',
@@ -60,5 +67,67 @@ export default StyleSheet.create({
     color: Colors.textDark,
     opacity: 0.8,
   },
-}
+  h1: {
+    fontSize: 40,
+    fontFamily: 'Inter-DisplaySemiBold',
+  },
+  h2: {
+    paddingTop: 10,
+    paddingBottom: 10,
+    fontSize: 20,
+    fontFamily: 'Inter-DisplayBlack',
+    textTransform: 'uppercase'
+  },
+  label: {
+    color: Colors.krGreenDark,
+    paddingHorizontal: '3%',
+    paddingVertical: '1%',
+    fontSize: 12,
+    fontFamily: 'Inter-DisplayExtraBold',
+    textTransform: 'uppercase',
+  },
+  tag: {
+    backgroundColor: Colors.krGreenLight,
+    borderRadius: 24,
+    width: 'auto',
+  },
+  sliderList: {
+    alignItems: 'baseline'
+  },
+  prefSlider: {
+    thumbTintColor : Colors.krGreen,
+    paddingTop: 20,
+    paddingBottom: 20,
+    width: '100%',
+  },  
+  input: {
+    backgroundColor: '#efefef',
+    height: 40,
+    borderWidth: 1,
+    borderBottomWidth: 2,
+    borderBottomColor: Colors.krGreen,
+    borderRadius: 10,
+    padding: 10,
+  },   inputlist: {
+    paddingHorizontal: '5%',
+  },
+  userContainer: {
+    flex: 1,
+  },
+  userContent: {
+    paddingHorizontal: '5%',
+  },
+  substitutionsListContainer: {
+    marginHorizontal: 16,
+    height: '100%',
+  },
+  textfieldlist: {
+    fontFamily: 'Inter-DisplaySemiBold',
+    paddingTop: '5%',
+    paddingBottom: '2%'
+  },
+  userIcon: undefined
+
+
+},
 )
