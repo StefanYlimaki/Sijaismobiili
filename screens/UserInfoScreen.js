@@ -29,10 +29,10 @@ function UserInfoScreen()  {
         <ScrollView style={styles.userContent}>
           <View>
             <Text>
-              <Text style={styles.h1}>Moikka</Text>
+              <Text style={styles.h1}>Heippa vain</Text>
               <Text style={ [styles.h1, {color: Colors.krGreen, fontFamily: 'Inter-DisplayExtraBold'}]}> {userData.firstname}!</Text>
             </Text>
-            <Text>Muuta kaikkea kivaa täältä. Jos et, mene pois!</Text>
+            <Text>Mitä työtä mielesi tekevi?</Text>
           </View>
           <View style={styles.sliderList}>
             <Text style={styles.h2}>
@@ -45,7 +45,6 @@ function UserInfoScreen()  {
             </View>
             <Slider
               style={styles.prefSlider}
-              thumbSize={50}
               maximumValue={5}
               minimumValue={1}
               minimumTrackTintColor={Colors.krGreen}
@@ -108,38 +107,46 @@ function UserInfoScreen()  {
               Henkilötiedot
             </Text>
             <TextInput
+              editable
               style={styles.input}
               placeholder={userData.firstname}
             />
             <TextInput
+              editable
               style={styles.input}
               placeholder={userData.lastname}
             />
             <TextInput
+              editable
               style={styles.input}
               placeholder={userData.email}
               keyboardType="email-address"
             />
             <TextInput
+              editable
               style={styles.input}
               placeholder={userData.phoneNumber}
               keyboardType="phone-pad"
             />
             <TextInput
+              editable
               style={styles.input}
               placeholder={userData.adress}
               keyboardType="phone-pad"
             />
             <TextInput
+              editable
               style={styles.input}
               placeholder={userData.postNumber}
               keyboardType="numeric"
             />
-            <TextInput
+            <TextInput 
+              editable
               style={styles.input}
               placeholder={userData.city}
               keyboardType="phone-pad"
             />
+            <Text>{userData.personNumber}</Text>
           </View>
         </ScrollView>
       </TouchableWithoutFeedback>
