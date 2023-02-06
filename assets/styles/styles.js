@@ -120,6 +120,9 @@ export default StyleSheet.create({
     marginHorizontal: 16,
     height: '100%',
   },
+  textfieldlist: {
+    fontFamily: 'Inter-DisplaySemiBold'
+  },
   userIcon: undefined
 
 

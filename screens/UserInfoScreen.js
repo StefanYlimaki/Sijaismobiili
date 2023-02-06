@@ -1,6 +1,4 @@
-import React, {useState} from 'react'
-
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import React from 'react'
 import * as userData from '../assets/data/userData.json'
 import {
   View,
@@ -8,7 +6,6 @@ import {
   TextInput,
   ScrollView,
   KeyboardAvoidingView,
-  Platform,
   TouchableWithoutFeedback,
   Keyboard
 } from 'react-native'
@@ -16,16 +13,15 @@ import Slider from '@react-native-community/slider'
 import * as Colors from '../assets/styles/colors.js'
 import styles from '../assets/styles/styles'
 
-const SavedStack = createNativeStackNavigator()
-
 function UserInfoScreen()  {
 
   return(
 
     <KeyboardAvoidingView
       style={styles.userContainer}
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
-      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      //behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+    >
+      <TouchableWithoutFeedback>
         <ScrollView style={styles.userContent}>
           <View>
             <Text>
@@ -106,47 +102,52 @@ function UserInfoScreen()  {
             <Text style={styles.h2}>
               Henkilötiedot
             </Text>
+            <Text style={styles.textfieldlist}>Etunimi</Text>
             <TextInput
               editable
               style={styles.input}
               placeholder={userData.firstname}
             />
+            <Text style={styles.textfieldlist}>Sukunimi</Text>
             <TextInput
               editable
               style={styles.input}
               placeholder={userData.lastname}
             />
+            <Text style={styles.textfieldlist}>Sähköpostiosoite</Text>
             <TextInput
               editable
               style={styles.input}
               placeholder={userData.email}
               keyboardType="email-address"
             />
+            <Text style={styles.textfieldlist}>Puhelinnumero</Text>
             <TextInput
               editable
               style={styles.input}
               placeholder={userData.phoneNumber}
               keyboardType="phone-pad"
             />
+            <Text style={styles.textfieldlist}>Katuosoite</Text>
             <TextInput
               editable
               style={styles.input}
               placeholder={userData.adress}
-              keyboardType="phone-pad"
             />
+            <Text style={styles.textfieldlist}>Postinumero</Text>
             <TextInput
               editable
               style={styles.input}
               placeholder={userData.postNumber}
               keyboardType="numeric"
             />
+            <Text style={styles.textfieldlist}>Kunta</Text>
             <TextInput 
               editable
               style={styles.input}
-              placeholder={userData.city}
-              keyboardType="phone-pad"
+              default={userData.city}
             />
-            <Text>{userData.personNumber}</Text>
+            <Text style={styles.textfieldlist}>{userData.personNumber}</Text>
           </View>
         </ScrollView>
       </TouchableWithoutFeedback>
