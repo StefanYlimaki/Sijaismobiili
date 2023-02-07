@@ -14,13 +14,15 @@ export default StyleSheet.create({
   h1: {
     fontFamily: 'Inter-DisplaySemiBold',
     fontSize: 40,
+    textAlign: 'center',
   },
   h2: {
     fontFamily: 'Inter-DisplayBlack',
     fontSize: 20,
     paddingBottom: 10,
     paddingTop: 10,
-    textTransform: 'uppercase'
+    textTransform: 'uppercase',
+    textAlign: 'center',
   },
   input: {
     backgroundColor: '#efefef',

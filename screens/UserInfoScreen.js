@@ -24,10 +24,10 @@ function UserInfoScreen()  {
         <ScrollView style={[styles.userContent, styles.blackText]}>
           <View>
             <Text>
-              <Text style={styles.h1}>Moi</Text>
+              <Text style={styles.h1}>Moi,</Text>
               <Text style={ [styles.h1, {color: Colors.krBlue, fontFamily: 'Inter-DisplayExtraBold'}]}> {userData.firstname}!</Text>
             </Text>
-            <Text>Mitä työtä mielesi tekevi?</Text>
+            <Text style={{textAlign: 'center'}}>Mitä työtä mielesi tekee?</Text>
           </View>
           <View style={styles.sliderList}>
             <Text style={styles.h2}>
