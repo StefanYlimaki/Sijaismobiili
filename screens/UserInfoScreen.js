@@ -96,6 +96,19 @@ function UserInfoScreen()  {
               value={userData.preferences.fullShift}
             />
           </View>
+
+          <View>
+            <Text style={styles.h2}>
+              Etäisyys
+            </Text>
+            <Slider
+              style={styles.prefSlider}
+              maximumValue={300}
+              minimumValue={1}
+              step={1}
+         //     value={userData.preferences.distance}
+            />
+          </View>
         
           <View>
             <Text style={styles.h2}>

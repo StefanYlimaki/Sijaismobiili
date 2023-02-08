@@ -21,8 +21,8 @@ export default StyleSheet.create({
     fontSize: 20,
     paddingBottom: 10,
     paddingTop: 10,
-    textTransform: 'uppercase',
     textAlign: 'center',
+    textTransform: 'uppercase',
   },
   input: {
     backgroundColor: '#efefef',
