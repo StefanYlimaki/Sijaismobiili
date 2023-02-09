@@ -10,6 +10,7 @@ import AllSubstitutionsStack from './screens/AllSubstitutionsStack'
 import TailoredSubstitutionsStack from './screens/TailoredSubstitutionsStack'
 import styles from './assets/styles/styles.js'
 import colors, { krGreen } from './assets/styles/colors'
+import { GestureHandlerRootView } from 'react-native-gesture-handler'
 
 const Tab = createMaterialTopTabNavigator()
 
@@ -36,32 +37,34 @@ const CustomStatusBar = (
 
 export default function App() {
   return (
-    <SafeAreaProvider>
-      <View style={styles.container}>
-        <CustomStatusBar backgroundColor={krGreen} />
-        <NavigationContainer>
-          <Tab.Navigator
-            screenOptions={{
-              swipeEnabled: false,
-              tabBarContentContainerStyle: {
-                alignItems: 'center',
-                justifyContent: 'center',
-              },
-              tabBarItemStyle: {
-                width: 'auto',
-                position: 'relative',
-              },
-              tabBarIndicatorStyle: {
-                display: 'none',
-              },
-            }}
-          >
-            <Tab.Screen name="Tykätyt" component={SavedSubstitutionsStack}/>
-            <Tab.Screen name="Tailored" component={TailoredSubstitutionsStack} options={{ title: 'Sinulle' }}/>
-            <Tab.Screen name="Kaikki" component={AllSubstitutionsStack}/>
-          </Tab.Navigator>
-        </NavigationContainer>
-      </View>
-    </SafeAreaProvider>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <SafeAreaProvider>
+        <View style={styles.container}>
+          <CustomStatusBar backgroundColor={krGreen} />
+          <NavigationContainer>
+            <Tab.Navigator
+              screenOptions={{
+                swipeEnabled: false,
+                tabBarContentContainerStyle: {
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                },
+                tabBarItemStyle: {
+                  width: 'auto',
+                  position: 'relative',
+                },
+                tabBarIndicatorStyle: {
+                  display: 'none',
+                },
+              }}
+            >
+              <Tab.Screen name="Tykätyt" component={SavedSubstitutionsStack}/>
+              <Tab.Screen name="Tailored" component={TailoredSubstitutionsStack} options={{ title: 'Sinulle' }}/>
+              <Tab.Screen name="Kaikki" component={AllSubstitutionsStack}/>
+            </Tab.Navigator>
+          </NavigationContainer>
+        </View>
+      </SafeAreaProvider>
+    </GestureHandlerRootView>
   )
 };
