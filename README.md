@@ -13,9 +13,11 @@
 
 #### 2. Open the Expo Go application.
 
-#### 3. Select "Scan QR code" or "Enter URL manually"
-##### 3.1 Scan this QR code: ![image](https://user-images.githubusercontent.com/71447366/214024784-a8417f49-3980-4996-a926-f55d0ec8e16b.png)
-##### 3.1 Enter this URL: exp://exp.host/@clamantmountain64/Sijaismobiili?release-channel=default
+#### 3. Select "Enter URL manually"
+
+##### 3.1 Scan this QR-code: ![Capture7](https://user-images.githubusercontent.com/71447366/216351205-f5f2f5d9-b41e-4cd9-9cf0-417f4d89e0fe.PNG)
+
+##### 3.1 Enter this URL: exp://exp.host/@sijaismobiili/Sijaismobiili?release-channel=default
 
 #### 4. The application is being downloaded, and soon it's ready to use!
 
