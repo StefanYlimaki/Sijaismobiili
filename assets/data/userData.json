@@ -10,11 +10,13 @@
     "city": "Oulu",
     "homeLocation": "Maybe Coordinates here?",
     "personNumber": "060588-0142",
+    "valviraID": "123456789",
     "preferences": {
       "morning": 2,
       "evening": 3,
       "night": 1,
       "pay": 4,
-      "fullShift": 5
+      "fullShift": 5,
+      "distance": 20
     }
   }

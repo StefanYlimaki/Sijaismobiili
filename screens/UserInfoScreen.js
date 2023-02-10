@@ -104,14 +104,14 @@ function UserInfoScreen() {
               Etäisyys
             </Text>
             <Text style={styles.currentDistance}>
-              20 km
+              {userData.preferences.distance} km
             </Text>
 
             <Slider
               maximumValue={300}
               minimumValue={1}
               step={1}
-              value={20}
+              value={userData.preferences.distance}
             //   onValueChange = {(val) => currentDistance = val          }
             // onValueChange={val => distance = updateDistance(val)}
             //  value={userData.preferences.distance}
@@ -172,8 +172,22 @@ function UserInfoScreen() {
               style={styles.input}
               default={userData.city}
             />
-            <Text style={styles.textfieldlist}>{userData.personNumber}</Text>
+            <Text style={styles.textfieldlist}>Henkilötunnus</Text>
+            <TextInput
+              editable
+              style={styles.input}
+              default={userData.personNumber}
+            />           
+            <Text style={styles.textfieldlist}>Valviran rekisteröintinumero</Text>
+            <TextInput
+              editable
+              style={styles.input}
+              default={userData.valviraID}
+              keyboardType="numeric"
+            />
           </View>
+          <Text style={styles.textfieldlist}></Text>
+
         </ScrollView>
       </TouchableWithoutFeedback>
     </KeyboardAvoidingView >
