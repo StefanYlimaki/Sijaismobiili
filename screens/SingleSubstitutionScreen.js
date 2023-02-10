@@ -6,7 +6,7 @@ import {
   Entypo,
   FontAwesome5,
 } from '@expo/vector-icons'
-import styles from '../assets/styles/styles'
+import styles from "../assets/styles/styles";
 
 const SingleSubstitutionScreen = ({ route, navigation }) => {
   const { substitution } = route.params
