@@ -55,8 +55,8 @@ const styles = StyleSheet.create({
   sortOptionContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    marginBottom:40,
     marginTop:15,
-    marginBottom:40
   },
 })
 
