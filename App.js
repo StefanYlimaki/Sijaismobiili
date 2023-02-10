@@ -1,17 +1,23 @@
 import React, {useCallback} from 'react'
 import {NavigationContainer} from '@react-navigation/native'
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs'
-import {View, StatusBar} from 'react-native'
+import {View, StatusBar, Text, Button} from 'react-native'
 import { SafeAreaProvider, useSafeAreaInsets} from 'react-native-safe-area-context'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { useFonts } from 'expo-font'
+
 import SavedSubstitutionsStack from './screens/SavedSubstitutionsStack'
 import AllSubstitutionsStack from './screens/AllSubstitutionsStack'
 import TailoredSubstitutionsStack from './screens/TailoredSubstitutionsStack'
+import SwipeScreen from './screens/SwipeScreen'
 import UserInfoScreen from './screens/UserInfoScreen'
 import styles from './assets/styles/styles.js'
 import colors, { krGreen } from './assets/styles/colors'
-import { useFonts } from 'expo-font'
+import { GestureHandlerRootView } from 'react-native-gesture-handler'
 
 const Tab = createMaterialTopTabNavigator()
+
+const Stack = createNativeStackNavigator()
 
 const CustomStatusBar = (
   {
@@ -32,7 +38,32 @@ const CustomStatusBar = (
     </View>
   )
 }
-  
+
+function AppTabs() {
+  return(
+    <Tab.Navigator
+      screenOptions={{
+        swipeEnabled: false,
+        tabBarContentContainerStyle: {
+          alignItems: 'center',
+          justifyContent: 'center',
+        },
+        tabBarItemStyle: {
+          width: 'auto',
+          position: 'relative',
+        },
+        tabBarIndicatorStyle: {
+          display: 'none',
+        },
+      }}
+    >
+      <Tab.Screen name="Tykätyt" component={SavedSubstitutionsStack}/>
+      <Tab.Screen name="Tailored" component={TailoredSubstitutionsStack}/>
+      <Tab.Screen name="Kaikki" component={AllSubstitutionsStack}/>
+      <Tab.Screen name="Käyttäjä" component={UserInfoScreen}/>
+    </Tab.Navigator>
+  )
+}
 
 export default function App() {
   const [loaded] = useFonts({
@@ -52,33 +83,19 @@ export default function App() {
   }
 
   return (
-    <SafeAreaProvider>
-      <NavigationContainer>
-        <View style={styles.container}>
-          <CustomStatusBar backgroundColor={krGreen} />
-          <Tab.Navigator
-            screenOptions={{
-              swipeEnabled: false,
-              tabBarContentContainerStyle: {
-                alignItems: 'center',
-                justifyContent: 'center',
-              },
-              tabBarItemStyle: {
-                width: 'auto',
-                position: 'relative',
-              },
-              tabBarIndicatorStyle: {
-                display: 'none',
-              },
-            }}
-          >
-            <Tab.Screen name="Tykätyt" component={SavedSubstitutionsStack}/>
-            <Tab.Screen name="Tailored" component={TailoredSubstitutionsStack} options={{ title: 'Sinulle' }}/>
-            <Tab.Screen name="Kaikki" component={AllSubstitutionsStack}/>
-            <Tab.Screen name="Käyttäjä" component={UserInfoScreen}/>
-          </Tab.Navigator>
-        </View>
-      </NavigationContainer>
-    </SafeAreaProvider>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <SafeAreaProvider>
+        <NavigationContainer>
+          <View style={styles.container}>
+            <CustomStatusBar backgroundColor={krGreen} />
+            <Stack.Navigator
+              screenOptions={{headerShown: false}}>
+              <Stack.Screen name="SwipeScreen" component={SwipeScreen} />
+              <Stack.Screen name="MainApplication" component={AppTabs} />
+            </Stack.Navigator>
+          </View>
+        </NavigationContainer>
+      </SafeAreaProvider>
+    </GestureHandlerRootView>
   )
 };
