@@ -11,16 +11,26 @@ export default StyleSheet.create({
     flex: 1,
     fontFamily: 'Inter-Display'
   },
+  currentDistance:{
+    paddingBottom: 10,
+    textAlign: 'center',
+  },
+  distanceSlider:{
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
   h1: {
     fontFamily: 'Inter-DisplaySemiBold',
     fontSize: 40,
+    textAlign: 'center',
   },
   h2: {
     fontFamily: 'Inter-DisplayBlack',
     fontSize: 20,
     paddingBottom: 10,
     paddingTop: 10,
-    textTransform: 'uppercase'
+    textAlign: 'center',
+    textTransform: 'uppercase',
   },
   input: {
     backgroundColor: '#efefef',

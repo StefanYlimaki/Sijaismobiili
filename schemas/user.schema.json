@@ -8,14 +8,6 @@
             "description": "Unique user id",
             "type": "integer"
         },
-        "title": {
-            "description": "Job title",
-            "type": "string"
-        },
-        "location": {
-            "description": "Location of the job, should resemble this format: Käsityöläiskatu 2, 20100 TURKU",
-            "type": "string"
-        },
         "availability": {
             "description": "List of time windows when the user is NOT available",
             "type": "array",
@@ -38,18 +30,108 @@
             "description": "Contact info of the employee",
             "type": "object",
             "properties": {
-                "name": {
+                "firstname": {
                     "type": "string"
+                },
+                "lastname": {
+                    "type": "string"
+                },
+                "jobcode": {
+                    "type": "string"
+                },
+                "isStudent": {
+                    "type": "boolean",
+                    "default": false
                 },
                 "email": {
                     "type": "string"
                 },
                 "phoneNumber": {
                     "type": "string"
+                },
+                "adress": {
+                    "type": "string",
+                },
+                "postNumber": {
+                    "type": "string",
+                },
+                "city": {
+                    "type": "string"
+                },
+                "homeLocation": {
+                    "type": "string"
+                },
+                "personNumber": {
+                    "type": "string"
+                },
+                "valviraID": {
+                    "type": "string"
                 }
             },
             "required": [ "name", "email", "phoneNumber" ]
+        },
+        "preferences": {
+            "type": "object",
+            "default": {},
+            "title": "The preferences Schema",
+            "required": [
+                "morning",
+                "evening",
+                "night",
+                "pay",
+                "fullShift",
+                "distance"
+            ],
+            "properties": {
+                "morning": {
+                    "type": "integer",
+                    "default": 0,
+                    "title": "The morning Schema",
+                    "examples": [
+                        2
+                    ]
+                },
+                "evening": {
+                    "type": "integer",
+                    "default": 0,
+                    "title": "The evening Schema",
+                    "examples": [
+                        3
+                    ]
+                },
+                "night": {
+                    "type": "integer",
+                    "default": 0,
+                    "title": "The night Schema",
+                    "examples": [
+                        1
+                    ]
+                },
+                "pay": {
+                    "type": "integer",
+                    "default": 0,
+                    "title": "The pay Schema",
+                    "examples": [
+                        4
+                    ]
+                },
+                "fullShift": {
+                    "type": "integer",
+                    "default": 0,
+                    "title": "The fullShift Schema",
+                    "examples": [
+                        5
+                    ]
+                },
+                "distance": {
+                    "type": "integer",
+                    "default": 0,
+                    "title": "The distance Schema",
+                    "examples": [
+                        20
+                    ]
+                }
+            }
+                }
+            }
         }
-    },
-    "required": [ "id", "personalInfo" ]
-}
