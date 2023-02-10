@@ -1,12 +1,14 @@
-import { View, FlatList, Text, StyleSheet } from 'react-native'
+import { View, FlatList } from 'react-native'
 
 import SubstitutionItem from './SubstitutionItem'
+import Styles from '../assets/styles/styles'
 
 const SubstitutionsList = ({ navigation, substitutions }) => {
 
   return (
-    <View style={styles.substitutionsListContainer}>
+    <View style={Styles.substitutionsListContainer}>
       <FlatList
+        contentContainerStyle={{ paddingBottom: 80}}
         data={substitutions}
         renderItem={(substitution) => {
           return (
@@ -24,13 +26,5 @@ const SubstitutionsList = ({ navigation, substitutions }) => {
     </View>
   )
 }
-
-const styles = StyleSheet.create({
-  substitutionsListContainer: {
-    paddingTop: 64,
-    marginHorizontal: 16,
-    height: '100%',
-  },
-})
 
 export default SubstitutionsList
