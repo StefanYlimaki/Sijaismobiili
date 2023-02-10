@@ -12,24 +12,24 @@ import Slider from '@react-native-community/slider'
 import * as Colors from '../assets/styles/colors.js'
 import styles from '../assets/styles/styles'
 
-function UserInfoScreen()  {
+function UserInfoScreen() {
 
- // const [myText, setMyText] = useState(20);        
+  // const [myText, setMyText] = useState(20);        
 
-  return(
+  return (
 
     <KeyboardAvoidingView
       style={styles.userContainer}
-      //behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+    //behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
     >
       <TouchableWithoutFeedback>
         <ScrollView style={[styles.userContent, styles.blackText]}>
           <View>
             <Text>
               <Text style={styles.h1}>Moi,</Text>
-              <Text style={ [styles.h1, {color: Colors.krBlue, fontFamily: 'Inter-DisplayExtraBold'}]}> {userData.firstname}!</Text>
+              <Text style={[styles.h1, { color: Colors.krBlue, fontFamily: 'Inter-DisplayExtraBold' }]}> {userData.firstname}!</Text>
             </Text>
-            <Text style={{textAlign: 'center'}}>Mitä työtä mielesi tekee?</Text>
+            <Text style={{ textAlign: 'center' }}>Mitä työtä mielesi tekee?</Text>
           </View>
           <View style={styles.sliderList}>
             <Text style={styles.h2}>
@@ -112,17 +112,17 @@ function UserInfoScreen()  {
               minimumValue={1}
               step={1}
               value={20}
-           //   onValueChange = {(val) => currentDistance = val          }
+            //   onValueChange = {(val) => currentDistance = val          }
             // onValueChange={val => distance = updateDistance(val)}
             //  value={userData.preferences.distance}
             />
 
             <View style={styles.distanceSlider}>
-                <Text>{1} km</Text>
-                <Text>{300} km</Text>
+              <Text>{1} km</Text>
+              <Text>{300} km</Text>
             </View>
           </View>
-        
+
           <View>
             <Text style={styles.h2}>
               Henkilötiedot
@@ -167,7 +167,7 @@ function UserInfoScreen()  {
               keyboardType="numeric"
             />
             <Text style={styles.textfieldlist}>Kunta</Text>
-            <TextInput 
+            <TextInput
               editable
               style={styles.input}
               default={userData.city}

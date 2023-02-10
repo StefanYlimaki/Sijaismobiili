@@ -12,8 +12,8 @@ export default StyleSheet.create({
     fontFamily: 'Inter-Display'
   },
   currentDistance:{
-    textAlign: 'center',
     paddingBottom: 10,
+    textAlign: 'center',
   },
   distanceSlider:{
     flexDirection: 'row',
