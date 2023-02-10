@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import * as userData from '../assets/data/userData.json'
 import {
   View,
@@ -13,6 +13,8 @@ import * as Colors from '../assets/styles/colors.js'
 import styles from '../assets/styles/styles'
 
 function UserInfoScreen()  {
+
+ // const [myText, setMyText] = useState(20);        
 
   return(
 
@@ -31,7 +33,7 @@ function UserInfoScreen()  {
           </View>
           <View style={styles.sliderList}>
             <Text style={styles.h2}>
-            Mieltymykset
+              Mieltymykset
             </Text>
             <View style={styles.tag}>
               <Text style={styles.label}>
@@ -101,13 +103,24 @@ function UserInfoScreen()  {
             <Text style={styles.h2}>
               Etäisyys
             </Text>
+            <Text style={styles.currentDistance}>
+              20 km
+            </Text>
+
             <Slider
-              style={styles.prefSlider}
               maximumValue={300}
               minimumValue={1}
               step={1}
-         //     value={userData.preferences.distance}
+              value={20}
+           //   onValueChange = {(val) => currentDistance = val          }
+            // onValueChange={val => distance = updateDistance(val)}
+            //  value={userData.preferences.distance}
             />
+
+            <View style={styles.distanceSlider}>
+                <Text>{1} km</Text>
+                <Text>{300} km</Text>
+            </View>
           </View>
         
           <View>

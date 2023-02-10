@@ -10,7 +10,7 @@ const SavedSubstitutions = ({ navigation }) => {
 
   return (
     <View>
-      <Text>Tässä listassa on joka 12 sijaisuus</Text>
+      <Text>Tässä listassa on joka 12. sijaisuus</Text>
       <SubstitutionsList navigation={navigation} substitutions={saved}/>
     </View>
   ) 

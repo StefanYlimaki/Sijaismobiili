@@ -11,6 +11,14 @@ export default StyleSheet.create({
     flex: 1,
     fontFamily: 'Inter-Display'
   },
+  currentDistance:{
+    textAlign: 'center',
+    paddingBottom: 10,
+  },
+  distanceSlider:{
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
   h1: {
     fontFamily: 'Inter-DisplaySemiBold',
     fontSize: 40,
