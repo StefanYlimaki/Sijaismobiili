@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet, Pressable } from 'react-native'
-import styles from "../assets/styles/styles";
+import styles from '../assets/styles/styles'
 
 const SubstitutionItem = ({ substitution, navigation }) => {
 
@@ -56,16 +56,16 @@ const SubstitutionItem = ({ substitution, navigation }) => {
                 </Text>
               </View>
               <View style={{ flexDirection: 'column'}}>
-                <Text style={{paddingRight: 16, fontWeight: 'bold'}}>
+                <Text style={ [styles.blackText, {paddingRight: 16, fontWeight: 'bold'}]}>
                   {substitution.item.hourlyPay}€/h (60.75€)
                 </Text>
                 {substitution.item.benefits.length !== 0
-                  ? <>
+                  ? <View style={styles.substitutionItemBenefitsItem}>
                     {substitution.item.benefits.map(b => 
-                      <Text key={ b } style={styles.substitutionItem}>
+                      <Text style={styles.whiteText} key={ b }>
                         {b}
                       </Text>)}
-                  </>
+                  </View>
                   :<></>
                 }
                 
