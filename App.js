@@ -13,6 +13,7 @@ import SwipeScreen from './screens/SwipeScreen'
 import UserInfoScreen from './screens/UserInfoScreen'
 import styles from './assets/styles/styles.js'
 import colors, { krGreen } from './assets/styles/colors'
+import { GestureHandlerRootView } from 'react-native-gesture-handler'
 
 const Tab = createMaterialTopTabNavigator()
 
@@ -82,17 +83,19 @@ export default function App() {
   }
 
   return (
-    <SafeAreaProvider>
-      <NavigationContainer>
-        <View style={styles.container}>
-          <CustomStatusBar backgroundColor={krGreen} />
-          <Stack.Navigator
-            screenOptions={{headerShown: false}}>
-            <Stack.Screen name="SwipeScreen" component={SwipeScreen} />
-            <Stack.Screen name="MainApplication" component={AppTabs} />
-          </Stack.Navigator>
-        </View>
-      </NavigationContainer>
-    </SafeAreaProvider>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <SafeAreaProvider>
+        <NavigationContainer>
+          <View style={styles.container}>
+            <CustomStatusBar backgroundColor={krGreen} />
+            <Stack.Navigator
+              screenOptions={{headerShown: false}}>
+              <Stack.Screen name="SwipeScreen" component={SwipeScreen} />
+              <Stack.Screen name="MainApplication" component={AppTabs} />
+            </Stack.Navigator>
+          </View>
+        </NavigationContainer>
+      </SafeAreaProvider>
+    </GestureHandlerRootView>
   )
 };
