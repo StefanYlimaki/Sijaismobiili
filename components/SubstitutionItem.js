@@ -56,15 +56,23 @@ const SubstitutionItem = ({ substitution, navigation }) => {
                 </Text>
               </View>
               <View style={{ flexDirection: 'column'}}>
-                <Text style={ [styles.blackText, {paddingRight: 16, fontWeight: 'bold'}]}>
-                  {substitution.item.hourlyPay}€/h (60.75€)
-                </Text>
+                <View style={{ flexDirection: 'row', justifyContent: 'flex-start'}}>
+                  <Text style={ [styles.blackText, { paddingRight: 8, fontWeight: 'bold'}]}>
+                    {substitution.item.hourlyPay}€/h
+                  </Text>
+                  <Text style={ [styles.blackText, { paddingRight: 16 }]}>
+                    (60,75€)
+                  </Text>
+                </View>
                 {substitution.item.benefits.length !== 0
-                  ? <View style={styles.substitutionItemBenefitsItem}>
+                  ? <View>
                     {substitution.item.benefits.map(b => 
-                      <Text style={styles.whiteText} key={ b }>
-                        {b}
-                      </Text>)}
+                      <View key={ b } style={styles.substitutionItemBenefitsItem} >
+                        <Text style={styles.whiteText} >
+                          {b}
+                        </Text>
+                      </View>
+                    )}
                   </View>
                   :<></>
                 }
