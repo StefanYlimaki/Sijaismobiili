@@ -1,15 +1,9 @@
 import { View, Text, StyleSheet, Pressable } from 'react-native'
+
+import { formatHourlyPay, formatDate, formatTime } from '../utils'
 import styles from '../assets/styles/styles'
 
 const SubstitutionItem = ({ substitution, navigation }) => {
-
-  const getDay = () => {
-    return('31.1')
-  }
-
-  const getTime = () => {
-    return('11.00-16.00')
-  }
 
   const getDistance = () => {
     return('2km')
@@ -30,7 +24,7 @@ const SubstitutionItem = ({ substitution, navigation }) => {
           <View style={styles.substitutionPreviewComponentTopElement}>
             <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
               <Text style={styles.whiteText}>
-                {getDay(substitution.item.date)}
+                {formatDate(substitution.item.timing.startTime)}
               </Text>
               <Text style={styles.whiteText}>
                 {substitution.item.organisation}
@@ -38,7 +32,7 @@ const SubstitutionItem = ({ substitution, navigation }) => {
             </View>
             <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
               <Text style={styles.whiteText}>
-                {getTime(substitution.item.date)}
+                {formatTime(substitution.item.timing.startTime, substitution.item.timing.duration)}
               </Text>
               <Text style={styles.whiteText}>
                 {getDistance(substitution.item.location)}
@@ -58,7 +52,7 @@ const SubstitutionItem = ({ substitution, navigation }) => {
               <View style={{ flexDirection: 'column'}}>
                 <View style={{ flexDirection: 'row', justifyContent: 'flex-start'}}>
                   <Text style={ [styles.blackText, { paddingRight: 8, fontWeight: 'bold'}]}>
-                    {substitution.item.hourlyPay}€/h
+                    {formatHourlyPay(substitution.item.hourlyPay)}€/h
                   </Text>
                   <Text style={ [styles.blackText, { paddingRight: 16 }]}>
                     (60,75€)
