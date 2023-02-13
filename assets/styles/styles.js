@@ -58,8 +58,8 @@ export default StyleSheet.create({
     paddingHorizontal: 16,
   },
   prefSlider: {
-    paddingBottom: 20,
-    paddingTop: 20,
+    paddingBottom: 30,
+    paddingTop: 30,
     //thumbTintColor : Colors.krGreen,
     width: '100%',
   },

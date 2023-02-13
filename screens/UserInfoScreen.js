@@ -117,7 +117,7 @@ function UserInfoScreen() {
     //behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
     >
       <TouchableWithoutFeedback>
-        <ScrollView style={[styles.userContent, styles.blackText]}>
+        <ScrollView style={styles.userContent}>
           <View>
             <Button title='log user' onPress={() => getData()} />
             <Text>
@@ -139,6 +139,8 @@ function UserInfoScreen() {
               style={styles.prefSlider}
               maximumValue={5}
               minimumValue={1}
+              minimumTrackTintColor={'#d9d9d9'}
+              maximumTrackTintColor={'#d9d9d9'}
               thumbProps={{
                 children: (
                   <Icon
