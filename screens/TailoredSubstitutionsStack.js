@@ -1,12 +1,23 @@
 import React from 'react'
 
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { getFocusedRouteNameFromRoute } from '@react-navigation/native'
+
 import TailoredSubsitutionsScreen from './TailoredSubstitutionsScreen'
 import SingleSubstitutionScreen from './SingleSubstitutionScreen'
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
-
 
 const TailoredStack = createNativeStackNavigator()
-function TailoredSubstitutionsStackScreen()  {
+
+function TailoredSubstitutionsStackScreen({ navigation, route })  {
+  React.useLayoutEffect(() => {
+    const routeName = getFocusedRouteNameFromRoute(route)
+    if (routeName === 'Substitution'){
+      navigation.setOptions({tabBarStyle: {display: 'none'}})
+    } else {
+      navigation.setOptions({tabBarStyle: {display: 'flex'}})
+    }
+  }, [navigation, route])
+
   return(
     <TailoredStack.Navigator screenOptions={{ headerShown: false}}>
       <TailoredStack.Screen name="tailored" component={TailoredSubsitutionsScreen} />
