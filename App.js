@@ -5,15 +5,14 @@ import {View, StatusBar, Text, Button} from 'react-native'
 import { SafeAreaProvider, useSafeAreaInsets} from 'react-native-safe-area-context'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { useFonts } from 'expo-font'
-
 import SavedSubstitutionsStack from './screens/SavedSubstitutionsStack'
 import AllSubstitutionsStack from './screens/AllSubstitutionsStack'
 import TailoredSubstitutionsStack from './screens/TailoredSubstitutionsStack'
 import SwipeScreen from './screens/SwipeScreen'
 import UserInfoScreen from './screens/UserInfoScreen'
 import styles from './assets/styles/styles.js'
-import colors, { krGreen } from './assets/styles/colors'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
+import {krGreen} from './assets/styles/colors'
 
 const Tab = createMaterialTopTabNavigator()
 

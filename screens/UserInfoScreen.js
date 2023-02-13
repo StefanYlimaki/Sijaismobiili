@@ -10,10 +10,10 @@ import {
   Button,
 } from 'react-native'
 import AsyncStorage from '@react-native-async-storage/async-storage'
-import Slider from '@react-native-community/slider'
+import { Slider } from '@rneui/themed'
 import * as Colors from '../assets/styles/colors.js'
 import styles from '../assets/styles/styles'
-
+import {Icon} from '@rneui/base'
 
 
 function UserInfoScreen() {
@@ -37,7 +37,7 @@ function UserInfoScreen() {
   },[])
 
 
-  // const [myText, setMyText] = useState(20);
+  const [myValue, setValue] = useState(20)
 
   const getData = async () => {
     try {
@@ -68,6 +68,41 @@ function UserInfoScreen() {
     }
   }
 
+  const thumbTheme = (y) => {
+    if (y === 1) {
+      return '#ff0000'
+    }
+    if (y === 2) {
+      return '#ff8000'
+    }
+    if (y === 3) {
+      return Colors.krGreen
+    }
+    if (y === 4) {
+      return '#00ff00'
+    }
+    if (y === 5) {
+      return '#0000ff'
+    }
+  }
+  const thumbIcon = (y) => {
+    if (y === 1) {
+      return 'heart-off'
+    }
+    if (y === 2) {
+      return 'emoticon-neutral'
+    }
+    if (y === 3) {
+      return 'emoticon-happy'
+    }
+    if (y === 4) {
+      return 'emoticon'
+    }
+    if (y === 5) {
+      return 'heart-multiple'
+    }
+  }
+
   if(loading){
     return(
       <View>
@@ -75,7 +110,7 @@ function UserInfoScreen() {
       </View>
     )
   }
-  
+
   return (
     <KeyboardAvoidingView
       style={styles.userContainer}
@@ -104,9 +139,22 @@ function UserInfoScreen() {
               style={styles.prefSlider}
               maximumValue={5}
               minimumValue={1}
-              minimumTrackTintColor={Colors.krGreen}
-              maximumTrackTintColor={Colors.krGreen}
+              thumbProps={{
+                children: (
+                  <Icon
+                    name={thumbIcon(user.preferences.morning)}
+                    type="material-community"
+                    size={20}
+                    reverse
+                    containerStyle={{ bottom: 20, right: 20 }}
+                    color={thumbTheme(user.preferences.morning)}
+                  />
+                ),
+              }}
               step={1}
+              allowTouchTrack={true}
+              trackStyle={{ height: 10, backgroundColor: 'transparent', borderRadius: 10 }}
+              thumbStyle={{ height: 20, width: 20, backgroundColor: 'transparent' }}
               value={user.preferences.morning}
               onSlidingComplete={(event) => handleChange(event, 'preferences', 'morning')}
             />
@@ -176,6 +224,13 @@ function UserInfoScreen() {
               maximumValue={300}
               minimumValue={1}
               step={1}
+              thumbProps={{
+                children: (
+                  <Text style={{fontSize: 20 }}>{user.preferences.distance}km</Text>
+                ),
+              }}
+              trackStyle={{ height: 10, backgroundColor: 'transparent', borderRadius: 5 }}
+              thumbStyle={{ height: 30, width: 30, backgroundColor: Colors.krBlue, borderRadius: 15 }}
               value={user.preferences.distance}
               onSlidingComplete={(event) => handleChange(event, 'preferences', 'distance')}
             />

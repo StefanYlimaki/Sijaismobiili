@@ -60,7 +60,7 @@ export default StyleSheet.create({
   prefSlider: {
     paddingBottom: 20,
     paddingTop: 20,
-    thumbTintColor : Colors.krGreen,
+    //thumbTintColor : Colors.krGreen,
     width: '100%',
   },
   pressedSubstitutionItem: {
