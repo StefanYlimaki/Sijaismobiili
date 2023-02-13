@@ -6,6 +6,8 @@ import {
   Entypo,
   FontAwesome5,
 } from '@expo/vector-icons'
+
+import { formatHourlyPay, formatDate, formatTime } from '../utils/'
 import styles from '../assets/styles/styles'
 
 const SingleSubstitutionScreen = ({ route, navigation }) => {
@@ -27,7 +29,7 @@ const SingleSubstitutionScreen = ({ route, navigation }) => {
             paddingVertical: 8,
           }}
         />
-        <Text>{substitution.item.date}</Text>
+        <Text>{formatDate(substitution.item.timing.startTime)} klo: {formatTime(substitution.item.timing.startTime, substitution.item.timing.duration)}</Text>
       </View>
       <View style={styles.substitutionElement}>
         <FontAwesome5
@@ -39,7 +41,7 @@ const SingleSubstitutionScreen = ({ route, navigation }) => {
             paddingVertical: 8,
           }}
         />
-        <Text>{substitution.item.hourlyPay}€/h</Text>
+        <Text>{formatHourlyPay(substitution.item.hourlyPay)}€/h</Text>
       </View>
       <View style={styles.substitutionElement}>
         <Entypo
