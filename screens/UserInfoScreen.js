@@ -70,19 +70,19 @@ function UserInfoScreen() {
 
   const thumbTheme = (y) => {
     if (y === 1) {
-      return '#ff0000'
+      return Colors.danger
     }
     if (y === 2) {
-      return '#ff8000'
+      return Colors.warning
     }
     if (y === 3) {
       return Colors.krGreen
     }
     if (y === 4) {
-      return '#00ff00'
+      return Colors.info
     }
     if (y === 5) {
-      return '#0000ff'
+      return Colors.success
     }
   }
   const thumbIcon = (y) => {
@@ -106,7 +106,7 @@ function UserInfoScreen() {
   if(loading){
     return(
       <View>
-        <Text>Loading...</Text>
+        <Text>Ladataan, hetki vain.</Text>
       </View>
     )
   }
@@ -119,12 +119,10 @@ function UserInfoScreen() {
       <TouchableWithoutFeedback>
         <ScrollView style={styles.userContent}>
           <View>
-            <Button title='log user' onPress={() => getData()} />
             <Text>
               <Text style={styles.h1}>Moi,</Text>
               <Text style={[styles.h1, { color: Colors.krBlue, fontFamily: 'Inter-DisplayExtraBold' }]}> {user.firstname}!</Text>
             </Text>
-            <Text style={{ textAlign: 'center' }}>Mitä työtä mielesi tekee?</Text>
           </View>
           <View style={styles.sliderList}>
             <Text style={styles.h2}>
@@ -315,6 +313,7 @@ function UserInfoScreen() {
               onEndEditing={(e) => handleChange(e, 'valviraID')}
             />
           </View>
+          <Button title='log user' onPress={() => getData()} />
           <Text style={styles.textfieldlist}></Text>
         </ScrollView>
       </TouchableWithoutFeedback>

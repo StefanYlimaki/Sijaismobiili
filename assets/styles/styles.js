@@ -22,14 +22,12 @@ export default StyleSheet.create({
   h1: {
     fontFamily: 'Inter-DisplaySemiBold',
     fontSize: 40,
-    textAlign: 'center',
   },
   h2: {
     fontFamily: 'Inter-DisplayBlack',
     fontSize: 20,
     paddingBottom: 10,
     paddingTop: 10,
-    textAlign: 'center',
     textTransform: 'uppercase',
   },
   input: {
@@ -67,7 +65,8 @@ export default StyleSheet.create({
     opacity: 0.5,
   },
   sliderList: {
-    alignItems: 'baseline'
+    alignItems: 'baseline',
+    paddingTop: 30
   },
   substitutionContainer: {
     alignItems: 'center',
@@ -115,8 +114,9 @@ export default StyleSheet.create({
   },  
   substitutionsListContainer: {
     height: '100%',
-    marginHorizontal: 16,
-  },   tag: {
+    marginHorizontal: 16
+  },   
+  tag: {
     backgroundColor: Colors.krGreenLight,
     borderRadius: 24,
     width: 'auto',

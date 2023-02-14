@@ -8,3 +8,8 @@ export const krBlueDark ='#00537d'
 
 export const textDark = '#000000'
 export const textLight ='#ffffff'
+
+export const success = '#00844F'
+export const danger = '#C51C2A'
+export const warning = '#FD6942'
+export const info = '#1C2AC5'
