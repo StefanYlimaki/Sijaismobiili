@@ -58,7 +58,7 @@ function AppTabs() {
     >
       <Tab.Screen name="Tykätyt" component={SavedSubstitutionsStack}/>
       <Tab.Screen name="Sinulle" component={TailoredSubstitutionsStack}/>
-      <Tab.Screen name="Kaikki" component={AllSubstitutionsStack}/>
+      <Tab.Screen name="Haku" component={AllSubstitutionsStack}/>
       <Tab.Screen name="Käyttäjä" component={UserInfoScreen}/>
     </Tab.Navigator>
   )
