@@ -1,40 +1,96 @@
 [
   {
-    "id": 0,
-    "date": "2023-01-31T14:16:28.891521",
-    "title": "Suuhygienisti",
+    "id": 83,
+    "date": "2023-02-18T01:01:40.985776",
+    "title": "Röntgenhoitaja",
     "description": "Tähän tulee lyhyt kuvaus työstä",
     "department": "Ihotautien poliklinikka",
-    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
-    "location": "Tuulensuunkatu 6, 21100 Naantali",
+    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
+    "location": "Pesätie 11, 90420 OULU",
+    "coordinates": {
+      "longitude": 64.95636793384206,
+      "latitude": 25.531864452214528
+    },
     "timing": {
-      "startTime": "2023-02-07T14:16:28.891621",
-      "duration": 270,
+      "startTime": "2023-02-25T01:01:40.985782",
+      "duration": 260,
+      "isFlexible": false
+    },
+    "hourlyPay": 16.65,
+    "benefits": [],
+    "contactInfo": {
+      "email": "sijaisuudet@pohde.fi",
+      "phoneNumber": "0551234567"
+    }
+  },
+  {
+    "id": 15,
+    "date": "2023-02-15T05:01:40.984574",
+    "title": "Sairaanhoitaja",
+    "description": "Tähän tulee lyhyt kuvaus työstä",
+    "department": "Yhteispäivystys",
+    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
+    "location": "Pesätie 11, 90420 OULU",
+    "coordinates": {
+      "longitude": 64.95636793384206,
+      "latitude": 25.531864452214528
+    },
+    "timing": {
+      "startTime": "2023-02-22T05:01:40.984580",
+      "duration": 410,
       "isFlexible": true
     },
-    "hourlyPay": 19.31,
+    "hourlyPay": 13.98,
+    "benefits": [],
+    "contactInfo": {
+      "email": "sijaisuudet@pohde.fi",
+      "phoneNumber": "0551234567"
+    }
+  },
+  {
+    "id": 75,
+    "date": "2023-02-17T17:01:40.985634",
+    "title": "Sairaanhoitaja",
+    "description": "Tähän tulee lyhyt kuvaus työstä",
+    "department": "Yhteispäivystys",
+    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
+    "location": "Torikatu 21, 90100 OULU",
+    "coordinates": {
+      "longitude": 65.01104770301926,
+      "latitude": 25.466729956534994
+    },
+    "timing": {
+      "startTime": "2023-02-24T17:01:40.985640",
+      "duration": 410,
+      "isFlexible": true
+    },
+    "hourlyPay": 19.87,
     "benefits": [
       "40€ bonus"
     ],
     "contactInfo": {
-      "email": "sijaisuudet@varha.fi",
+      "email": "sijaisuudet@pohde.fi",
       "phoneNumber": "0551234567"
     }
   },
   {
-    "id": 1,
-    "date": "2023-01-31T15:16:28.891699",
+    "id": 95,
+    "date": "2023-02-18T13:01:40.985991",
     "title": "Suuhygienisti",
     "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Keskusleikkausosasto",
+    "department": "Ihotautien poliklinikka",
     "organisation": "Varsinais-Suomen hyvinvointialue Varha",
-    "location": "Tuulensuunkatu 6, 21100 Naantali",
-    "timing": {
-      "startTime": "2023-02-07T15:16:28.891712",
-      "duration": 290,
-      "isFlexible": true
+    "location": "Käsityöläiskatu 2, 20100 TURKU",
+    "coordinates": {
+      "longitude": 60.448420880529184,
+      "latitude": 22.2585894854291
     },
-    "hourlyPay": 15.56,
+    "timing": {
+      "startTime": "2023-02-25T13:01:40.985997",
+      "duration": 340,
+      "isFlexible": false
+    },
+    "hourlyPay": 11.67,
     "benefits": [],
     "contactInfo": {
       "email": "sijaisuudet@varha.fi",
@@ -42,19 +98,23 @@
     }
   },
   {
-    "id": 2,
-    "date": "2023-01-31T16:16:28.891734",
-    "title": "Hammashoitaja",
+    "id": 52,
+    "date": "2023-02-16T18:01:40.985225",
+    "title": "Suuhygienisti",
     "description": "Tähän tulee lyhyt kuvaus työstä",
     "department": "Ihotautien poliklinikka",
     "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
-    "location": "Kirkkotie 21, 90440 KEMPELE",
-    "timing": {
-      "startTime": "2023-02-07T16:16:28.891747",
-      "duration": 380,
-      "isFlexible": true
+    "location": "Torikatu 21, 90100 OULU",
+    "coordinates": {
+      "longitude": 65.01104770301926,
+      "latitude": 25.466729956534994
     },
-    "hourlyPay": 11.26,
+    "timing": {
+      "startTime": "2023-02-23T18:01:40.985230",
+      "duration": 270,
+      "isFlexible": false
+    },
+    "hourlyPay": 11.83,
     "benefits": [],
     "contactInfo": {
       "email": "sijaisuudet@pohde.fi",
@@ -62,21 +122,73 @@
     }
   },
   {
-    "id": 3,
-    "date": "2023-01-31T17:16:28.891766",
-    "title": "Hammashoitaja",
+    "id": 73,
+    "date": "2023-02-17T15:01:40.985600",
+    "title": "Sairaanhoitaja",
     "description": "Tähän tulee lyhyt kuvaus työstä",
     "department": "Ihotautien poliklinikka",
-    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
-    "location": "Kirkkotie 21, 90440 KEMPELE",
+    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
+    "location": "Käsityöläiskatu 2, 20100 TURKU",
+    "coordinates": {
+      "longitude": 60.448420880529184,
+      "latitude": 22.2585894854291
+    },
     "timing": {
-      "startTime": "2023-02-07T17:16:28.892213",
-      "duration": 260,
+      "startTime": "2023-02-24T15:01:40.985606",
+      "duration": 430,
       "isFlexible": true
     },
-    "hourlyPay": 17.28,
+    "hourlyPay": 12.7,
+    "benefits": [],
+    "contactInfo": {
+      "email": "sijaisuudet@varha.fi",
+      "phoneNumber": "0551234567"
+    }
+  },
+  {
+    "id": 9,
+    "date": "2023-02-14T23:01:40.984466",
+    "title": "Sairaanhoitaja",
+    "description": "Tähän tulee lyhyt kuvaus työstä",
+    "department": "Yhteispäivystys",
+    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
+    "location": "Torikatu 21, 90100 OULU",
+    "coordinates": {
+      "longitude": 65.01104770301926,
+      "latitude": 25.466729956534994
+    },
+    "timing": {
+      "startTime": "2023-02-21T23:01:40.984472",
+      "duration": 340,
+      "isFlexible": true
+    },
+    "hourlyPay": 13.07,
+    "benefits": [],
+    "contactInfo": {
+      "email": "sijaisuudet@pohde.fi",
+      "phoneNumber": "0551234567"
+    }
+  },
+  {
+    "id": 86,
+    "date": "2023-02-18T04:01:40.985833",
+    "title": "Lähihoitaja",
+    "description": "Tähän tulee lyhyt kuvaus työstä",
+    "department": "Yhteispäivystys",
+    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
+    "location": "Torikatu 21, 90100 OULU",
+    "coordinates": {
+      "longitude": 65.01104770301926,
+      "latitude": 25.466729956534994
+    },
+    "timing": {
+      "startTime": "2023-02-25T04:01:40.985839",
+      "duration": 250,
+      "isFlexible": false
+    },
+    "hourlyPay": 17.67,
     "benefits": [
-      "Lounasetu"
+      "40€ bonus"
     ],
     "contactInfo": {
       "email": "sijaisuudet@pohde.fi",
@@ -84,39 +196,49 @@
     }
   },
   {
-    "id": 4,
-    "date": "2023-01-31T18:16:28.892235",
-    "title": "Röntgenhoitaja",
+    "id": 63,
+    "date": "2023-02-17T05:01:40.985427",
+    "title": "Sairaanhoitaja",
     "description": "Tähän tulee lyhyt kuvaus työstä",
     "department": "Ihotautien poliklinikka",
-    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
-    "location": "Käsityöläiskatu 2, 20100 TURKU",
+    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
+    "location": "Kirkkotie 21, 90440 KEMPELE",
+    "coordinates": {
+      "longitude": 64.91469977241674,
+      "latitude": 25.489666342310308
+    },
     "timing": {
-      "startTime": "2023-02-07T18:16:28.892245",
-      "duration": 380,
+      "startTime": "2023-02-24T05:01:40.985432",
+      "duration": 400,
       "isFlexible": true
     },
-    "hourlyPay": 14.38,
-    "benefits": [],
+    "hourlyPay": 16.53,
+    "benefits": [
+      "40€ bonus"
+    ],
     "contactInfo": {
-      "email": "sijaisuudet@varha.fi",
+      "email": "sijaisuudet@pohde.fi",
       "phoneNumber": "0551234567"
     }
   },
   {
-    "id": 5,
-    "date": "2023-01-31T19:16:28.892263",
-    "title": "Röntgenhoitaja",
+    "id": 32,
+    "date": "2023-02-15T22:01:40.984880",
+    "title": "Sosiaalityöntekijä",
     "description": "Tähän tulee lyhyt kuvaus työstä",
     "department": "Keskusleikkausosasto",
     "organisation": "Varsinais-Suomen hyvinvointialue Varha",
-    "location": "Tuulensuunkatu 6, 21100 Naantali",
+    "location": "Käsityöläiskatu 2, 20100 TURKU",
+    "coordinates": {
+      "longitude": 60.448420880529184,
+      "latitude": 22.2585894854291
+    },
     "timing": {
-      "startTime": "2023-02-07T19:16:28.892273",
+      "startTime": "2023-02-22T22:01:40.984886",
       "duration": 280,
       "isFlexible": false
     },
-    "hourlyPay": 11.47,
+    "hourlyPay": 13.91,
     "benefits": [],
     "contactInfo": {
       "email": "sijaisuudet@varha.fi",
@@ -124,19 +246,23 @@
     }
   },
   {
-    "id": 6,
-    "date": "2023-01-31T20:16:28.892289",
-    "title": "Sairaanhoitaja",
+    "id": 72,
+    "date": "2023-02-17T14:01:40.985582",
+    "title": "Sosiaalityöntekijä",
     "description": "Tähän tulee lyhyt kuvaus työstä",
     "department": "Yhteispäivystys",
     "organisation": "Varsinais-Suomen hyvinvointialue Varha",
-    "location": "Käsityöläiskatu 2, 20100 TURKU",
-    "timing": {
-      "startTime": "2023-02-07T20:16:28.892299",
-      "duration": 440,
-      "isFlexible": false
+    "location": "Hämeentie 11, 20521 TURKU",
+    "coordinates": {
+      "longitude": 60.454266053829656,
+      "latitude": 22.295853144213755
     },
-    "hourlyPay": 10.57,
+    "timing": {
+      "startTime": "2023-02-24T14:01:40.985587",
+      "duration": 410,
+      "isFlexible": true
+    },
+    "hourlyPay": 17.59,
     "benefits": [
       "Lounasetu",
       "30€ bonus"
@@ -148,18 +274,468 @@
   },
   {
     "id": 7,
-    "date": "2023-01-31T21:16:28.892315",
+    "date": "2023-02-14T21:01:40.984429",
+    "title": "Röntgenhoitaja",
+    "description": "Tähän tulee lyhyt kuvaus työstä",
+    "department": "Yhteispäivystys",
+    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
+    "location": "Torikatu 21, 90100 OULU",
+    "coordinates": {
+      "longitude": 65.01104770301926,
+      "latitude": 25.466729956534994
+    },
+    "timing": {
+      "startTime": "2023-02-21T21:01:40.984435",
+      "duration": 360,
+      "isFlexible": false
+    },
+    "hourlyPay": 10.03,
+    "benefits": [
+      "Lounasetu"
+    ],
+    "contactInfo": {
+      "email": "sijaisuudet@pohde.fi",
+      "phoneNumber": "0551234567"
+    }
+  },
+  {
+    "id": 13,
+    "date": "2023-02-15T03:01:40.984538",
+    "title": "Lähihoitaja",
+    "description": "Tähän tulee lyhyt kuvaus työstä",
+    "department": "Ihotautien poliklinikka",
+    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
+    "location": "Käsityöläiskatu 2, 20100 TURKU",
+    "coordinates": {
+      "longitude": 60.448420880529184,
+      "latitude": 22.2585894854291
+    },
+    "timing": {
+      "startTime": "2023-02-22T03:01:40.984544",
+      "duration": 420,
+      "isFlexible": false
+    },
+    "hourlyPay": 17.43,
+    "benefits": [
+      "Lounasetu",
+      "30€ bonus"
+    ],
+    "contactInfo": {
+      "email": "sijaisuudet@varha.fi",
+      "phoneNumber": "0551234567"
+    }
+  },
+  {
+    "id": 12,
+    "date": "2023-02-15T02:01:40.984521",
+    "title": "Sosiaalityöntekijä",
+    "description": "Tähän tulee lyhyt kuvaus työstä",
+    "department": "Yhteispäivystys",
+    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
+    "location": "Hämeentie 11, 20521 TURKU",
+    "coordinates": {
+      "longitude": 60.454266053829656,
+      "latitude": 22.295853144213755
+    },
+    "timing": {
+      "startTime": "2023-02-22T02:01:40.984527",
+      "duration": 360,
+      "isFlexible": true
+    },
+    "hourlyPay": 10.8,
+    "benefits": [],
+    "contactInfo": {
+      "email": "sijaisuudet@varha.fi",
+      "phoneNumber": "0551234567"
+    }
+  },
+  {
+    "id": 39,
+    "date": "2023-02-16T05:01:40.985001",
+    "title": "Sairaanhoitaja",
+    "description": "Tähän tulee lyhyt kuvaus työstä",
+    "department": "Ihotautien poliklinikka",
+    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
+    "location": "Kirkkotie 21, 90440 KEMPELE",
+    "coordinates": {
+      "longitude": 64.91469977241674,
+      "latitude": 25.489666342310308
+    },
+    "timing": {
+      "startTime": "2023-02-23T05:01:40.985007",
+      "duration": 320,
+      "isFlexible": false
+    },
+    "hourlyPay": 14.36,
+    "benefits": [],
+    "contactInfo": {
+      "email": "sijaisuudet@pohde.fi",
+      "phoneNumber": "0551234567"
+    }
+  },
+  {
+    "id": 97,
+    "date": "2023-02-18T15:01:40.986028",
     "title": "Hammashoitaja",
     "description": "Tähän tulee lyhyt kuvaus työstä",
     "department": "Keskusleikkausosasto",
     "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
-    "location": "Pesätie 11, 90420 OULU",
+    "location": "Torikatu 21, 90100 OULU",
+    "coordinates": {
+      "longitude": 65.01104770301926,
+      "latitude": 25.466729956534994
+    },
     "timing": {
-      "startTime": "2023-02-07T21:16:28.892324",
+      "startTime": "2023-02-25T15:01:40.986034",
+      "duration": 360,
+      "isFlexible": false
+    },
+    "hourlyPay": 15.49,
+    "benefits": [],
+    "contactInfo": {
+      "email": "sijaisuudet@pohde.fi",
+      "phoneNumber": "0551234567"
+    }
+  },
+  {
+    "id": 55,
+    "date": "2023-02-16T21:01:40.985276",
+    "title": "Suuhygienisti",
+    "description": "Tähän tulee lyhyt kuvaus työstä",
+    "department": "Keskusleikkausosasto",
+    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
+    "location": "Kirkkotie 21, 90440 KEMPELE",
+    "coordinates": {
+      "longitude": 64.91469977241674,
+      "latitude": 25.489666342310308
+    },
+    "timing": {
+      "startTime": "2023-02-23T21:01:40.985282",
+      "duration": 450,
+      "isFlexible": true
+    },
+    "hourlyPay": 11.84,
+    "benefits": [],
+    "contactInfo": {
+      "email": "sijaisuudet@pohde.fi",
+      "phoneNumber": "0551234567"
+    }
+  },
+  {
+    "id": 23,
+    "date": "2023-02-15T13:01:40.984714",
+    "title": "Suuhygienisti",
+    "description": "Tähän tulee lyhyt kuvaus työstä",
+    "department": "Yhteispäivystys",
+    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
+    "location": "Kirkkotie 21, 90440 KEMPELE",
+    "coordinates": {
+      "longitude": 64.91469977241674,
+      "latitude": 25.489666342310308
+    },
+    "timing": {
+      "startTime": "2023-02-22T13:01:40.984720",
+      "duration": 460,
+      "isFlexible": true
+    },
+    "hourlyPay": 13.67,
+    "benefits": [],
+    "contactInfo": {
+      "email": "sijaisuudet@pohde.fi",
+      "phoneNumber": "0551234567"
+    }
+  },
+  {
+    "id": 41,
+    "date": "2023-02-16T07:01:40.985036",
+    "title": "Suuhygienisti",
+    "description": "Tähän tulee lyhyt kuvaus työstä",
+    "department": "Yhteispäivystys",
+    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
+    "location": "Pesätie 11, 90420 OULU",
+    "coordinates": {
+      "longitude": 64.95636793384206,
+      "latitude": 25.531864452214528
+    },
+    "timing": {
+      "startTime": "2023-02-23T07:01:40.985042",
+      "duration": 320,
+      "isFlexible": true
+    },
+    "hourlyPay": 12.44,
+    "benefits": [
+      "40€ bonus"
+    ],
+    "contactInfo": {
+      "email": "sijaisuudet@pohde.fi",
+      "phoneNumber": "0551234567"
+    }
+  },
+  {
+    "id": 14,
+    "date": "2023-02-15T04:01:40.984555",
+    "title": "Lähihoitaja",
+    "description": "Tähän tulee lyhyt kuvaus työstä",
+    "department": "Ihotautien poliklinikka",
+    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
+    "location": "Hämeentie 11, 20521 TURKU",
+    "coordinates": {
+      "longitude": 60.454266053829656,
+      "latitude": 22.295853144213755
+    },
+    "timing": {
+      "startTime": "2023-02-22T04:01:40.984561",
+      "duration": 410,
+      "isFlexible": false
+    },
+    "hourlyPay": 12.25,
+    "benefits": [
+      "Lounasetu",
+      "30€ bonus"
+    ],
+    "contactInfo": {
+      "email": "sijaisuudet@varha.fi",
+      "phoneNumber": "0551234567"
+    }
+  },
+  {
+    "id": 78,
+    "date": "2023-02-17T20:01:40.985689",
+    "title": "Hammashoitaja",
+    "description": "Tähän tulee lyhyt kuvaus työstä",
+    "department": "Ihotautien poliklinikka",
+    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
+    "location": "Kirkkotie 21, 90440 KEMPELE",
+    "coordinates": {
+      "longitude": 64.91469977241674,
+      "latitude": 25.489666342310308
+    },
+    "timing": {
+      "startTime": "2023-02-24T20:01:40.985694",
+      "duration": 310,
+      "isFlexible": false
+    },
+    "hourlyPay": 19.89,
+    "benefits": [],
+    "contactInfo": {
+      "email": "sijaisuudet@pohde.fi",
+      "phoneNumber": "0551234567"
+    }
+  },
+  {
+    "id": 85,
+    "date": "2023-02-18T03:01:40.985816",
+    "title": "Sosiaalityöntekijä",
+    "description": "Tähän tulee lyhyt kuvaus työstä",
+    "department": "Ihotautien poliklinikka",
+    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
+    "location": "Tuulensuunkatu 6, 21100 Naantali",
+    "coordinates": {
+      "longitude": 60.4691794883538,
+      "latitude": 22.026600512353554
+    },
+    "timing": {
+      "startTime": "2023-02-25T03:01:40.985822",
+      "duration": 430,
+      "isFlexible": true
+    },
+    "hourlyPay": 16.42,
+    "benefits": [],
+    "contactInfo": {
+      "email": "sijaisuudet@varha.fi",
+      "phoneNumber": "0551234567"
+    }
+  },
+  {
+    "id": 40,
+    "date": "2023-02-16T06:01:40.985018",
+    "title": "Suuhygienisti",
+    "description": "Tähän tulee lyhyt kuvaus työstä",
+    "department": "Keskusleikkausosasto",
+    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
+    "location": "Hämeentie 11, 20521 TURKU",
+    "coordinates": {
+      "longitude": 60.454266053829656,
+      "latitude": 22.295853144213755
+    },
+    "timing": {
+      "startTime": "2023-02-23T06:01:40.985024",
+      "duration": 250,
+      "isFlexible": true
+    },
+    "hourlyPay": 12.68,
+    "benefits": [
+      "40€ bonus"
+    ],
+    "contactInfo": {
+      "email": "sijaisuudet@varha.fi",
+      "phoneNumber": "0551234567"
+    }
+  },
+  {
+    "id": 56,
+    "date": "2023-02-16T22:01:40.985294",
+    "title": "Lähihoitaja",
+    "description": "Tähän tulee lyhyt kuvaus työstä",
+    "department": "Yhteispäivystys",
+    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
+    "location": "Käsityöläiskatu 2, 20100 TURKU",
+    "coordinates": {
+      "longitude": 60.448420880529184,
+      "latitude": 22.2585894854291
+    },
+    "timing": {
+      "startTime": "2023-02-23T22:01:40.985299",
+      "duration": 270,
+      "isFlexible": false
+    },
+    "hourlyPay": 11.97,
+    "benefits": [],
+    "contactInfo": {
+      "email": "sijaisuudet@varha.fi",
+      "phoneNumber": "0551234567"
+    }
+  },
+  {
+    "id": 25,
+    "date": "2023-02-15T15:01:40.984750",
+    "title": "Sosiaalityöntekijä",
+    "description": "Tähän tulee lyhyt kuvaus työstä",
+    "department": "Keskusleikkausosasto",
+    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
+    "location": "Tuulensuunkatu 6, 21100 Naantali",
+    "coordinates": {
+      "longitude": 60.4691794883538,
+      "latitude": 22.026600512353554
+    },
+    "timing": {
+      "startTime": "2023-02-22T15:01:40.984756",
+      "duration": 450,
+      "isFlexible": true
+    },
+    "hourlyPay": 14.68,
+    "benefits": [],
+    "contactInfo": {
+      "email": "sijaisuudet@varha.fi",
+      "phoneNumber": "0551234567"
+    }
+  },
+  {
+    "id": 96,
+    "date": "2023-02-18T14:01:40.986009",
+    "title": "Röntgenhoitaja",
+    "description": "Tähän tulee lyhyt kuvaus työstä",
+    "department": "Yhteispäivystys",
+    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
+    "location": "Pesätie 11, 90420 OULU",
+    "coordinates": {
+      "longitude": 64.95636793384206,
+      "latitude": 25.531864452214528
+    },
+    "timing": {
+      "startTime": "2023-02-25T14:01:40.986015",
       "duration": 350,
       "isFlexible": false
     },
-    "hourlyPay": 16.37,
+    "hourlyPay": 13.95,
+    "benefits": [],
+    "contactInfo": {
+      "email": "sijaisuudet@pohde.fi",
+      "phoneNumber": "0551234567"
+    }
+  },
+  {
+    "id": 46,
+    "date": "2023-02-16T12:01:40.985121",
+    "title": "Sosiaalityöntekijä",
+    "description": "Tähän tulee lyhyt kuvaus työstä",
+    "department": "Keskusleikkausosasto",
+    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
+    "location": "Kirkkotie 21, 90440 KEMPELE",
+    "coordinates": {
+      "longitude": 64.91469977241674,
+      "latitude": 25.489666342310308
+    },
+    "timing": {
+      "startTime": "2023-02-23T12:01:40.985127",
+      "duration": 450,
+      "isFlexible": false
+    },
+    "hourlyPay": 13.96,
+    "benefits": [
+      "Lounasetu"
+    ],
+    "contactInfo": {
+      "email": "sijaisuudet@pohde.fi",
+      "phoneNumber": "0551234567"
+    }
+  },
+  {
+    "id": 76,
+    "date": "2023-02-17T18:01:40.985652",
+    "title": "Suuhygienisti",
+    "description": "Tähän tulee lyhyt kuvaus työstä",
+    "department": "Ihotautien poliklinikka",
+    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
+    "location": "Pesätie 11, 90420 OULU",
+    "coordinates": {
+      "longitude": 64.95636793384206,
+      "latitude": 25.531864452214528
+    },
+    "timing": {
+      "startTime": "2023-02-24T18:01:40.985658",
+      "duration": 270,
+      "isFlexible": false
+    },
+    "hourlyPay": 18.26,
+    "benefits": [],
+    "contactInfo": {
+      "email": "sijaisuudet@pohde.fi",
+      "phoneNumber": "0551234567"
+    }
+  },
+  {
+    "id": 35,
+    "date": "2023-02-16T01:01:40.984932",
+    "title": "Röntgenhoitaja",
+    "description": "Tähän tulee lyhyt kuvaus työstä",
+    "department": "Keskusleikkausosasto",
+    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
+    "location": "Pesätie 11, 90420 OULU",
+    "coordinates": {
+      "longitude": 64.95636793384206,
+      "latitude": 25.531864452214528
+    },
+    "timing": {
+      "startTime": "2023-02-23T01:01:40.984938",
+      "duration": 310,
+      "isFlexible": true
+    },
+    "hourlyPay": 14.88,
+    "benefits": [],
+    "contactInfo": {
+      "email": "sijaisuudet@pohde.fi",
+      "phoneNumber": "0551234567"
+    }
+  },
+  {
+    "id": 45,
+    "date": "2023-02-16T11:01:40.985104",
+    "title": "Röntgenhoitaja",
+    "description": "Tähän tulee lyhyt kuvaus työstä",
+    "department": "Yhteispäivystys",
+    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
+    "location": "Torikatu 21, 90100 OULU",
+    "coordinates": {
+      "longitude": 65.01104770301926,
+      "latitude": 25.466729956534994
+    },
+    "timing": {
+      "startTime": "2023-02-23T11:01:40.985110",
+      "duration": 420,
+      "isFlexible": false
+    },
+    "hourlyPay": 16.89,
     "benefits": [
       "Lounasetu",
       "30€ bonus"
@@ -170,228 +746,51 @@
     }
   },
   {
-    "id": 8,
-    "date": "2023-01-31T22:16:28.892343",
+    "id": 48,
+    "date": "2023-02-16T14:01:40.985155",
     "title": "Röntgenhoitaja",
     "description": "Tähän tulee lyhyt kuvaus työstä",
     "department": "Ihotautien poliklinikka",
-    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
-    "location": "Kirkkotie 21, 90440 KEMPELE",
-    "timing": {
-      "startTime": "2023-02-07T22:16:28.892352",
-      "duration": 360,
-      "isFlexible": false
+    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
+    "location": "Käsityöläiskatu 2, 20100 TURKU",
+    "coordinates": {
+      "longitude": 60.448420880529184,
+      "latitude": 22.2585894854291
     },
-    "hourlyPay": 16.26,
+    "timing": {
+      "startTime": "2023-02-23T14:01:40.985161",
+      "duration": 290,
+      "isFlexible": true
+    },
+    "hourlyPay": 12.04,
     "benefits": [],
     "contactInfo": {
-      "email": "sijaisuudet@pohde.fi",
-      "phoneNumber": "0551234567"
-    }
-  },
-  {
-    "id": 9,
-    "date": "2023-01-31T23:16:28.892368",
-    "title": "Sairaanhoitaja",
-    "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Ihotautien poliklinikka",
-    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
-    "location": "Pesätie 11, 90420 OULU",
-    "timing": {
-      "startTime": "2023-02-07T23:16:28.892378",
-      "duration": 450,
-      "isFlexible": false
-    },
-    "hourlyPay": 16.2,
-    "benefits": [
-      "Lounasetu"
-    ],
-    "contactInfo": {
-      "email": "sijaisuudet@pohde.fi",
-      "phoneNumber": "0551234567"
-    }
-  },
-  {
-    "id": 10,
-    "date": "2023-02-01T00:16:28.892394",
-    "title": "Röntgenhoitaja",
-    "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Yhteispäivystys",
-    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
-    "location": "Pesätie 11, 90420 OULU",
-    "timing": {
-      "startTime": "2023-02-08T00:16:28.892403",
-      "duration": 280,
-      "isFlexible": false
-    },
-    "hourlyPay": 19.04,
-    "benefits": [],
-    "contactInfo": {
-      "email": "sijaisuudet@pohde.fi",
+      "email": "sijaisuudet@varha.fi",
       "phoneNumber": "0551234567"
     }
   },
   {
     "id": 11,
-    "date": "2023-02-01T01:16:28.892419",
-    "title": "Hammashoitaja",
-    "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Ihotautien poliklinikka",
-    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
-    "location": "Käsityöläiskatu 2, 20100 TURKU",
-    "timing": {
-      "startTime": "2023-02-08T01:16:28.892429",
-      "duration": 380,
-      "isFlexible": false
-    },
-    "hourlyPay": 18.8,
-    "benefits": [
-      "40€ bonus"
-    ],
-    "contactInfo": {
-      "email": "sijaisuudet@varha.fi",
-      "phoneNumber": "0551234567"
-    }
-  },
-  {
-    "id": 12,
-    "date": "2023-02-01T02:16:28.892445",
-    "title": "Lähihoitaja",
-    "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Ihotautien poliklinikka",
-    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
-    "location": "Hämeentie 11, 20521 TURKU",
-    "timing": {
-      "startTime": "2023-02-08T02:16:28.892456",
-      "duration": 450,
-      "isFlexible": false
-    },
-    "hourlyPay": 15.58,
-    "benefits": [],
-    "contactInfo": {
-      "email": "sijaisuudet@varha.fi",
-      "phoneNumber": "0551234567"
-    }
-  },
-  {
-    "id": 13,
-    "date": "2023-02-01T03:16:28.892471",
-    "title": "Sairaanhoitaja",
-    "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Yhteispäivystys",
-    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
-    "location": "Hämeentie 11, 20521 TURKU",
-    "timing": {
-      "startTime": "2023-02-08T03:16:28.892481",
-      "duration": 260,
-      "isFlexible": true
-    },
-    "hourlyPay": 19.85,
-    "benefits": [],
-    "contactInfo": {
-      "email": "sijaisuudet@varha.fi",
-      "phoneNumber": "0551234567"
-    }
-  },
-  {
-    "id": 14,
-    "date": "2023-02-01T04:16:28.892497",
+    "date": "2023-02-15T01:01:40.984503",
     "title": "Suuhygienisti",
-    "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Yhteispäivystys",
-    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
-    "location": "Pesätie 11, 90420 OULU",
-    "timing": {
-      "startTime": "2023-02-08T04:16:28.892507",
-      "duration": 320,
-      "isFlexible": true
-    },
-    "hourlyPay": 14.68,
-    "benefits": [],
-    "contactInfo": {
-      "email": "sijaisuudet@pohde.fi",
-      "phoneNumber": "0551234567"
-    }
-  },
-  {
-    "id": 15,
-    "date": "2023-02-01T05:16:28.892523",
-    "title": "Sosiaalityöntekijä",
-    "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Yhteispäivystys",
-    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
-    "location": "Käsityöläiskatu 2, 20100 TURKU",
-    "timing": {
-      "startTime": "2023-02-08T05:16:28.892533",
-      "duration": 320,
-      "isFlexible": false
-    },
-    "hourlyPay": 19.63,
-    "benefits": [
-      "40€ bonus"
-    ],
-    "contactInfo": {
-      "email": "sijaisuudet@varha.fi",
-      "phoneNumber": "0551234567"
-    }
-  },
-  {
-    "id": 16,
-    "date": "2023-02-01T06:16:28.892549",
-    "title": "Sairaanhoitaja",
     "description": "Tähän tulee lyhyt kuvaus työstä",
     "department": "Yhteispäivystys",
     "organisation": "Varsinais-Suomen hyvinvointialue Varha",
     "location": "Tuulensuunkatu 6, 21100 Naantali",
-    "timing": {
-      "startTime": "2023-02-08T06:16:28.892558",
-      "duration": 260,
-      "isFlexible": false
+    "coordinates": {
+      "longitude": 60.4691794883538,
+      "latitude": 22.026600512353554
     },
-    "hourlyPay": 19.59,
-    "benefits": [],
-    "contactInfo": {
-      "email": "sijaisuudet@varha.fi",
-      "phoneNumber": "0551234567"
-    }
-  },
-  {
-    "id": 17,
-    "date": "2023-02-01T07:16:28.892575",
-    "title": "Sairaanhoitaja",
-    "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Keskusleikkausosasto",
-    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
-    "location": "Käsityöläiskatu 2, 20100 TURKU",
     "timing": {
-      "startTime": "2023-02-08T07:16:28.892585",
-      "duration": 340,
-      "isFlexible": false
-    },
-    "hourlyPay": 14.98,
-    "benefits": [
-      "Lounasetu"
-    ],
-    "contactInfo": {
-      "email": "sijaisuudet@varha.fi",
-      "phoneNumber": "0551234567"
-    }
-  },
-  {
-    "id": 18,
-    "date": "2023-02-01T08:16:28.892601",
-    "title": "Hammashoitaja",
-    "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Keskusleikkausosasto",
-    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
-    "location": "Hämeentie 11, 20521 TURKU",
-    "timing": {
-      "startTime": "2023-02-08T08:16:28.892611",
-      "duration": 320,
+      "startTime": "2023-02-22T01:01:40.984509",
+      "duration": 390,
       "isFlexible": true
     },
-    "hourlyPay": 12.47,
-    "benefits": [],
+    "hourlyPay": 15.7,
+    "benefits": [
+      "Lounasetu",
+      "30€ bonus"
+    ],
     "contactInfo": {
       "email": "sijaisuudet@varha.fi",
       "phoneNumber": "0551234567"
@@ -399,38 +798,48 @@
   },
   {
     "id": 19,
-    "date": "2023-02-01T09:16:28.892626",
-    "title": "Hammashoitaja",
+    "date": "2023-02-15T09:01:40.984644",
+    "title": "Lähihoitaja",
     "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Yhteispäivystys",
+    "department": "Ihotautien poliklinikka",
     "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
     "location": "Kirkkotie 21, 90440 KEMPELE",
-    "timing": {
-      "startTime": "2023-02-08T09:16:28.892636",
-      "duration": 480,
-      "isFlexible": false
+    "coordinates": {
+      "longitude": 64.91469977241674,
+      "latitude": 25.489666342310308
     },
-    "hourlyPay": 11.73,
-    "benefits": [],
+    "timing": {
+      "startTime": "2023-02-22T09:01:40.984649",
+      "duration": 370,
+      "isFlexible": true
+    },
+    "hourlyPay": 16.68,
+    "benefits": [
+      "Lounasetu"
+    ],
     "contactInfo": {
       "email": "sijaisuudet@pohde.fi",
       "phoneNumber": "0551234567"
     }
   },
   {
-    "id": 20,
-    "date": "2023-02-01T10:16:28.892652",
-    "title": "Suuhygienisti",
+    "id": 30,
+    "date": "2023-02-15T20:01:40.984845",
+    "title": "Sairaanhoitaja",
     "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Ihotautien poliklinikka",
+    "department": "Yhteispäivystys",
     "organisation": "Varsinais-Suomen hyvinvointialue Varha",
-    "location": "Käsityöläiskatu 2, 20100 TURKU",
-    "timing": {
-      "startTime": "2023-02-08T10:16:28.892662",
-      "duration": 370,
-      "isFlexible": false
+    "location": "Tuulensuunkatu 6, 21100 Naantali",
+    "coordinates": {
+      "longitude": 60.4691794883538,
+      "latitude": 22.026600512353554
     },
-    "hourlyPay": 19.59,
+    "timing": {
+      "startTime": "2023-02-22T20:01:40.984850",
+      "duration": 290,
+      "isFlexible": true
+    },
+    "hourlyPay": 11.79,
     "benefits": [],
     "contactInfo": {
       "email": "sijaisuudet@varha.fi",
@@ -438,19 +847,647 @@
     }
   },
   {
-    "id": 21,
-    "date": "2023-02-01T11:16:28.892678",
+    "id": 27,
+    "date": "2023-02-15T17:01:40.984785",
+    "title": "Röntgenhoitaja",
+    "description": "Tähän tulee lyhyt kuvaus työstä",
+    "department": "Yhteispäivystys",
+    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
+    "location": "Tuulensuunkatu 6, 21100 Naantali",
+    "coordinates": {
+      "longitude": 60.4691794883538,
+      "latitude": 22.026600512353554
+    },
+    "timing": {
+      "startTime": "2023-02-22T17:01:40.984791",
+      "duration": 390,
+      "isFlexible": false
+    },
+    "hourlyPay": 14.66,
+    "benefits": [],
+    "contactInfo": {
+      "email": "sijaisuudet@varha.fi",
+      "phoneNumber": "0551234567"
+    }
+  },
+  {
+    "id": 82,
+    "date": "2023-02-18T00:01:40.985759",
+    "title": "Röntgenhoitaja",
+    "description": "Tähän tulee lyhyt kuvaus työstä",
+    "department": "Keskusleikkausosasto",
+    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
+    "location": "Tuulensuunkatu 6, 21100 Naantali",
+    "coordinates": {
+      "longitude": 60.4691794883538,
+      "latitude": 22.026600512353554
+    },
+    "timing": {
+      "startTime": "2023-02-25T00:01:40.985764",
+      "duration": 310,
+      "isFlexible": true
+    },
+    "hourlyPay": 10.78,
+    "benefits": [],
+    "contactInfo": {
+      "email": "sijaisuudet@varha.fi",
+      "phoneNumber": "0551234567"
+    }
+  },
+  {
+    "id": 42,
+    "date": "2023-02-16T08:01:40.985053",
     "title": "Sairaanhoitaja",
+    "description": "Tähän tulee lyhyt kuvaus työstä",
+    "department": "Yhteispäivystys",
+    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
+    "location": "Käsityöläiskatu 2, 20100 TURKU",
+    "coordinates": {
+      "longitude": 60.448420880529184,
+      "latitude": 22.2585894854291
+    },
+    "timing": {
+      "startTime": "2023-02-23T08:01:40.985058",
+      "duration": 430,
+      "isFlexible": false
+    },
+    "hourlyPay": 19.58,
+    "benefits": [],
+    "contactInfo": {
+      "email": "sijaisuudet@varha.fi",
+      "phoneNumber": "0551234567"
+    }
+  },
+  {
+    "id": 93,
+    "date": "2023-02-18T11:01:40.985956",
+    "title": "Suuhygienisti",
+    "description": "Tähän tulee lyhyt kuvaus työstä",
+    "department": "Yhteispäivystys",
+    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
+    "location": "Hämeentie 11, 20521 TURKU",
+    "coordinates": {
+      "longitude": 60.454266053829656,
+      "latitude": 22.295853144213755
+    },
+    "timing": {
+      "startTime": "2023-02-25T11:01:40.985962",
+      "duration": 380,
+      "isFlexible": false
+    },
+    "hourlyPay": 15.68,
+    "benefits": [],
+    "contactInfo": {
+      "email": "sijaisuudet@varha.fi",
+      "phoneNumber": "0551234567"
+    }
+  },
+  {
+    "id": 68,
+    "date": "2023-02-17T10:01:40.985513",
+    "title": "Sosiaalityöntekijä",
     "description": "Tähän tulee lyhyt kuvaus työstä",
     "department": "Ihotautien poliklinikka",
     "organisation": "Varsinais-Suomen hyvinvointialue Varha",
-    "location": "Käsityöläiskatu 2, 20100 TURKU",
+    "location": "Tuulensuunkatu 6, 21100 Naantali",
+    "coordinates": {
+      "longitude": 60.4691794883538,
+      "latitude": 22.026600512353554
+    },
     "timing": {
-      "startTime": "2023-02-08T11:16:28.892688",
-      "duration": 480,
+      "startTime": "2023-02-24T10:01:40.985519",
+      "duration": 250,
       "isFlexible": false
     },
-    "hourlyPay": 13.45,
+    "hourlyPay": 19.38,
+    "benefits": [
+      "40€ bonus"
+    ],
+    "contactInfo": {
+      "email": "sijaisuudet@varha.fi",
+      "phoneNumber": "0551234567"
+    }
+  },
+  {
+    "id": 20,
+    "date": "2023-02-15T10:01:40.984661",
+    "title": "Sosiaalityöntekijä",
+    "description": "Tähän tulee lyhyt kuvaus työstä",
+    "department": "Yhteispäivystys",
+    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
+    "location": "Käsityöläiskatu 2, 20100 TURKU",
+    "coordinates": {
+      "longitude": 60.448420880529184,
+      "latitude": 22.2585894854291
+    },
+    "timing": {
+      "startTime": "2023-02-22T10:01:40.984667",
+      "duration": 260,
+      "isFlexible": false
+    },
+    "hourlyPay": 17.62,
+    "benefits": [
+      "Lounasetu"
+    ],
+    "contactInfo": {
+      "email": "sijaisuudet@varha.fi",
+      "phoneNumber": "0551234567"
+    }
+  },
+  {
+    "id": 60,
+    "date": "2023-02-17T02:01:40.985375",
+    "title": "Röntgenhoitaja",
+    "description": "Tähän tulee lyhyt kuvaus työstä",
+    "department": "Ihotautien poliklinikka",
+    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
+    "location": "Tuulensuunkatu 6, 21100 Naantali",
+    "coordinates": {
+      "longitude": 60.4691794883538,
+      "latitude": 22.026600512353554
+    },
+    "timing": {
+      "startTime": "2023-02-24T02:01:40.985381",
+      "duration": 420,
+      "isFlexible": true
+    },
+    "hourlyPay": 10.41,
+    "benefits": [
+      "Lounasetu",
+      "30€ bonus"
+    ],
+    "contactInfo": {
+      "email": "sijaisuudet@varha.fi",
+      "phoneNumber": "0551234567"
+    }
+  },
+  {
+    "id": 84,
+    "date": "2023-02-18T02:01:40.985797",
+    "title": "Hammashoitaja",
+    "description": "Tähän tulee lyhyt kuvaus työstä",
+    "department": "Yhteispäivystys",
+    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
+    "location": "Käsityöläiskatu 2, 20100 TURKU",
+    "coordinates": {
+      "longitude": 60.448420880529184,
+      "latitude": 22.2585894854291
+    },
+    "timing": {
+      "startTime": "2023-02-25T02:01:40.985804",
+      "duration": 240,
+      "isFlexible": false
+    },
+    "hourlyPay": 15.16,
+    "benefits": [
+      "Lounasetu",
+      "30€ bonus"
+    ],
+    "contactInfo": {
+      "email": "sijaisuudet@varha.fi",
+      "phoneNumber": "0551234567"
+    }
+  },
+  {
+    "id": 33,
+    "date": "2023-02-15T23:01:40.984898",
+    "title": "Hammashoitaja",
+    "description": "Tähän tulee lyhyt kuvaus työstä",
+    "department": "Keskusleikkausosasto",
+    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
+    "location": "Kirkkotie 21, 90440 KEMPELE",
+    "coordinates": {
+      "longitude": 64.91469977241674,
+      "latitude": 25.489666342310308
+    },
+    "timing": {
+      "startTime": "2023-02-22T23:01:40.984904",
+      "duration": 280,
+      "isFlexible": true
+    },
+    "hourlyPay": 16.21,
+    "benefits": [
+      "40€ bonus"
+    ],
+    "contactInfo": {
+      "email": "sijaisuudet@pohde.fi",
+      "phoneNumber": "0551234567"
+    }
+  },
+  {
+    "id": 98,
+    "date": "2023-02-18T16:01:40.986046",
+    "title": "Lähihoitaja",
+    "description": "Tähän tulee lyhyt kuvaus työstä",
+    "department": "Ihotautien poliklinikka",
+    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
+    "location": "Torikatu 21, 90100 OULU",
+    "coordinates": {
+      "longitude": 65.01104770301926,
+      "latitude": 25.466729956534994
+    },
+    "timing": {
+      "startTime": "2023-02-25T16:01:40.986052",
+      "duration": 260,
+      "isFlexible": true
+    },
+    "hourlyPay": 10.35,
+    "benefits": [
+      "Lounasetu"
+    ],
+    "contactInfo": {
+      "email": "sijaisuudet@pohde.fi",
+      "phoneNumber": "0551234567"
+    }
+  },
+  {
+    "id": 79,
+    "date": "2023-02-17T21:01:40.985706",
+    "title": "Hammashoitaja",
+    "description": "Tähän tulee lyhyt kuvaus työstä",
+    "department": "Yhteispäivystys",
+    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
+    "location": "Pesätie 11, 90420 OULU",
+    "coordinates": {
+      "longitude": 64.95636793384206,
+      "latitude": 25.531864452214528
+    },
+    "timing": {
+      "startTime": "2023-02-24T21:01:40.985712",
+      "duration": 300,
+      "isFlexible": false
+    },
+    "hourlyPay": 15.79,
+    "benefits": [
+      "40€ bonus"
+    ],
+    "contactInfo": {
+      "email": "sijaisuudet@pohde.fi",
+      "phoneNumber": "0551234567"
+    }
+  },
+  {
+    "id": 64,
+    "date": "2023-02-17T06:01:40.985444",
+    "title": "Suuhygienisti",
+    "description": "Tähän tulee lyhyt kuvaus työstä",
+    "department": "Yhteispäivystys",
+    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
+    "location": "Käsityöläiskatu 2, 20100 TURKU",
+    "coordinates": {
+      "longitude": 60.448420880529184,
+      "latitude": 22.2585894854291
+    },
+    "timing": {
+      "startTime": "2023-02-24T06:01:40.985450",
+      "duration": 330,
+      "isFlexible": true
+    },
+    "hourlyPay": 16.73,
+    "benefits": [
+      "Lounasetu",
+      "30€ bonus"
+    ],
+    "contactInfo": {
+      "email": "sijaisuudet@varha.fi",
+      "phoneNumber": "0551234567"
+    }
+  },
+  {
+    "id": 67,
+    "date": "2023-02-17T09:01:40.985496",
+    "title": "Röntgenhoitaja",
+    "description": "Tähän tulee lyhyt kuvaus työstä",
+    "department": "Ihotautien poliklinikka",
+    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
+    "location": "Kirkkotie 21, 90440 KEMPELE",
+    "coordinates": {
+      "longitude": 64.91469977241674,
+      "latitude": 25.489666342310308
+    },
+    "timing": {
+      "startTime": "2023-02-24T09:01:40.985502",
+      "duration": 380,
+      "isFlexible": false
+    },
+    "hourlyPay": 17.93,
+    "benefits": [],
+    "contactInfo": {
+      "email": "sijaisuudet@pohde.fi",
+      "phoneNumber": "0551234567"
+    }
+  },
+  {
+    "id": 51,
+    "date": "2023-02-16T17:01:40.985207",
+    "title": "Hammashoitaja",
+    "description": "Tähän tulee lyhyt kuvaus työstä",
+    "department": "Yhteispäivystys",
+    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
+    "location": "Pesätie 11, 90420 OULU",
+    "coordinates": {
+      "longitude": 64.95636793384206,
+      "latitude": 25.531864452214528
+    },
+    "timing": {
+      "startTime": "2023-02-23T17:01:40.985213",
+      "duration": 360,
+      "isFlexible": true
+    },
+    "hourlyPay": 15.1,
+    "benefits": [],
+    "contactInfo": {
+      "email": "sijaisuudet@pohde.fi",
+      "phoneNumber": "0551234567"
+    }
+  },
+  {
+    "id": 61,
+    "date": "2023-02-17T03:01:40.985393",
+    "title": "Röntgenhoitaja",
+    "description": "Tähän tulee lyhyt kuvaus työstä",
+    "department": "Yhteispäivystys",
+    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
+    "location": "Pesätie 11, 90420 OULU",
+    "coordinates": {
+      "longitude": 64.95636793384206,
+      "latitude": 25.531864452214528
+    },
+    "timing": {
+      "startTime": "2023-02-24T03:01:40.985398",
+      "duration": 390,
+      "isFlexible": true
+    },
+    "hourlyPay": 15.12,
+    "benefits": [
+      "Lounasetu",
+      "30€ bonus"
+    ],
+    "contactInfo": {
+      "email": "sijaisuudet@pohde.fi",
+      "phoneNumber": "0551234567"
+    }
+  },
+  {
+    "id": 21,
+    "date": "2023-02-15T11:01:40.984679",
+    "title": "Sosiaalityöntekijä",
+    "description": "Tähän tulee lyhyt kuvaus työstä",
+    "department": "Keskusleikkausosasto",
+    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
+    "location": "Kirkkotie 21, 90440 KEMPELE",
+    "coordinates": {
+      "longitude": 64.91469977241674,
+      "latitude": 25.489666342310308
+    },
+    "timing": {
+      "startTime": "2023-02-22T11:01:40.984684",
+      "duration": 360,
+      "isFlexible": true
+    },
+    "hourlyPay": 15.8,
+    "benefits": [],
+    "contactInfo": {
+      "email": "sijaisuudet@pohde.fi",
+      "phoneNumber": "0551234567"
+    }
+  },
+  {
+    "id": 49,
+    "date": "2023-02-16T15:01:40.985172",
+    "title": "Lähihoitaja",
+    "description": "Tähän tulee lyhyt kuvaus työstä",
+    "department": "Keskusleikkausosasto",
+    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
+    "location": "Torikatu 21, 90100 OULU",
+    "coordinates": {
+      "longitude": 65.01104770301926,
+      "latitude": 25.466729956534994
+    },
+    "timing": {
+      "startTime": "2023-02-23T15:01:40.985178",
+      "duration": 420,
+      "isFlexible": false
+    },
+    "hourlyPay": 15.73,
+    "benefits": [],
+    "contactInfo": {
+      "email": "sijaisuudet@pohde.fi",
+      "phoneNumber": "0551234567"
+    }
+  },
+  {
+    "id": 89,
+    "date": "2023-02-18T07:01:40.985884",
+    "title": "Sairaanhoitaja",
+    "description": "Tähän tulee lyhyt kuvaus työstä",
+    "department": "Keskusleikkausosasto",
+    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
+    "location": "Tuulensuunkatu 6, 21100 Naantali",
+    "coordinates": {
+      "longitude": 60.4691794883538,
+      "latitude": 22.026600512353554
+    },
+    "timing": {
+      "startTime": "2023-02-25T07:01:40.985890",
+      "duration": 360,
+      "isFlexible": true
+    },
+    "hourlyPay": 19.19,
+    "benefits": [
+      "40€ bonus"
+    ],
+    "contactInfo": {
+      "email": "sijaisuudet@varha.fi",
+      "phoneNumber": "0551234567"
+    }
+  },
+  {
+    "id": 1,
+    "date": "2023-02-14T15:01:40.984310",
+    "title": "Hammashoitaja",
+    "description": "Tähän tulee lyhyt kuvaus työstä",
+    "department": "Ihotautien poliklinikka",
+    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
+    "location": "Hämeentie 11, 20521 TURKU",
+    "coordinates": {
+      "longitude": 60.454266053829656,
+      "latitude": 22.295853144213755
+    },
+    "timing": {
+      "startTime": "2023-02-21T15:01:40.984319",
+      "duration": 240,
+      "isFlexible": true
+    },
+    "hourlyPay": 16.08,
+    "benefits": [],
+    "contactInfo": {
+      "email": "sijaisuudet@varha.fi",
+      "phoneNumber": "0551234567"
+    }
+  },
+  {
+    "id": 47,
+    "date": "2023-02-16T13:01:40.985139",
+    "title": "Suuhygienisti",
+    "description": "Tähän tulee lyhyt kuvaus työstä",
+    "department": "Ihotautien poliklinikka",
+    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
+    "location": "Tuulensuunkatu 6, 21100 Naantali",
+    "coordinates": {
+      "longitude": 60.4691794883538,
+      "latitude": 22.026600512353554
+    },
+    "timing": {
+      "startTime": "2023-02-23T13:01:40.985144",
+      "duration": 330,
+      "isFlexible": true
+    },
+    "hourlyPay": 14.97,
+    "benefits": [],
+    "contactInfo": {
+      "email": "sijaisuudet@varha.fi",
+      "phoneNumber": "0551234567"
+    }
+  },
+  {
+    "id": 90,
+    "date": "2023-02-18T08:01:40.985901",
+    "title": "Sosiaalityöntekijä",
+    "description": "Tähän tulee lyhyt kuvaus työstä",
+    "department": "Yhteispäivystys",
+    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
+    "location": "Kirkkotie 21, 90440 KEMPELE",
+    "coordinates": {
+      "longitude": 64.91469977241674,
+      "latitude": 25.489666342310308
+    },
+    "timing": {
+      "startTime": "2023-02-25T08:01:40.985907",
+      "duration": 300,
+      "isFlexible": true
+    },
+    "hourlyPay": 13.12,
+    "benefits": [],
+    "contactInfo": {
+      "email": "sijaisuudet@pohde.fi",
+      "phoneNumber": "0551234567"
+    }
+  },
+  {
+    "id": 6,
+    "date": "2023-02-14T20:01:40.984412",
+    "title": "Sosiaalityöntekijä",
+    "description": "Tähän tulee lyhyt kuvaus työstä",
+    "department": "Yhteispäivystys",
+    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
+    "location": "Pesätie 11, 90420 OULU",
+    "coordinates": {
+      "longitude": 64.95636793384206,
+      "latitude": 25.531864452214528
+    },
+    "timing": {
+      "startTime": "2023-02-21T20:01:40.984418",
+      "duration": 240,
+      "isFlexible": true
+    },
+    "hourlyPay": 13.68,
+    "benefits": [],
+    "contactInfo": {
+      "email": "sijaisuudet@pohde.fi",
+      "phoneNumber": "0551234567"
+    }
+  },
+  {
+    "id": 3,
+    "date": "2023-02-14T17:01:40.984354",
+    "title": "Hammashoitaja",
+    "description": "Tähän tulee lyhyt kuvaus työstä",
+    "department": "Ihotautien poliklinikka",
+    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
+    "location": "Pesätie 11, 90420 OULU",
+    "coordinates": {
+      "longitude": 64.95636793384206,
+      "latitude": 25.531864452214528
+    },
+    "timing": {
+      "startTime": "2023-02-21T17:01:40.984363",
+      "duration": 450,
+      "isFlexible": true
+    },
+    "hourlyPay": 16.02,
+    "benefits": [],
+    "contactInfo": {
+      "email": "sijaisuudet@pohde.fi",
+      "phoneNumber": "0551234567"
+    }
+  },
+  {
+    "id": 16,
+    "date": "2023-02-15T06:01:40.984591",
+    "title": "Sosiaalityöntekijä",
+    "description": "Tähän tulee lyhyt kuvaus työstä",
+    "department": "Yhteispäivystys",
+    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
+    "location": "Tuulensuunkatu 6, 21100 Naantali",
+    "coordinates": {
+      "longitude": 60.4691794883538,
+      "latitude": 22.026600512353554
+    },
+    "timing": {
+      "startTime": "2023-02-22T06:01:40.984597",
+      "duration": 270,
+      "isFlexible": true
+    },
+    "hourlyPay": 12.63,
+    "benefits": [],
+    "contactInfo": {
+      "email": "sijaisuudet@varha.fi",
+      "phoneNumber": "0551234567"
+    }
+  },
+  {
+    "id": 71,
+    "date": "2023-02-17T13:01:40.985565",
+    "title": "Suuhygienisti",
+    "description": "Tähän tulee lyhyt kuvaus työstä",
+    "department": "Keskusleikkausosasto",
+    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
+    "location": "Torikatu 21, 90100 OULU",
+    "coordinates": {
+      "longitude": 65.01104770301926,
+      "latitude": 25.466729956534994
+    },
+    "timing": {
+      "startTime": "2023-02-24T13:01:40.985570",
+      "duration": 260,
+      "isFlexible": true
+    },
+    "hourlyPay": 18.49,
+    "benefits": [],
+    "contactInfo": {
+      "email": "sijaisuudet@pohde.fi",
+      "phoneNumber": "0551234567"
+    }
+  },
+  {
+    "id": 54,
+    "date": "2023-02-16T20:01:40.985259",
+    "title": "Sosiaalityöntekijä",
+    "description": "Tähän tulee lyhyt kuvaus työstä",
+    "department": "Keskusleikkausosasto",
+    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
+    "location": "Hämeentie 11, 20521 TURKU",
+    "coordinates": {
+      "longitude": 60.454266053829656,
+      "latitude": 22.295853144213755
+    },
+    "timing": {
+      "startTime": "2023-02-23T20:01:40.985265",
+      "duration": 270,
+      "isFlexible": true
+    },
+    "hourlyPay": 19.1,
     "benefits": [
       "Lounasetu",
       "30€ bonus"
@@ -462,335 +1499,98 @@
   },
   {
     "id": 22,
-    "date": "2023-02-01T12:16:28.892704",
-    "title": "Röntgenhoitaja",
-    "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Keskusleikkausosasto",
-    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
-    "location": "Käsityöläiskatu 2, 20100 TURKU",
-    "timing": {
-      "startTime": "2023-02-08T12:16:28.892713",
-      "duration": 440,
-      "isFlexible": false
-    },
-    "hourlyPay": 14.87,
-    "benefits": [],
-    "contactInfo": {
-      "email": "sijaisuudet@varha.fi",
-      "phoneNumber": "0551234567"
-    }
-  },
-  {
-    "id": 23,
-    "date": "2023-02-01T13:16:28.892729",
-    "title": "Röntgenhoitaja",
+    "date": "2023-02-15T12:01:40.984696",
+    "title": "Sairaanhoitaja",
     "description": "Tähän tulee lyhyt kuvaus työstä",
     "department": "Ihotautien poliklinikka",
     "organisation": "Varsinais-Suomen hyvinvointialue Varha",
-    "location": "Käsityöläiskatu 2, 20100 TURKU",
+    "location": "Hämeentie 11, 20521 TURKU",
+    "coordinates": {
+      "longitude": 60.454266053829656,
+      "latitude": 22.295853144213755
+    },
     "timing": {
-      "startTime": "2023-02-08T13:16:28.892738",
-      "duration": 480,
+      "startTime": "2023-02-22T12:01:40.984702",
+      "duration": 300,
       "isFlexible": false
     },
-    "hourlyPay": 13.61,
-    "benefits": [
-      "Lounasetu",
-      "30€ bonus"
-    ],
+    "hourlyPay": 17.49,
+    "benefits": [],
     "contactInfo": {
       "email": "sijaisuudet@varha.fi",
       "phoneNumber": "0551234567"
     }
   },
   {
-    "id": 24,
-    "date": "2023-02-01T14:16:28.892754",
-    "title": "Hammashoitaja",
-    "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Keskusleikkausosasto",
-    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
-    "location": "Torikatu 21, 90100 OULU",
-    "timing": {
-      "startTime": "2023-02-08T14:16:28.892764",
-      "duration": 260,
-      "isFlexible": true
-    },
-    "hourlyPay": 19.52,
-    "benefits": [
-      "40€ bonus"
-    ],
-    "contactInfo": {
-      "email": "sijaisuudet@pohde.fi",
-      "phoneNumber": "0551234567"
-    }
-  },
-  {
-    "id": 25,
-    "date": "2023-02-01T15:16:28.892780",
-    "title": "Suuhygienisti",
+    "id": 5,
+    "date": "2023-02-14T19:01:40.984394",
+    "title": "Röntgenhoitaja",
     "description": "Tähän tulee lyhyt kuvaus työstä",
     "department": "Ihotautien poliklinikka",
-    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
-    "location": "Tuulensuunkatu 6, 21100 Naantali",
-    "timing": {
-      "startTime": "2023-02-08T15:16:28.892790",
-      "duration": 350,
-      "isFlexible": true
-    },
-    "hourlyPay": 18.1,
-    "benefits": [],
-    "contactInfo": {
-      "email": "sijaisuudet@varha.fi",
-      "phoneNumber": "0551234567"
-    }
-  },
-  {
-    "id": 26,
-    "date": "2023-02-01T16:16:28.892806",
-    "title": "Sairaanhoitaja",
-    "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Yhteispäivystys",
-    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
-    "location": "Torikatu 21, 90100 OULU",
-    "timing": {
-      "startTime": "2023-02-08T16:16:28.892816",
-      "duration": 320,
-      "isFlexible": true
-    },
-    "hourlyPay": 10.37,
-    "benefits": [],
-    "contactInfo": {
-      "email": "sijaisuudet@pohde.fi",
-      "phoneNumber": "0551234567"
-    }
-  },
-  {
-    "id": 27,
-    "date": "2023-02-01T17:16:28.892833",
-    "title": "Sairaanhoitaja",
-    "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Keskusleikkausosasto",
     "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
     "location": "Kirkkotie 21, 90440 KEMPELE",
+    "coordinates": {
+      "longitude": 64.91469977241674,
+      "latitude": 25.489666342310308
+    },
     "timing": {
-      "startTime": "2023-02-08T17:16:28.892843",
-      "duration": 270,
+      "startTime": "2023-02-21T19:01:40.984400",
+      "duration": 450,
+      "isFlexible": false
+    },
+    "hourlyPay": 11.04,
+    "benefits": [
+      "Lounasetu"
+    ],
+    "contactInfo": {
+      "email": "sijaisuudet@pohde.fi",
+      "phoneNumber": "0551234567"
+    }
+  },
+  {
+    "id": 80,
+    "date": "2023-02-17T22:01:40.985724",
+    "title": "Suuhygienisti",
+    "description": "Tähän tulee lyhyt kuvaus työstä",
+    "department": "Keskusleikkausosasto",
+    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
+    "location": "Käsityöläiskatu 2, 20100 TURKU",
+    "coordinates": {
+      "longitude": 60.448420880529184,
+      "latitude": 22.2585894854291
+    },
+    "timing": {
+      "startTime": "2023-02-24T22:01:40.985730",
+      "duration": 340,
       "isFlexible": true
     },
-    "hourlyPay": 10.87,
+    "hourlyPay": 15.91,
     "benefits": [
       "40€ bonus"
     ],
     "contactInfo": {
-      "email": "sijaisuudet@pohde.fi",
+      "email": "sijaisuudet@varha.fi",
       "phoneNumber": "0551234567"
     }
   },
   {
-    "id": 28,
-    "date": "2023-02-01T18:16:28.892859",
-    "title": "Röntgenhoitaja",
-    "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Yhteispäivystys",
-    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
-    "location": "Torikatu 21, 90100 OULU",
-    "timing": {
-      "startTime": "2023-02-08T18:16:28.892869",
-      "duration": 430,
-      "isFlexible": false
-    },
-    "hourlyPay": 14.45,
-    "benefits": [
-      "Lounasetu",
-      "30€ bonus"
-    ],
-    "contactInfo": {
-      "email": "sijaisuudet@pohde.fi",
-      "phoneNumber": "0551234567"
-    }
-  },
-  {
-    "id": 29,
-    "date": "2023-02-01T19:16:28.892891",
+    "id": 91,
+    "date": "2023-02-18T09:01:40.985920",
     "title": "Lähihoitaja",
     "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Yhteispäivystys",
-    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
-    "location": "Tuulensuunkatu 6, 21100 Naantali",
-    "timing": {
-      "startTime": "2023-02-08T19:16:28.892902",
-      "duration": 270,
-      "isFlexible": false
-    },
-    "hourlyPay": 13.95,
-    "benefits": [
-      "40€ bonus"
-    ],
-    "contactInfo": {
-      "email": "sijaisuudet@varha.fi",
-      "phoneNumber": "0551234567"
-    }
-  },
-  {
-    "id": 30,
-    "date": "2023-02-01T20:16:28.892918",
-    "title": "Röntgenhoitaja",
-    "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Keskusleikkausosasto",
-    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
-    "location": "Pesätie 11, 90420 OULU",
-    "timing": {
-      "startTime": "2023-02-08T20:16:28.892928",
-      "duration": 280,
-      "isFlexible": false
-    },
-    "hourlyPay": 11.79,
-    "benefits": [],
-    "contactInfo": {
-      "email": "sijaisuudet@pohde.fi",
-      "phoneNumber": "0551234567"
-    }
-  },
-  {
-    "id": 31,
-    "date": "2023-02-01T21:16:28.892945",
-    "title": "Suuhygienisti",
-    "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Yhteispäivystys",
-    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
-    "location": "Hämeentie 11, 20521 TURKU",
-    "timing": {
-      "startTime": "2023-02-08T21:16:28.892954",
-      "duration": 360,
-      "isFlexible": true
-    },
-    "hourlyPay": 11.84,
-    "benefits": [],
-    "contactInfo": {
-      "email": "sijaisuudet@varha.fi",
-      "phoneNumber": "0551234567"
-    }
-  },
-  {
-    "id": 32,
-    "date": "2023-02-01T22:16:28.892970",
-    "title": "Suuhygienisti",
-    "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Keskusleikkausosasto",
-    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
-    "location": "Torikatu 21, 90100 OULU",
-    "timing": {
-      "startTime": "2023-02-08T22:16:28.892980",
-      "duration": 470,
-      "isFlexible": false
-    },
-    "hourlyPay": 16.61,
-    "benefits": [
-      "Lounasetu",
-      "30€ bonus"
-    ],
-    "contactInfo": {
-      "email": "sijaisuudet@pohde.fi",
-      "phoneNumber": "0551234567"
-    }
-  },
-  {
-    "id": 33,
-    "date": "2023-02-01T23:16:28.892998",
-    "title": "Sosiaalityöntekijä",
-    "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Yhteispäivystys",
-    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
-    "location": "Tuulensuunkatu 6, 21100 Naantali",
-    "timing": {
-      "startTime": "2023-02-08T23:16:28.893008",
-      "duration": 370,
-      "isFlexible": false
-    },
-    "hourlyPay": 10.57,
-    "benefits": [],
-    "contactInfo": {
-      "email": "sijaisuudet@varha.fi",
-      "phoneNumber": "0551234567"
-    }
-  },
-  {
-    "id": 34,
-    "date": "2023-02-02T00:16:28.893023",
-    "title": "Röntgenhoitaja",
-    "description": "Tähän tulee lyhyt kuvaus työstä",
     "department": "Ihotautien poliklinikka",
     "organisation": "Varsinais-Suomen hyvinvointialue Varha",
-    "location": "Hämeentie 11, 20521 TURKU",
-    "timing": {
-      "startTime": "2023-02-09T00:16:28.893033",
-      "duration": 360,
-      "isFlexible": false
+    "location": "Tuulensuunkatu 6, 21100 Naantali",
+    "coordinates": {
+      "longitude": 60.4691794883538,
+      "latitude": 22.026600512353554
     },
-    "hourlyPay": 16.32,
-    "benefits": [],
-    "contactInfo": {
-      "email": "sijaisuudet@varha.fi",
-      "phoneNumber": "0551234567"
-    }
-  },
-  {
-    "id": 35,
-    "date": "2023-02-02T01:16:28.893049",
-    "title": "Sairaanhoitaja",
-    "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Yhteispäivystys",
-    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
-    "location": "Torikatu 21, 90100 OULU",
     "timing": {
-      "startTime": "2023-02-09T01:16:28.893059",
-      "duration": 430,
-      "isFlexible": false
-    },
-    "hourlyPay": 11.06,
-    "benefits": [
-      "40€ bonus"
-    ],
-    "contactInfo": {
-      "email": "sijaisuudet@pohde.fi",
-      "phoneNumber": "0551234567"
-    }
-  },
-  {
-    "id": 36,
-    "date": "2023-02-02T02:16:28.893075",
-    "title": "Hammashoitaja",
-    "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Ihotautien poliklinikka",
-    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
-    "location": "Pesätie 11, 90420 OULU",
-    "timing": {
-      "startTime": "2023-02-09T02:16:28.893085",
-      "duration": 380,
+      "startTime": "2023-02-25T09:01:40.985926",
+      "duration": 420,
       "isFlexible": true
     },
-    "hourlyPay": 19.98,
-    "benefits": [],
-    "contactInfo": {
-      "email": "sijaisuudet@pohde.fi",
-      "phoneNumber": "0551234567"
-    }
-  },
-  {
-    "id": 37,
-    "date": "2023-02-02T03:16:28.893100",
-    "title": "Hammashoitaja",
-    "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Keskusleikkausosasto",
-    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
-    "location": "Hämeentie 11, 20521 TURKU",
-    "timing": {
-      "startTime": "2023-02-09T03:16:28.893110",
-      "duration": 400,
-      "isFlexible": true
-    },
-    "hourlyPay": 10.96,
+    "hourlyPay": 17.95,
     "benefits": [],
     "contactInfo": {
       "email": "sijaisuudet@varha.fi",
@@ -799,60 +1599,22 @@
   },
   {
     "id": 38,
-    "date": "2023-02-02T04:16:28.893129",
-    "title": "Sosiaalityöntekijä",
-    "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Ihotautien poliklinikka",
-    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
-    "location": "Käsityöläiskatu 2, 20100 TURKU",
-    "timing": {
-      "startTime": "2023-02-09T04:16:28.893138",
-      "duration": 410,
-      "isFlexible": false
-    },
-    "hourlyPay": 18.29,
-    "benefits": [
-      "Lounasetu"
-    ],
-    "contactInfo": {
-      "email": "sijaisuudet@varha.fi",
-      "phoneNumber": "0551234567"
-    }
-  },
-  {
-    "id": 39,
-    "date": "2023-02-02T05:16:28.893154",
-    "title": "Sosiaalityöntekijä",
+    "date": "2023-02-16T04:01:40.984984",
+    "title": "Lähihoitaja",
     "description": "Tähän tulee lyhyt kuvaus työstä",
     "department": "Yhteispäivystys",
-    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
-    "location": "Hämeentie 11, 20521 TURKU",
-    "timing": {
-      "startTime": "2023-02-09T05:16:28.893164",
-      "duration": 350,
-      "isFlexible": false
-    },
-    "hourlyPay": 16.72,
-    "benefits": [],
-    "contactInfo": {
-      "email": "sijaisuudet@varha.fi",
-      "phoneNumber": "0551234567"
-    }
-  },
-  {
-    "id": 40,
-    "date": "2023-02-02T06:16:28.893179",
-    "title": "Suuhygienisti",
-    "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Keskusleikkausosasto",
     "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
     "location": "Pesätie 11, 90420 OULU",
+    "coordinates": {
+      "longitude": 64.95636793384206,
+      "latitude": 25.531864452214528
+    },
     "timing": {
-      "startTime": "2023-02-09T06:16:28.893189",
-      "duration": 380,
+      "startTime": "2023-02-23T04:01:40.984990",
+      "duration": 260,
       "isFlexible": true
     },
-    "hourlyPay": 13.75,
+    "hourlyPay": 13.69,
     "benefits": [],
     "contactInfo": {
       "email": "sijaisuudet@pohde.fi",
@@ -860,141 +1622,76 @@
     }
   },
   {
-    "id": 41,
-    "date": "2023-02-02T07:16:28.893205",
+    "id": 28,
+    "date": "2023-02-15T18:01:40.984804",
     "title": "Hammashoitaja",
     "description": "Tähän tulee lyhyt kuvaus työstä",
     "department": "Ihotautien poliklinikka",
     "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
-    "location": "Torikatu 21, 90100 OULU",
+    "location": "Kirkkotie 21, 90440 KEMPELE",
+    "coordinates": {
+      "longitude": 64.91469977241674,
+      "latitude": 25.489666342310308
+    },
     "timing": {
-      "startTime": "2023-02-09T07:16:28.893215",
-      "duration": 350,
+      "startTime": "2023-02-22T18:01:40.984810",
+      "duration": 330,
       "isFlexible": true
     },
-    "hourlyPay": 17.26,
-    "benefits": [],
-    "contactInfo": {
-      "email": "sijaisuudet@pohde.fi",
-      "phoneNumber": "0551234567"
-    }
-  },
-  {
-    "id": 42,
-    "date": "2023-02-02T08:16:28.893232",
-    "title": "Sosiaalityöntekijä",
-    "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Keskusleikkausosasto",
-    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
-    "location": "Torikatu 21, 90100 OULU",
-    "timing": {
-      "startTime": "2023-02-09T08:16:28.893241",
-      "duration": 430,
-      "isFlexible": true
-    },
-    "hourlyPay": 14.28,
-    "benefits": [],
-    "contactInfo": {
-      "email": "sijaisuudet@pohde.fi",
-      "phoneNumber": "0551234567"
-    }
-  },
-  {
-    "id": 43,
-    "date": "2023-02-02T09:16:28.893258",
-    "title": "Lähihoitaja",
-    "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Keskusleikkausosasto",
-    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
-    "location": "Käsityöläiskatu 2, 20100 TURKU",
-    "timing": {
-      "startTime": "2023-02-09T09:16:28.893268",
-      "duration": 250,
-      "isFlexible": true
-    },
-    "hourlyPay": 13.0,
-    "benefits": [],
-    "contactInfo": {
-      "email": "sijaisuudet@varha.fi",
-      "phoneNumber": "0551234567"
-    }
-  },
-  {
-    "id": 44,
-    "date": "2023-02-02T10:16:28.893285",
-    "title": "Sosiaalityöntekijä",
-    "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Ihotautien poliklinikka",
-    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
-    "location": "Pesätie 11, 90420 OULU",
-    "timing": {
-      "startTime": "2023-02-09T10:16:28.893295",
-      "duration": 410,
-      "isFlexible": false
-    },
-    "hourlyPay": 19.94,
-    "benefits": [],
-    "contactInfo": {
-      "email": "sijaisuudet@pohde.fi",
-      "phoneNumber": "0551234567"
-    }
-  },
-  {
-    "id": 45,
-    "date": "2023-02-02T11:16:28.893311",
-    "title": "Suuhygienisti",
-    "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Keskusleikkausosasto",
-    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
-    "location": "Käsityöläiskatu 2, 20100 TURKU",
-    "timing": {
-      "startTime": "2023-02-09T11:16:28.893321",
-      "duration": 440,
-      "isFlexible": false
-    },
-    "hourlyPay": 18.3,
+    "hourlyPay": 17.79,
     "benefits": [
       "Lounasetu"
     ],
     "contactInfo": {
-      "email": "sijaisuudet@varha.fi",
+      "email": "sijaisuudet@pohde.fi",
       "phoneNumber": "0551234567"
     }
   },
   {
-    "id": 46,
-    "date": "2023-02-02T12:16:28.893336",
-    "title": "Röntgenhoitaja",
+    "id": 74,
+    "date": "2023-02-17T16:01:40.985617",
+    "title": "Lähihoitaja",
     "description": "Tähän tulee lyhyt kuvaus työstä",
     "department": "Yhteispäivystys",
     "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
     "location": "Kirkkotie 21, 90440 KEMPELE",
+    "coordinates": {
+      "longitude": 64.91469977241674,
+      "latitude": 25.489666342310308
+    },
     "timing": {
-      "startTime": "2023-02-09T12:16:28.893346",
+      "startTime": "2023-02-24T16:01:40.985623",
+      "duration": 370,
+      "isFlexible": true
+    },
+    "hourlyPay": 16.59,
+    "benefits": [
+      "Lounasetu",
+      "30€ bonus"
+    ],
+    "contactInfo": {
+      "email": "sijaisuudet@pohde.fi",
+      "phoneNumber": "0551234567"
+    }
+  },
+  {
+    "id": 4,
+    "date": "2023-02-14T18:01:40.984375",
+    "title": "Sairaanhoitaja",
+    "description": "Tähän tulee lyhyt kuvaus työstä",
+    "department": "Ihotautien poliklinikka",
+    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
+    "location": "Käsityöläiskatu 2, 20100 TURKU",
+    "coordinates": {
+      "longitude": 60.448420880529184,
+      "latitude": 22.2585894854291
+    },
+    "timing": {
+      "startTime": "2023-02-21T18:01:40.984381",
       "duration": 420,
       "isFlexible": false
     },
-    "hourlyPay": 13.32,
-    "benefits": [],
-    "contactInfo": {
-      "email": "sijaisuudet@pohde.fi",
-      "phoneNumber": "0551234567"
-    }
-  },
-  {
-    "id": 47,
-    "date": "2023-02-02T13:16:28.893363",
-    "title": "Sairaanhoitaja",
-    "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Ihotautien poliklinikka",
-    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
-    "location": "Tuulensuunkatu 6, 21100 Naantali",
-    "timing": {
-      "startTime": "2023-02-09T13:16:28.893373",
-      "duration": 280,
-      "isFlexible": false
-    },
-    "hourlyPay": 17.31,
+    "hourlyPay": 11.51,
     "benefits": [],
     "contactInfo": {
       "email": "sijaisuudet@varha.fi",
@@ -1002,101 +1699,71 @@
     }
   },
   {
-    "id": 48,
-    "date": "2023-02-02T14:16:28.893389",
-    "title": "Hammashoitaja",
+    "id": 88,
+    "date": "2023-02-18T06:01:40.985867",
+    "title": "Sosiaalityöntekijä",
     "description": "Tähän tulee lyhyt kuvaus työstä",
     "department": "Yhteispäivystys",
     "organisation": "Varsinais-Suomen hyvinvointialue Varha",
     "location": "Tuulensuunkatu 6, 21100 Naantali",
-    "timing": {
-      "startTime": "2023-02-09T14:16:28.893399",
-      "duration": 300,
-      "isFlexible": false
+    "coordinates": {
+      "longitude": 60.4691794883538,
+      "latitude": 22.026600512353554
     },
-    "hourlyPay": 13.5,
-    "benefits": [],
-    "contactInfo": {
-      "email": "sijaisuudet@varha.fi",
-      "phoneNumber": "0551234567"
-    }
-  },
-  {
-    "id": 49,
-    "date": "2023-02-02T15:16:28.893414",
-    "title": "Röntgenhoitaja",
-    "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Ihotautien poliklinikka",
-    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
-    "location": "Tuulensuunkatu 6, 21100 Naantali",
     "timing": {
-      "startTime": "2023-02-09T15:16:28.893424",
-      "duration": 440,
-      "isFlexible": false
-    },
-    "hourlyPay": 13.95,
-    "benefits": [],
-    "contactInfo": {
-      "email": "sijaisuudet@varha.fi",
-      "phoneNumber": "0551234567"
-    }
-  },
-  {
-    "id": 50,
-    "date": "2023-02-02T16:16:28.893440",
-    "title": "Suuhygienisti",
-    "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Ihotautien poliklinikka",
-    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
-    "location": "Käsityöläiskatu 2, 20100 TURKU",
-    "timing": {
-      "startTime": "2023-02-09T16:16:28.893449",
-      "duration": 360,
-      "isFlexible": false
-    },
-    "hourlyPay": 18.99,
-    "benefits": [
-      "Lounasetu"
-    ],
-    "contactInfo": {
-      "email": "sijaisuudet@varha.fi",
-      "phoneNumber": "0551234567"
-    }
-  },
-  {
-    "id": 51,
-    "date": "2023-02-02T17:16:28.893466",
-    "title": "Sairaanhoitaja",
-    "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Yhteispäivystys",
-    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
-    "location": "Torikatu 21, 90100 OULU",
-    "timing": {
-      "startTime": "2023-02-09T17:16:28.893476",
-      "duration": 280,
+      "startTime": "2023-02-25T06:01:40.985873",
+      "duration": 260,
       "isFlexible": true
     },
-    "hourlyPay": 16.1,
+    "hourlyPay": 15.95,
     "benefits": [],
     "contactInfo": {
-      "email": "sijaisuudet@pohde.fi",
+      "email": "sijaisuudet@varha.fi",
       "phoneNumber": "0551234567"
     }
   },
   {
-    "id": 52,
-    "date": "2023-02-02T18:16:28.893492",
+    "id": 2,
+    "date": "2023-02-14T16:01:40.984334",
     "title": "Sosiaalityöntekijä",
+    "description": "Tähän tulee lyhyt kuvaus työstä",
+    "department": "Yhteispäivystys",
+    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
+    "location": "Käsityöläiskatu 2, 20100 TURKU",
+    "coordinates": {
+      "longitude": 60.448420880529184,
+      "latitude": 22.2585894854291
+    },
+    "timing": {
+      "startTime": "2023-02-21T16:01:40.984340",
+      "duration": 390,
+      "isFlexible": false
+    },
+    "hourlyPay": 19.43,
+    "benefits": [],
+    "contactInfo": {
+      "email": "sijaisuudet@varha.fi",
+      "phoneNumber": "0551234567"
+    }
+  },
+  {
+    "id": 37,
+    "date": "2023-02-16T03:01:40.984967",
+    "title": "Röntgenhoitaja",
     "description": "Tähän tulee lyhyt kuvaus työstä",
     "department": "Keskusleikkausosasto",
     "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
-    "location": "Kirkkotie 21, 90440 KEMPELE",
-    "timing": {
-      "startTime": "2023-02-09T18:16:28.893502",
-      "duration": 480,
-      "isFlexible": true
+    "location": "Pesätie 11, 90420 OULU",
+    "coordinates": {
+      "longitude": 64.95636793384206,
+      "latitude": 25.531864452214528
     },
-    "hourlyPay": 17.77,
+    "timing": {
+      "startTime": "2023-02-23T03:01:40.984973",
+      "duration": 450,
+      "isFlexible": false
+    },
+    "hourlyPay": 18.15,
     "benefits": [],
     "contactInfo": {
       "email": "sijaisuudet@pohde.fi",
@@ -1105,86 +1772,95 @@
   },
   {
     "id": 53,
-    "date": "2023-02-02T19:16:28.893518",
-    "title": "Sosiaalityöntekijä",
+    "date": "2023-02-16T19:01:40.985242",
+    "title": "Hammashoitaja",
     "description": "Tähän tulee lyhyt kuvaus työstä",
     "department": "Ihotautien poliklinikka",
     "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
-    "location": "Pesätie 11, 90420 OULU",
-    "timing": {
-      "startTime": "2023-02-09T19:16:28.893528",
-      "duration": 420,
-      "isFlexible": false
+    "location": "Kirkkotie 21, 90440 KEMPELE",
+    "coordinates": {
+      "longitude": 64.91469977241674,
+      "latitude": 25.489666342310308
     },
-    "hourlyPay": 14.51,
-    "benefits": [
-      "40€ bonus"
-    ],
+    "timing": {
+      "startTime": "2023-02-23T19:01:40.985247",
+      "duration": 300,
+      "isFlexible": true
+    },
+    "hourlyPay": 19.51,
+    "benefits": [],
     "contactInfo": {
       "email": "sijaisuudet@pohde.fi",
       "phoneNumber": "0551234567"
     }
   },
   {
-    "id": 54,
-    "date": "2023-02-02T20:16:28.893543",
-    "title": "Suuhygienisti",
-    "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Ihotautien poliklinikka",
-    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
-    "location": "Tuulensuunkatu 6, 21100 Naantali",
-    "timing": {
-      "startTime": "2023-02-09T20:16:28.893553",
-      "duration": 290,
-      "isFlexible": false
-    },
-    "hourlyPay": 18.14,
-    "benefits": [],
-    "contactInfo": {
-      "email": "sijaisuudet@varha.fi",
-      "phoneNumber": "0551234567"
-    }
-  },
-  {
-    "id": 55,
-    "date": "2023-02-02T21:16:28.893569",
+    "id": 24,
+    "date": "2023-02-15T14:01:40.984732",
     "title": "Sosiaalityöntekijä",
     "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Keskusleikkausosasto",
-    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
-    "location": "Hämeentie 11, 20521 TURKU",
+    "department": "Yhteispäivystys",
+    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
+    "location": "Pesätie 11, 90420 OULU",
+    "coordinates": {
+      "longitude": 64.95636793384206,
+      "latitude": 25.531864452214528
+    },
     "timing": {
-      "startTime": "2023-02-09T21:16:28.893579",
-      "duration": 470,
+      "startTime": "2023-02-22T14:01:40.984738",
+      "duration": 480,
       "isFlexible": true
     },
-    "hourlyPay": 11.35,
-    "benefits": [
-      "Lounasetu",
-      "30€ bonus"
-    ],
+    "hourlyPay": 18.91,
+    "benefits": [],
     "contactInfo": {
-      "email": "sijaisuudet@varha.fi",
+      "email": "sijaisuudet@pohde.fi",
       "phoneNumber": "0551234567"
     }
   },
   {
-    "id": 56,
-    "date": "2023-02-02T22:16:28.893594",
-    "title": "Röntgenhoitaja",
+    "id": 36,
+    "date": "2023-02-16T02:01:40.984950",
+    "title": "Lähihoitaja",
     "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Keskusleikkausosasto",
+    "department": "Yhteispäivystys",
     "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
     "location": "Pesätie 11, 90420 OULU",
-    "timing": {
-      "startTime": "2023-02-09T22:16:28.893604",
-      "duration": 390,
-      "isFlexible": true
+    "coordinates": {
+      "longitude": 64.95636793384206,
+      "latitude": 25.531864452214528
     },
-    "hourlyPay": 15.59,
-    "benefits": [
-      "40€ bonus"
-    ],
+    "timing": {
+      "startTime": "2023-02-23T02:01:40.984955",
+      "duration": 360,
+      "isFlexible": false
+    },
+    "hourlyPay": 13.54,
+    "benefits": [],
+    "contactInfo": {
+      "email": "sijaisuudet@pohde.fi",
+      "phoneNumber": "0551234567"
+    }
+  },
+  {
+    "id": 66,
+    "date": "2023-02-17T08:01:40.985478",
+    "title": "Sairaanhoitaja",
+    "description": "Tähän tulee lyhyt kuvaus työstä",
+    "department": "Ihotautien poliklinikka",
+    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
+    "location": "Pesätie 11, 90420 OULU",
+    "coordinates": {
+      "longitude": 64.95636793384206,
+      "latitude": 25.531864452214528
+    },
+    "timing": {
+      "startTime": "2023-02-24T08:01:40.985484",
+      "duration": 450,
+      "isFlexible": false
+    },
+    "hourlyPay": 18.9,
+    "benefits": [],
     "contactInfo": {
       "email": "sijaisuudet@pohde.fi",
       "phoneNumber": "0551234567"
@@ -1192,498 +1868,76 @@
   },
   {
     "id": 57,
-    "date": "2023-02-02T23:16:28.893627",
-    "title": "Sosiaalityöntekijä",
-    "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Keskusleikkausosasto",
-    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
-    "location": "Tuulensuunkatu 6, 21100 Naantali",
-    "timing": {
-      "startTime": "2023-02-09T23:16:28.893638",
-      "duration": 440,
-      "isFlexible": true
-    },
-    "hourlyPay": 18.96,
-    "benefits": [],
-    "contactInfo": {
-      "email": "sijaisuudet@varha.fi",
-      "phoneNumber": "0551234567"
-    }
-  },
-  {
-    "id": 58,
-    "date": "2023-02-03T00:16:28.893654",
-    "title": "Sairaanhoitaja",
-    "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Yhteispäivystys",
-    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
-    "location": "Torikatu 21, 90100 OULU",
-    "timing": {
-      "startTime": "2023-02-10T00:16:28.893663",
-      "duration": 440,
-      "isFlexible": false
-    },
-    "hourlyPay": 12.14,
-    "benefits": [
-      "Lounasetu",
-      "30€ bonus"
-    ],
-    "contactInfo": {
-      "email": "sijaisuudet@pohde.fi",
-      "phoneNumber": "0551234567"
-    }
-  },
-  {
-    "id": 59,
-    "date": "2023-02-03T01:16:28.893679",
-    "title": "Suuhygienisti",
-    "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Yhteispäivystys",
-    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
-    "location": "Tuulensuunkatu 6, 21100 Naantali",
-    "timing": {
-      "startTime": "2023-02-10T01:16:28.893689",
-      "duration": 360,
-      "isFlexible": true
-    },
-    "hourlyPay": 13.11,
-    "benefits": [],
-    "contactInfo": {
-      "email": "sijaisuudet@varha.fi",
-      "phoneNumber": "0551234567"
-    }
-  },
-  {
-    "id": 60,
-    "date": "2023-02-03T02:16:28.893706",
-    "title": "Röntgenhoitaja",
-    "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Keskusleikkausosasto",
-    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
-    "location": "Hämeentie 11, 20521 TURKU",
-    "timing": {
-      "startTime": "2023-02-10T02:16:28.893716",
-      "duration": 410,
-      "isFlexible": false
-    },
-    "hourlyPay": 19.69,
-    "benefits": [
-      "Lounasetu",
-      "30€ bonus"
-    ],
-    "contactInfo": {
-      "email": "sijaisuudet@varha.fi",
-      "phoneNumber": "0551234567"
-    }
-  },
-  {
-    "id": 61,
-    "date": "2023-02-03T03:16:28.893732",
-    "title": "Sosiaalityöntekijä",
-    "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Ihotautien poliklinikka",
-    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
-    "location": "Kirkkotie 21, 90440 KEMPELE",
-    "timing": {
-      "startTime": "2023-02-10T03:16:28.893743",
-      "duration": 480,
-      "isFlexible": false
-    },
-    "hourlyPay": 18.54,
-    "benefits": [],
-    "contactInfo": {
-      "email": "sijaisuudet@pohde.fi",
-      "phoneNumber": "0551234567"
-    }
-  },
-  {
-    "id": 62,
-    "date": "2023-02-03T04:16:28.893759",
-    "title": "Röntgenhoitaja",
-    "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Ihotautien poliklinikka",
-    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
-    "location": "Hämeentie 11, 20521 TURKU",
-    "timing": {
-      "startTime": "2023-02-10T04:16:28.893769",
-      "duration": 320,
-      "isFlexible": false
-    },
-    "hourlyPay": 13.16,
-    "benefits": [],
-    "contactInfo": {
-      "email": "sijaisuudet@varha.fi",
-      "phoneNumber": "0551234567"
-    }
-  },
-  {
-    "id": 63,
-    "date": "2023-02-03T05:16:28.893784",
-    "title": "Sosiaalityöntekijä",
-    "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Keskusleikkausosasto",
-    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
-    "location": "Pesätie 11, 90420 OULU",
-    "timing": {
-      "startTime": "2023-02-10T05:16:28.893794",
-      "duration": 370,
-      "isFlexible": true
-    },
-    "hourlyPay": 15.36,
-    "benefits": [],
-    "contactInfo": {
-      "email": "sijaisuudet@pohde.fi",
-      "phoneNumber": "0551234567"
-    }
-  },
-  {
-    "id": 64,
-    "date": "2023-02-03T06:16:28.893809",
-    "title": "Suuhygienisti",
-    "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Ihotautien poliklinikka",
-    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
-    "location": "Käsityöläiskatu 2, 20100 TURKU",
-    "timing": {
-      "startTime": "2023-02-10T06:16:28.893819",
-      "duration": 290,
-      "isFlexible": false
-    },
-    "hourlyPay": 10.14,
-    "benefits": [],
-    "contactInfo": {
-      "email": "sijaisuudet@varha.fi",
-      "phoneNumber": "0551234567"
-    }
-  },
-  {
-    "id": 65,
-    "date": "2023-02-03T07:16:28.893836",
-    "title": "Suuhygienisti",
-    "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Ihotautien poliklinikka",
-    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
-    "location": "Käsityöläiskatu 2, 20100 TURKU",
-    "timing": {
-      "startTime": "2023-02-10T07:16:28.893845",
-      "duration": 420,
-      "isFlexible": false
-    },
-    "hourlyPay": 16.74,
-    "benefits": [
-      "40€ bonus"
-    ],
-    "contactInfo": {
-      "email": "sijaisuudet@varha.fi",
-      "phoneNumber": "0551234567"
-    }
-  },
-  {
-    "id": 66,
-    "date": "2023-02-03T08:16:28.893861",
+    "date": "2023-02-16T23:01:40.985316",
     "title": "Hammashoitaja",
     "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Keskusleikkausosasto",
+    "department": "Yhteispäivystys",
     "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
     "location": "Pesätie 11, 90420 OULU",
-    "timing": {
-      "startTime": "2023-02-10T08:16:28.893871",
-      "duration": 270,
-      "isFlexible": false
+    "coordinates": {
+      "longitude": 64.95636793384206,
+      "latitude": 25.531864452214528
     },
-    "hourlyPay": 19.93,
-    "benefits": [],
-    "contactInfo": {
-      "email": "sijaisuudet@pohde.fi",
-      "phoneNumber": "0551234567"
-    }
-  },
-  {
-    "id": 67,
-    "date": "2023-02-03T09:16:28.893887",
-    "title": "Sairaanhoitaja",
-    "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Yhteispäivystys",
-    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
-    "location": "Torikatu 21, 90100 OULU",
     "timing": {
-      "startTime": "2023-02-10T09:16:28.893896",
-      "duration": 420,
+      "startTime": "2023-02-23T23:01:40.985322",
+      "duration": 380,
       "isFlexible": true
     },
-    "hourlyPay": 13.74,
-    "benefits": [
-      "Lounasetu",
-      "30€ bonus"
-    ],
-    "contactInfo": {
-      "email": "sijaisuudet@pohde.fi",
-      "phoneNumber": "0551234567"
-    }
-  },
-  {
-    "id": 68,
-    "date": "2023-02-03T10:16:28.893913",
-    "title": "Suuhygienisti",
-    "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Yhteispäivystys",
-    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
-    "location": "Kirkkotie 21, 90440 KEMPELE",
-    "timing": {
-      "startTime": "2023-02-10T10:16:28.893923",
-      "duration": 250,
-      "isFlexible": true
-    },
-    "hourlyPay": 15.21,
+    "hourlyPay": 11.39,
     "benefits": [],
     "contactInfo": {
       "email": "sijaisuudet@pohde.fi",
-      "phoneNumber": "0551234567"
-    }
-  },
-  {
-    "id": 69,
-    "date": "2023-02-03T11:16:28.893938",
-    "title": "Röntgenhoitaja",
-    "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Keskusleikkausosasto",
-    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
-    "location": "Pesätie 11, 90420 OULU",
-    "timing": {
-      "startTime": "2023-02-10T11:16:28.893948",
-      "duration": 390,
-      "isFlexible": false
-    },
-    "hourlyPay": 16.27,
-    "benefits": [],
-    "contactInfo": {
-      "email": "sijaisuudet@pohde.fi",
-      "phoneNumber": "0551234567"
-    }
-  },
-  {
-    "id": 70,
-    "date": "2023-02-03T12:16:28.893964",
-    "title": "Röntgenhoitaja",
-    "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Ihotautien poliklinikka",
-    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
-    "location": "Käsityöläiskatu 2, 20100 TURKU",
-    "timing": {
-      "startTime": "2023-02-10T12:16:28.893974",
-      "duration": 440,
-      "isFlexible": true
-    },
-    "hourlyPay": 11.32,
-    "benefits": [
-      "Lounasetu"
-    ],
-    "contactInfo": {
-      "email": "sijaisuudet@varha.fi",
-      "phoneNumber": "0551234567"
-    }
-  },
-  {
-    "id": 71,
-    "date": "2023-02-03T13:16:28.893990",
-    "title": "Lähihoitaja",
-    "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Yhteispäivystys",
-    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
-    "location": "Torikatu 21, 90100 OULU",
-    "timing": {
-      "startTime": "2023-02-10T13:16:28.894000",
-      "duration": 420,
-      "isFlexible": false
-    },
-    "hourlyPay": 12.76,
-    "benefits": [
-      "Lounasetu",
-      "30€ bonus"
-    ],
-    "contactInfo": {
-      "email": "sijaisuudet@pohde.fi",
-      "phoneNumber": "0551234567"
-    }
-  },
-  {
-    "id": 72,
-    "date": "2023-02-03T14:16:28.894016",
-    "title": "Hammashoitaja",
-    "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Keskusleikkausosasto",
-    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
-    "location": "Kirkkotie 21, 90440 KEMPELE",
-    "timing": {
-      "startTime": "2023-02-10T14:16:28.894025",
-      "duration": 430,
-      "isFlexible": false
-    },
-    "hourlyPay": 10.32,
-    "benefits": [],
-    "contactInfo": {
-      "email": "sijaisuudet@pohde.fi",
-      "phoneNumber": "0551234567"
-    }
-  },
-  {
-    "id": 73,
-    "date": "2023-02-03T15:16:28.894041",
-    "title": "Lähihoitaja",
-    "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Keskusleikkausosasto",
-    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
-    "location": "Torikatu 21, 90100 OULU",
-    "timing": {
-      "startTime": "2023-02-10T15:16:28.894051",
-      "duration": 420,
-      "isFlexible": false
-    },
-    "hourlyPay": 11.18,
-    "benefits": [],
-    "contactInfo": {
-      "email": "sijaisuudet@pohde.fi",
-      "phoneNumber": "0551234567"
-    }
-  },
-  {
-    "id": 74,
-    "date": "2023-02-03T16:16:28.894066",
-    "title": "Sairaanhoitaja",
-    "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Keskusleikkausosasto",
-    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
-    "location": "Torikatu 21, 90100 OULU",
-    "timing": {
-      "startTime": "2023-02-10T16:16:28.894076",
-      "duration": 330,
-      "isFlexible": false
-    },
-    "hourlyPay": 14.48,
-    "benefits": [],
-    "contactInfo": {
-      "email": "sijaisuudet@pohde.fi",
-      "phoneNumber": "0551234567"
-    }
-  },
-  {
-    "id": 75,
-    "date": "2023-02-03T17:16:28.894091",
-    "title": "Röntgenhoitaja",
-    "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Keskusleikkausosasto",
-    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
-    "location": "Käsityöläiskatu 2, 20100 TURKU",
-    "timing": {
-      "startTime": "2023-02-10T17:16:28.894100",
-      "duration": 460,
-      "isFlexible": true
-    },
-    "hourlyPay": 16.19,
-    "benefits": [
-      "Lounasetu",
-      "30€ bonus"
-    ],
-    "contactInfo": {
-      "email": "sijaisuudet@varha.fi",
-      "phoneNumber": "0551234567"
-    }
-  },
-  {
-    "id": 76,
-    "date": "2023-02-03T18:16:28.894117",
-    "title": "Röntgenhoitaja",
-    "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Yhteispäivystys",
-    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
-    "location": "Tuulensuunkatu 6, 21100 Naantali",
-    "timing": {
-      "startTime": "2023-02-10T18:16:28.894127",
-      "duration": 420,
-      "isFlexible": true
-    },
-    "hourlyPay": 16.38,
-    "benefits": [],
-    "contactInfo": {
-      "email": "sijaisuudet@varha.fi",
       "phoneNumber": "0551234567"
     }
   },
   {
     "id": 77,
-    "date": "2023-02-03T19:16:28.894145",
-    "title": "Lähihoitaja",
-    "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Keskusleikkausosasto",
-    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
-    "location": "Tuulensuunkatu 6, 21100 Naantali",
-    "timing": {
-      "startTime": "2023-02-10T19:16:28.894155",
-      "duration": 290,
-      "isFlexible": true
-    },
-    "hourlyPay": 10.91,
-    "benefits": [],
-    "contactInfo": {
-      "email": "sijaisuudet@varha.fi",
-      "phoneNumber": "0551234567"
-    }
-  },
-  {
-    "id": 78,
-    "date": "2023-02-03T20:16:28.894170",
-    "title": "Sairaanhoitaja",
+    "date": "2023-02-17T19:01:40.985671",
+    "title": "Hammashoitaja",
     "description": "Tähän tulee lyhyt kuvaus työstä",
     "department": "Yhteispäivystys",
     "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
-    "location": "Torikatu 21, 90100 OULU",
-    "timing": {
-      "startTime": "2023-02-10T20:16:28.894180",
-      "duration": 250,
-      "isFlexible": false
+    "location": "Kirkkotie 21, 90440 KEMPELE",
+    "coordinates": {
+      "longitude": 64.91469977241674,
+      "latitude": 25.489666342310308
     },
-    "hourlyPay": 16.99,
-    "benefits": [],
+    "timing": {
+      "startTime": "2023-02-24T19:01:40.985677",
+      "duration": 410,
+      "isFlexible": true
+    },
+    "hourlyPay": 13.6,
+    "benefits": [
+      "Lounasetu",
+      "30€ bonus"
+    ],
     "contactInfo": {
       "email": "sijaisuudet@pohde.fi",
       "phoneNumber": "0551234567"
     }
   },
   {
-    "id": 79,
-    "date": "2023-02-03T21:16:28.894196",
-    "title": "Suuhygienisti",
-    "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Ihotautien poliklinikka",
-    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
-    "location": "Pesätie 11, 90420 OULU",
-    "timing": {
-      "startTime": "2023-02-10T21:16:28.894205",
-      "duration": 300,
-      "isFlexible": false
-    },
-    "hourlyPay": 18.44,
-    "benefits": [],
-    "contactInfo": {
-      "email": "sijaisuudet@pohde.fi",
-      "phoneNumber": "0551234567"
-    }
-  },
-  {
-    "id": 80,
-    "date": "2023-02-03T22:16:28.894222",
+    "id": 17,
+    "date": "2023-02-15T07:01:40.984608",
     "title": "Lähihoitaja",
     "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Keskusleikkausosasto",
+    "department": "Ihotautien poliklinikka",
     "organisation": "Varsinais-Suomen hyvinvointialue Varha",
-    "location": "Tuulensuunkatu 6, 21100 Naantali",
+    "location": "Hämeentie 11, 20521 TURKU",
+    "coordinates": {
+      "longitude": 60.454266053829656,
+      "latitude": 22.295853144213755
+    },
     "timing": {
-      "startTime": "2023-02-10T22:16:28.894232",
-      "duration": 240,
+      "startTime": "2023-02-22T07:01:40.984614",
+      "duration": 350,
       "isFlexible": false
     },
-    "hourlyPay": 12.45,
-    "benefits": [],
+    "hourlyPay": 15.36,
+    "benefits": [
+      "Lounasetu"
+    ],
     "contactInfo": {
       "email": "sijaisuudet@varha.fi",
       "phoneNumber": "0551234567"
@@ -1691,80 +1945,22 @@
   },
   {
     "id": 81,
-    "date": "2023-02-03T23:16:28.894248",
-    "title": "Lähihoitaja",
-    "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Ihotautien poliklinikka",
-    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
-    "location": "Käsityöläiskatu 2, 20100 TURKU",
-    "timing": {
-      "startTime": "2023-02-10T23:16:28.894257",
-      "duration": 370,
-      "isFlexible": true
-    },
-    "hourlyPay": 15.6,
-    "benefits": [],
-    "contactInfo": {
-      "email": "sijaisuudet@varha.fi",
-      "phoneNumber": "0551234567"
-    }
-  },
-  {
-    "id": 82,
-    "date": "2023-02-04T00:16:28.894273",
-    "title": "Sosiaalityöntekijä",
-    "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Yhteispäivystys",
-    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
-    "location": "Käsityöläiskatu 2, 20100 TURKU",
-    "timing": {
-      "startTime": "2023-02-11T00:16:28.894283",
-      "duration": 330,
-      "isFlexible": true
-    },
-    "hourlyPay": 17.27,
-    "benefits": [],
-    "contactInfo": {
-      "email": "sijaisuudet@varha.fi",
-      "phoneNumber": "0551234567"
-    }
-  },
-  {
-    "id": 83,
-    "date": "2023-02-04T01:16:28.894300",
-    "title": "Sosiaalityöntekijä",
-    "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Ihotautien poliklinikka",
-    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
-    "location": "Hämeentie 11, 20521 TURKU",
-    "timing": {
-      "startTime": "2023-02-11T01:16:28.894310",
-      "duration": 410,
-      "isFlexible": true
-    },
-    "hourlyPay": 15.22,
-    "benefits": [
-      "40€ bonus"
-    ],
-    "contactInfo": {
-      "email": "sijaisuudet@varha.fi",
-      "phoneNumber": "0551234567"
-    }
-  },
-  {
-    "id": 84,
-    "date": "2023-02-04T02:16:28.894331",
-    "title": "Sairaanhoitaja",
+    "date": "2023-02-17T23:01:40.985741",
+    "title": "Röntgenhoitaja",
     "description": "Tähän tulee lyhyt kuvaus työstä",
     "department": "Ihotautien poliklinikka",
     "organisation": "Varsinais-Suomen hyvinvointialue Varha",
     "location": "Tuulensuunkatu 6, 21100 Naantali",
+    "coordinates": {
+      "longitude": 60.4691794883538,
+      "latitude": 22.026600512353554
+    },
     "timing": {
-      "startTime": "2023-02-11T02:16:28.894342",
-      "duration": 430,
+      "startTime": "2023-02-24T23:01:40.985747",
+      "duration": 330,
       "isFlexible": true
     },
-    "hourlyPay": 12.93,
+    "hourlyPay": 12.84,
     "benefits": [
       "40€ bonus"
     ],
@@ -1774,19 +1970,73 @@
     }
   },
   {
-    "id": 85,
-    "date": "2023-02-04T03:16:28.894358",
+    "id": 26,
+    "date": "2023-02-15T16:01:40.984768",
+    "title": "Suuhygienisti",
+    "description": "Tähän tulee lyhyt kuvaus työstä",
+    "department": "Ihotautien poliklinikka",
+    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
+    "location": "Pesätie 11, 90420 OULU",
+    "coordinates": {
+      "longitude": 64.95636793384206,
+      "latitude": 25.531864452214528
+    },
+    "timing": {
+      "startTime": "2023-02-22T16:01:40.984774",
+      "duration": 390,
+      "isFlexible": true
+    },
+    "hourlyPay": 15.54,
+    "benefits": [],
+    "contactInfo": {
+      "email": "sijaisuudet@pohde.fi",
+      "phoneNumber": "0551234567"
+    }
+  },
+  {
+    "id": 43,
+    "date": "2023-02-16T09:01:40.985070",
+    "title": "Lähihoitaja",
+    "description": "Tähän tulee lyhyt kuvaus työstä",
+    "department": "Keskusleikkausosasto",
+    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
+    "location": "Torikatu 21, 90100 OULU",
+    "coordinates": {
+      "longitude": 65.01104770301926,
+      "latitude": 25.466729956534994
+    },
+    "timing": {
+      "startTime": "2023-02-23T09:01:40.985076",
+      "duration": 380,
+      "isFlexible": true
+    },
+    "hourlyPay": 15.09,
+    "benefits": [
+      "Lounasetu"
+    ],
+    "contactInfo": {
+      "email": "sijaisuudet@pohde.fi",
+      "phoneNumber": "0551234567"
+    }
+  },
+  {
+    "id": 87,
+    "date": "2023-02-18T05:01:40.985850",
     "title": "Sairaanhoitaja",
     "description": "Tähän tulee lyhyt kuvaus työstä",
     "department": "Yhteispäivystys",
     "organisation": "Varsinais-Suomen hyvinvointialue Varha",
-    "location": "Käsityöläiskatu 2, 20100 TURKU",
-    "timing": {
-      "startTime": "2023-02-11T03:16:28.894368",
-      "duration": 370,
-      "isFlexible": true
+    "location": "Tuulensuunkatu 6, 21100 Naantali",
+    "coordinates": {
+      "longitude": 60.4691794883538,
+      "latitude": 22.026600512353554
     },
-    "hourlyPay": 18.37,
+    "timing": {
+      "startTime": "2023-02-25T05:01:40.985856",
+      "duration": 300,
+      "isFlexible": false
+    },
+    "hourlyPay": 17.12,
     "benefits": [
       "Lounasetu",
       "30€ bonus"
@@ -1797,81 +2047,26 @@
     }
   },
   {
-    "id": 86,
-    "date": "2023-02-04T04:16:28.894383",
+    "id": 62,
+    "date": "2023-02-17T04:01:40.985409",
     "title": "Sosiaalityöntekijä",
     "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Yhteispäivystys",
-    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
-    "location": "Tuulensuunkatu 6, 21100 Naantali",
+    "department": "Ihotautien poliklinikka",
+    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
+    "location": "Torikatu 21, 90100 OULU",
+    "coordinates": {
+      "longitude": 65.01104770301926,
+      "latitude": 25.466729956534994
+    },
     "timing": {
-      "startTime": "2023-02-11T04:16:28.894394",
-      "duration": 400,
+      "startTime": "2023-02-24T04:01:40.985415",
+      "duration": 390,
       "isFlexible": true
     },
-    "hourlyPay": 16.31,
-    "benefits": [],
-    "contactInfo": {
-      "email": "sijaisuudet@varha.fi",
-      "phoneNumber": "0551234567"
-    }
-  },
-  {
-    "id": 87,
-    "date": "2023-02-04T05:16:28.894409",
-    "title": "Hammashoitaja",
-    "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Ihotautien poliklinikka",
-    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
-    "location": "Kirkkotie 21, 90440 KEMPELE",
-    "timing": {
-      "startTime": "2023-02-11T05:16:28.894419",
-      "duration": 470,
-      "isFlexible": false
-    },
-    "hourlyPay": 19.35,
-    "benefits": [],
-    "contactInfo": {
-      "email": "sijaisuudet@pohde.fi",
-      "phoneNumber": "0551234567"
-    }
-  },
-  {
-    "id": 88,
-    "date": "2023-02-04T06:16:28.894435",
-    "title": "Röntgenhoitaja",
-    "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Yhteispäivystys",
-    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
-    "location": "Käsityöläiskatu 2, 20100 TURKU",
-    "timing": {
-      "startTime": "2023-02-11T06:16:28.894445",
-      "duration": 280,
-      "isFlexible": false
-    },
-    "hourlyPay": 18.15,
-    "benefits": [],
-    "contactInfo": {
-      "email": "sijaisuudet@varha.fi",
-      "phoneNumber": "0551234567"
-    }
-  },
-  {
-    "id": 89,
-    "date": "2023-02-04T07:16:28.894461",
-    "title": "Röntgenhoitaja",
-    "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Ihotautien poliklinikka",
-    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
-    "location": "Pesätie 11, 90420 OULU",
-    "timing": {
-      "startTime": "2023-02-11T07:16:28.894471",
-      "duration": 430,
-      "isFlexible": false
-    },
-    "hourlyPay": 13.08,
+    "hourlyPay": 19.49,
     "benefits": [
-      "Lounasetu"
+      "Lounasetu",
+      "30€ bonus"
     ],
     "contactInfo": {
       "email": "sijaisuudet@pohde.fi",
@@ -1879,41 +2074,52 @@
     }
   },
   {
-    "id": 90,
-    "date": "2023-02-04T08:16:28.894486",
-    "title": "Lähihoitaja",
-    "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Ihotautien poliklinikka",
-    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
-    "location": "Kirkkotie 21, 90440 KEMPELE",
-    "timing": {
-      "startTime": "2023-02-11T08:16:28.894496",
-      "duration": 470,
-      "isFlexible": true
-    },
-    "hourlyPay": 18.38,
-    "benefits": [],
-    "contactInfo": {
-      "email": "sijaisuudet@pohde.fi",
-      "phoneNumber": "0551234567"
-    }
-  },
-  {
-    "id": 91,
-    "date": "2023-02-04T09:16:28.894512",
+    "id": 18,
+    "date": "2023-02-15T08:01:40.984626",
     "title": "Sosiaalityöntekijä",
     "description": "Tähän tulee lyhyt kuvaus työstä",
     "department": "Keskusleikkausosasto",
-    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
-    "location": "Torikatu 21, 90100 OULU",
-    "timing": {
-      "startTime": "2023-02-11T09:16:28.894521",
-      "duration": 410,
-      "isFlexible": true
+    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
+    "location": "Käsityöläiskatu 2, 20100 TURKU",
+    "coordinates": {
+      "longitude": 60.448420880529184,
+      "latitude": 22.2585894854291
     },
-    "hourlyPay": 11.8,
+    "timing": {
+      "startTime": "2023-02-22T08:01:40.984632",
+      "duration": 440,
+      "isFlexible": false
+    },
+    "hourlyPay": 11.18,
     "benefits": [
       "Lounasetu"
+    ],
+    "contactInfo": {
+      "email": "sijaisuudet@varha.fi",
+      "phoneNumber": "0551234567"
+    }
+  },
+  {
+    "id": 65,
+    "date": "2023-02-17T07:01:40.985461",
+    "title": "Röntgenhoitaja",
+    "description": "Tähän tulee lyhyt kuvaus työstä",
+    "department": "Ihotautien poliklinikka",
+    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
+    "location": "Torikatu 21, 90100 OULU",
+    "coordinates": {
+      "longitude": 65.01104770301926,
+      "latitude": 25.466729956534994
+    },
+    "timing": {
+      "startTime": "2023-02-24T07:01:40.985467",
+      "duration": 420,
+      "isFlexible": true
+    },
+    "hourlyPay": 17.27,
+    "benefits": [
+      "Lounasetu",
+      "30€ bonus"
     ],
     "contactInfo": {
       "email": "sijaisuudet@pohde.fi",
@@ -1921,39 +2127,76 @@
     }
   },
   {
-    "id": 92,
-    "date": "2023-02-04T10:16:28.894537",
+    "id": 44,
+    "date": "2023-02-16T10:01:40.985088",
     "title": "Hammashoitaja",
     "description": "Tähän tulee lyhyt kuvaus työstä",
     "department": "Ihotautien poliklinikka",
-    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
-    "location": "Kirkkotie 21, 90440 KEMPELE",
+    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
+    "location": "Käsityöläiskatu 2, 20100 TURKU",
+    "coordinates": {
+      "longitude": 60.448420880529184,
+      "latitude": 22.2585894854291
+    },
     "timing": {
-      "startTime": "2023-02-11T10:16:28.894546",
-      "duration": 440,
+      "startTime": "2023-02-23T10:01:40.985094",
+      "duration": 340,
       "isFlexible": false
     },
-    "hourlyPay": 18.3,
-    "benefits": [],
+    "hourlyPay": 17.26,
+    "benefits": [
+      "Lounasetu"
+    ],
     "contactInfo": {
-      "email": "sijaisuudet@pohde.fi",
+      "email": "sijaisuudet@varha.fi",
       "phoneNumber": "0551234567"
     }
   },
   {
-    "id": 93,
-    "date": "2023-02-04T11:16:28.894563",
+    "id": 29,
+    "date": "2023-02-15T19:01:40.984826",
     "title": "Lähihoitaja",
+    "description": "Tähän tulee lyhyt kuvaus työstä",
+    "department": "Keskusleikkausosasto",
+    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
+    "location": "Hämeentie 11, 20521 TURKU",
+    "coordinates": {
+      "longitude": 60.454266053829656,
+      "latitude": 22.295853144213755
+    },
+    "timing": {
+      "startTime": "2023-02-22T19:01:40.984833",
+      "duration": 390,
+      "isFlexible": true
+    },
+    "hourlyPay": 14.45,
+    "benefits": [
+      "Lounasetu",
+      "30€ bonus"
+    ],
+    "contactInfo": {
+      "email": "sijaisuudet@varha.fi",
+      "phoneNumber": "0551234567"
+    }
+  },
+  {
+    "id": 8,
+    "date": "2023-02-14T22:01:40.984448",
+    "title": "Sosiaalityöntekijä",
     "description": "Tähän tulee lyhyt kuvaus työstä",
     "department": "Ihotautien poliklinikka",
     "organisation": "Varsinais-Suomen hyvinvointialue Varha",
-    "location": "Hämeentie 11, 20521 TURKU",
-    "timing": {
-      "startTime": "2023-02-11T11:16:28.894573",
-      "duration": 240,
-      "isFlexible": true
+    "location": "Käsityöläiskatu 2, 20100 TURKU",
+    "coordinates": {
+      "longitude": 60.448420880529184,
+      "latitude": 22.2585894854291
     },
-    "hourlyPay": 10.85,
+    "timing": {
+      "startTime": "2023-02-21T22:01:40.984454",
+      "duration": 430,
+      "isFlexible": false
+    },
+    "hourlyPay": 16.64,
     "benefits": [
       "Lounasetu"
     ],
@@ -1964,100 +2207,22 @@
   },
   {
     "id": 94,
-    "date": "2023-02-04T12:16:28.894588",
-    "title": "Röntgenhoitaja",
-    "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Yhteispäivystys",
-    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
-    "location": "Hämeentie 11, 20521 TURKU",
-    "timing": {
-      "startTime": "2023-02-11T12:16:28.894598",
-      "duration": 350,
-      "isFlexible": false
-    },
-    "hourlyPay": 15.82,
-    "benefits": [
-      "40€ bonus"
-    ],
-    "contactInfo": {
-      "email": "sijaisuudet@varha.fi",
-      "phoneNumber": "0551234567"
-    }
-  },
-  {
-    "id": 95,
-    "date": "2023-02-04T13:16:28.894615",
-    "title": "Röntgenhoitaja",
-    "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Ihotautien poliklinikka",
-    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
-    "location": "Kirkkotie 21, 90440 KEMPELE",
-    "timing": {
-      "startTime": "2023-02-11T13:16:28.894625",
-      "duration": 400,
-      "isFlexible": false
-    },
-    "hourlyPay": 13.7,
-    "benefits": [],
-    "contactInfo": {
-      "email": "sijaisuudet@pohde.fi",
-      "phoneNumber": "0551234567"
-    }
-  },
-  {
-    "id": 96,
-    "date": "2023-02-04T14:16:28.894640",
-    "title": "Sairaanhoitaja",
+    "date": "2023-02-18T12:01:40.985974",
+    "title": "Hammashoitaja",
     "description": "Tähän tulee lyhyt kuvaus työstä",
     "department": "Keskusleikkausosasto",
-    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
-    "location": "Torikatu 21, 90100 OULU",
-    "timing": {
-      "startTime": "2023-02-11T14:16:28.894650",
-      "duration": 270,
-      "isFlexible": true
-    },
-    "hourlyPay": 17.56,
-    "benefits": [],
-    "contactInfo": {
-      "email": "sijaisuudet@pohde.fi",
-      "phoneNumber": "0551234567"
-    }
-  },
-  {
-    "id": 97,
-    "date": "2023-02-04T15:16:28.894665",
-    "title": "Sosiaalityöntekijä",
-    "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Ihotautien poliklinikka",
-    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
-    "location": "Pesätie 11, 90420 OULU",
-    "timing": {
-      "startTime": "2023-02-11T15:16:28.894675",
-      "duration": 470,
-      "isFlexible": true
-    },
-    "hourlyPay": 16.8,
-    "benefits": [],
-    "contactInfo": {
-      "email": "sijaisuudet@pohde.fi",
-      "phoneNumber": "0551234567"
-    }
-  },
-  {
-    "id": 98,
-    "date": "2023-02-04T16:16:28.894692",
-    "title": "Röntgenhoitaja",
-    "description": "Tähän tulee lyhyt kuvaus työstä",
-    "department": "Ihotautien poliklinikka",
     "organisation": "Varsinais-Suomen hyvinvointialue Varha",
-    "location": "Hämeentie 11, 20521 TURKU",
+    "location": "Tuulensuunkatu 6, 21100 Naantali",
+    "coordinates": {
+      "longitude": 60.4691794883538,
+      "latitude": 22.026600512353554
+    },
     "timing": {
-      "startTime": "2023-02-11T16:16:28.894702",
-      "duration": 440,
+      "startTime": "2023-02-25T12:01:40.985979",
+      "duration": 320,
       "isFlexible": false
     },
-    "hourlyPay": 12.21,
+    "hourlyPay": 11.4,
     "benefits": [],
     "contactInfo": {
       "email": "sijaisuudet@varha.fi",
@@ -2066,19 +2231,274 @@
   },
   {
     "id": 99,
-    "date": "2023-02-04T17:16:28.894717",
+    "date": "2023-02-18T17:01:40.986064",
+    "title": "Röntgenhoitaja",
+    "description": "Tähän tulee lyhyt kuvaus työstä",
+    "department": "Yhteispäivystys",
+    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
+    "location": "Tuulensuunkatu 6, 21100 Naantali",
+    "coordinates": {
+      "longitude": 60.4691794883538,
+      "latitude": 22.026600512353554
+    },
+    "timing": {
+      "startTime": "2023-02-25T17:01:40.986070",
+      "duration": 260,
+      "isFlexible": true
+    },
+    "hourlyPay": 10.92,
+    "benefits": [],
+    "contactInfo": {
+      "email": "sijaisuudet@varha.fi",
+      "phoneNumber": "0551234567"
+    }
+  },
+  {
+    "id": 10,
+    "date": "2023-02-15T00:01:40.984486",
     "title": "Röntgenhoitaja",
     "description": "Tähän tulee lyhyt kuvaus työstä",
     "department": "Ihotautien poliklinikka",
     "organisation": "Varsinais-Suomen hyvinvointialue Varha",
-    "location": "Tuulensuunkatu 6, 21100 Naantali",
+    "location": "Käsityöläiskatu 2, 20100 TURKU",
+    "coordinates": {
+      "longitude": 60.448420880529184,
+      "latitude": 22.2585894854291
+    },
     "timing": {
-      "startTime": "2023-02-11T17:16:28.894727",
-      "duration": 280,
+      "startTime": "2023-02-22T00:01:40.984492",
+      "duration": 460,
+      "isFlexible": false
+    },
+    "hourlyPay": 15.5,
+    "benefits": [],
+    "contactInfo": {
+      "email": "sijaisuudet@varha.fi",
+      "phoneNumber": "0551234567"
+    }
+  },
+  {
+    "id": 58,
+    "date": "2023-02-17T00:01:40.985340",
+    "title": "Sairaanhoitaja",
+    "description": "Tähän tulee lyhyt kuvaus työstä",
+    "department": "Yhteispäivystys",
+    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
+    "location": "Tuulensuunkatu 6, 21100 Naantali",
+    "coordinates": {
+      "longitude": 60.4691794883538,
+      "latitude": 22.026600512353554
+    },
+    "timing": {
+      "startTime": "2023-02-24T00:01:40.985346",
+      "duration": 440,
       "isFlexible": true
     },
-    "hourlyPay": 12.02,
+    "hourlyPay": 15.49,
     "benefits": [],
+    "contactInfo": {
+      "email": "sijaisuudet@varha.fi",
+      "phoneNumber": "0551234567"
+    }
+  },
+  {
+    "id": 0,
+    "date": "2023-02-14T14:01:40.984172",
+    "title": "Röntgenhoitaja",
+    "description": "Tähän tulee lyhyt kuvaus työstä",
+    "department": "Keskusleikkausosasto",
+    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
+    "location": "Torikatu 21, 90100 OULU",
+    "coordinates": {
+      "longitude": 65.01104770301926,
+      "latitude": 25.466729956534994
+    },
+    "timing": {
+      "startTime": "2023-02-21T14:01:40.984252",
+      "duration": 370,
+      "isFlexible": false
+    },
+    "hourlyPay": 14.62,
+    "benefits": [],
+    "contactInfo": {
+      "email": "sijaisuudet@pohde.fi",
+      "phoneNumber": "0551234567"
+    }
+  },
+  {
+    "id": 34,
+    "date": "2023-02-16T00:01:40.984915",
+    "title": "Röntgenhoitaja",
+    "description": "Tähän tulee lyhyt kuvaus työstä",
+    "department": "Ihotautien poliklinikka",
+    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
+    "location": "Käsityöläiskatu 2, 20100 TURKU",
+    "coordinates": {
+      "longitude": 60.448420880529184,
+      "latitude": 22.2585894854291
+    },
+    "timing": {
+      "startTime": "2023-02-23T00:01:40.984921",
+      "duration": 480,
+      "isFlexible": true
+    },
+    "hourlyPay": 13.42,
+    "benefits": [],
+    "contactInfo": {
+      "email": "sijaisuudet@varha.fi",
+      "phoneNumber": "0551234567"
+    }
+  },
+  {
+    "id": 69,
+    "date": "2023-02-17T11:01:40.985530",
+    "title": "Sosiaalityöntekijä",
+    "description": "Tähän tulee lyhyt kuvaus työstä",
+    "department": "Keskusleikkausosasto",
+    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
+    "location": "Kirkkotie 21, 90440 KEMPELE",
+    "coordinates": {
+      "longitude": 64.91469977241674,
+      "latitude": 25.489666342310308
+    },
+    "timing": {
+      "startTime": "2023-02-24T11:01:40.985536",
+      "duration": 380,
+      "isFlexible": false
+    },
+    "hourlyPay": 12.88,
+    "benefits": [],
+    "contactInfo": {
+      "email": "sijaisuudet@pohde.fi",
+      "phoneNumber": "0551234567"
+    }
+  },
+  {
+    "id": 50,
+    "date": "2023-02-16T16:01:40.985190",
+    "title": "Sosiaalityöntekijä",
+    "description": "Tähän tulee lyhyt kuvaus työstä",
+    "department": "Ihotautien poliklinikka",
+    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
+    "location": "Torikatu 21, 90100 OULU",
+    "coordinates": {
+      "longitude": 65.01104770301926,
+      "latitude": 25.466729956534994
+    },
+    "timing": {
+      "startTime": "2023-02-23T16:01:40.985196",
+      "duration": 380,
+      "isFlexible": false
+    },
+    "hourlyPay": 18.88,
+    "benefits": [
+      "Lounasetu",
+      "30€ bonus"
+    ],
+    "contactInfo": {
+      "email": "sijaisuudet@pohde.fi",
+      "phoneNumber": "0551234567"
+    }
+  },
+  {
+    "id": 31,
+    "date": "2023-02-15T21:01:40.984862",
+    "title": "Sairaanhoitaja",
+    "description": "Tähän tulee lyhyt kuvaus työstä",
+    "department": "Ihotautien poliklinikka",
+    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
+    "location": "Torikatu 21, 90100 OULU",
+    "coordinates": {
+      "longitude": 65.01104770301926,
+      "latitude": 25.466729956534994
+    },
+    "timing": {
+      "startTime": "2023-02-22T21:01:40.984868",
+      "duration": 470,
+      "isFlexible": false
+    },
+    "hourlyPay": 16.91,
+    "benefits": [],
+    "contactInfo": {
+      "email": "sijaisuudet@pohde.fi",
+      "phoneNumber": "0551234567"
+    }
+  },
+  {
+    "id": 59,
+    "date": "2023-02-17T01:01:40.985357",
+    "title": "Sairaanhoitaja",
+    "description": "Tähän tulee lyhyt kuvaus työstä",
+    "department": "Yhteispäivystys",
+    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
+    "location": "Pesätie 11, 90420 OULU",
+    "coordinates": {
+      "longitude": 64.95636793384206,
+      "latitude": 25.531864452214528
+    },
+    "timing": {
+      "startTime": "2023-02-24T01:01:40.985363",
+      "duration": 280,
+      "isFlexible": false
+    },
+    "hourlyPay": 16.09,
+    "benefits": [
+      "Lounasetu",
+      "30€ bonus"
+    ],
+    "contactInfo": {
+      "email": "sijaisuudet@pohde.fi",
+      "phoneNumber": "0551234567"
+    }
+  },
+  {
+    "id": 92,
+    "date": "2023-02-18T10:01:40.985937",
+    "title": "Lähihoitaja",
+    "description": "Tähän tulee lyhyt kuvaus työstä",
+    "department": "Yhteispäivystys",
+    "organisation": "Pohjois-Pohjanmaan hyvinvointialue Pohde",
+    "location": "Kirkkotie 21, 90440 KEMPELE",
+    "coordinates": {
+      "longitude": 64.91469977241674,
+      "latitude": 25.489666342310308
+    },
+    "timing": {
+      "startTime": "2023-02-25T10:01:40.985943",
+      "duration": 410,
+      "isFlexible": false
+    },
+    "hourlyPay": 12.41,
+    "benefits": [
+      "Lounasetu",
+      "30€ bonus"
+    ],
+    "contactInfo": {
+      "email": "sijaisuudet@pohde.fi",
+      "phoneNumber": "0551234567"
+    }
+  },
+  {
+    "id": 70,
+    "date": "2023-02-17T12:01:40.985548",
+    "title": "Hammashoitaja",
+    "description": "Tähän tulee lyhyt kuvaus työstä",
+    "department": "Ihotautien poliklinikka",
+    "organisation": "Varsinais-Suomen hyvinvointialue Varha",
+    "location": "Hämeentie 11, 20521 TURKU",
+    "coordinates": {
+      "longitude": 60.454266053829656,
+      "latitude": 22.295853144213755
+    },
+    "timing": {
+      "startTime": "2023-02-24T12:01:40.985553",
+      "duration": 250,
+      "isFlexible": false
+    },
+    "hourlyPay": 10.74,
+    "benefits": [
+      "Lounasetu"
+    ],
     "contactInfo": {
       "email": "sijaisuudet@varha.fi",
       "phoneNumber": "0551234567"

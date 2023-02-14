@@ -32,6 +32,18 @@
             "description": "Location of the job, should resemble this format: Käsityöläiskatu 2, 20100 TURKU",
             "type": "string"
         },
+        "coordinates": {
+            "description": "Coordinates for the job, longitude and latitude in decimal degrees",
+            "type": "object",
+            "properties": {
+                "longitude": {
+                    "type":"number"
+                },
+                "latitude": {
+                    "type":"number"
+                }
+            }
+        },
         "timing": {
             "description": "Shift start time and duration",
             "type": "object",
