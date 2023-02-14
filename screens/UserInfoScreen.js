@@ -14,13 +14,49 @@ import { Slider } from '@rneui/themed'
 import * as Colors from '../assets/styles/colors.js'
 import styles from '../assets/styles/styles'
 import {Icon} from '@rneui/base'
+import { getUserData } from '../utils/getUserData'
 
-
+const thumbTheme = (y) => {
+  if (y === 1) {
+    return Colors.danger
+  }
+  if (y === 2) {
+    return Colors.warning
+  }
+  if (y === 3) {
+    return Colors.krGreen
+  }
+  if (y === 4) {
+    return Colors.info
+  }
+  if (y === 5) {
+    return Colors.success
+  }
+}
+const thumbIcon = (y) => {
+  if (y === 1) {
+    return 'heart-off'
+  }
+  if (y === 2) {
+    return 'emoticon-neutral'
+  }
+  if (y === 3) {
+    return 'emoticon-happy'
+  }
+  if (y === 4) {
+    return 'emoticon'
+  }
+  if (y === 5) {
+    return 'heart-multiple'
+  }
+}
+  
 function UserInfoScreen() {
   delete userData['default']
 
   const [loading, setLoading] = useState(true)
   const [user, setUser] = useState(userData)
+
 
   useEffect(() => {
     async function storeData() {
@@ -36,19 +72,12 @@ function UserInfoScreen() {
     storeData()
   },[])
 
-
-  const [myValue, setValue] = useState(20)
-
-  const getData = async () => {
-    try {
-      const value = await AsyncStorage.getItem('user')
-      if(value !== null) {
-        console.log(JSON.parse(value))
-      }
-    } catch(e) {
-      // error reading value
-    }
-  }
+  const [morning, setMorning] = useState(user.preferences.morning)
+  const [evening, setEvening] = useState(user.preferences.evening)
+  const [night, setNight] = useState(user.preferences.night)
+  const [pay, setPay] = useState(user.preferences.pay)
+  const [fullShift, setFullShift] = useState(user.preferences.fullShift)
+  const [distance, setDistance] = useState(user.preferences.distance)
 
   const handleChange = async (event, key, subKey) => {
     try {
@@ -68,40 +97,7 @@ function UserInfoScreen() {
     }
   }
 
-  const thumbTheme = (y) => {
-    if (y === 1) {
-      return Colors.danger
-    }
-    if (y === 2) {
-      return Colors.warning
-    }
-    if (y === 3) {
-      return Colors.krGreen
-    }
-    if (y === 4) {
-      return Colors.info
-    }
-    if (y === 5) {
-      return Colors.success
-    }
-  }
-  const thumbIcon = (y) => {
-    if (y === 1) {
-      return 'heart-off'
-    }
-    if (y === 2) {
-      return 'emoticon-neutral'
-    }
-    if (y === 3) {
-      return 'emoticon-happy'
-    }
-    if (y === 4) {
-      return 'emoticon'
-    }
-    if (y === 5) {
-      return 'heart-multiple'
-    }
-  }
+  
 
   if(loading){
     return(
@@ -142,12 +138,12 @@ function UserInfoScreen() {
               thumbProps={{
                 children: (
                   <Icon
-                    name={thumbIcon(user.preferences.morning)}
+                    name={thumbIcon(morning)}
                     type="material-community"
                     size={20}
                     reverse
                     containerStyle={{ bottom: 20, right: 20 }}
-                    color={thumbTheme(user.preferences.morning)}
+                    color={thumbTheme(morning)}
                   />
                 ),
               }}
@@ -155,8 +151,9 @@ function UserInfoScreen() {
               allowTouchTrack={true}
               trackStyle={{ height: 10, backgroundColor: 'transparent', borderRadius: 10 }}
               thumbStyle={{ height: 20, width: 20, backgroundColor: 'transparent' }}
-              value={user.preferences.morning}
+              value={morning}
               onSlidingComplete={(event) => handleChange(event, 'preferences', 'morning')}
+              onValueChange={(event) => setMorning(event)}
             />
             <View style={styles.tag}>
               <Text style={styles.label}>
@@ -167,9 +164,27 @@ function UserInfoScreen() {
               style={styles.prefSlider}
               maximumValue={5}
               minimumValue={1}
+              minimumTrackTintColor={'#d9d9d9'}
+              maximumTrackTintColor={'#d9d9d9'}
+              thumbProps={{
+                children: (
+                  <Icon
+                    name={thumbIcon(evening)}
+                    type="material-community"
+                    size={20}
+                    reverse
+                    containerStyle={{ bottom: 20, right: 20 }}
+                    color={thumbTheme(evening)}
+                  />
+                ),
+              }}
               step={1}
-              value={user.preferences.evening}
+              allowTouchTrack={true}
+              trackStyle={{ height: 10, backgroundColor: 'transparent', borderRadius: 10 }}
+              thumbStyle={{ height: 20, width: 20, backgroundColor: 'transparent' }}
+              value={evening}
               onSlidingComplete={(event) => handleChange(event, 'preferences', 'evening')}
+              onValueChange={(event) => setEvening(event)}
             />
             <View style={styles.tag}>
               <Text style={styles.label}>
@@ -180,9 +195,27 @@ function UserInfoScreen() {
               style={styles.prefSlider}
               maximumValue={5}
               minimumValue={1}
+              minimumTrackTintColor={'#d9d9d9'}
+              maximumTrackTintColor={'#d9d9d9'}
+              thumbProps={{
+                children: (
+                  <Icon
+                    name={thumbIcon(night)}
+                    type="material-community"
+                    size={20}
+                    reverse
+                    containerStyle={{ bottom: 20, right: 20 }}
+                    color={thumbTheme(night)}
+                  />
+                ),
+              }}
               step={1}
-              value={user.preferences.night}
+              allowTouchTrack={true}
+              trackStyle={{ height: 10, backgroundColor: 'transparent', borderRadius: 10 }}
+              thumbStyle={{ height: 20, width: 20, backgroundColor: 'transparent' }}
+              value={night}
               onSlidingComplete={(event) => handleChange(event, 'preferences', 'night')}
+              onValueChange={(event) => setNight(event)}
             />
             <View style={styles.tag}>
               <Text style={styles.label}>
@@ -193,9 +226,27 @@ function UserInfoScreen() {
               style={styles.prefSlider}
               maximumValue={5}
               minimumValue={1}
+              minimumTrackTintColor={'#d9d9d9'}
+              maximumTrackTintColor={'#d9d9d9'}
+              thumbProps={{
+                children: (
+                  <Icon
+                    name={thumbIcon(pay)}
+                    type="material-community"
+                    size={20}
+                    reverse
+                    containerStyle={{ bottom: 20, right: 20 }}
+                    color={thumbTheme(pay)}
+                  />
+                ),
+              }}
               step={1}
-              value={user.preferences.pay}
+              allowTouchTrack={true}
+              trackStyle={{ height: 10, backgroundColor: 'transparent', borderRadius: 10 }}
+              thumbStyle={{ height: 20, width: 20, backgroundColor: 'transparent' }}
+              value={pay}
               onSlidingComplete={(event) => handleChange(event, 'preferences', 'pay')}
+              onValueChange={(event) => setPay(event)}
             />
             <View style={styles.tag}>
               <Text style={styles.label}>
@@ -206,9 +257,27 @@ function UserInfoScreen() {
               style={styles.prefSlider}
               maximumValue={5}
               minimumValue={1}
+              minimumTrackTintColor={'#d9d9d9'}
+              maximumTrackTintColor={'#d9d9d9'}
+              thumbProps={{
+                children: (
+                  <Icon
+                    name={thumbIcon(fullShift)}
+                    type="material-community"
+                    size={20}
+                    reverse
+                    containerStyle={{ bottom: 20, right: 20 }}
+                    color={thumbTheme(fullShift)}
+                  />
+                ),
+              }}
               step={1}
-              value={user.preferences.fullShift}
+              allowTouchTrack={true}
+              trackStyle={{ height: 10, backgroundColor: 'transparent', borderRadius: 10 }}
+              thumbStyle={{ height: 20, width: 20, backgroundColor: 'transparent' }}
+              value={fullShift}
               onSlidingComplete={(event) => handleChange(event, 'preferences', 'fullShift')}
+              onValueChange={(event) => setFullShift(event)}
             />
           </View>
 
@@ -217,7 +286,7 @@ function UserInfoScreen() {
               Etäisyys
             </Text>
             <Text style={styles.currentDistance}>
-              {user.preferences.distance} km
+              {distance} km
             </Text>
 
             <Slider
@@ -226,13 +295,16 @@ function UserInfoScreen() {
               step={1}
               thumbProps={{
                 children: (
-                  <Text style={{fontSize: 20 }}>{user.preferences.distance}km</Text>
+                  <View style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', height: '100%'}}>
+                    <Text style={{fontSize: 14 }}>{distance}</Text>
+                  </View>
                 ),
               }}
               trackStyle={{ height: 10, backgroundColor: 'transparent', borderRadius: 5 }}
               thumbStyle={{ height: 30, width: 30, backgroundColor: Colors.krBlue, borderRadius: 15 }}
               value={user.preferences.distance}
               onSlidingComplete={(event) => handleChange(event, 'preferences', 'distance')}
+              onValueChange={(event) => setDistance(event)}
             />
 
             <View style={styles.distanceSlider}>
@@ -313,7 +385,7 @@ function UserInfoScreen() {
               onEndEditing={(e) => handleChange(e, 'valviraID')}
             />
           </View>
-          <Button title='log user' onPress={() => getData()} />
+          <Button title='log user' onPress={() => getUserData()} />
           <Text style={styles.textfieldlist}></Text>
         </ScrollView>
       </TouchableWithoutFeedback>
