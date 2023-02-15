@@ -44,7 +44,7 @@ function AppTabs() {
     <Tab.Navigator
       tabBar={(props) => <MyTabBar {...props} />}
       screenOptions={{
-        swipeEnabled: false,
+        swipeEnabled: true,
         tabBarContentContainerStyle: {
           alignItems: 'center',
           justifyContent: 'center',
