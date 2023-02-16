@@ -4,6 +4,7 @@ import React, {useRef, useState} from 'react'
 import substitutions from '../assets/data/substitutionsData_new.json'
 import styles from '../assets/styles/styles'
 import { krBlue } from '../assets/styles/colors' 
+import calculateDistance from '../utils/calculateDistance'
 
 const SCREEN_HEIGHT = Dimensions.get('window').height
 const SCREEN_WIDTH = Dimensions.get('window').width
@@ -212,7 +213,12 @@ const renderSubstitutions = () => {
               alignSelf: 'flex-end',
               fontSize: 13
             }}>
-              2 km
+              {calculateDistance(
+                parseFloat(item.coordinates.latitude), 
+                parseFloat(item.coordinates.longitude),
+                65.05941,
+                25.46642
+              )}
             </Text>
           </View>
 
