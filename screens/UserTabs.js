@@ -4,6 +4,7 @@ import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs
 import { getFocusedRouteNameFromRoute } from '@react-navigation/native'
 import UserInfoScreen from './UserInfoScreen'
 import UserPreferencesScreen from './UserPreferencesScreen'
+import SettingsScreen from './SettingsScreen'
 
 const Tab = createMaterialTopTabNavigator()
 
@@ -36,6 +37,7 @@ function UserInfoTab({ navigation, route })  {
     >
       <Tab.Screen name="Mieltymykset" component={UserPreferencesScreen}/>
       <Tab.Screen name="Omat tiedot" component={UserInfoScreen}/>
+      <Tab.Screen name="Asetukset" component={SettingsScreen}/>
     </Tab.Navigator>
   )
 }
