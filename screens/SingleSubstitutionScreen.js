@@ -10,7 +10,8 @@ import {
 import { formatHourlyPay, formatDate, formatTime } from '../utils/'
 import styles from '../assets/styles/styles'
 
-const SingleSubstitutionScreen = ({ route, navigation }) => {
+const SingleSubstitutionScreen = ({ route, navigation, setTabBarHidden }) => {
+  setTabBarHidden(true)
   const { substitution } = route.params
   return (
     <View style={styles.substitutionContainer}>

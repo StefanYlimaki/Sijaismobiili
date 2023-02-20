@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import * as userData from '../assets/data/userData.json'
 import {
   View,
   Text,
@@ -11,66 +10,14 @@ import {
 } from 'react-native'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { Slider } from '@rneui/themed'
-import * as Colors from '../assets/styles/colors.js'
-import styles from '../assets/styles/styles'
 import {Icon} from '@rneui/base'
-import { getUserData } from '../utils/getUserData'
 
-const thumbTheme = (y) => {
-  if (y === 1) {
-    return Colors.danger
-  }
-  if (y === 2) {
-    return Colors.warning
-  }
-  if (y === 3) {
-    return Colors.krGreen
-  }
-  if (y === 4) {
-    return Colors.info
-  }
-  if (y === 5) {
-    return Colors.success
-  }
-}
-const thumbIcon = (y) => {
-  if (y === 1) {
-    return 'heart-off'
-  }
-  if (y === 2) {
-    return 'emoticon-neutral'
-  }
-  if (y === 3) {
-    return 'emoticon-happy'
-  }
-  if (y === 4) {
-    return 'emoticon'
-  }
-  if (y === 5) {
-    return 'heart-multiple'
-  }
-}
-  
-function UserInfoScreen() {
-  delete userData['default']
+import {logUserData} from '../../utils/logUserData'
+import * as Colors from '../../assets/styles/colors.js'
+import styles from '../../assets/styles/styles'
+import { setUserData } from '../../utils/setUserData'
 
-  const [loading, setLoading] = useState(true)
-  const [user, setUser] = useState(userData)
-
-
-  useEffect(() => {
-    async function storeData() {
-      try {
-        await AsyncStorage.setItem('user', JSON.stringify(userData))
-        const newUser = await AsyncStorage.getItem('user')
-        setUser(JSON.parse(newUser))
-        setLoading(false)
-      } catch (e) {
-        // saving error
-      }
-    }
-    storeData()
-  },[])
+const UserInfoView = ({ user, setUser }) => {
 
   const [morning, setMorning] = useState(user.preferences.morning)
   const [evening, setEvening] = useState(user.preferences.evening)
@@ -90,28 +37,15 @@ function UserInfoScreen() {
         delete newUser[key]
         newUser[key] = value
       }
-      await AsyncStorage.setItem('user', JSON.stringify(newUser))
+      setUserData(newUser)
       setUser(newUser)
     } catch (error) {
       console.log(error)
     }
   }
 
-  
-
-  if(loading){
-    return(
-      <View>
-        <Text>Ladataan, hetki vain.</Text>
-      </View>
-    )
-  }
-
   return (
-    <KeyboardAvoidingView
-      style={styles.userContainer}
-    //behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-    >
+    <KeyboardAvoidingView style={styles.userContainer}>
       <TouchableWithoutFeedback>
         <ScrollView style={styles.userContent}>
           <View>
@@ -385,7 +319,7 @@ function UserInfoScreen() {
               onEndEditing={(e) => handleChange(e, 'valviraID')}
             />
           </View>
-          <Button title='log user' onPress={() => getUserData()} />
+          <Button title='log user' onPress={() => logUserData()} />
           <Text style={styles.textfieldlist}></Text>
         </ScrollView>
       </TouchableWithoutFeedback>
@@ -393,4 +327,39 @@ function UserInfoScreen() {
   )
 }
 
-export default UserInfoScreen
+const thumbTheme = (y) => {
+  if (y === 1) {
+    return Colors.danger
+  }
+  if (y === 2) {
+    return Colors.warning
+  }
+  if (y === 3) {
+    return Colors.krGreen
+  }
+  if (y === 4) {
+    return Colors.info
+  }
+  if (y === 5) {
+    return Colors.success
+  }
+}
+const thumbIcon = (y) => {
+  if (y === 1) {
+    return 'heart-off'
+  }
+  if (y === 2) {
+    return 'emoticon-neutral'
+  }
+  if (y === 3) {
+    return 'emoticon-happy'
+  }
+  if (y === 4) {
+    return 'emoticon'
+  }
+  if (y === 5) {
+    return 'heart-multiple'
+  }
+}
+
+export default UserInfoView

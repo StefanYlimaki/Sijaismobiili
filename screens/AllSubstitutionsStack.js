@@ -12,6 +12,7 @@ function AllSubstitutionsStackScreen({ navigation, route })  {
   React.useLayoutEffect(() => {
     const routeName = getFocusedRouteNameFromRoute(route)
     if (routeName === 'Substitution'){
+
       navigation.setOptions({tabBarStyle: {display: 'none'}})
     } else {
       navigation.setOptions({tabBarStyle: {display: 'flex'}})
@@ -21,7 +22,6 @@ function AllSubstitutionsStackScreen({ navigation, route })  {
   return(
     <AllStack.Navigator screenOptions={{ headerShown: false}}>
       <AllStack.Screen name="all" component={AllSubstitutionsScreen} />
-      <AllStack.Screen name="Substitution" component={SingleSubstitutionScreen}/>
     </AllStack.Navigator>
   )
 }
