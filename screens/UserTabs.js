@@ -20,7 +20,7 @@ function UserInfoTab({ navigation, route })  {
   return(
     <Tab.Navigator
       screenOptions={{
-        swipeEnabled: true,
+        swipeEnabled: false,
         tabBarContentContainerStyle: {
           alignItems: 'center',
           justifyContent: 'center',
