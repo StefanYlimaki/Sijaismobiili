@@ -133,6 +133,12 @@ export default StyleSheet.create({
     paddingHorizontal: '5%',
   },
   userIcon: undefined,
+  userTabContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    paddingVertical: 36,
+  },
   whiteText: {
     color: Colors.textLight,
     opacity: 0.8,

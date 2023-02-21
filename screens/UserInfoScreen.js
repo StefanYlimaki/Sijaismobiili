@@ -50,7 +50,25 @@ const thumbIcon = (y) => {
     return 'heart-multiple'
   }
 }
-  
+
+function parser(event) {
+  if (event < 1.5) {
+    return 1
+  }
+  if (event > 1.50 && event < 2.50) {
+    return 2
+  }
+  if (event > 2.50 && event < 3.50) {
+    return 3
+  }
+  if (event > 3.50 && event < 4.5) {
+    return 4
+  }
+  if (event > 4.50 && event <= 5) {
+    return 5
+  }
+}
+
 function UserInfoScreen() {
   delete userData['default']
 
@@ -130,6 +148,7 @@ function UserInfoScreen() {
               </Text>
             </View>
             <Slider
+              //animateTransitions={true}
               style={styles.prefSlider}
               maximumValue={5}
               minimumValue={1}
@@ -147,14 +166,14 @@ function UserInfoScreen() {
                   />
                 ),
               }}
-              step={1}
+              step={0.0001}
               allowTouchTrack={true}
               trackStyle={{ height: 10, backgroundColor: 'transparent', borderRadius: 10 }}
               thumbStyle={{ height: 20, width: 20, backgroundColor: 'transparent' }}
               value={morning}
               onSlidingComplete={(event) => handleChange(event, 'preferences', 'morning')}
-              onValueChange={(event) => setMorning(event)}
-            />
+              onValueChange={(event) => setMorning(parser(event))}
+            /><Text style={styles.h2}>{morning}</Text>
             <View style={styles.tag}>
               <Text style={styles.label}>
                 Iltavuorot
