@@ -1,4 +1,4 @@
-import React, {useCallback} from 'react'
+import React, {useCallback, useState, createContext} from 'react'
 import {NavigationContainer} from '@react-navigation/native'
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs'
 import {View, StatusBar, Text, Button, TouchableOpacity, StyleSheet} from 'react-native'
@@ -14,6 +14,10 @@ import TailoredSubstitutionsStack from './screens/TailoredSubstitutionsStack'
 import UserTabs from './screens/UserTabs'
 import SwipeScreen from './screens/SwipeScreen'
 import styles from './assets/styles/styles.js'
+
+import { fi, se, en } from './assets/data/localisation/localisations'
+import * as Localisation from 'expo-localization'
+import {I18n} from 'i18n-js'
 
 const Tab = createMaterialTopTabNavigator()
 
@@ -129,7 +133,17 @@ const AppTheme = {
   },
 }
 
+const i18n = new I18n() //For localisation
+const LocaleContext = createContext(null)
+
 export default function App() {
+
+  //Localisation
+  const [locale, setLocale] = useState(Localisation.locale) // use system language
+  i18n.enableFallbacks = true
+  i18n.translations = { fi, se, en }
+  i18n.locale = locale
+
   const [loaded] = useFonts({
     'Inter-DisplayBlack': require('./assets/styles/fonts/Inter-DisplayBlack.ttf',),
     'Inter-DisplayBold': require('./assets/styles/fonts/Inter-DisplayBold.ttf',),
@@ -149,17 +163,19 @@ export default function App() {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <SafeAreaProvider>
-        <NavigationContainer theme={AppTheme}>
-          <View style={styles.container}>
-            <CustomStatusBar backgroundColor={krGreen} />
-            <Stack.Navigator
-              screenOptions={{headerShown: false}}>
-              <Stack.Screen name="SwipeScreen" component={SwipeScreen} />
-              <Stack.Screen name="MainApplication" component={AppTabs} />
-              <Stack.Screen name="UserInfoScreen" component={UserTabs} />
-            </Stack.Navigator>
-          </View>
-        </NavigationContainer>
+        <LocaleContext.Provider value={{ i18n, locale, setLocale }}>
+          <NavigationContainer theme={AppTheme}>
+            <View style={styles.container}>
+              <CustomStatusBar backgroundColor={krGreen} />
+              <Stack.Navigator
+                screenOptions={{headerShown: false}}>
+                <Stack.Screen name="SwipeScreen" component={SwipeScreen} />
+                <Stack.Screen name="MainApplication" component={AppTabs} />
+                <Stack.Screen name="UserInfoScreen" component={UserTabs} />
+              </Stack.Navigator>
+            </View>
+          </NavigationContainer>
+        </LocaleContext.Provider>
       </SafeAreaProvider>
     </GestureHandlerRootView>
   )
@@ -174,3 +190,5 @@ const NavBarStyles = StyleSheet.create({
     justifyContent: 'space-around',
   },
 })
+
+export {LocaleContext}

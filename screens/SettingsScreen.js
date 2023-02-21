@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { StyleSheet, View, Text, Switch, Button, Pressable } from 'react-native'
 import styles from '../assets/styles/styles'
 import * as Colors from '../assets/styles/colors'
+import {LocaleContext} from '../App'
 
 const SettingsScreen = () => {
-  const [useSystemLanguage, setUseSystemLanguage] = useState(true)
   const [useNotifications, setUseNotifications] = useState(true)
-  const [appLanguage, setAppLanguage] = useState('Finnish')
+  const { i18n, locale, setLocale } = useContext(LocaleContext)
 
   return (
     <View style={stylesTest.settingsScreen}>
@@ -15,37 +15,25 @@ const SettingsScreen = () => {
 
         {/* Language */ }
         <View style={stylesTest.singleSettingContainer}>
-          <Text style={styles.h2}>Kieli</Text>
-          <Text style={stylesTest.settingsSubHeader}>Automaattinen</Text>
-          <View style={stylesTest.switchContainer}>
-            <Switch
-              style={{marginRight:10}}
-              value={useSystemLanguage}
-              onValueChange={() => {setUseSystemLanguage(!useSystemLanguage)}}
-            />
-            <Text style={styles.blackText}>{useSystemLanguage ? 'Kyllä' : 'Ei käytössä'}</Text>
-          </View>
+          <Text style={styles.h2}>{i18n.t('settingsLanguage')}</Text>
 
           <View style={stylesTest.languageButtonsContainer}>
 
             <Pressable
-              style={!useSystemLanguage && appLanguage==='Finnish' ? stylesTest.languageButton : stylesTest.languageButtonDisabled}
-              disabled={useSystemLanguage}
-              onPress={() => {setAppLanguage('Finnish')}}
+              style={locale==='fi' ? stylesTest.languageButton : stylesTest.languageButtonDisabled}
+              onPress={() => {setLocale('fi')}}
             >
               <Text style={stylesTest.buttonText}>Finnish</Text>
             </Pressable>
             <Pressable
-              style={!useSystemLanguage && appLanguage==='Swedish' ? stylesTest.languageButton : stylesTest.languageButtonDisabled}
-              disabled={useSystemLanguage}
-              onPress={() => {setAppLanguage('Swedish')}}
+              style={locale==='se' ? stylesTest.languageButton : stylesTest.languageButtonDisabled}
+              onPress={() => {setLocale('se')}}
             >
               <Text style={stylesTest.buttonText}>Swedish</Text>
             </Pressable>
             <Pressable
-              style={!useSystemLanguage && appLanguage==='English' ? stylesTest.languageButton : stylesTest.languageButtonDisabled}
-              disabled={useSystemLanguage}
-              onPress={() => {setAppLanguage('English')}}
+              style={locale==='en' ? stylesTest.languageButton : stylesTest.languageButtonDisabled}
+              onPress={() => {setLocale('en')}}
             >
               <Text style={stylesTest.buttonText}>English</Text>
             </Pressable>
@@ -55,36 +43,36 @@ const SettingsScreen = () => {
 
         {/* Notifications */ }
         <View style={stylesTest.singleSettingContainer}>
-          <Text style={styles.h2}>Ilmoitukset</Text>
+          <Text style={styles.h2}>{i18n.t('settingsNotifications')}</Text>
           <View style={stylesTest.switchContainer}>
             <Switch
               style={{marginRight:10}}
               value={useNotifications}
               onValueChange={() => {setUseNotifications(!useNotifications)}}
             />
-            <Text style={styles.blackText}>{useNotifications ? 'Kyllä' : 'Ei käytössä'}</Text>
+            <Text style={styles.blackText}>{useNotifications ? i18n.t('yes') : i18n.t('settingsDisabled')}</Text>
           </View>
         </View>
 
         {/* Info */ }
         <View style={stylesTest.singleSettingContainer}>
-          <Text style={styles.h2}>Tietoja</Text>
-          <Text style={stylesTest.linkText}>Lisenssit</Text>
-          <Text style={stylesTest.linkText}>Tuki</Text>
+          <Text style={styles.h2}>{i18n.t('settingsInfo')}</Text>
+          <Text style={stylesTest.linkText}>{i18n.t('settingsLicenses')}</Text>
+          <Text style={stylesTest.linkText}>{i18n.t('settingsSupport')}</Text>
         </View>
       </View>
 
       {/* Footer */ }
       <View style={stylesTest.settingsFooter}>
         <Pressable style={stylesTest.logOutButton}>
-          <Text style={stylesTest.buttonText}>Kirjaudu ulos</Text>
+          <Text style={stylesTest.buttonText}>{i18n.t('settingsLogOut')}</Text>
         </Pressable>
         <View style={stylesTest.footerSettings}>
           <Pressable>
-            <Text style={stylesTest.footerButtonText}>Nollaa suositukset ja asetukset</Text>
+            <Text style={stylesTest.footerButtonText}>{i18n.t('settingsRestoreSettings')}</Text>
           </Pressable>
           <Pressable>
-            <Text style={stylesTest.footerButtonText}>Poista tili</Text>
+            <Text style={stylesTest.footerButtonText}>{i18n.t('settingsRemoveAccount')}</Text>
           </Pressable>
         </View>
       </View>
@@ -151,11 +139,6 @@ const stylesTest = StyleSheet.create({
   settingsScreen: {
     flex: 1,
     paddingHorizontal: '5%',
-  },
-  settingsSubHeader: {
-    fontFamily: 'Inter-DisplaySemiBold',
-    paddingBottom: 10,
-    paddingTop:5
   },
   singleSettingContainer: {
     paddingTop: 20
