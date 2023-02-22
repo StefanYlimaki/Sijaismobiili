@@ -8,20 +8,15 @@ import SingleSubstitutionScreen from './SingleSubstitutionScreen'
 
 const AllStack = createNativeStackNavigator()
 
-function AllSubstitutionsStackScreen({ navigation, route })  {
-  React.useLayoutEffect(() => {
-    const routeName = getFocusedRouteNameFromRoute(route)
-    if (routeName === 'Substitution'){
-
-      navigation.setOptions({tabBarStyle: {display: 'none'}})
-    } else {
-      navigation.setOptions({tabBarStyle: {display: 'flex'}})
-    }
-  }, [navigation, route])
-  
+function AllSubstitutionsStackScreen({ navigation, route, tabBarHidden, setTabBarHidden })  {
   return(
     <AllStack.Navigator screenOptions={{ headerShown: false}}>
-      <AllStack.Screen name="all" component={AllSubstitutionsScreen} />
+      <AllStack.Screen name="all">
+        {props => <AllSubstitutionsScreen  setTabBarHidden={setTabBarHidden} {...props}/>}
+      </AllStack.Screen>
+      <AllStack.Screen name="Substitution">
+        {props => <SingleSubstitutionScreen  setTabBarHidden={setTabBarHidden} {...props}/>}
+      </AllStack.Screen>
     </AllStack.Navigator>
   )
 }

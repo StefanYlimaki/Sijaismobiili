@@ -8,14 +8,13 @@ import {
   TouchableWithoutFeedback,
   Button,
 } from 'react-native'
-import AsyncStorage from '@react-native-async-storage/async-storage'
 import { Slider } from '@rneui/themed'
 import {Icon} from '@rneui/base'
 
-import {logUserData} from '../../utils/logUserData'
-import * as Colors from '../../assets/styles/colors.js'
-import styles from '../../assets/styles/styles'
-import { setUserData } from '../../utils/setUserData'
+import {logUserData} from '../utils/logUserData'
+import * as Colors from '../assets/styles/colors.js'
+import styles from '../assets/styles/styles'
+import { setUserData } from '../utils/setUserData'
 
 const UserInfoView = ({ user, setUser }) => {
 

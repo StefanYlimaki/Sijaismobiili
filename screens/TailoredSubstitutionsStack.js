@@ -8,20 +8,13 @@ import SingleSubstitutionScreen from './SingleSubstitutionScreen'
 
 const TailoredStack = createNativeStackNavigator()
 
-function TailoredSubstitutionsStackScreen({ navigation, route })  {
-  React.useLayoutEffect(() => {
-    const routeName = getFocusedRouteNameFromRoute(route)
-    if (routeName === 'Substitution'){
-      navigation.setOptions({tabBarStyle: {display: 'none'}})
-    } else {
-      navigation.setOptions({tabBarStyle: {display: 'flex'}})
-    }
-  }, [navigation, route])
-
+function TailoredSubstitutionsStackScreen({ navigation, route, tabBarHidden, setTabBarHidden })  {
   return(
     <TailoredStack.Navigator screenOptions={{ headerShown: false}}>
       <TailoredStack.Screen name="tailored" component={TailoredSubsitutionsScreen} />
-      <TailoredStack.Screen name="Substitution" component={SingleSubstitutionScreen}/>
+      <TailoredStack.Screen name="Substitution">
+        {props => <SingleSubstitutionScreen  setTabBarHidden={setTabBarHidden} {...props}/>}
+      </TailoredStack.Screen>
     </TailoredStack.Navigator>
   )
 }

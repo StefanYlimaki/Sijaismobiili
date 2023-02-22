@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import * as userData from '../../assets/data/userData.json'
+import * as userData from '../assets/data/userData.json'
 import { View, Text } from 'react-native'
-import { getUserData } from '../../utils/getUserData'
+import { getUserData } from '../utils/getUserData'
 import UserInfoView from './UserInfoView'
 
 function UserInfoScreen() {

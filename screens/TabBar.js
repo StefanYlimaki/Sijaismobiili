@@ -20,9 +20,6 @@ export const getTopBarStyle = (tabBarHidden) => {
 }
 
 const TabBar = ({ state, descriptors, navigation, tabBarHidden }) => {
-  const route = useRoute()
-  console.log(route.name)
-
   return (
     <View
       style={getTopBarStyle(tabBarHidden)}>

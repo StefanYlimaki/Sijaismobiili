@@ -6,10 +6,10 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { useFonts } from 'expo-font'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
 
-import CustomStatusBar from './screens/Application/CustomStatusBar'
+import CustomStatusBar from './screens/CustomStatusBar'
 import SwipeScreen from './screens/SwipeScreen'
-import AppTabs from './screens/Application/AppTabs'
-import UserTabs from './screens/User/UserTabs'
+import AppTabs from './screens/AppTabs'
+import UserTabs from './screens/UserTabs'
 
 import styles from './assets/styles/styles.js'
 import { krGreen } from './assets/styles/colors'
@@ -45,7 +45,6 @@ export default function App() {
               <Stack.Screen name="SwipeScreen" component={ SwipeScreen } />
               <Stack.Screen name="MainApplication" component={ AppTabs } />
               <Stack.Screen name="UserInfoScreen" component={ UserTabs } />
-              <Stack.Screen name="Substitution" component={ SingleSubstitutionScreen }/>
             </Stack.Navigator>
           </View>
         </NavigationContainer>
