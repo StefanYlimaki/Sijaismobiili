@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
@@ -7,7 +7,7 @@ import SingleSubstitutionScreen from './SingleSubstitutionScreen'
 
 const SavedStack = createNativeStackNavigator()
 
-function SavedSubstitutionsStackScreen({ navigation, route, tabBarHidden, setTabBarHidden, swipeEnabled, setSwipeEnabled})  {
+function SavedSubstitutionsStackScreen({ navigation, route, tabBarHidden, setTabBarHidden, swipeEnabled, setSwipeEnabled })  {
   return(
     <SavedStack.Navigator screenOptions={{ headerShown: false}}>
       <SavedStack.Screen name="saved">

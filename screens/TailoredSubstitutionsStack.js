@@ -1,19 +1,24 @@
 import React from 'react'
 
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import { getFocusedRouteNameFromRoute } from '@react-navigation/native'
 
 import TailoredSubsitutionsScreen from './TailoredSubstitutionsScreen'
 import SingleSubstitutionScreen from './SingleSubstitutionScreen'
 
 const TailoredStack = createNativeStackNavigator()
 
-function TailoredSubstitutionsStackScreen({ navigation, route, tabBarHidden, setTabBarHidden })  {
+function TailoredSubstitutionsStackScreen({ navigation, route, tabBarHidden, setTabBarHidden, swipeEnabled, setSwipeEnabled })  {
   return(
     <TailoredStack.Navigator screenOptions={{ headerShown: false}}>
-      <TailoredStack.Screen name="tailored" component={TailoredSubsitutionsScreen} />
+      <TailoredStack.Screen name="tailored">
+        {props => {
+          return(<TailoredSubsitutionsScreen tabBarHidden={tabBarHidden} setTabBarHidden={setTabBarHidden} swipeEnabled={swipeEnabled} setSwipeEnabled={setSwipeEnabled} {...props} />)
+        }}
+      </TailoredStack.Screen>
       <TailoredStack.Screen name="Substitution">
-        {props => <SingleSubstitutionScreen  setTabBarHidden={setTabBarHidden} {...props}/>}
+        {props => {
+          return(<SingleSubstitutionScreen tabBarHidden={tabBarHidden} setTabBarHidden={setTabBarHidden} swipeEnabled={swipeEnabled} setSwipeEnabled={setSwipeEnabled} {...props} />)
+        }}
       </TailoredStack.Screen>
     </TailoredStack.Navigator>
   )
