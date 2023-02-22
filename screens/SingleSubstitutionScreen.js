@@ -10,8 +10,17 @@ import {
 import { formatHourlyPay, formatDate, formatTime } from '../utils/'
 import styles from '../assets/styles/styles'
 
-const SingleSubstitutionScreen = ({ route, navigation }) => {
+const SingleSubstitutionScreen = ({ route, navigation, tabBarHidden, setTabBarHidden, swipeEnabled, setSwipeEnabled }) => {
   const { substitution } = route.params
+
+  if(!tabBarHidden && navigation.isFocused()){
+    setTabBarHidden(true)
+  }
+
+  if(swipeEnabled && navigation.isFocused()){
+    setSwipeEnabled(false)
+  }
+
   return (
     <View style={styles.substitutionContainer}>
       <View style={styles.substitutionElement}>
