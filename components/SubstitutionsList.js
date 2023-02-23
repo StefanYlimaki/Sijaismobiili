@@ -1,12 +1,12 @@
 import { View, FlatList } from 'react-native'
 
 import SubstitutionItem from './SubstitutionItem'
-import Styles from '../assets/styles/styles'
+import styles from '../assets/styles/styles'
 
 const SubstitutionsList = ({ navigation, substitutions }) => {
 
   return (
-    <View style={Styles.substitutionsListContainer}>
+    <View style={styles.substitutionsListContainer}>
       <FlatList
         contentContainerStyle={{ paddingBottom: 80}}
         data={substitutions}

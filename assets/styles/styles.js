@@ -137,7 +137,8 @@ export default StyleSheet.create({
   },
   sliderList: {
     alignItems: 'baseline',
-    paddingTop: 30
+    paddingBottom: 40,
+    paddingTop: 30,
   },
   substitutionContainer: {
     alignItems: 'center',

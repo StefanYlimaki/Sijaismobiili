@@ -12,7 +12,6 @@ const SubstitutionItem = ({ substitution, navigation }) => {
   return (
     <View style={styles.substitutionItemContainer}>
       <Pressable
-        android_ripple={{ color: '#210644' }}
         onPress={() =>
           navigation.navigate('Substitution', {
             substitution: substitution,
