@@ -5,6 +5,7 @@ export const krGreenDark = '#005752'
 export const krBlue ='#167FAC'
 export const krBlueLight ='#5aaede'
 export const krBlueDark ='#00537d'
+export const blueBright = '#0666DB'
 
 export const textDark = '#000000'
 export const textLight ='#ffffff'
