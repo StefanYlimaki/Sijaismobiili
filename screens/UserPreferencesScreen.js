@@ -121,8 +121,8 @@ function UserPreferencesScreen() {
               Enimmäisetäisyys
             </Text>
             <Text style={styles.currentDistance}>
-                {distance} km
-              </Text>
+              {distance} km
+            </Text>
             <Slider
               maximumValue={300}
               minimumValue={1}
