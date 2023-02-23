@@ -1,4 +1,4 @@
-import React, {useCallback, useState, createContext} from 'react'
+import React, {useCallback, useState} from 'react'
 import {NavigationContainer} from '@react-navigation/native'
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs'
 import {View, StatusBar, Text, Button, TouchableOpacity, StyleSheet} from 'react-native'
@@ -17,7 +17,8 @@ import styles from './assets/styles/styles.js'
 
 import { fi, se, en } from './assets/data/localisation/localisations'
 import * as Localisation from 'expo-localization'
-import {I18n} from 'i18n-js'
+import { I18n } from 'i18n-js'
+import { LocaleContext } from './contexts/LocaleContext'
 
 const Tab = createMaterialTopTabNavigator()
 
@@ -134,7 +135,6 @@ const AppTheme = {
 }
 
 const i18n = new I18n() //For localisation
-const LocaleContext = createContext(null)
 
 export default function App() {
 

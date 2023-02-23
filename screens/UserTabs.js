@@ -6,7 +6,7 @@ import UserInfoScreen from './UserInfoScreen'
 import UserPreferencesScreen from './UserPreferencesScreen'
 import SettingsScreen from './SettingsScreen'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import {LocaleContext} from '../App'
+import { LocaleContext } from '../contexts/LocaleContext'
 
 const Tab = createMaterialTopTabNavigator()
 
