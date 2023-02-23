@@ -8,6 +8,7 @@ import {
   KeyboardAvoidingView,
   TouchableWithoutFeedback,
   Button,
+  Pressable,
 } from 'react-native'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { Slider } from '@rneui/themed'
@@ -51,7 +52,7 @@ const thumbIcon = (y) => {
   }
 }
   
-function UserInfoScreen() {
+function UserInfoScreen({ navigation }) {
   delete userData['default']
 
   const [loading, setLoading] = useState(true)
@@ -387,6 +388,10 @@ function UserInfoScreen() {
           </View>
           <Button title='log user' onPress={() => getUserData()} />
           <Text style={styles.textfieldlist}></Text>
+          <Pressable style={styles.settingsButton} onPress={() => {navigation.navigate('Settings')}}>
+            <Text style={styles.buttonText}>Asetukset</Text>
+          </Pressable>
+
         </ScrollView>
       </TouchableWithoutFeedback>
     </KeyboardAvoidingView >

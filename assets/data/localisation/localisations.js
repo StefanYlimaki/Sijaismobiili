@@ -1,4 +1,5 @@
 const fi = {
+  settings: 'Asetukset',
   settingsLanguage: 'Kieli',
   settingsNotifications: 'Ilmoitukset',
   settingsInfo: 'Tietoja',
@@ -11,6 +12,7 @@ const fi = {
   yes: 'Kyllä',
 }
 const se = {
+  settings: 'Inställningar',
   settingsLanguage: 'Språk',
   settingsNotifications: 'Aviseringar',
   settingsInfo: 'Info',
@@ -23,6 +25,7 @@ const se = {
   yes: 'Ja',
 }
 const en = {
+  settings: 'Settings',
   settingsLanguage: 'Language',
   settingsNotifications: 'Notifications',
   settingsInfo: 'Info',

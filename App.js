@@ -140,7 +140,8 @@ export default function App() {
 
   //Localisation
   const [locale, setLocale] = useState(Localisation.locale) // use system language
-  i18n.enableFallbacks = true
+  i18n.enableFallback = true
+  i18n.defaultLocale = 'fi'
   i18n.translations = { fi, se, en }
   i18n.locale = locale
 
