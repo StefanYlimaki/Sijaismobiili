@@ -7,6 +7,7 @@ import {
   KeyboardAvoidingView,
   TouchableWithoutFeedback,
   Button,
+  Pressable,
 } from 'react-native'
 import { Slider } from '@rneui/themed'
 import {Icon} from '@rneui/base'
@@ -16,7 +17,7 @@ import * as Colors from '../assets/styles/colors.js'
 import styles from '../assets/styles/styles'
 import { setUserData } from '../utils/setUserData'
 
-const UserInfoView = ({ user, setUser }) => {
+const UserInfoView = ({ user, setUser, navigation }) => {
 
   const [morning, setMorning] = useState(user.preferences.morning)
   const [evening, setEvening] = useState(user.preferences.evening)
@@ -127,6 +128,10 @@ const UserInfoView = ({ user, setUser }) => {
           </View>
           <Button title='log user' onPress={() => logUserData()} />
           <Text style={styles.textfieldlist}></Text>
+
+          <Pressable style={styles.settingsButton} onPress={() => {navigation.navigate('Settings')}}>
+            <Text style={styles.buttonText}>Asetukset</Text>
+          </Pressable>
         </ScrollView>
       </TouchableWithoutFeedback>
     </KeyboardAvoidingView >
