@@ -4,7 +4,15 @@ import { Text, View } from 'react-native'
 import SubstitutionsList from '../components/SubstitutionsList'
 import substitutions from '../assets/data/substitutionsData_new.json'
 
-const SavedSubstitutions = ({ navigation }) => {
+const SavedSubstitutions = ({ navigation, tabBarHidden, setTabBarHidden, swipeEnabled, setSwipeEnabled }) => {
+
+  if(tabBarHidden && navigation.isFocused()){
+    setTabBarHidden(false)
+  }
+
+  if(!swipeEnabled && navigation.isFocused()){
+    setSwipeEnabled(true)
+  }
 
   const saved = substitutions.filter((s) => (s.id % 12) === 0)
 

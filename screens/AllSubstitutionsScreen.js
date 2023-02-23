@@ -6,13 +6,21 @@ import substitutions from '../assets/data/substitutionsData_new.json'
 import {BottomSheetModal, BottomSheetModalProvider} from '@gorhom/bottom-sheet'
 import FilterModal from './FilterModal'
 
-const AllSubstitutions = ({ navigation }) => {
+const AllSubstitutions = ({ navigation, tabBarHidden, setTabBarHidden, swipeEnabled, setSwipeEnabled }) => {
 
   const [substList, setSubstList] = useState(substitutions)
 
   const BottomSheetModalRef = useRef(null)
 
   const snapPoints = ['48%']
+
+  if(tabBarHidden && navigation.isFocused()){
+    setTabBarHidden(false)
+  }
+
+  if(!swipeEnabled && navigation.isFocused()){
+    setSwipeEnabled(true)
+  }
 
   return (
     <BottomSheetModalProvider>
