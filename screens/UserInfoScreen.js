@@ -4,7 +4,7 @@ import { View, Text } from 'react-native'
 import { getUserData } from '../utils/getUserData'
 import UserInfoView from './UserInfoView'
 
-function UserInfoScreen() {
+function UserInfoScreen({navigation}) {
   delete userData['default']
 
   const [loading, setLoading] = useState(true)
@@ -23,7 +23,7 @@ function UserInfoScreen() {
   if(loading){
     return <View><Text>Ladataan, hetki vain.</Text></View>
   }
-  return <UserInfoView user={user} setUser={setUser}/>
+  return <UserInfoView user={user} setUser={setUser} navigation={navigation}/>
 }
 
 export default UserInfoScreen

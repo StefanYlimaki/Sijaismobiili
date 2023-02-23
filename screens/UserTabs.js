@@ -1,11 +1,26 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs'
 import { getFocusedRouteNameFromRoute } from '@react-navigation/native'
 import UserInfoScreen from './UserInfoScreen'
 import UserPreferencesScreen from './UserPreferencesScreen'
+import SettingsScreen from './SettingsScreen'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { LocaleContext } from '../contexts/LocaleContext'
 
 const Tab = createMaterialTopTabNavigator()
+
+const UserInfoStack = createNativeStackNavigator()
+
+function UserInfoStackScreen() {
+  const { i18n } = useContext(LocaleContext)
+  return (
+    <UserInfoStack.Navigator>
+      <UserInfoStack.Screen name="UserInfo" component={UserInfoScreen} options={{headerShown: false}}/>
+      <UserInfoStack.Screen name="Settings" component={SettingsScreen} options={{headerTitle: i18n.t('settings'), headerBackTitleVisible: false}}/>
+    </UserInfoStack.Navigator>
+  )
+}
 
 function UserInfoTab({ navigation, route })  {
   React.useLayoutEffect(() => {
@@ -35,7 +50,7 @@ function UserInfoTab({ navigation, route })  {
       }}
     >
       <Tab.Screen name="Mieltymykset" component={UserPreferencesScreen}/>
-      <Tab.Screen name="Omat tiedot" component={UserInfoScreen}/>
+      <Tab.Screen name="Omat tiedot" component={UserInfoStackScreen}/>
     </Tab.Navigator>
   )
 }

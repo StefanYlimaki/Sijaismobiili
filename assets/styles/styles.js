@@ -7,6 +7,11 @@ export default StyleSheet.create({
     color: Colors.textDark,
     opacity: 0.8,
   },
+  buttonText: {
+    color: Colors.textLight,
+    fontFamily: 'Inter-DisplaySemiBold',
+
+  },
   container: {
     flex: 1,
     fontFamily: 'Inter-Display'
@@ -18,6 +23,15 @@ export default StyleSheet.create({
   distanceSlider:{
     flexDirection: 'row',
     justifyContent: 'space-between',
+  },
+  footerButtonText: {
+    color: Colors.danger,
+    marginBottom: 10,
+    textDecorationLine: 'underline',
+  },
+  footerSettings: {
+    alignItems: 'center',
+    marginTop: 30
   },
   h1: {
     fontFamily: 'Inter-DisplaySemiBold',
@@ -50,6 +64,39 @@ export default StyleSheet.create({
     paddingVertical: '1%',
     textTransform: 'uppercase',
   },
+  languageButton: {
+    backgroundColor: Colors.info,
+    borderRadius: 7,
+    marginBottom: 5,
+    paddingBottom: 5,
+    paddingLeft: 10,
+    paddingTop: 5,
+    width: 120
+  },
+  languageButtonDisabled: {
+    backgroundColor: '#D9D9D9',
+    borderRadius: 7,
+    marginBottom: 5,
+    paddingBottom: 5,
+    paddingLeft: 10,
+    paddingTop: 5,
+    width: 120
+  },
+  languageButtonsContainer: {
+    marginTop: 20
+  },
+  linkText: {
+    marginBottom: 2,
+    textDecorationLine: 'underline'
+  },
+  logOutButton: {
+    backgroundColor: Colors.warning,
+    borderRadius: 100,
+    paddingBottom: 5,
+    paddingLeft: 25,
+    paddingRight: 25,
+    paddingTop: 5
+  },
   pageContainer: {
     flex: 1,
     marginTop: 32,
@@ -63,6 +110,30 @@ export default StyleSheet.create({
   },
   pressedSubstitutionItem: {
     opacity: 0.5,
+  },
+  settingsButton: {
+    alignItems: 'center',
+    alignSelf: 'center',
+    backgroundColor: Colors.info,
+    borderRadius: 100,
+    marginBottom: 50,
+    paddingBottom: 5,
+    paddingTop: 5,
+    width: 120
+  },
+  settingsContainer: {
+    flex: 4
+  },   
+  settingsFooter : {
+    alignItems: 'center',
+    flex: 1,
+  },
+  settingsScreen: {
+    flex: 1,
+    paddingHorizontal: '5%',
+  },
+  singleSettingContainer: {
+    paddingTop: 20
   },
   sliderList: {
     alignItems: 'baseline',
@@ -112,11 +183,16 @@ export default StyleSheet.create({
     height: 50,
     paddingHorizontal: 16,
     paddingVertical: 8,
-  },  
+  },
   substitutionsListContainer: {
     height: '100%',
     marginHorizontal: 16
-  },   
+  },
+  switchContainer: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    rowGap: 50
+  },
   tag: {
     backgroundColor: Colors.krGreenLight,
     borderRadius: 24,
