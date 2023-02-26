@@ -14,3 +14,5 @@ export const success = '#00844F'
 export const danger = '#C51C2A'
 export const warning = '#FD6942'
 export const info = '#1C2AC5'
+
+export const krGray = '#DCDCDC'

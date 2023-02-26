@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native'
 import * as Colors from './colors.js'
+import {krGreen} from './colors.js'
 
 export default StyleSheet.create({
 
@@ -210,6 +211,17 @@ export default StyleSheet.create({
     paddingHorizontal: '5%',
   },
   userIcon: undefined,
+  userTab: {
+    backgroundColor: '#DCDCDC', borderRadius: '50%', flexDirection: 'row', justifyContent: 'center', alignItems: 'center'
+  },
+  userTabItem: {
+    borderRadius: '50%',
+    margin: 5,
+    padding: 10,
+  },
+  userTabItemActive: {
+    backgroundColor: Colors.krGreen,
+  },
   whiteText: {
     color: Colors.textLight,
     opacity: 0.8,
