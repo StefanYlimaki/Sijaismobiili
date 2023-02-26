@@ -1,7 +1,6 @@
 
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
 import TabBar from './TabBar'
-import UserTabs from './UserTabs'
 import SavedSubstitutionsStack from './SavedSubstitutionsStack'
 import TailoredSubstitutionsStack from './TailoredSubstitutionsStack'
 import AllSubstitutionsStack from './AllSubstitutionsStack'

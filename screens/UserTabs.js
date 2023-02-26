@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-
+import TabBar from './UserTabBar'
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs'
 import { getFocusedRouteNameFromRoute } from '@react-navigation/native'
 import UserInfoScreen from './UserInfoScreen'
@@ -34,6 +34,7 @@ function UserInfoTab({ navigation, route })  {
 
   return(
     <Tab.Navigator
+      tabBar={(props) => <TabBar {...props}/>}
       screenOptions={{
         swipeEnabled: false,
         tabBarContentContainerStyle: {

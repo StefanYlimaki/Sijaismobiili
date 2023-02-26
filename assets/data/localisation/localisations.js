@@ -10,6 +10,7 @@ const fi = {
   settingsRemoveAccount: 'Poista tili',
   settingsDisabled: 'Ei käytössä',
   yes: 'Kyllä',
+  preferences: 'Mieltymykset',
 }
 const se = {
   settings: 'Inställningar',
@@ -23,6 +24,7 @@ const se = {
   settingsRemoveAccount: 'Ta bort konto',
   settingsDisabled: 'Avstängd',
   yes: 'Ja',
+  preferences: 'Mieltymykserna',
 }
 const en = {
   settings: 'Settings',
@@ -36,6 +38,7 @@ const en = {
   settingsRemoveAccount: 'Remove account',
   settingsDisabled: 'Disabled',
   yes: 'Yes',
+  preferences: 'Preferences',
 }
 
 export { fi, se, en }

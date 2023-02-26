@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native'
 import * as Colors from './colors.js'
+import {krGreen} from './colors.js'
 
 export default StyleSheet.create({
 
@@ -43,18 +44,6 @@ export default StyleSheet.create({
     paddingBottom: 10,
     paddingTop: 10,
     textTransform: 'uppercase',
-  },
-  input: {
-    backgroundColor: '#efefef',
-    borderBottomColor: Colors.krGreen,
-    borderBottomWidth: 2,
-    borderRadius: 10,
-    borderWidth: 1,
-    height: 40,
-    padding: 10,
-  },
-  inputlist: {
-    paddingHorizontal: '5%',
   },
   label: {
     color: Colors.krGreenDark,
@@ -200,8 +189,6 @@ export default StyleSheet.create({
   },
   textfieldlist: {
     fontFamily: 'Inter-DisplaySemiBold',
-    paddingBottom: '2%',
-    paddingTop: '5%'
   },
   userContainer: {
     flex: 1,
@@ -210,6 +197,21 @@ export default StyleSheet.create({
     paddingHorizontal: '5%',
   },
   userIcon: undefined,
+  userTab: {
+    alignItems: 'center',
+    backgroundColor: '#DCDCDC',
+    borderRadius: 1000,
+    flexDirection: 'row',
+    justifyContent: 'center'
+  },
+  userTabItem: {
+    borderRadius: 1000,
+    margin: 5,
+    padding: 10,
+  },
+  userTabItemActive: {
+    backgroundColor: Colors.krGreen,
+  },
   whiteText: {
     color: Colors.textLight,
     opacity: 0.8,
