@@ -45,18 +45,6 @@ export default StyleSheet.create({
     paddingTop: 10,
     textTransform: 'uppercase',
   },
-  input: {
-    backgroundColor: '#efefef',
-    borderBottomColor: Colors.krGreen,
-    borderBottomWidth: 2,
-    borderRadius: 10,
-    borderWidth: 1,
-    height: 40,
-    padding: 10,
-  },
-  inputlist: {
-    paddingHorizontal: '5%',
-  },
   label: {
     color: Colors.krGreenDark,
     fontFamily: 'Inter-DisplayExtraBold',
@@ -201,8 +189,6 @@ export default StyleSheet.create({
   },
   textfieldlist: {
     fontFamily: 'Inter-DisplaySemiBold',
-    paddingBottom: '2%',
-    paddingTop: '5%'
   },
   userContainer: {
     flex: 1,
@@ -212,10 +198,14 @@ export default StyleSheet.create({
   },
   userIcon: undefined,
   userTab: {
-    backgroundColor: '#DCDCDC', borderRadius: '50%', flexDirection: 'row', justifyContent: 'center', alignItems: 'center'
+    alignItems: 'center',
+    backgroundColor: '#DCDCDC',
+    borderRadius: 1000,
+    flexDirection: 'row',
+    justifyContent: 'center'
   },
   userTabItem: {
-    borderRadius: '50%',
+    borderRadius: 1000,
     margin: 5,
     padding: 10,
   },
