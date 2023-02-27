@@ -13,6 +13,7 @@ import * as Colors from '../assets/styles/colors.js'
 import styles from '../assets/styles/styles'
 import {Icon} from '@rneui/base'
 import { getUserData } from '../utils/getUserData'
+import { setUserData } from '../utils/setUserData'
 
 function UserPreferencesScreen() {
   delete userData['default']
@@ -55,7 +56,7 @@ function UserPreferencesScreen() {
         delete newUser[key]
         newUser[key] = value
       }
-      await AsyncStorage.setItem('user', JSON.stringify(newUser))
+      setUserData(newUser)
       setUser(newUser)
     } catch (error) {
       console.log(error)

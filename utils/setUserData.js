@@ -7,5 +7,6 @@ export async function setUserData(user) {
     user = JSON.stringify(user) //Stringifying the object before saving
   }
   await AsyncStorage.setItem('user', user)
+  await AsyncStorage.setItem('updatedAt', Date.now().toString())
   return
 }
