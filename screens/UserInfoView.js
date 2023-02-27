@@ -15,14 +15,6 @@ import { setUserData } from '../utils/setUserData'
 import {ListItem} from '@rneui/base'
 
 const UserInfoView = ({ user, setUser, navigation }) => {
-
-  const [morning, setMorning] = useState(user.preferences.morning)
-  const [evening, setEvening] = useState(user.preferences.evening)
-  const [night, setNight] = useState(user.preferences.night)
-  const [pay, setPay] = useState(user.preferences.pay)
-  const [fullShift, setFullShift] = useState(user.preferences.fullShift)
-  const [distance, setDistance] = useState(user.preferences.distance)
-
   const handleChange = async (event, key, subKey) => {
     try {
       const newUser = {...user}
