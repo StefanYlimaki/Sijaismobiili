@@ -17,7 +17,7 @@ export async function orderAndFilterSubstitutionsByPreferences(subs) {
 }
 
 function rateSubstitutions(substitutions, preferences){
-  const { morning, evening, night} = preferences
+  const { morning, evening, night, fullShift, pay} = preferences
   let points
   substitutions.forEach(s => {
     points = 0
@@ -55,6 +55,24 @@ function rateSubstitutions(substitutions, preferences){
         points += 2    
       }
     }
+
+    if(s.timing.duration > 300){
+      if(fullShift === 1){
+        points -= 2
+      }
+      if(fullShift === 2){
+        points -= 1
+      }
+      if(fullShift === 4){
+        points += 1
+      }
+      if(fullShift === 5){
+        points += 2
+      }
+    }
+
+    points += (s.hourlyPay/20) * pay
+    
     s.points = points
   })
   return substitutions
