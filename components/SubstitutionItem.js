@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Pressable } from 'react-native'
+import { View, Text, StyleSheet, Pressable , Animated} from 'react-native'
 
 import { formatHourlyPay, formatDate, formatTime } from '../utils'
 import styles from '../assets/styles/styles'
@@ -10,7 +10,7 @@ const SubstitutionItem = ({ substitution, navigation }) => {
   }
 
   return (
-    <View style={styles.substitutionItemContainer}>
+    <Animated.View style={styles.substitutionItemContainer}>
       <Pressable
         onPress={() =>
           navigation.navigate('Substitution', {
@@ -75,7 +75,7 @@ const SubstitutionItem = ({ substitution, navigation }) => {
           </View>
         </View>
       </Pressable>
-    </View>
+    </Animated.View>
   )
 }
 

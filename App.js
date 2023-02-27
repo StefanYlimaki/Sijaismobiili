@@ -5,7 +5,6 @@ import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { useFonts } from 'expo-font'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
-
 import CustomStatusBar from './screens/CustomStatusBar'
 import SwipeScreen from './screens/SwipeScreen'
 import AppTabs from './screens/AppTabs'
@@ -25,7 +24,7 @@ const Stack = createNativeStackNavigator()
 const AppTheme = {
   dark: false,
   colors: {
-    primary: 'rgb(255, 45, 85)',
+    primary: krGreen,
     background: 'rgb(255, 255, 255)',
     card: 'rgb(255, 255, 255)',
     text: 'rgb(28, 28, 30)',

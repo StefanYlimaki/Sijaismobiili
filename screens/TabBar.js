@@ -3,6 +3,7 @@ import { AntDesign } from '@expo/vector-icons'
 import { View, Pressable, Text } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { useRoute } from '@react-navigation/native'
+import Styles from '../assets/styles/styles'
 
 export const getTopBarStyle = (tabBarHidden) => {
   if(tabBarHidden){
@@ -15,6 +16,7 @@ export const getTopBarStyle = (tabBarHidden) => {
       flexDirection: 'row',
       height: 60,
       justifyContent: 'space-around',
+      width: '100%',
     }
   }
 }
@@ -68,21 +70,21 @@ const TopTab = ({ type, size = 24, isFocused, index, navigation }) => {
   case 0:
     if(isFocused){
       return(
-        <View style={{ backgroundColor: 'grey', padding: 5, borderRadius: 10, marginLeft: 20 }}><Text>Tykätyt</Text></View>
+        <View style={{  padding: 5, borderRadius: 10, marginLeft: 20 }}><Text style={Styles.tabActiveText}>Tykätyt</Text></View>
       )
     }
     return(<View style={{ padding: 5, marginLeft: 20 }}><Text>Tykätyt</Text></View>)
   case 1:
     if(isFocused){
       return(
-        <View style={{ backgroundColor: 'grey', padding: 5, borderRadius: 10 }}><Text>Sinulle</Text></View>
+        <View style={{  padding: 5, borderRadius: 10 }}><Text style={Styles.tabActiveText}>Sinulle</Text></View>
       )
     }
     return(<View style={{ padding: 5 }}><Text>Sinulle</Text></View>)
   case 2:
     if(isFocused){
       return(
-        <View style={{ backgroundColor: 'grey', padding: 5, borderRadius: 10, marginRight: 40 }}><Text>Haku</Text></View>
+        <View style={{  padding: 5, borderRadius: 10, marginRight: 40 }}><Text style={Styles.tabActiveText}>Haku</Text></View>
       )
     }
     return(<View style={{ padding: 5, marginRight: 40 }}><Text>Haku</Text></View>)

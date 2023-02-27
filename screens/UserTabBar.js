@@ -56,14 +56,26 @@ const TopTab = ({ type, size = 24, isFocused, index, navigation }) => {
         <View style={[Styles.userTabItem, Styles.userTabItemActive]}><Text style={Styles.whiteText}>Mieltymykset</Text></View>
       )
     }
-    return(<View style={{ padding: 10, margin: 5 }}><Text>Mieltymykset</Text></View>)
+    return(<View style={{
+      padding: 10,
+      marginTop: 5,
+      marginBottom: 5,
+      marginLeft: 5,
+      marginRight: 0,
+
+    }}><Text>Mieltymykset</Text></View>)
   case 1:
     if(isFocused){
       return(
         <View style={[Styles.userTabItem, Styles.userTabItemActive]}><Text style={Styles.whiteText}>Omat tiedot</Text></View>
       )
     }
-    return(<View style={{ padding: 10, margin: 5 }}><Text>Omat tiedot</Text></View>)
+    return(<View style={{
+      padding: 10,
+      marginTop: 5,
+      marginBottom: 5,
+      marginLeft: 0,
+      marginRight: 5,}}><Text>Omat tiedot</Text></View>)
   }
 }
 
