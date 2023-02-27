@@ -11,6 +11,8 @@ const fi = {
   settingsDisabled: 'Ei käytössä',
   yes: 'Kyllä',
   preferences: 'Mieltymykset',
+  deleteConfirmation: 'Haluatko varmasti poistaa tilisi pysyvästi? Jos haluat palata takaisin, sinun on luotava uusi tili.',
+  removeAccount: 'Poista tili pysyvästi',
 }
 const se = {
   settings: 'Inställningar',
@@ -25,6 +27,8 @@ const se = {
   settingsDisabled: 'Avstängd',
   yes: 'Ja',
   preferences: 'Mieltymykserna',
+  deleteConfirmation: 'Haluatko varmasti poistaa tilisi pysyvästi mutta ruotsiksi',
+  removeAccount: 'Poista tili pysyvästi',
 }
 const en = {
   settings: 'Settings',
@@ -39,6 +43,8 @@ const en = {
   settingsDisabled: 'Disabled',
   yes: 'Yes',
   preferences: 'Preferences',
+  deleteConfirmation: 'Are you sure you want to delete your account? In order to return, you must create a new account.',
+  removeAccount: 'Delete account permanently',
 }
 
 export { fi, se, en }
