@@ -36,7 +36,7 @@ const TailoredSubsitutions = ({ route, navigation, tabBarHidden, setTabBarHidden
 
   const intervalID = setInterval(async () => {
     await preferencesHaveChanged(setShouldReload, shouldReload)
-  }, 5000)
+  }, 1000)
 
   if(loading){
     return(
@@ -59,7 +59,7 @@ const TailoredSubsitutions = ({ route, navigation, tabBarHidden, setTabBarHidden
       <View>
         <Button title='refresh' onPress={() => setShouldReload(!shouldReload)}/>
         <Text style={{ padding: 16, margin: 16 }}>Valitettavasti emme löytäneet mieltymyksiesi mukaisia työvuoroja.</Text>
-        <Text>Voit käydä käyttäjäprofiilissasi muokkaamassa esimerkiksi vuorojen enimmäisetäisyyttä</Text>
+        <Text style={{ padding: 16, margin: 16 }}>Voit käydä käyttäjäprofiilissasi muokkaamassa esimerkiksi vuorojen enimmäisetäisyyttä</Text>
       </View>
     )
   }
