@@ -249,7 +249,7 @@ function UserPreferencesScreen() {
                     type="material-community"
                     size={20}
                     reverse
-                    containerStyle={styles.thumb }
+                    containerStyle={{ bottom: 20, right: 20 }}
                     color={thumbTheme(fullShift)}
                   />
                 ),
