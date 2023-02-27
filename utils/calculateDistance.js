@@ -2,7 +2,7 @@
 //Arguments: Coordinates as decimal degrees
 //Returns: Formatted string containing distance in kilometers
 //         If distance is <1km return distance in metres
-function calculateDistance (lat1, lon1, lat2, lon2) {
+function calculateDistance (lat1, lon1, lat2, lon2, inNumberFormat) {
   const earthRadius = 6371e3 //In metres
 
 
@@ -22,6 +22,10 @@ function calculateDistance (lat1, lon1, lat2, lon2) {
   const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a))
 
   const d = (earthRadius * c) / 1000 //Distance in kilometers
+
+  if(inNumberFormat){
+    return d
+  }
 
   const distanceString = d >= 1? 
     Math.round(d) + 'km' : 
