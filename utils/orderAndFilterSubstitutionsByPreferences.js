@@ -9,7 +9,7 @@ export async function orderAndFilterSubstitutionsByPreferences(subs) {
     longitude: 25.469885
   }
 
-  const filteredSubstitutionsByDistance = subs.filter(s => calculateDistance(userCoordinates.latitude, userCoordinates.longitude, s.coordinates.longitude, s.coordinates.latitude, true) < user.preferences.distance)
+  const filteredSubstitutionsByDistance = subs.filter(s => calculateDistance(userCoordinates.latitude, userCoordinates.longitude, s.coordinates.latitude, s.coordinates.longitude, true) < user.preferences.distance)
   const filteredSubstitutionsByDistanceAndPreferences = filteredSubstitutionsByDistance.filter(s => filterByPreferences(s, user.preferences))
   const ratedAndFilteredSubstitutions = rateSubstitutions(filteredSubstitutionsByDistanceAndPreferences, user.preferences)
 
