@@ -199,7 +199,8 @@ export default StyleSheet.create({
   },
   substitutionsListContainer: {
     height: '100%',
-    marginHorizontal: 16
+    marginHorizontal: 16,
+    paddingBottom: 100
   },
   switchContainer: {
     alignItems: 'center',

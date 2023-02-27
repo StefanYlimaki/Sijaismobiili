@@ -7,16 +7,7 @@ import substitutions from '../assets/data/substitutionsData_new.json'
 import { orderAndFilterSubstitutionsByPreferences } from '../utils/orderAndFilterSubstitutionsByPreferences'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
-let updatedAt = 1677509078236
-
-async function preferencesHaveChanged(setShouldReload, shouldReload) {
-  const UserUpdatedAt = await AsyncStorage.getItem('updatedAt')
-  if(UserUpdatedAt > updatedAt){
-    updatedAt = UserUpdatedAt
-    setShouldReload(!shouldReload)
-  }
-  return false
-}
+let updatedAt = 0
 
 const TailoredSubsitutions = ({ route, navigation, tabBarHidden, setTabBarHidden, swipeEnabled, setSwipeEnabled }) => {
 
@@ -24,19 +15,24 @@ const TailoredSubsitutions = ({ route, navigation, tabBarHidden, setTabBarHidden
   const [tailoredSubstitutions, setTailoredSubstitutions] = useState([])
   const [shouldReload, setShouldReload] = useState(false)
 
-  useEffect(() => {
-    async function callOrderAndFilterSubstitutionsByPreferences() {
+  
+  async function callOrderAndFilterSubstitutionsByPreferences() {
+    const UserUpdatedAt = await AsyncStorage.getItem('updatedAt')
+    if(UserUpdatedAt > updatedAt){
       const result = await orderAndFilterSubstitutionsByPreferences(substitutions)
       console.log(result.length)
       setTailoredSubstitutions(result)
-      setLoading(false)
+      updatedAt = UserUpdatedAt
     }
-    callOrderAndFilterSubstitutionsByPreferences()
-  }, [shouldReload])
-
-  const intervalID = setInterval(async () => {
-    await preferencesHaveChanged(setShouldReload, shouldReload)
-  }, 1000)
+    setLoading(false)
+  }
+  
+  useEffect(() => {
+    setInterval(async () => {
+      await callOrderAndFilterSubstitutionsByPreferences()
+    }, 1000)
+  }, [])
+  
 
   if(loading){
     return(
@@ -57,7 +53,6 @@ const TailoredSubsitutions = ({ route, navigation, tabBarHidden, setTabBarHidden
   if(tailoredSubstitutions.length === 0){
     return(
       <View>
-        <Button title='refresh' onPress={() => setShouldReload(!shouldReload)}/>
         <Text style={{ padding: 16, margin: 16 }}>Valitettavasti emme löytäneet mieltymyksiesi mukaisia työvuoroja.</Text>
         <Text style={{ padding: 16, margin: 16 }}>Voit käydä käyttäjäprofiilissasi muokkaamassa esimerkiksi vuorojen enimmäisetäisyyttä</Text>
       </View>
@@ -66,8 +61,6 @@ const TailoredSubsitutions = ({ route, navigation, tabBarHidden, setTabBarHidden
 
   return (
     <View>
-      <Button title='refresh' onPress={() => setShouldReload(!shouldReload)}/>
-      <Button title='clear' onPress={() => clearInterval(intervalID)}/>
       <Text style={{ paddingHorizontal: 16, marginVertical: 16 }}>Mieltyksiäsi vastaa {tailoredSubstitutions.length} työvuoroa</Text>
       <SubstitutionsList navigation={navigation} substitutions={tailoredSubstitutions}/>
     </View>
