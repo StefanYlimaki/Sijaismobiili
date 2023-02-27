@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import * as userData from '../assets/data/userData.json'
-import { View, Text } from 'react-native'
+import { View, Text, Button } from 'react-native'
 import { getUserData } from '../utils/getUserData'
 import UserInfoView from './UserInfoView'
+import {logUserData} from '../utils/logUserData'
 
 function UserInfoScreen({navigation}) {
   delete userData['default']
@@ -21,9 +22,14 @@ function UserInfoScreen({navigation}) {
   }, [])
   
   if(loading){
-    return <View><Text>Ladataan, hetki vain.</Text></View>
+    return(
+      <View>
+        <Text>Ladataan, hetki vain.</Text>
+      </View>
+    )
+    
   }
-  return <UserInfoView user={user} setUser={setUser} navigation={navigation}/>
+  return(<UserInfoView user={user} setUser={setUser} navigation={navigation}/>)
 }
 
 export default UserInfoScreen

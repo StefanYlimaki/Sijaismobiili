@@ -12,69 +12,37 @@ import { Slider } from '@rneui/themed'
 import * as Colors from '../assets/styles/colors.js'
 import styles from '../assets/styles/styles'
 import {Icon} from '@rneui/base'
+import { getUserData } from '../utils/getUserData'
 
-const thumbTheme = (y) => {
-  if (y === 1) {
-    return Colors.danger
-  }
-  if (y === 2) {
-    return Colors.warning
-  }
-  if (y === 3) {
-    return Colors.krGreen
-  }
-  if (y === 4) {
-    return Colors.blueBright
-  }
-  if (y === 5) {
-    return Colors.success
-  }
-}
-const thumbIcon = (y) => {
-  if (y === 1) {
-    return 'heart-off'
-  }
-  if (y === 2) {
-    return 'emoticon-neutral'
-  }
-  if (y === 3) {
-    return 'emoticon-happy'
-  }
-  if (y === 4) {
-    return 'emoticon'
-  }
-  if (y === 5) {
-    return 'heart-multiple'
-  }
-}
-  
 function UserPreferencesScreen() {
   delete userData['default']
 
   const [loading, setLoading] = useState(true)
-  const [user, setUser] = useState(userData)
+  const [user, setUser] = useState({})
+  const [morning, setMorning] = useState()
+  const [evening, setEvening] = useState()
+  const [night, setNight] = useState()
+  const [pay, setPay] = useState()
+  const [fullShift, setFullShift] = useState()
+  const [distance, setDistance] = useState()
 
 
   useEffect(() => {
-    async function storeData() {
-      try {
-        await AsyncStorage.setItem('user', JSON.stringify(userData))
-        const newUser = await AsyncStorage.getItem('user')
-        setUser(JSON.parse(newUser))
-        setLoading(false)
-      } catch (e) {
-        // saving error
-      }
+    async function fetchUserData() {
+      const user = await getUserData()
+      setUser(user)
+      setLoading(false)
+      setMorning(user.preferences.morning)
+      setEvening(user.preferences.evening)
+      setNight(user.preferences.night)
+      setPay(user.preferences.pay)
+      setFullShift(user.preferences.fullShift)
+      setDistance(user.preferences.distance)
     }
-    storeData()
+
+    fetchUserData()
   },[])
 
-  const [morning, setMorning] = useState(user.preferences.morning)
-  const [evening, setEvening] = useState(user.preferences.evening)
-  const [night, setNight] = useState(user.preferences.night)
-  const [pay, setPay] = useState(user.preferences.pay)
-  const [fullShift, setFullShift] = useState(user.preferences.fullShift)
-  const [distance, setDistance] = useState(user.preferences.distance)
 
   const handleChange = async (event, key, subKey) => {
     try {
@@ -286,7 +254,6 @@ function UserPreferencesScreen() {
                   />
                 ),
               }}
-              //thumbStyle={ styles.thumb }
               step={1}
               allowTouchTrack={true}
               trackStyle={{ height: 10, backgroundColor: 'transparent', borderRadius: 10 }}
@@ -303,3 +270,38 @@ function UserPreferencesScreen() {
 }
 
 export default UserPreferencesScreen
+
+const thumbTheme = (y) => {
+  if (y === 1) {
+    return Colors.danger
+  }
+  if (y === 2) {
+    return Colors.warning
+  }
+  if (y === 3) {
+    return Colors.krGreen
+  }
+  if (y === 4) {
+    return Colors.blueBright
+  }
+  if (y === 5) {
+    return Colors.success
+  }
+}
+const thumbIcon = (y) => {
+  if (y === 1) {
+    return 'heart-off'
+  }
+  if (y === 2) {
+    return 'emoticon-neutral'
+  }
+  if (y === 3) {
+    return 'emoticon-happy'
+  }
+  if (y === 4) {
+    return 'emoticon'
+  }
+  if (y === 5) {
+    return 'heart-multiple'
+  }
+}
