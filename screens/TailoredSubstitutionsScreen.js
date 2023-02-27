@@ -36,7 +36,7 @@ const TailoredSubsitutions = ({ route, navigation, tabBarHidden, setTabBarHidden
 
   const intervalID = setInterval(async () => {
     await preferencesHaveChanged(setShouldReload, shouldReload)
-  }, 1000)
+  }, 100)
 
   if(loading){
     return(
