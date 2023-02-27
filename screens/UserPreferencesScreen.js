@@ -281,11 +281,12 @@ function UserPreferencesScreen() {
                     type="material-community"
                     size={20}
                     reverse
-                    containerStyle={{ bottom: 20, right: 20 }}
+                    containerStyle={styles.thumb }
                     color={thumbTheme(fullShift)}
                   />
                 ),
               }}
+              thumbStyle={ styles.thumb }
               step={1}
               allowTouchTrack={true}
               trackStyle={{ height: 10, backgroundColor: 'transparent', borderRadius: 10 }}

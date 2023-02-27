@@ -95,10 +95,10 @@ export default StyleSheet.create({
     paddingBottom: 30,
     paddingTop: 30,
     //thumbTintColor : Colors.krGreen,
-    width: '100%',
+    width: '100%'
   },
   pressedSubstitutionItem: {
-    opacity: 0.5,
+    opacity: 0.9,
   },
   settingsButton: {
     alignItems: 'center',
@@ -112,11 +112,11 @@ export default StyleSheet.create({
   },
   settingsContainer: {
     flex: 4
-  },   
+  },
   settingsFooter : {
     alignItems: 'center',
     flex: 1,
-  },
+  },   
   settingsScreen: {
     flex: 1,
     paddingHorizontal: '5%',
@@ -148,7 +148,16 @@ export default StyleSheet.create({
     padding: 4
   },
   substitutionItemContainer: {
+    elevation: 5,
     marginTop: 20,
+    shadowColor: '#000000',
+    shadowOffset: {
+      width: 0,
+      height: 0,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+
     width: '100%',
   },
   substitutionPreviewComponent: {
@@ -182,6 +191,9 @@ export default StyleSheet.create({
     flexDirection: 'row',
     rowGap: 50
   },
+  tabActiveText: {
+    fontFamily: 'Inter-DisplaySemiBold',
+  },
   tag: {
     backgroundColor: Colors.krGreenLight,
     borderRadius: 24,
@@ -190,6 +202,18 @@ export default StyleSheet.create({
   textfieldlist: {
     fontFamily: 'Inter-DisplaySemiBold',
   },
+  thumb: {
+    elevation: 14,
+    shadowColor: '#000000',
+    shadowOffset: {
+      width: 0,
+      height: 7,
+      bottom: 20,
+      right: 20,
+    },
+    shadowOpacity: 0.41,
+
+    shadowRadius: 9.11,  },
   userContainer: {
     flex: 1,
   },
@@ -211,6 +235,15 @@ export default StyleSheet.create({
   },
   userTabItemActive: {
     backgroundColor: Colors.krGreen,
+    elevation: 3,
+    shadowColor: '#000000',
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.22,
+
+    shadowRadius: 2.22,
   },
   whiteText: {
     color: Colors.textLight,
