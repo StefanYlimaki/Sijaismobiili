@@ -15,7 +15,6 @@ import {Button, Icon} from '@rneui/base'
 import { getUserData } from '../utils/getUserData'
 import { setUserData } from '../utils/setUserData'
 import AllSubstitutions from './AllSubstitutionsScreen'
-import { AntDesign } from '@expo/vector-icons'
 
 function UserPreferencesScreen() {
   delete userData['default']
@@ -85,14 +84,9 @@ function UserPreferencesScreen() {
           </View>
           
           <View>
-            <View style={styles.h2AndInfoButton}>
-              <Text style={styles.h2}>
-                Enimmäisetäisyys
-              </Text>
-              <View style={[{paddingLeft: 12.5}]}>
-                <AntDesign name="infocirlceo" size={24} color="black" />
-              </View>
-            </View>
+            <Text style={styles.h2}>
+              Enimmäisetäisyys
+            </Text>
             <Text style={styles.currentDistance}>
               {distance} km
             </Text>
@@ -108,14 +102,9 @@ function UserPreferencesScreen() {
               onValueChange={(event) => setDistance(event)}
             />
           </View>
-          <View style={styles.h2AndInfoButton}>
-            <Text style={styles.h2}>
+          <Text style={styles.h2}>
               Mieltymykset
-            </Text>
-            <View style={[{paddingLeft: 12.5}]}>
-                <AntDesign name="infocirlceo" size={24} color="black" />
-            </View>
-          </View>
+          </Text>
           <View style={[styles.sliderList,{textAlign:'center'}]}>
             <View >
               <Text style={styles.label}>
