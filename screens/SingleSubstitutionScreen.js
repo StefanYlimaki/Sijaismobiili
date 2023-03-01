@@ -11,6 +11,7 @@ import {
 import { formatHourlyPay, formatDate, formatTime } from '../utils/'
 import styles from '../assets/styles/styles'
 import { krGreen } from '../assets/styles/colors'
+import DenyBookmarkAndAcceptButton from '../components/DenyBookmarkAndAcceptButtons'
 
 const SingleSubstitutionScreen = ({ route, navigation, tabBarHidden, setTabBarHidden, swipeEnabled, setSwipeEnabled }) => {
   const { substitution } = route.params
@@ -59,7 +60,7 @@ const SingleSubstitutionScreen = ({ route, navigation, tabBarHidden, setTabBarHi
             </Text>
           </View>
         </View>
-        <View style={{flexAlign:'flex-end', flexDirection:'column', flexWrap:'wrap',
+        <View style={{flexAlign:'flex-end', flexDirection:'column', flexWrap:'wrap', width:'100%'
         }}>
           {benefits}
         </View>
@@ -67,6 +68,7 @@ const SingleSubstitutionScreen = ({ route, navigation, tabBarHidden, setTabBarHi
       <View style={{
         flexDirection: 'row', backgroundColor: krGreen, width: '100%', marginTop: '6%',
         paddingHorizontal: 16, justifyContent: 'space-between', paddingVertical: 10
+
       }}>
         <View >
           <Text style={[styles.whiteText, {alignSelf: 'flex-start'}]}>
@@ -95,58 +97,11 @@ const SingleSubstitutionScreen = ({ route, navigation, tabBarHidden, setTabBarHi
           {substitution.item.description}
         </Text>
       </View>
-      <View style={{
-        paddingTop: '60%',
-        paddingLeft: 20,
-        paddingRight: 20,
-        flexDirection: 'row',
-        justifyContent: 'space-between'
-      }}>
-        <Pressable style={{
-          width: '30%'
-        }}
-        onPress={() => {
-          //Hylkää
-        }}
-        >
-          <View style={{
-            backgroundColor: '#91041D',
-            width: 100,
-            height: 100,
-            borderRadius: 50
-          }}>
-          </View>
-        </Pressable>
-
-        <Pressable style={{
-          width: '30%'
-        }}
-        >
-          <View style={{
-            backgroundColor: '#0666DB',
-            width: 100,
-            height: 100,
-            borderRadius: 50
-          }}>
-          </View>
-        </Pressable>
-
-        <Pressable style={{
-          width: '30%'
-        }}
-        onPress={() => {
-          //Hyväksy
-        }}
-        >
-          <View style={{
-            backgroundColor: '#13912A',
-            width: 100,
-            height: 100,
-            borderRadius: 50
-          }}>
-          </View>
-        </Pressable>
-      </View>
+      <DenyBookmarkAndAcceptButton
+        denyCallback={()=>console.log('deny')}
+        acceptCallback={()=>console.log('accept')}
+        bookmarkCallback={()=>console.log('bookmark')}
+      />
     </View>
   )
 }

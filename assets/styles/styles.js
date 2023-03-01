@@ -124,6 +124,12 @@ export default StyleSheet.create({
   singleSettingContainer: {
     paddingTop: 20
   },
+  singleSubstitutionTop: {
+    flex: 1,
+    flexDirection: 'column',
+    flexWrap: 'nowrap',
+    marginTop: 32
+  },
   sliderList: {
     alignItems: 'baseline',
     paddingBottom: 40,
