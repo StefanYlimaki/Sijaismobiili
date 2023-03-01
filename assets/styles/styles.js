@@ -100,6 +100,21 @@ export default StyleSheet.create({
   pressedSubstitutionItem: {
     opacity: 0.9,
   },
+  removeAccountButton: {
+    backgroundColor: Colors.danger,
+    borderRadius: 100,
+    paddingBottom: 5,
+    paddingLeft: 40,
+    paddingRight: 40,
+    paddingTop: 5
+  },
+  removeAccountButtonText: {
+    color: Colors.textLight,
+    fontFamily: 'Inter-DisplayBlack',
+    fontSize: 20,
+    opacity: 0.8,
+    textAlign: 'center'
+  },
   settingsButton: {
     alignItems: 'center',
     alignSelf: 'center',
@@ -112,11 +127,11 @@ export default StyleSheet.create({
   },
   settingsContainer: {
     flex: 4
-  },
+  },   
   settingsFooter : {
     alignItems: 'center',
     flex: 1,
-  },   
+  },
   settingsScreen: {
     flex: 1,
     paddingHorizontal: '5%',
@@ -184,7 +199,8 @@ export default StyleSheet.create({
   },
   substitutionsListContainer: {
     height: '100%',
-    marginHorizontal: 16
+    marginHorizontal: 16,
+    paddingBottom: 100
   },
   switchContainer: {
     alignItems: 'center',
