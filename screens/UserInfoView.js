@@ -42,48 +42,61 @@ const UserInfoView = ({ user, setUser, navigation }) => {
             <Text style={{display: 'none'}}>
               <Text style={[styles.h2, styles.blackText]}>Moi! Tämä on täydellisen turha ostsikko, mutta ajakoot nyt placeholderin paikkaa!</Text>
             </Text>
-            <View style={styles.userInfoList}>
+            <View style={styles.userInfoList}
+              importantForAutofill={'yes'} >
               <ListItem containerStyle={styles.listItemContainer} bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Etuninmi</Text></ListItem.Title>
                 <ListItem.Input
+                  autoCompleteType={'name-given'}
                   editable
                   defaultValue={user.firstname}
                   onEndEditing={(e) => handleChange(e, 'firstname')}
+                  textContentType={'givenName'}
                 /></ListItem>
               <ListItem containerStyle={styles.listItemContainer} bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Sukunimi</Text></ListItem.Title>
                 <ListItem.Input
+                  autoCompleteType={'family-name'}
                   editable
                   defaultValue={user.lastname}
                   onEndEditing={(e) => handleChange(e, 'lastname')}
+                  textContentType={'familyName'}
                 /></ListItem>
               <ListItem containerStyle={styles.listItemContainer} bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Sähköpostiosoite</Text></ListItem.Title>
                 <ListItem.Input
+                  autoComplete={'email'}
                   editable
                   defaultValue={user.email}
-                  keyboardType="email-address"
+                  keyboardType={'email-address'}
                   onEndEditing={(e) => handleChange(e, 'email')}
+                  textContentType={'emailAddress'}
                 />
               </ListItem>
               <ListItem containerStyle={styles.listItemContainer} bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Puhelinnumero</Text></ListItem.Title>
                 <ListItem.Input
+                  autoComplete={'tel'}
                   editable
                   defaultValue={user.phoneNumber}
-                  keyboardType="phone-pad"
+                  keyboardType={'phone-pad'}
                   onEndEditing={(e) => handleChange(e, 'phoneNumber')}
+                  textContentType={'telephoneNumber'}
                 />
               </ListItem>
               <ListItem containerStyle={styles.listItemContainer} bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Katuosoite</Text></ListItem.Title>
                 <ListItem.Input
+                  autoComplete={'street-address'}
                   editable
                   defaultValue={user.address}
                   onEndEditing={(e) => handleChange(e, 'address')}
+                  textContentType={'streetAddressLine1'}
                 />
               </ListItem>
               <ListItem containerStyle={styles.listItemContainer} bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Postinumero</Text></ListItem.Title>
                 <ListItem.Input
+                  autoComplete={'postal-code'}
                   editable
                   defaultValue={user.postNumber}
                   keyboardType="numeric"
                   onEndEditing={(e) => handleChange(e, 'postNumber')}
+                  textContentType={'postalCode'}
                 />
               </ListItem>
               <ListItem containerStyle={styles.listItemContainer} bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Postitoimipaikka</Text></ListItem.Title>
@@ -105,11 +118,12 @@ const UserInfoView = ({ user, setUser, navigation }) => {
                 <ListItem.Input
                   editable
                   defaultValue={user.valviraID}
-                  keyboardType="numeric"
+                  keyboardType={'numeric'}
                   onEndEditing={(e) => handleChange(e, 'valviraID')}
                 />
               </ListItem>
             </View>
+
             <Button title='log user' onPress={() => logUserData()} />
             <Text style={styles.textfieldlist}></Text>
 
