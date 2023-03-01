@@ -47,19 +47,19 @@ const UserInfoView = ({ user, setUser, navigation }) => {
             <ListItem bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Etuninmi</Text></ListItem.Title>
               <ListItem.Input
                 editable
-                placeholder={user.firstname}
+                defaultValue={user.firstname}
                 onEndEditing={(e) => handleChange(e, 'firstname')}
               /></ListItem>
             <ListItem bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Sukunimi</Text></ListItem.Title>
               <ListItem.Input
                 editable
-                placeholder={user.lastname}
+                defaultValue={user.lastname}
                 onEndEditing={(e) => handleChange(e, 'lastname')}
               /></ListItem>
             <ListItem bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Sähköpostiosoite</Text></ListItem.Title>
               <ListItem.Input
                 editable
-                placeholder={user.email}
+                defaultValue={user.email}
                 keyboardType="email-address"
                 onEndEditing={(e) => handleChange(e, 'email')}
               />
@@ -67,7 +67,7 @@ const UserInfoView = ({ user, setUser, navigation }) => {
             <ListItem bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Puhelinnumero</Text></ListItem.Title>
               <ListItem.Input
                 editable
-                placeholder={user.phoneNumber}
+                defaultValue={user.phoneNumber}
                 keyboardType="phone-pad"
                 onEndEditing={(e) => handleChange(e, 'phoneNumber')}
               />
@@ -75,7 +75,7 @@ const UserInfoView = ({ user, setUser, navigation }) => {
             <ListItem bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Katuosoite</Text></ListItem.Title>
               <ListItem.Input
                 editable
-                placeholder={user.address}
+                defaultValue={user.address}
                 onEndEditing={(e) => handleChange(e, 'address')}
               />
             </ListItem>
@@ -90,21 +90,21 @@ const UserInfoView = ({ user, setUser, navigation }) => {
             <ListItem bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Kunta</Text></ListItem.Title>
               <ListItem.Input
                 editable
-                placeholder={user.city}
+                defaultValue={user.city}
                 onEndEditing={(e) => handleChange(e, 'city')}
               />
             </ListItem>
             <ListItem bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Henkilötunnus</Text></ListItem.Title>
               <ListItem.Input
                 editable
-                placeholder={user.personNumber}
+                defaultValue={user.personNumber}
                 onEndEditing={(e) => handleChange(e, 'personNumber')}
               />
             </ListItem>
             <ListItem bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Valviran rekisteröintinumero</Text></ListItem.Title>
               <ListItem.Input
                 editable
-                placeholder={user.valviraID}
+                defaultValue={user.valviraID}
                 keyboardType="numeric"
                 onEndEditing={(e) => handleChange(e, 'valviraID')}
               />
