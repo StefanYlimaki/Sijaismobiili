@@ -33,7 +33,6 @@ const TailoredSubsitutions = ({ route, navigation, tabBarHidden, setTabBarHidden
     }, 1000)
   }, [])
   
-
   if(loading){
     return(
       <View>
