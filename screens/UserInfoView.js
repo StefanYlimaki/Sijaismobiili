@@ -37,28 +37,28 @@ const UserInfoView = ({ user, setUser, navigation }) => {
     <KeyboardAvoidingView style={styles.userContainer}>
       <TouchableWithoutFeedback>
         <ScrollView>
-          <View style={styles.userContent}>
-            <Text>
-              <Text style={styles.h1}>Moi,</Text>
-              <Text style={[styles.h1, { color: Colors.krBlue, fontFamily: 'Inter-DisplayExtraBold' }]}> {user.firstname}!</Text>
+          <View>
+            <Text style={styles.h1}>
+              <Text>Moi,</Text>
+              <Text style={[{ color: Colors.krBlue, fontFamily: 'Inter-DisplayExtraBold' }]}> {user.firstname}!</Text>
             </Text>
           </View>
           <View>
-            <ListItem bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Etuninmi</Text></ListItem.Title>
+            <ListItem bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Etunimi</Text></ListItem.Title>
+            <TouchableWithoutFeedback>
               <ListItem.Input
-                editable
                 placeholder={user.firstname}
                 onEndEditing={(e) => handleChange(e, 'firstname')}
-              /></ListItem>
+              />
+            </TouchableWithoutFeedback>
+            </ListItem>
             <ListItem bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Sukunimi</Text></ListItem.Title>
               <ListItem.Input
-                editable
                 placeholder={user.lastname}
                 onEndEditing={(e) => handleChange(e, 'lastname')}
               /></ListItem>
             <ListItem bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Sähköpostiosoite</Text></ListItem.Title>
               <ListItem.Input
-                editable
                 placeholder={user.email}
                 keyboardType="email-address"
                 onEndEditing={(e) => handleChange(e, 'email')}
@@ -66,7 +66,6 @@ const UserInfoView = ({ user, setUser, navigation }) => {
             </ListItem>
             <ListItem bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Puhelinnumero</Text></ListItem.Title>
               <ListItem.Input
-                editable
                 placeholder={user.phoneNumber}
                 keyboardType="phone-pad"
                 onEndEditing={(e) => handleChange(e, 'phoneNumber')}
@@ -74,14 +73,12 @@ const UserInfoView = ({ user, setUser, navigation }) => {
             </ListItem>
             <ListItem bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Katuosoite</Text></ListItem.Title>
               <ListItem.Input
-                editable
                 placeholder={user.address}
                 onEndEditing={(e) => handleChange(e, 'address')}
               />
             </ListItem>
             <ListItem bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Postinumero</Text></ListItem.Title>
               <ListItem.Input
-                editable
                 placeholder={user.postNumber}
                 keyboardType="numeric"
                 onEndEditing={(e) => handleChange(e, 'postNumber')}
@@ -89,21 +86,18 @@ const UserInfoView = ({ user, setUser, navigation }) => {
             </ListItem>
             <ListItem bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Kunta</Text></ListItem.Title>
               <ListItem.Input
-                editable
                 placeholder={user.city}
                 onEndEditing={(e) => handleChange(e, 'city')}
               />
             </ListItem>
             <ListItem bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Henkilötunnus</Text></ListItem.Title>
-              <ListItem.Input
-                editable
+              <ListItem.Input     
                 placeholder={user.personNumber}
                 onEndEditing={(e) => handleChange(e, 'personNumber')}
               />
             </ListItem>
             <ListItem bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Valviran rekisteröintinumero</Text></ListItem.Title>
               <ListItem.Input
-                editable
                 placeholder={user.valviraID}
                 keyboardType="numeric"
                 onEndEditing={(e) => handleChange(e, 'valviraID')}

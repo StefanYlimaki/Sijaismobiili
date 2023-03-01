@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useWindowDimensions } from 'react'
 import * as userData from '../assets/data/userData.json'
 import {
   View,
@@ -6,16 +6,18 @@ import {
   ScrollView,
   KeyboardAvoidingView,
   TouchableWithoutFeedback,
+  TouchableOpacity,
 } from 'react-native'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { Slider } from '@rneui/themed'
 import * as Colors from '../assets/styles/colors.js'
 import styles from '../assets/styles/styles'
-import {Icon} from '@rneui/base'
+import {Button, Icon} from '@rneui/base'
 import { getUserData } from '../utils/getUserData'
 import { setUserData } from '../utils/setUserData'
+import AllSubstitutions from './AllSubstitutionsScreen'
 
-function UserPreferencesScreen() {
+function UserPreferencesScreen(navigation) {
   delete userData['default']
 
   const [loading, setLoading] = useState(true)
@@ -26,7 +28,6 @@ function UserPreferencesScreen() {
   const [pay, setPay] = useState()
   const [fullShift, setFullShift] = useState()
   const [distance, setDistance] = useState()
-
 
   useEffect(() => {
     async function fetchUserData() {
@@ -43,7 +44,6 @@ function UserPreferencesScreen() {
 
     fetchUserData()
   },[])
-
 
   const handleChange = async (event, key, subKey) => {
     try {
@@ -73,15 +73,24 @@ function UserPreferencesScreen() {
 
   return (
     <KeyboardAvoidingView
+      navigation={navigation}
       style={styles.userContainer}
     //behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
     >
+      <View>
+        <TouchableOpacity 
+          style={styles.roundExitButton}
+          onPress={() => {navigation.navigate('all')}}>
+          <Text>X</Text>
+        </TouchableOpacity>
+      </View>
+
       <TouchableWithoutFeedback>
         <ScrollView style={styles.userContent}>
           <View>
-            <Text>
-              <Text style={styles.h1}>Moi,</Text>
-              <Text style={[styles.h1, { color: Colors.krBlue, fontFamily: 'Inter-DisplayExtraBold' }]}> {user.firstname}!</Text>
+            <Text style={styles.h1}>
+              <Text>Moi,</Text>
+              <Text style={[{ color: Colors.krBlue, fontFamily: 'Inter-DisplayExtraBold' }]}> {user.firstname}!</Text>
             </Text>
           </View>
           
@@ -92,23 +101,27 @@ function UserPreferencesScreen() {
             <Text style={styles.currentDistance}>
               {distance} km
             </Text>
-            <Slider
-              maximumValue={300}
-              minimumValue={1}
-              minimumTrackTintColor={Colors.blueBright}
-              step={1}
-              trackStyle={{ height: 10, backgroundColor: 'transparent', borderRadius: 5 }}
-              thumbStyle={{ height: 30, width: 30, backgroundColor: Colors.blueBright, borderRadius: 15 }}
-              value={user.preferences.distance}
-              onSlidingComplete={(event) => handleChange(event, 'preferences', 'distance')}
-              onValueChange={(event) => setDistance(event)}
-            />
+            <View style={{flexDirection: 'row'}}>
+              <View style={styles.trackMark} />
+              <Slider
+                maximumValue={300}
+                minimumValue={1}
+                minimumTrackTintColor={Colors.blueBright}
+                step={1}
+                trackStyle={{ height: 10, backgroundColor: 'transparent', borderRadius: 5 }}
+                thumbStyle={{ height: 30, width: 30, backgroundColor: Colors.blueBright, borderRadius: 15 }}
+                value={user.preferences.distance}
+                onSlidingComplete={(event) => handleChange(event, 'preferences', 'distance')}
+                onValueChange={(event) => setDistance(event)}
+              />
+              <View style={styles.trackMark} />
+            </View>
           </View>
-          <View style={styles.sliderList}>
-            <Text style={styles.h2}>
+          <Text style={styles.h2}>
               Mieltymykset
-            </Text>
-            <View style={styles.tag}>
+          </Text>
+          <View style={[styles.sliderList,{textAlign:'center'}]}>
+            <View >
               <Text style={styles.label}>
                 Aamuvuorot
               </Text>
@@ -139,7 +152,7 @@ function UserPreferencesScreen() {
               onSlidingComplete={(event) => handleChange(event, 'preferences', 'morning')}
               onValueChange={(event) => setMorning(event)}
             />
-            <View style={styles.tag}>
+            <View>
               <Text style={styles.label}>
                 Iltavuorot
               </Text>
@@ -170,7 +183,7 @@ function UserPreferencesScreen() {
               onSlidingComplete={(event) => handleChange(event, 'preferences', 'evening')}
               onValueChange={(event) => setEvening(event)}
             />
-            <View style={styles.tag}>
+            <View>
               <Text style={styles.label}>
                 Yövuorot
               </Text>
@@ -201,7 +214,7 @@ function UserPreferencesScreen() {
               onSlidingComplete={(event) => handleChange(event, 'preferences', 'night')}
               onValueChange={(event) => setNight(event)}
             />
-            <View style={styles.tag}>
+            <View>
               <Text style={styles.label}>
                 Palkka
               </Text>
@@ -232,7 +245,7 @@ function UserPreferencesScreen() {
               onSlidingComplete={(event) => handleChange(event, 'preferences', 'pay')}
               onValueChange={(event) => setPay(event)}
             />
-            <View style={styles.tag}>
+            <View>
               <Text style={styles.label}>
                 Täydet vuorot
               </Text>

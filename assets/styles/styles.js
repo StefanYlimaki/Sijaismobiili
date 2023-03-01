@@ -36,22 +36,24 @@ export default StyleSheet.create({
   },
   h1: {
     fontFamily: 'Inter-DisplaySemiBold',
-    fontSize: 40,
+    fontSize: 35,
+    textAlign: 'center',
   },
   h2: {
     fontFamily: 'Inter-DisplayBlack',
-    fontSize: 20,
+    fontSize: 18,
     paddingBottom: 10,
     paddingTop: 10,
-    textTransform: 'uppercase',
+    textAlign: 'center',
+   // textTransform: 'uppercase',
   },
   label: {
-    color: Colors.krGreenDark,
+    color: Colors.textDark,
     fontFamily: 'Inter-DisplayExtraBold',
-    fontSize: 12,
+    fontSize: 13,
     paddingHorizontal: '3%',
     paddingVertical: '1%',
-    textTransform: 'uppercase',
+  //  textTransform: 'uppercase',
   },
   languageButton: {
     backgroundColor: Colors.info,
@@ -114,6 +116,12 @@ export default StyleSheet.create({
     fontSize: 20,
     opacity: 0.8,
     textAlign: 'center'
+  },
+  roundExitButton: {
+    backgroundColor: Colors.textDark,
+    borderRadius: 100,
+    height: 35,
+    width: 35,
   },
   settingsButton: {
     alignItems: 'center',
@@ -258,7 +266,6 @@ export default StyleSheet.create({
       height: 1,
     },
     shadowOpacity: 0.22,
-
     shadowRadius: 2.22,
   },
   whiteText: {

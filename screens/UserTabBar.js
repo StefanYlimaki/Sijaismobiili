@@ -3,9 +3,6 @@ import { View, Text } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import Styles from '../assets/styles/styles'
 
-
-
-
 const TabBar = ({ state, descriptors, navigation }) => {
 
   return (
