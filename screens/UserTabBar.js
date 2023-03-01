@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import { AntDesign } from '@expo/vector-icons'
 import { View, Text } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import Styles from '../assets/styles/styles'
@@ -6,9 +7,8 @@ import Styles from '../assets/styles/styles'
 const TabBar = ({ state, descriptors, navigation }) => {
 
   return (
-    <View style={{alignSelf: 'center', margin: 15}}>
-      <View
-        style={Styles.userTab}>
+    <View style={Styles.userTabBar}>
+      <View style={[Styles.userTab, {alignSelf: 'center', margin: 15}]}>
         {state.routes.map((route, index) => {
           const isFocused = state.index === index
           const { options } = descriptors[route.key]
@@ -40,6 +40,16 @@ const TabBar = ({ state, descriptors, navigation }) => {
           )
         })}
       </View>
+      <View>
+        <TouchableOpacity 
+          onPress={() => { navigation.navigate('all') }}
+          marginRight={30}
+          accessibilityRole="button"
+          accessibilityLabel="Poistumisnappi"
+          accessibilityHint='Johtaa listanäkymään'>
+          <AntDesign name="closecircleo" size={24} />
+        </TouchableOpacity>
+      </View>              
     </View>
   )
 }

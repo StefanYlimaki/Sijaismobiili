@@ -6,7 +6,6 @@ import {
   ScrollView,
   KeyboardAvoidingView,
   TouchableWithoutFeedback,
-  TouchableOpacity,
 } from 'react-native'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { Slider } from '@rneui/themed'
@@ -17,7 +16,7 @@ import { getUserData } from '../utils/getUserData'
 import { setUserData } from '../utils/setUserData'
 import AllSubstitutions from './AllSubstitutionsScreen'
 
-function UserPreferencesScreen(navigation) {
+function UserPreferencesScreen() {
   delete userData['default']
 
   const [loading, setLoading] = useState(true)
@@ -73,18 +72,8 @@ function UserPreferencesScreen(navigation) {
 
   return (
     <KeyboardAvoidingView
-      navigation={navigation}
-      style={styles.userContainer}
     //behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
     >
-      <View>
-        <TouchableOpacity 
-          style={styles.roundExitButton}
-          onPress={() => {navigation.navigate('all')}}>
-          <Text>X</Text>
-        </TouchableOpacity>
-      </View>
-
       <TouchableWithoutFeedback>
         <ScrollView style={styles.userContent}>
           <View>
@@ -101,21 +90,17 @@ function UserPreferencesScreen(navigation) {
             <Text style={styles.currentDistance}>
               {distance} km
             </Text>
-            <View style={{flexDirection: 'row'}}>
-              <View style={styles.trackMark} />
-              <Slider
-                maximumValue={300}
-                minimumValue={1}
-                minimumTrackTintColor={Colors.blueBright}
-                step={1}
-                trackStyle={{ height: 10, backgroundColor: 'transparent', borderRadius: 5 }}
-                thumbStyle={{ height: 30, width: 30, backgroundColor: Colors.blueBright, borderRadius: 15 }}
-                value={user.preferences.distance}
-                onSlidingComplete={(event) => handleChange(event, 'preferences', 'distance')}
-                onValueChange={(event) => setDistance(event)}
-              />
-              <View style={styles.trackMark} />
-            </View>
+            <Slider
+              maximumValue={300}
+              minimumValue={1}
+              minimumTrackTintColor={Colors.blueBright}
+              step={1}
+              trackStyle={{ height: 10, backgroundColor: 'transparent', borderRadius: 5 }}
+              thumbStyle={{ height: 30, width: 30, backgroundColor: Colors.blueBright, borderRadius: 15 }}
+              value={user.preferences.distance}
+              onSlidingComplete={(event) => handleChange(event, 'preferences', 'distance')}
+              onValueChange={(event) => setDistance(event)}
+            />
           </View>
           <Text style={styles.h2}>
               Mieltymykset

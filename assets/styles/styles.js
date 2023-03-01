@@ -1,6 +1,5 @@
 import { StyleSheet } from 'react-native'
 import * as Colors from './colors.js'
-import {krGreen} from './colors.js'
 
 export default StyleSheet.create({
 
@@ -11,7 +10,6 @@ export default StyleSheet.create({
   buttonText: {
     color: Colors.textLight,
     fontFamily: 'Inter-DisplaySemiBold',
-
   },
   container: {
     flex: 1,
@@ -24,6 +22,12 @@ export default StyleSheet.create({
   distanceSlider:{
     flexDirection: 'row',
     justifyContent: 'space-between',
+  },
+  exitButton: {
+    backgroundColor: Colors.textDark,
+    borderRadius: 100,
+    height: 35,
+    width: 35,
   },
   footerButtonText: {
     color: Colors.danger,
@@ -116,12 +120,6 @@ export default StyleSheet.create({
     fontSize: 20,
     opacity: 0.8,
     textAlign: 'center'
-  },
-  roundExitButton: {
-    backgroundColor: Colors.textDark,
-    borderRadius: 100,
-    height: 35,
-    width: 35,
   },
   settingsButton: {
     alignItems: 'center',
@@ -251,6 +249,12 @@ export default StyleSheet.create({
     borderRadius: 1000,
     flexDirection: 'row',
     justifyContent: 'center'
+  },
+  userTabBar: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    paddingLeft: 50,
   },
   userTabItem: {
     borderRadius: 1000,
