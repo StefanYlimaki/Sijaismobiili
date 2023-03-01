@@ -78,6 +78,11 @@ export default StyleSheet.create({
     marginBottom: 2,
     textDecorationLine: 'underline'
   },
+  listItemContainer: {
+    alignItems: 'center',
+    backgroundColor: 'transparent',
+    paddingVertical: 5,
+  },
   logOutButton: {
     backgroundColor: Colors.warning,
     borderRadius: 100,
@@ -127,7 +132,7 @@ export default StyleSheet.create({
   },
   settingsContainer: {
     flex: 4
-  },   
+  },
   settingsFooter : {
     alignItems: 'center',
     flex: 1,
@@ -216,7 +221,10 @@ export default StyleSheet.create({
     width: 'auto',
   },
   textfieldlist: {
+    align: 'left',
+    backgroundColor : 'transparent',
     fontFamily: 'Inter-DisplaySemiBold',
+    textAlign: 'left',
   },
   thumb: {
     elevation: 14,
@@ -237,6 +245,13 @@ export default StyleSheet.create({
     paddingHorizontal: '5%',
   },
   userIcon: undefined,
+  userInfoList: {
+    alignSelf: 'center',
+    backgroundColor: 'rgba(136,136,136,0.1)',
+    borderRadius: 20,
+    marginVertical: 20,
+    width: '100%',
+  },
   userTab: {
     alignItems: 'center',
     backgroundColor: '#DCDCDC',
