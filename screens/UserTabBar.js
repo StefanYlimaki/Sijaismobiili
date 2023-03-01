@@ -8,7 +8,8 @@ const TabBar = ({ state, descriptors, navigation }) => {
 
   return (
     <View style={Styles.userTabBar}>
-      <View style={[Styles.userTab, {alignSelf: 'center', margin: 15}]}>
+      <View style={{flex: 1}}></View>
+      <View style={[Styles.userTab, {alignSelf: 'center', margin: 15, flex: 2}]}>
         {state.routes.map((route, index) => {
           const isFocused = state.index === index
           const { options } = descriptors[route.key]
@@ -40,10 +41,10 @@ const TabBar = ({ state, descriptors, navigation }) => {
           )
         })}
       </View>
-      <View>
-        <TouchableOpacity 
+      <View style={{flex: 1}}>
+        <TouchableOpacity
+          style={{alignSelf: 'flex-end', marginRight: 15}}
           onPress={() => { navigation.navigate('all') }}
-          marginRight={30}
           accessibilityRole="button"
           accessibilityLabel="Poistumisnappi"
           accessibilityHint='Johtaa listanäkymään'>
