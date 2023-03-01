@@ -13,6 +13,7 @@ import * as Colors from '../assets/styles/colors.js'
 import styles from '../assets/styles/styles'
 import { setUserData } from '../utils/setUserData'
 import {ListItem} from '@rneui/base'
+import postCode from '../assets/data/postcode_map_light.json'
 
 const UserInfoView = ({ user, setUser, navigation }) => {
   const handleChange = async (event, key, subKey) => {
@@ -38,84 +39,85 @@ const UserInfoView = ({ user, setUser, navigation }) => {
       <TouchableWithoutFeedback>
         <ScrollView>
           <View style={styles.userContent}>
-            <Text>
-              <Text style={styles.h1}>Moi,</Text>
-              <Text style={[styles.h1, { color: Colors.krBlue, fontFamily: 'Inter-DisplayExtraBold' }]}> {user.firstname}!</Text>
+            <Text style={{display: 'none'}}>
+              <Text style={[styles.h2, styles.blackText]}>Moi! Tämä on täydellisen turha ostsikko, mutta ajakoot nyt placeholderin paikkaa!</Text>
             </Text>
-          </View>
-          <View>
-            <ListItem bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Etuninmi</Text></ListItem.Title>
-              <ListItem.Input
-                editable
-                defaultValue={user.firstname}
-                onEndEditing={(e) => handleChange(e, 'firstname')}
-              /></ListItem>
-            <ListItem bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Sukunimi</Text></ListItem.Title>
-              <ListItem.Input
-                editable
-                defaultValue={user.lastname}
-                onEndEditing={(e) => handleChange(e, 'lastname')}
-              /></ListItem>
-            <ListItem bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Sähköpostiosoite</Text></ListItem.Title>
-              <ListItem.Input
-                editable
-                defaultValue={user.email}
-                keyboardType="email-address"
-                onEndEditing={(e) => handleChange(e, 'email')}
-              />
-            </ListItem>
-            <ListItem bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Puhelinnumero</Text></ListItem.Title>
-              <ListItem.Input
-                editable
-                defaultValue={user.phoneNumber}
-                keyboardType="phone-pad"
-                onEndEditing={(e) => handleChange(e, 'phoneNumber')}
-              />
-            </ListItem>
-            <ListItem bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Katuosoite</Text></ListItem.Title>
-              <ListItem.Input
-                editable
-                defaultValue={user.address}
-                onEndEditing={(e) => handleChange(e, 'address')}
-              />
-            </ListItem>
-            <ListItem bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Postinumero</Text></ListItem.Title>
-              <ListItem.Input
-                editable
-                placeholder={user.postNumber}
-                keyboardType="numeric"
-                onEndEditing={(e) => handleChange(e, 'postNumber')}
-              />
-            </ListItem>
-            <ListItem bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Kunta</Text></ListItem.Title>
-              <ListItem.Input
-                editable
-                defaultValue={user.city}
-                onEndEditing={(e) => handleChange(e, 'city')}
-              />
-            </ListItem>
-            <ListItem bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Henkilötunnus</Text></ListItem.Title>
-              <ListItem.Input
-                editable
-                defaultValue={user.personNumber}
-                onEndEditing={(e) => handleChange(e, 'personNumber')}
-              />
-            </ListItem>
-            <ListItem bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Valviran rekisteröintinumero</Text></ListItem.Title>
-              <ListItem.Input
-                editable
-                defaultValue={user.valviraID}
-                keyboardType="numeric"
-                onEndEditing={(e) => handleChange(e, 'valviraID')}
-              />
-            </ListItem>
-          </View>
-          <Button title='log user' onPress={() => logUserData()} />
-          <Text style={styles.textfieldlist}></Text>
+            <View style={styles.userInfoList}>
+              <ListItem containerStyle={styles.listItemContainer} bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Etuninmi</Text></ListItem.Title>
+                <ListItem.Input
+                  editable
+                  defaultValue={user.firstname}
+                  onEndEditing={(e) => handleChange(e, 'firstname')}
+                /></ListItem>
+              <ListItem containerStyle={styles.listItemContainer} bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Sukunimi</Text></ListItem.Title>
+                <ListItem.Input
+                  editable
+                  defaultValue={user.lastname}
+                  onEndEditing={(e) => handleChange(e, 'lastname')}
+                /></ListItem>
+              <ListItem containerStyle={styles.listItemContainer} bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Sähköpostiosoite</Text></ListItem.Title>
+                <ListItem.Input
+                  editable
+                  defaultValue={user.email}
+                  keyboardType="email-address"
+                  onEndEditing={(e) => handleChange(e, 'email')}
+                />
+              </ListItem>
+              <ListItem containerStyle={styles.listItemContainer} bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Puhelinnumero</Text></ListItem.Title>
+                <ListItem.Input
+                  editable
+                  defaultValue={user.phoneNumber}
+                  keyboardType="phone-pad"
+                  onEndEditing={(e) => handleChange(e, 'phoneNumber')}
+                />
+              </ListItem>
+              <ListItem containerStyle={styles.listItemContainer} bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Katuosoite</Text></ListItem.Title>
+                <ListItem.Input
+                  editable
+                  defaultValue={user.address}
+                  onEndEditing={(e) => handleChange(e, 'address')}
+                />
+              </ListItem>
+              <ListItem containerStyle={styles.listItemContainer} bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Postinumero</Text></ListItem.Title>
+                <ListItem.Input
+                  editable
+                  defaultValue={user.postNumber}
+                  keyboardType="numeric"
+                  onEndEditing={(e) => handleChange(e, 'postNumber')}
+                />
+              </ListItem>
+              <ListItem containerStyle={styles.listItemContainer} bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Postitoimipaikka</Text></ListItem.Title>
+                <ListItem.Input
+                  disabled //From post number
+                  value = {postCode[user.postNumber]}
+                  //onEndEditing={(e) => handleChange(e, 'city')}
 
-          <Pressable style={styles.settingsButton} onPress={() => {navigation.navigate('Settings')}}>
-            <Text style={styles.buttonText}>Asetukset</Text>
-          </Pressable>
+                />
+              </ListItem>
+              <ListItem containerStyle={styles.listItemContainer} bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Henkilötunnus</Text></ListItem.Title>
+                <ListItem.Input
+                  editable
+                  defaultValue={user.personNumber}
+                  onEndEditing={(e) => handleChange(e, 'personNumber')}
+                />
+              </ListItem>
+              <ListItem containerStyle={styles.listItemContainer}><ListItem.Title><Text style={styles.textfieldlist}>Valviran rekisteröintinumero</Text></ListItem.Title>
+                <ListItem.Input
+                  editable
+                  defaultValue={user.valviraID}
+                  keyboardType="numeric"
+                  onEndEditing={(e) => handleChange(e, 'valviraID')}
+                />
+              </ListItem>
+            </View>
+            <Button title='log user' onPress={() => logUserData()} />
+            <Text style={styles.textfieldlist}></Text>
+
+            <Pressable style={styles.settingsButton} onPress={() => {navigation.navigate('Settings')}}>
+              <Text style={styles.buttonText}>Asetukset</Text>
+            </Pressable>
+
+          </View>
         </ScrollView>
       </TouchableWithoutFeedback>
     </KeyboardAvoidingView >
