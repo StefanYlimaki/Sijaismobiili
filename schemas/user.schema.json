@@ -58,8 +58,16 @@
                 "city": {
                     "type": "string"
                 },
-                "homeLocation": {
-                    "type": "string"
+                "location": {
+                    "type": "object",
+                    "properties": {
+                        "lat": {
+                            "type": "number"
+                        },
+                        "lng": {
+                            "type": "number"
+                        }
+                    }
                 },
                 "personNumber": {
                     "type": "string"

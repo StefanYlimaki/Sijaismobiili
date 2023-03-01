@@ -8,7 +8,10 @@
     "address": "Kaakattajankatu 3 A 25",
     "postNumber": "90100",
     "city": "Oulu",
-    "homeLocation": "Maybe Coordinates here?",
+    "location": {
+     "lat": 65.01400638325627,
+     "lng": 25.44645867588842
+    },
     "personNumber": "060588-0142",
     "valviraID": "123456789",
     "preferences": {
