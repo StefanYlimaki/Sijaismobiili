@@ -190,6 +190,7 @@ const renderSubstitutions = () => {
             padding: 10,
             backgroundColor: krBlue,
             flexDirection: 'row',
+            justifyContent: 'space-between'
           }}>
             <View>
               <Text style={{

@@ -39,15 +39,13 @@ const SingleSubstitutionScreen = ({ route, navigation, tabBarHidden, setTabBarHi
   })
 
   return (
-    <View style={styles.singleSubstitutionTop}>
+    <View style={styles.singleSubstitutionContainer}>
       <Pressable onPress={()=>navigation.pop()}
         style={{paddingHorizontal:16}}
       >
         <FontAwesome5 name='arrow-left' size={32}/>
       </Pressable>
-      <View style={{flexDirection: 'row', marginTop: '20%', 
-        paddingHorizontal: 16,
-      }}>
+      <View style={styles.singleSubstitutionTopElement}>
         <View style={{alignSelf: 'flex-start'}}>
           <View>
             <Text style={{ fontSize: 24, paddingVertical: 8, }}>
@@ -60,16 +58,11 @@ const SingleSubstitutionScreen = ({ route, navigation, tabBarHidden, setTabBarHi
             </Text>
           </View>
         </View>
-        <View style={{flexAlign:'flex-end', flexDirection:'column', flexWrap:'wrap', width:'100%'
-        }}>
+        <View style={styles.singleSubstitutionBenefitsContainer}>
           {benefits}
         </View>
       </View>
-      <View style={{
-        flexDirection: 'row', backgroundColor: krGreen, width: '100%', marginTop: '6%',
-        paddingHorizontal: 16, justifyContent: 'space-between', paddingVertical: 10
-
-      }}>
+      <View style={styles.singleSubstitutionInfoContainer}>
         <View >
           <Text style={[styles.whiteText, {alignSelf: 'flex-start'}]}>
             {formatDate(substitution.item.timing.startTime)}

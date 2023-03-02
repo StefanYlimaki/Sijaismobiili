@@ -8,6 +8,24 @@ export default StyleSheet.create({
     color: Colors.textDark,
     opacity: 0.8,
   },
+  buttonAccept: {
+    backgroundColor: '#13912A',
+    borderRadius: 50,
+    height: 90,
+    width: 90
+  },
+  buttonBookmark: {
+    backgroundColor: '#0666DB',
+    borderRadius: 50,
+    height: 90,
+    width: 90
+  },
+  buttonDeny: {
+    backgroundColor: '#91041D',
+    borderRadius: 50,
+    height: 90,
+    width: 90
+  },
   buttonText: {
     color: Colors.textLight,
     fontFamily: 'Inter-DisplaySemiBold',
@@ -20,6 +38,12 @@ export default StyleSheet.create({
   currentDistance:{
     paddingBottom: 10,
     textAlign: 'center',
+  },
+  denyBookmarkAcceptButtonsContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingHorizontal: 20,
+    paddingTop: '60%'
   },
   distanceSlider:{
     flexDirection: 'row',
@@ -124,11 +148,32 @@ export default StyleSheet.create({
   singleSettingContainer: {
     paddingTop: 20
   },
-  singleSubstitutionTop: {
+  singleSubstitutionBenefitsContainer: {
+    flexAlign:'flex-end', 
+    flexDirection:'column', 
+    flexWrap:'wrap', 
+    width:'100%'
+  },
+  singleSubstitutionContainer: {
     flex: 1,
     flexDirection: 'column',
     flexWrap: 'nowrap',
     marginTop: 32
+  },
+  singleSubstitutionInfoContainer: {
+    backgroundColor: krGreen,
+    flexDirection: 'row', 
+    justifyContent: 'space-between', 
+    marginTop: '6%',
+    paddingHorizontal: 16, 
+    paddingVertical: 10, 
+    width: '100%'
+  },
+  singleSubstitutionTopElement: {
+    flexDirection: 'row', 
+    marginTop: '20%', 
+    paddingHorizontal: 16, 
+    width: '100%'
   },
   sliderList: {
     alignItems: 'baseline',
