@@ -50,14 +50,17 @@ const FilterModal = ({setSubstList, substitutions}) => {
     let filtered = [...substitutions]
 
     // Filtering by city / municipality
-    filtered = filtered.filter(subst => {
-      for (const item of value) {
-        if (item === subst.city) {
-          return true
+    if (value.length !== 0) {
+      filtered = filtered.filter(subst => {
+        for (const item of value) {
+          if (item === subst.city) {
+            return true
+          }
         }
-      }
-      return false
-    })
+        return false
+      })
+    }
+    
 
     // How shifts are determined while filtering (starting times) /  TODO: Do the times make sense? 
     // morning shift: 06:00 - 13:59

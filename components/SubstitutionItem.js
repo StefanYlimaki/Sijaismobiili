@@ -1,12 +1,12 @@
 import { View, Text, StyleSheet, Pressable , Animated} from 'react-native'
-
 import { formatHourlyPay, formatDate, formatTime } from '../utils'
 import styles from '../assets/styles/styles'
+import calculateDistance from '../utils/calculateDistance'
 
 const SubstitutionItem = ({ substitution, navigation }) => {
 
   const getDistance = () => {
-    return('2km')
+    return calculateDistance(parseFloat(substitution.item.coordinates.latitude), parseFloat(substitution.item.coordinates.longitude), 65.05941, 25.46642, false)
   }
 
   return (
@@ -54,7 +54,7 @@ const SubstitutionItem = ({ substitution, navigation }) => {
                     {formatHourlyPay(substitution.item.hourlyPay)}€/h
                   </Text>
                   <Text style={ [styles.blackText, { paddingRight: 16 }]}>
-                    (60,75€)
+                    (~{formatHourlyPay((substitution.item.timing.duration / 60) * substitution.item.hourlyPay)} €)
                   </Text>
                 </View>
                 {substitution.item.benefits.length !== 0
