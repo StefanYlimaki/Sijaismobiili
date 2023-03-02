@@ -5,6 +5,8 @@ import substitutions from '../assets/data/substitutionsData_new.json'
 import styles from '../assets/styles/styles'
 import { krBlue } from '../assets/styles/colors' 
 import calculateDistance from '../utils/calculateDistance'
+import { formatDate, formatTime } from '../utils'
+import DenyBookmarkAndAcceptButton from '../components/DenyBookmarkAndAcceptButtons'
 
 const SCREEN_HEIGHT = Dimensions.get('window').height
 const SCREEN_WIDTH = Dimensions.get('window').width
@@ -118,7 +120,7 @@ const renderSubstitutions = () => {
         return (
           <View style={[styles.substitutionItemBenefitsItem, {
             width:'30%',
-            flexDirection: 'column'
+            alignSelf: 'flex-end'
 
           }
           ]}
@@ -156,13 +158,15 @@ const renderSubstitutions = () => {
             }
           ]}
         >
+          <View>
+            {benefits}
+          </View>
           <View style={{
             flexDirection: 'column',
             alignItems: 'flex-end',
             height: '15%',
             paddingTop: 20
           }}>
-            {benefits}
           </View>
           <View style={{
             flexDirection: 'column',
@@ -185,41 +189,46 @@ const renderSubstitutions = () => {
             marginTop: 20,
             padding: 10,
             backgroundColor: krBlue,
-            flexDirection: 'column',
+            flexDirection: 'row',
+            justifyContent: 'space-between'
           }}>
-            <Text style={{
-              color: 'white',
-              alignSelf: 'flex-start',
-              fontSize: 13
-            }}>
-              {parseDate(item.date)} 
-            </Text>
-            <Text style={{
-              color: 'white',
-              alignSelf: 'flex-start',
-              fontSize: 13
-            }}>
-              {parseTime(item.date, item.timing.duration)} 
-            </Text>
-            <Text style={{
-              color: 'white',
-              alignSelf: 'flex-end',
-              fontSize: 13
-            }}>
-              {item.organisation}
-            </Text>
-            <Text style={{
-              color: 'white',
-              alignSelf: 'flex-end',
-              fontSize: 13
-            }}>
-              {calculateDistance(
-                parseFloat(item.coordinates.latitude), 
-                parseFloat(item.coordinates.longitude),
-                65.05941,
-                25.46642
-              )}
-            </Text>
+            <View>
+              <Text style={{
+                color: 'white',
+                alignSelf: 'flex-start',
+                fontSize: 13
+              }}>
+                {formatDate(item.date)} 
+              </Text>
+              <Text style={{
+                color: 'white',
+                alignSelf: 'flex-start',
+                fontSize: 13
+              }}>
+                {formatTime(item.date, item.timing.duration)} 
+              </Text>
+            </View>
+            <View>
+              <Text style={{
+                color: 'white',
+                alignSelf: 'flex-end',
+                fontSize: 13
+              }}>
+                {item.organisation}
+              </Text>
+              <Text style={{
+                color: 'white',
+                alignSelf: 'flex-end',
+                fontSize: 13
+              }}>
+                {calculateDistance(
+                  parseFloat(item.coordinates.latitude), 
+                  parseFloat(item.coordinates.longitude),
+                  65.05941,
+                  25.46642
+                )}
+              </Text>
+            </View>
           </View>
 
           <View style={{
@@ -237,58 +246,11 @@ const renderSubstitutions = () => {
 
           </View>
 
-          <View style={{
-            paddingTop: '60%',
-            paddingLeft: 20,
-            paddingRight: 20,
-            flexDirection: 'row',
-            justifyContent: 'space-between'
-          }}>
-            <Pressable style={{
-              width: '30%'
-            }}
-            onPress={() => {
-              incrementIndex(prevIndex => prevIndex + 1)
-            }}
-            >
-              <View style={{
-                backgroundColor: '#91041D',
-                width: 100,
-                height: 100,
-                borderRadius: 50
-              }}>
-              </View>
-            </Pressable>
-
-            <Pressable style={{
-              width: '30%'
-            }}
-            >
-              <View style={{
-                backgroundColor: '#0666DB',
-                width: 100,
-                height: 100,
-                borderRadius: 50
-              }}>
-              </View>
-            </Pressable>
-
-            <Pressable style={{
-              width: '30%'
-            }}
-            onPress={() => {
-              incrementIndex(prevIndex => prevIndex + 1)
-            }}
-            >
-              <View style={{
-                backgroundColor: '#13912A',
-                width: 100,
-                height: 100,
-                borderRadius: 50
-              }}>
-              </View>
-            </Pressable>
-          </View>
+          <DenyBookmarkAndAcceptButton
+            denyCallback={()=>incrementIndex(prevIndex => prevIndex + 1)}
+            bookmarkCallback={()=>incrementIndex(prevIndex => prevIndex + 1)}
+            acceptCallback={()=>incrementIndex(prevIndex => prevIndex + 1)}
+          />
         </Animated.View>
       )
     }
