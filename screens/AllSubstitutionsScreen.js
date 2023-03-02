@@ -12,7 +12,7 @@ const AllSubstitutions = ({ navigation, tabBarHidden, setTabBarHidden, swipeEnab
 
   const BottomSheetModalRef = useRef(null)
 
-  const snapPoints = ['48%']
+  const snapPoints = ['58%']
 
   if(tabBarHidden && navigation.isFocused()){
     setTabBarHidden(false)
