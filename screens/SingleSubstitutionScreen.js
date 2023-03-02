@@ -12,6 +12,7 @@ import { formatHourlyPay, formatDate, formatTime } from '../utils/'
 import styles from '../assets/styles/styles'
 import { krGreen } from '../assets/styles/colors'
 import DenyBookmarkAndAcceptButton from '../components/DenyBookmarkAndAcceptButtons'
+import acceptSubstitution from '../utils/acceptSubstitution'
 
 const SingleSubstitutionScreen = ({ route, navigation, tabBarHidden, setTabBarHidden, swipeEnabled, setSwipeEnabled }) => {
   const { substitution } = route.params
@@ -92,7 +93,7 @@ const SingleSubstitutionScreen = ({ route, navigation, tabBarHidden, setTabBarHi
       </View>
       <DenyBookmarkAndAcceptButton
         denyCallback={()=>console.log('deny')}
-        acceptCallback={()=>console.log('accept')}
+        acceptCallback={()=>acceptSubstitution(substitution.item.id)}
         bookmarkCallback={()=>console.log('bookmark')}
       />
     </View>
