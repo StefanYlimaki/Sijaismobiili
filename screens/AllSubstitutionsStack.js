@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
 import AllSubstitutionsScreen from '../screens/AllSubstitutionsScreen'
 import SingleSubstitutionScreen from './SingleSubstitutionScreen'
+import SubstitutionCard from '../components/SubstitutionCard'
 
 const AllStack = createNativeStackNavigator()
 
@@ -20,6 +21,7 @@ function AllSubstitutionsStackScreen({ navigation, route, tabBarHidden, setTabBa
           return(<SingleSubstitutionScreen tabBarHidden={tabBarHidden} setTabBarHidden={setTabBarHidden} swipeEnabled={swipeEnabled} setSwipeEnabled={setSwipeEnabled} {...props} />)
         }}
       </AllStack.Screen>
+      <AllStack.Screen name='SubstitutionCard' component={SubstitutionCard} options={{ presentation: 'transparentModal', headerShown: false }}/>
     </AllStack.Navigator>
   )
 }

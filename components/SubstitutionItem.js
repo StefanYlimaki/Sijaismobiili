@@ -13,8 +13,9 @@ const SubstitutionItem = ({ substitution, navigation }) => {
     <Animated.View style={styles.substitutionItemContainer}>
       <Pressable
         onPress={() =>
-          navigation.navigate('Substitution', {
+          navigation.navigate('SubstitutionCard', {
             substitution: substitution,
+            navigation: navigation
           })
         }
         style={({ pressed }) => pressed && styles.pressedSubstitutionItem}
