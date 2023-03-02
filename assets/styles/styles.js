@@ -200,6 +200,13 @@ export default StyleSheet.create({
     paddingBottom: 40,
     paddingTop: 30,
   },
+  substItemOrganisationText: {
+    color: Colors.textLight,
+    fontFamily: 'Inter-DisplaySemiBold',
+    fontSize: 12,
+    opacity: 0.8,
+    textAlign: 'right',
+  },
   substitutionContainer: {
     alignItems: 'center',
     flex: 1,
@@ -249,7 +256,8 @@ export default StyleSheet.create({
     backgroundColor: Colors.krGreen,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
-    height: 50,
+    flexDirection: 'row',
+    minHeight: 50,
     paddingHorizontal: 16,
     paddingVertical: 8,
   },
