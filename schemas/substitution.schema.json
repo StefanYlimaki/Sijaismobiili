@@ -32,6 +32,10 @@
             "description": "Location of the job, should resemble this format: Käsityöläiskatu 2, 20100 TURKU",
             "type": "string"
         },
+        "city": {
+            "description": "City or municipality where the job is located",
+            "type": "string"
+        },
         "coordinates": {
             "description": "Coordinates for the job, longitude and latitude in decimal degrees",
             "type": "object",
