@@ -21,17 +21,17 @@ const SubstitutionItem = ({ substitution, navigation }) => {
       >
         <View style={styles.substitutionPreviewComponent}>
           <View style={styles.substitutionPreviewComponentTopElement}>
-            <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+            <View style={{flexDirection: 'column', flex: 1, justifyContent: 'space-between'}}>
               <Text style={styles.whiteText}>
                 {formatDate(substitution.item.timing.startTime)}
               </Text>
               <Text style={styles.whiteText}>
-                {substitution.item.organisation}
+                {formatTime(substitution.item.timing.startTime, substitution.item.timing.duration)}
               </Text>
             </View>
-            <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-              <Text style={styles.whiteText}>
-                {formatTime(substitution.item.timing.startTime, substitution.item.timing.duration)}
+            <View style={{flexDirection: 'column', alignItems: 'flex-end', flex:2}}>
+              <Text style={styles.substItemOrganisationText}>
+                {substitution.item.organisation}
               </Text>
               <Text style={styles.whiteText}>
                 {getDistance(substitution.item.location)}
