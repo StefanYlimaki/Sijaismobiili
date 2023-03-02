@@ -51,11 +51,6 @@ export default StyleSheet.create({
     textAlign: 'center',
    // textTransform: 'uppercase',
   },
-  h2AndInfoButton:{
-    alignItems: 'center',
-    flexDirection: 'row',
-    justifyContent: 'center',
-  },
   label: {
     color: Colors.textDark,
     fontFamily: 'Inter-DisplayExtraBold',
