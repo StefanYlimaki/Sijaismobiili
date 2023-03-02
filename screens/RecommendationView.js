@@ -7,6 +7,7 @@ import { krBlue } from '../assets/styles/colors'
 import calculateDistance from '../utils/calculateDistance'
 import { formatDate, formatTime } from '../utils'
 import DenyBookmarkAndAcceptButton from '../components/DenyBookmarkAndAcceptButtons'
+import acceptSubstitution from '../utils/acceptSubstitution'
 
 const SCREEN_HEIGHT = Dimensions.get('window').height
 const SCREEN_WIDTH = Dimensions.get('window').width
@@ -52,6 +53,7 @@ const renderSubstitutions = () => {
             useNativeDriver: false
           }
           ).start(() => {
+            acceptSubstitution('asdfasd')
             incrementIndex(prevIndex => prevIndex + 1)
             position.setValue({x: 0, y: 0})
           })

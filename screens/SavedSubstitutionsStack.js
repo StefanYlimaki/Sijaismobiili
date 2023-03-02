@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
 import SavedSubstitutionsScreen from '../screens/SavedSubstitutionsScreen'
 import SingleSubstitutionScreen from './SingleSubstitutionScreen'
+import SubstitutionCard from '../components/SubstitutionCard'
 
 const SavedStack = createNativeStackNavigator()
 
@@ -20,6 +21,7 @@ function SavedSubstitutionsStackScreen({ navigation, route, tabBarHidden, setTab
           return(<SingleSubstitutionScreen tabBarHidden={tabBarHidden} setTabBarHidden={setTabBarHidden} swipeEnabled={swipeEnabled} setSwipeEnabled={setSwipeEnabled} {...props} />)
         }}
       </SavedStack.Screen>
+      <SavedStack.Screen name='SubstitutionCard' component={SubstitutionCard} options={{ presentation: 'transparentModal', headerShown: false }}/>
     </SavedStack.Navigator>
   )
 }
