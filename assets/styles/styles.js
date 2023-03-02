@@ -51,6 +51,11 @@ export default StyleSheet.create({
     textAlign: 'center',
    // textTransform: 'uppercase',
   },
+  h2AndInfoButton:{
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'center',
+  },
   label: {
     color: Colors.textDark,
     fontFamily: 'Inter-DisplayExtraBold',
@@ -178,7 +183,6 @@ export default StyleSheet.create({
     },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
-
     width: '100%',
   },
   substitutionPreviewComponent: {
@@ -234,8 +238,8 @@ export default StyleSheet.create({
       right: 20,
     },
     shadowOpacity: 0.41,
-
-    shadowRadius: 9.11,  },
+    shadowRadius: 9.11,  
+  },
   userContainer: {
     flex: 1,
   },
@@ -252,9 +256,10 @@ export default StyleSheet.create({
   },
   userTabBar: {
     alignItems: 'center',
+    flex: 3,
     flexDirection: 'row',
-    justifyContent: 'space-around',
-    paddingLeft: 50,
+    justifyContent: 'center',
+    margin: -900,
   },
   userTabItem: {
     borderRadius: 1000,
@@ -262,7 +267,7 @@ export default StyleSheet.create({
     padding: 10,
   },
   userTabItemActive: {
-    backgroundColor: Colors.krGreen,
+    backgroundColor: Colors.krBlue,
     elevation: 3,
     shadowColor: '#000000',
     shadowOffset: {
