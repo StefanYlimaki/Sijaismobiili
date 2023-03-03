@@ -1,12 +1,16 @@
 import React, { useContext, useState } from 'react'
 import { View, Text, Switch, Pressable } from 'react-native'
-import styles from '../assets/styles/styles'
-import { LocaleContext } from '../contexts/LocaleContext'
+import styles from '../../../assets/styles/styles'
+import { LocaleContext } from '../../../contexts/LocaleContext'
 
-function SettingsScreen({navigation}) {
+function SettingsScreen({navigation, userTabBarHidden }) {
   const [useNotifications, setUseNotifications] = useState(true)
   const { i18n, locale, setLocale } = useContext(LocaleContext)
 
+  if(!userTabBarHidden.userTabBarHidden && navigation.isFocused()){
+    userTabBarHidden.setUserTabBarHidden(true)
+  }
+  
   return (
     <View style={styles.settingsScreen}>
       {/* Settings */ }

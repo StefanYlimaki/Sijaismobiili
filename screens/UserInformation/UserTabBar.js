@@ -2,12 +2,29 @@ import React, { useContext } from 'react'
 import { AntDesign } from '@expo/vector-icons'
 import { View, Text } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
-import Styles from '../assets/styles/styles'
+import Styles from '../../assets/styles/styles'
 
-const TabBar = ({ state, descriptors, navigation }) => {
-//style={Styles.userTabBar}
+export const getTopBarStyle = (userTabBarHidden) => {
+  if(userTabBarHidden){
+    return {
+      display: 'none',
+    }
+  } else {
+    return {
+      alignItems: 'center',
+      flex: 3,
+      flexDirection: 'row',
+      justifyContent: 'center',
+      margin: -900,
+    }
+  }
+}
+
+const TabBar = ({ state, descriptors, navigation, userTabBarHidden }) => {
+
+  //style={Styles.userTabBar}
   return (
-    <View style={Styles.userTabBar}>
+    <View style={getTopBarStyle(userTabBarHidden)}>
       <View style={[Styles.userTab, {alignSelf: 'center', margin: 45}]}>
         {state.routes.map((route, index) => {
           const isFocused = state.index === index
