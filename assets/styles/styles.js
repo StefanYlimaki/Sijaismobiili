@@ -43,7 +43,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingHorizontal: 20,
-    paddingTop: '60%'
+    paddingTop: '50%'
   },
   distanceSlider:{
     flexDirection: 'row',

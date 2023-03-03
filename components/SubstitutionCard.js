@@ -34,6 +34,10 @@ const renderSubstitution = (item, navigation) => {
       onMoveShouldSetPanResponder: () => true,
       onStartShouldSetPanResponder: () => true,
 
+      onMoveShouldSetPanResponderCapture: (evt, gestureState) => {
+        return gestureState.dx != 0 && gestureState.dy != 0
+      },
+
       //Update position variable when moved
       onPanResponderMove: Animated.event([null, {dx: position.x,
         dy: position.y}], {useNativeDriver: false}),
@@ -130,7 +134,7 @@ const renderSubstitution = (item, navigation) => {
         }
       ]}
     >
-      <View>
+      <View style={{paddingVertical:20}}>
         {benefits}
       </View>
       <View style={{
@@ -162,7 +166,8 @@ const renderSubstitution = (item, navigation) => {
         padding: 10,
         backgroundColor: krBlue,
         flexDirection: 'row',
-        justifyContent: 'space-between'
+        justifyContent: 'space-evenly',
+        paddingHorizontal: '10%'
       }}>
         <View>
           <Text style={{
@@ -184,6 +189,9 @@ const renderSubstitution = (item, navigation) => {
           <Text style={{
             color: 'white',
             alignSelf: 'flex-end',
+            flexDirection: 'column',
+            alignItems: 'flex-end',
+            flex:2,
             fontSize: 13
           }}>
             {item.organisation}
@@ -216,6 +224,12 @@ const renderSubstitution = (item, navigation) => {
           {'(~' + Math.floor(item.hourlyPay * (item.timing.duration/60)) + '€)'}
         </Text>
 
+      </View>
+
+      <View style={{paddingHorizontal: 16}}>
+        <Pressable >
+          <Text>{item.description}</Text>
+        </Pressable>
       </View>
 
       <DenyBookmarkAndAcceptButton
