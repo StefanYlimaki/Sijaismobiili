@@ -1,10 +1,10 @@
 import { Text, View, Button } from 'react-native'
 import React, { useEffect, useState } from 'react'
 
-import SubstitutionsList from '../components/SubstitutionsList'
-import substitutions from '../assets/data/substitutionsData_new.json'
+import SubstitutionsList from '../../../components/SubstitutionsList'
+import substitutions from '../../../assets/data/substitutionsData_new.json'
 
-import { orderAndFilterSubstitutionsByPreferences } from '../utils/orderAndFilterSubstitutionsByPreferences'
+import { orderAndFilterSubstitutionsByPreferences } from '../../../utils/orderAndFilterSubstitutionsByPreferences'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
 let updatedAt = 0

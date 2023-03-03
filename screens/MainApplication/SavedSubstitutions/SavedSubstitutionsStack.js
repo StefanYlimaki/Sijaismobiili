@@ -1,10 +1,9 @@
 import React from 'react'
-
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
-import SavedSubstitutionsScreen from '../screens/SavedSubstitutionsScreen'
-import SingleSubstitutionScreen from './SingleSubstitutionScreen'
-import SubstitutionCard from '../components/SubstitutionCard'
+import SavedSubstitutionsScreen from './SavedSubstitutionsScreen'
+import SingleSubstitutionScreen from '../SingleSubstitutionScreen'
+import SubstitutionCard from '../../../components/SubstitutionCard'
 
 const SavedStack = createNativeStackNavigator()
 

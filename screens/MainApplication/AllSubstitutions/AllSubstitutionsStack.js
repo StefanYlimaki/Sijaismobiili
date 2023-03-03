@@ -2,9 +2,9 @@ import React from 'react'
 
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
-import AllSubstitutionsScreen from '../screens/AllSubstitutionsScreen'
-import SingleSubstitutionScreen from './SingleSubstitutionScreen'
-import SubstitutionCard from '../components/SubstitutionCard'
+import AllSubstitutionsScreen from './AllSubstitutionsScreen'
+import SingleSubstitutionScreen from '../SingleSubstitutionScreen'
+import SubstitutionCard from '../../../components/SubstitutionCard'
 
 const AllStack = createNativeStackNavigator()
 

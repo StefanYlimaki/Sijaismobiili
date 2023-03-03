@@ -1,8 +1,8 @@
 import React from 'react'
 import { Text, View } from 'react-native'
 
-import SubstitutionsList from '../components/SubstitutionsList'
-import substitutions from '../assets/data/substitutionsData_new.json'
+import SubstitutionsList from '../../../components/SubstitutionsList'
+import substitutions from '../../../assets/data/substitutionsData_new.json'
 
 const SavedSubstitutions = ({ navigation, tabBarHidden, setTabBarHidden, swipeEnabled, setSwipeEnabled }) => {
 

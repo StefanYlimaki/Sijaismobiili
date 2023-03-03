@@ -2,7 +2,7 @@
 import React from 'react'
 import {View, Text, Button, Pressable} from 'react-native'
 import RecommendationView from './RecommendationView'
-import { krGreen } from '../assets/styles/colors'
+import { krGreen } from '../../assets/styles/colors'
 
 
 const SwipeScreen = ({ navigation }) => {

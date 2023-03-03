@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { StyleSheet, View, Text, Pressable } from 'react-native'
-import styles from '../assets/styles/styles'
-import * as Colors from '../assets/styles/colors.js'
-import calculateDistance from '../utils/calculateDistance'
+import styles from '../../../assets/styles/styles'
+import * as Colors from '../../../assets/styles/colors.js'
+import calculateDistance from '../../../utils/calculateDistance'
 import DropDownPicker from 'react-native-dropdown-picker'
 
 const FilterModal = ({setSubstList, substitutions}) => {

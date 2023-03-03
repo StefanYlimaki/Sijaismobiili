@@ -1,13 +1,13 @@
 import { Pressable, Component, StyleSheet, Text, View, Dimensions, Image, Animated, PanResponder } from 'react-native'
 
 import React, {useRef, useState} from 'react'
-import substitutions from '../assets/data/substitutionsData_new.json'
-import styles from '../assets/styles/styles'
-import { krBlue } from '../assets/styles/colors' 
-import calculateDistance from '../utils/calculateDistance'
-import { formatDate, formatTime } from '../utils'
-import DenyBookmarkAndAcceptButton from '../components/DenyBookmarkAndAcceptButtons'
-import acceptSubstitution from '../utils/acceptSubstitution'
+import substitutions from '../../assets/data/substitutionsData_new.json'
+import styles from '../../assets/styles/styles'
+import { krBlue } from '../../assets/styles/colors' 
+import calculateDistance from '../../utils/calculateDistance'
+import { formatDate, formatTime } from '../../utils'
+import DenyBookmarkAndAcceptButton from '../../components/DenyBookmarkAndAcceptButtons'
+import acceptSubstitution from '../../utils/acceptSubstitution'
 
 const SCREEN_HEIGHT = Dimensions.get('window').height
 const SCREEN_WIDTH = Dimensions.get('window').width

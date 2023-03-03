@@ -1,11 +1,11 @@
 
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
-import TabBar from './TabBar'
-import SavedSubstitutionsStack from './SavedSubstitutionsStack'
-import TailoredSubstitutionsStack from './TailoredSubstitutionsStack'
-import AllSubstitutionsStack from './AllSubstitutionsStack'
-import { useRoute } from '@react-navigation/native'
 import { useState } from 'react'
+
+import SavedSubstitutionsStack from './SavedSubstitutions/SavedSubstitutionsStack'
+import TailoredSubstitutionsStack from './ForYouSubstitutions/ForYouSubstitutionsStack'
+import AllSubstitutionsStack from './AllSubstitutions/AllSubstitutionsStack'
+import TabBar from './TabBar'
 
 const Tab = createMaterialTopTabNavigator()
 

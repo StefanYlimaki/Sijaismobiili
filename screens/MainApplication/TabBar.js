@@ -3,7 +3,7 @@ import { AntDesign } from '@expo/vector-icons'
 import { View, Pressable, Text } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { useRoute } from '@react-navigation/native'
-import Styles from '../assets/styles/styles'
+import Styles from '../../assets/styles/styles'
 
 export const getTopBarStyle = (tabBarHidden) => {
   if(tabBarHidden){
