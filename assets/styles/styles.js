@@ -73,7 +73,7 @@ export default StyleSheet.create({
     paddingBottom: 10,
     paddingTop: 10,
     textAlign: 'center',
-   // textTransform: 'uppercase',
+    // textTransform: 'uppercase',
   },
   h2AndInfoButton:{
     alignItems: 'center',
