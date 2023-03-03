@@ -1,4 +1,3 @@
-
 export const krGreen = '#1d847e'
 export const krGreenLight = '#57b4ad'
 export const krGreenDark = '#005752'
