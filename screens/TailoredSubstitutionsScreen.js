@@ -1,16 +1,17 @@
 import { Text, View, Button } from 'react-native'
-import React, { useEffect, useState } from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 
 import SubstitutionsList from '../components/SubstitutionsList'
 import substitutions from '../assets/data/substitutionsData_new.json'
 
 import { orderAndFilterSubstitutionsByPreferences } from '../utils/orderAndFilterSubstitutionsByPreferences'
 import AsyncStorage from '@react-native-async-storage/async-storage'
+import {LocaleContext} from '../contexts/LocaleContext'
 
 let updatedAt = 0
 
 const TailoredSubsitutions = ({ route, navigation, tabBarHidden, setTabBarHidden, swipeEnabled, setSwipeEnabled }) => {
-
+  const { i18n, locale, setLocale } = useContext(LocaleContext)
   const [loading, setLoading] = useState(true)
   const [tailoredSubstitutions, setTailoredSubstitutions] = useState([])
   const [shouldReload, setShouldReload] = useState(false)
@@ -36,7 +37,7 @@ const TailoredSubsitutions = ({ route, navigation, tabBarHidden, setTabBarHidden
   if(loading){
     return(
       <View>
-        <Text>Ladataan, hetki vain.</Text>
+        <Text>{i18n.t('loading')}</Text>
       </View>
     )
   }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import {
   View,
   Text,
@@ -14,8 +14,11 @@ import styles from '../assets/styles/styles'
 import { setUserData } from '../utils/setUserData'
 import {ListItem} from '@rneui/base'
 import postCode from '../assets/data/postcode_map_light.json'
+import {LocaleContext} from '../contexts/LocaleContext'
 
 const UserInfoView = ({ user, setUser, navigation }) => {
+  const {i18n, locale, setLocale} = useContext(LocaleContext)
+
   const handleChange = async (event, key, subKey) => {
     try {
       const newUser = {...user}
@@ -33,7 +36,6 @@ const UserInfoView = ({ user, setUser, navigation }) => {
       console.log(error)
     }
   }
-
   return (
     <KeyboardAvoidingView style={styles.userContainer}>
       <TouchableWithoutFeedback>
@@ -44,7 +46,7 @@ const UserInfoView = ({ user, setUser, navigation }) => {
             </Text>
             <View style={styles.userInfoList}
               importantForAutofill={'yes'} >
-              <ListItem containerStyle={styles.listItemContainer} bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Etuninmi</Text></ListItem.Title>
+              <ListItem containerStyle={styles.listItemContainer} bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>{i18n.t('firstname')}</Text></ListItem.Title>
                 <ListItem.Input
                   autoCompleteType={'name-given'}
                   editable
@@ -52,7 +54,7 @@ const UserInfoView = ({ user, setUser, navigation }) => {
                   onEndEditing={(e) => handleChange(e, 'firstname')}
                   textContentType={'givenName'}
                 /></ListItem>
-              <ListItem containerStyle={styles.listItemContainer} bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Sukunimi</Text></ListItem.Title>
+              <ListItem containerStyle={styles.listItemContainer} bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>{i18n.t('lastname')}</Text></ListItem.Title>
                 <ListItem.Input
                   autoCompleteType={'family-name'}
                   editable
@@ -60,7 +62,7 @@ const UserInfoView = ({ user, setUser, navigation }) => {
                   onEndEditing={(e) => handleChange(e, 'lastname')}
                   textContentType={'familyName'}
                 /></ListItem>
-              <ListItem containerStyle={styles.listItemContainer} bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Sähköpostiosoite</Text></ListItem.Title>
+              <ListItem containerStyle={styles.listItemContainer} bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>{i18n.t('email')}</Text></ListItem.Title>
                 <ListItem.Input
                   autoComplete={'email'}
                   editable
@@ -70,7 +72,7 @@ const UserInfoView = ({ user, setUser, navigation }) => {
                   textContentType={'emailAddress'}
                 />
               </ListItem>
-              <ListItem containerStyle={styles.listItemContainer} bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Puhelinnumero</Text></ListItem.Title>
+              <ListItem containerStyle={styles.listItemContainer} bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>{i18n.t('phoneNumber')}</Text></ListItem.Title>
                 <ListItem.Input
                   autoComplete={'tel'}
                   editable
@@ -80,7 +82,7 @@ const UserInfoView = ({ user, setUser, navigation }) => {
                   textContentType={'telephoneNumber'}
                 />
               </ListItem>
-              <ListItem containerStyle={styles.listItemContainer} bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Katuosoite</Text></ListItem.Title>
+              <ListItem containerStyle={styles.listItemContainer} bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>{i18n.t('streetAddress')}</Text></ListItem.Title>
                 <ListItem.Input
                   autoComplete={'street-address'}
                   editable
@@ -89,7 +91,7 @@ const UserInfoView = ({ user, setUser, navigation }) => {
                   textContentType={'streetAddressLine1'}
                 />
               </ListItem>
-              <ListItem containerStyle={styles.listItemContainer} bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Postinumero</Text></ListItem.Title>
+              <ListItem containerStyle={styles.listItemContainer} bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>{i18n.t('postNumber')}</Text></ListItem.Title>
                 <ListItem.Input
                   autoComplete={'postal-code'}
                   editable
@@ -99,7 +101,7 @@ const UserInfoView = ({ user, setUser, navigation }) => {
                   textContentType={'postalCode'}
                 />
               </ListItem>
-              <ListItem containerStyle={styles.listItemContainer} bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Postitoimipaikka</Text></ListItem.Title>
+              <ListItem containerStyle={styles.listItemContainer} bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>{i18n.t('postOffice')}</Text></ListItem.Title>
                 <ListItem.Input
                   disabled //From post number
                   value = {postCode[user.postNumber]}
@@ -107,14 +109,14 @@ const UserInfoView = ({ user, setUser, navigation }) => {
 
                 />
               </ListItem>
-              <ListItem containerStyle={styles.listItemContainer} bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Henkilötunnus</Text></ListItem.Title>
+              <ListItem containerStyle={styles.listItemContainer} bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>{i18n.t('personNumber')}</Text></ListItem.Title>
                 <ListItem.Input
                   editable
                   defaultValue={user.personNumber}
                   onEndEditing={(e) => handleChange(e, 'personNumber')}
                 />
               </ListItem>
-              <ListItem containerStyle={styles.listItemContainer}><ListItem.Title><Text style={styles.textfieldlist}>Valviran rekisteröintinumero</Text></ListItem.Title>
+              <ListItem containerStyle={styles.listItemContainer}><ListItem.Title><Text style={styles.textfieldlist}>{i18n.t('valviraID')}</Text></ListItem.Title>
                 <ListItem.Input
                   editable
                   defaultValue={user.valviraID}
@@ -128,7 +130,7 @@ const UserInfoView = ({ user, setUser, navigation }) => {
             <Text style={styles.textfieldlist}></Text>
 
             <Pressable style={styles.settingsButton} onPress={() => {navigation.navigate('Settings')}}>
-              <Text style={styles.buttonText}>Asetukset</Text>
+              <Text style={styles.buttonText}>{i18n.t('settings')}</Text>
             </Pressable>
 
           </View>

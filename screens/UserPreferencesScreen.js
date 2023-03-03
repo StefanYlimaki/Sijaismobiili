@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useWindowDimensions } from 'react'
+import React, {useContext, useEffect, useState, useWindowDimensions} from 'react'
 import * as userData from '../assets/data/userData.json'
 import {
   View,
@@ -15,10 +15,11 @@ import {Icon} from '@rneui/base'
 import { getUserData } from '../utils/getUserData'
 import { setUserData } from '../utils/setUserData'
 import { AntDesign } from '@expo/vector-icons'
+import {LocaleContext} from '../contexts/LocaleContext'
 
 function UserPreferencesScreen() {
   delete userData['default']
-
+  const { i18n, locale, setLocale } = useContext(LocaleContext)
   const [loading, setLoading] = useState(true)
   const [user, setUser] = useState({})
   const [morning, setMorning] = useState()
@@ -65,7 +66,7 @@ function UserPreferencesScreen() {
   if(loading){
     return(
       <View>
-        <Text>Ladataan, hetki vain.</Text>
+        <Text>{i18n.t('loading')}</Text>
       </View>
     )
   }
@@ -78,7 +79,7 @@ function UserPreferencesScreen() {
         <ScrollView style={styles.userContent}>
           <View>
             <Text style={styles.h1}>
-              <Text>Moi,</Text>
+              <Text>{i18n.t('hello')}</Text>
               <Text style={{ color: Colors.krBlue, fontFamily: 'Inter-DisplayExtraBold' }}> {user.firstname}!</Text>
             </Text>
           </View>
@@ -86,7 +87,7 @@ function UserPreferencesScreen() {
           <View>
             <View style={styles.h2AndInfoButton}>
               <Text style={styles.h2}>
-                Enimmäisetäisyys
+                {i18n.t('maxDistance')}
               </Text>
               <View style={{paddingLeft: 12.5}}>
                 <AntDesign name="infocirlceo" size={24} color="black" />
@@ -109,7 +110,7 @@ function UserPreferencesScreen() {
           </View>
           <View style={styles.h2AndInfoButton}>
             <Text style={styles.h2}>
-              Mieltymykset
+              {i18n.t('preferences')}
             </Text>
             <View style={{paddingLeft: 12.5}}>
               <AntDesign name="infocirlceo" size={24} color="black" />
@@ -118,7 +119,7 @@ function UserPreferencesScreen() {
           <View style={[styles.sliderList,{textAlign:'center'}]}>
             <View >
               <Text style={styles.label}>
-                Aamuvuorot
+                {i18n.t('morningShifts')}
               </Text>
             </View>
             <Slider
@@ -149,7 +150,7 @@ function UserPreferencesScreen() {
             />
             <View>
               <Text style={styles.label}>
-                Iltavuorot
+                {i18n.t('eveningShifts')}
               </Text>
             </View>
             <Slider
@@ -180,7 +181,7 @@ function UserPreferencesScreen() {
             />
             <View>
               <Text style={styles.label}>
-                Yövuorot
+                {i18n.t('nightShifts')}
               </Text>
             </View>
             <Slider
@@ -211,7 +212,7 @@ function UserPreferencesScreen() {
             />
             <View>
               <Text style={styles.label}>
-                Palkka
+                {i18n.t('salary')}
               </Text>
             </View>
             <Slider
@@ -242,7 +243,7 @@ function UserPreferencesScreen() {
             />
             <View>
               <Text style={styles.label}>
-                Täydet vuorot
+                {i18n.t('fullShifts')}
               </Text>
             </View>
             <Slider
