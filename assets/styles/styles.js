@@ -28,7 +28,6 @@ export default StyleSheet.create({
   buttonText: {
     color: Colors.textLight,
     fontFamily: 'Inter-DisplaySemiBold',
-
   },
   container: {
     flex: 1,
@@ -48,6 +47,12 @@ export default StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
+  exitButton: {
+    backgroundColor: Colors.textDark,
+    borderRadius: 100,
+    height: 35,
+    width: 35,
+  },
   footerButtonText: {
     color: Colors.danger,
     marginBottom: 10,
@@ -59,22 +64,29 @@ export default StyleSheet.create({
   },
   h1: {
     fontFamily: 'Inter-DisplaySemiBold',
-    fontSize: 40,
+    fontSize: 35,
+    textAlign: 'center',
   },
   h2: {
     fontFamily: 'Inter-DisplayBlack',
-    fontSize: 20,
+    fontSize: 18,
     paddingBottom: 10,
     paddingTop: 10,
-    textTransform: 'uppercase',
+    textAlign: 'center',
+   // textTransform: 'uppercase',
+  },
+  h2AndInfoButton:{
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'center',
   },
   label: {
-    color: Colors.krGreenDark,
+    color: Colors.textDark,
     fontFamily: 'Inter-DisplayExtraBold',
-    fontSize: 12,
+    fontSize: 13,
     paddingHorizontal: '3%',
     paddingVertical: '1%',
-    textTransform: 'uppercase',
+  //  textTransform: 'uppercase',
   },
   languageButton: {
     backgroundColor: Colors.info,
@@ -234,7 +246,6 @@ export default StyleSheet.create({
     },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
-
     width: '100%',
   },
   substitutionPreviewComponent: {
@@ -294,8 +305,8 @@ export default StyleSheet.create({
       right: 20,
     },
     shadowOpacity: 0.41,
-
-    shadowRadius: 9.11,  },
+    shadowRadius: 9.11,  
+  },
   userContainer: {
     flex: 1,
   },
@@ -317,13 +328,20 @@ export default StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center'
   },
+  userTabBar: {
+    alignItems: 'center',
+    flex: 3,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    margin: -900,
+  },
   userTabItem: {
     borderRadius: 1000,
     margin: 5,
     padding: 10,
   },
   userTabItemActive: {
-    backgroundColor: Colors.krGreen,
+    backgroundColor: Colors.krBlue,
     elevation: 3,
     shadowColor: '#000000',
     shadowOffset: {
@@ -331,7 +349,6 @@ export default StyleSheet.create({
       height: 1,
     },
     shadowOpacity: 0.22,
-
     shadowRadius: 2.22,
   },
   whiteText: {

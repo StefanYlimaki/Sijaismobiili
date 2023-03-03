@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useWindowDimensions } from 'react'
 import * as userData from '../assets/data/userData.json'
 import {
   View,
@@ -14,6 +14,7 @@ import styles from '../assets/styles/styles'
 import {Icon} from '@rneui/base'
 import { getUserData } from '../utils/getUserData'
 import { setUserData } from '../utils/setUserData'
+import { AntDesign } from '@expo/vector-icons'
 
 function UserPreferencesScreen() {
   delete userData['default']
@@ -26,7 +27,6 @@ function UserPreferencesScreen() {
   const [pay, setPay] = useState()
   const [fullShift, setFullShift] = useState()
   const [distance, setDistance] = useState()
-
 
   useEffect(() => {
     async function fetchUserData() {
@@ -43,7 +43,6 @@ function UserPreferencesScreen() {
 
     fetchUserData()
   },[])
-
 
   const handleChange = async (event, key, subKey) => {
     try {
@@ -73,22 +72,26 @@ function UserPreferencesScreen() {
 
   return (
     <KeyboardAvoidingView
-      style={styles.userContainer}
     //behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
     >
       <TouchableWithoutFeedback>
         <ScrollView style={styles.userContent}>
           <View>
-            <Text>
-              <Text style={styles.h1}>Moi,</Text>
-              <Text style={[styles.h1, { color: Colors.krBlue, fontFamily: 'Inter-DisplayExtraBold' }]}> {user.firstname}!</Text>
+            <Text style={styles.h1}>
+              <Text>Moi,</Text>
+              <Text style={[{ color: Colors.krBlue, fontFamily: 'Inter-DisplayExtraBold' }]}> {user.firstname}!</Text>
             </Text>
           </View>
           
           <View>
-            <Text style={styles.h2}>
-              Enimmäisetäisyys
-            </Text>
+          <View style={styles.h2AndInfoButton}>
+              <Text style={styles.h2}>
+                Enimmäisetäisyys
+              </Text>
+              <View style={[{paddingLeft: 12.5}]}>
+                <AntDesign name="infocirlceo" size={24} color="black" />
+              </View>
+            </View>
             <Text style={styles.currentDistance}>
               {distance} km
             </Text>
@@ -104,11 +107,16 @@ function UserPreferencesScreen() {
               onValueChange={(event) => setDistance(event)}
             />
           </View>
-          <View style={styles.sliderList}>
+          <View style={styles.h2AndInfoButton}>
             <Text style={styles.h2}>
               Mieltymykset
             </Text>
-            <View style={styles.tag}>
+            <View style={[{paddingLeft: 12.5}]}>
+                <AntDesign name="infocirlceo" size={24} color="black" />
+            </View>
+          </View>
+          <View style={[styles.sliderList,{textAlign:'center'}]}>
+            <View >
               <Text style={styles.label}>
                 Aamuvuorot
               </Text>
@@ -139,7 +147,7 @@ function UserPreferencesScreen() {
               onSlidingComplete={(event) => handleChange(event, 'preferences', 'morning')}
               onValueChange={(event) => setMorning(event)}
             />
-            <View style={styles.tag}>
+            <View>
               <Text style={styles.label}>
                 Iltavuorot
               </Text>
@@ -170,7 +178,7 @@ function UserPreferencesScreen() {
               onSlidingComplete={(event) => handleChange(event, 'preferences', 'evening')}
               onValueChange={(event) => setEvening(event)}
             />
-            <View style={styles.tag}>
+            <View>
               <Text style={styles.label}>
                 Yövuorot
               </Text>
@@ -201,7 +209,7 @@ function UserPreferencesScreen() {
               onSlidingComplete={(event) => handleChange(event, 'preferences', 'night')}
               onValueChange={(event) => setNight(event)}
             />
-            <View style={styles.tag}>
+            <View>
               <Text style={styles.label}>
                 Palkka
               </Text>
@@ -232,7 +240,7 @@ function UserPreferencesScreen() {
               onSlidingComplete={(event) => handleChange(event, 'preferences', 'pay')}
               onValueChange={(event) => setPay(event)}
             />
-            <View style={styles.tag}>
+            <View>
               <Text style={styles.label}>
                 Täydet vuorot
               </Text>
