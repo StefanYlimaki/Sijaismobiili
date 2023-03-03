@@ -160,7 +160,7 @@ const renderSubstitutions = () => {
             }
           ]}
         >
-          <View>
+          <View style={{padding:10}}>
             {benefits}
           </View>
           <View style={{
