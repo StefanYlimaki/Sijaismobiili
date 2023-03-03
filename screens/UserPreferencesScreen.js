@@ -79,16 +79,16 @@ function UserPreferencesScreen() {
           <View>
             <Text style={styles.h1}>
               <Text>Moi,</Text>
-              <Text style={[{ color: Colors.krBlue, fontFamily: 'Inter-DisplayExtraBold' }]}> {user.firstname}!</Text>
+              <Text style={{ color: Colors.krBlue, fontFamily: 'Inter-DisplayExtraBold' }}> {user.firstname}!</Text>
             </Text>
           </View>
           
           <View>
-          <View style={styles.h2AndInfoButton}>
+            <View style={styles.h2AndInfoButton}>
               <Text style={styles.h2}>
                 Enimmäisetäisyys
               </Text>
-              <View style={[{paddingLeft: 12.5}]}>
+              <View style={{paddingLeft: 12.5}}>
                 <AntDesign name="infocirlceo" size={24} color="black" />
               </View>
             </View>
@@ -111,8 +111,8 @@ function UserPreferencesScreen() {
             <Text style={styles.h2}>
               Mieltymykset
             </Text>
-            <View style={[{paddingLeft: 12.5}]}>
-                <AntDesign name="infocirlceo" size={24} color="black" />
+            <View style={{paddingLeft: 12.5}}>
+              <AntDesign name="infocirlceo" size={24} color="black" />
             </View>
           </View>
           <View style={[styles.sliderList,{textAlign:'center'}]}>

@@ -40,15 +40,15 @@ const TabBar = ({ state, descriptors, navigation }) => {
           )
         })}
       </View>
-        <TouchableOpacity
-          style={{alignSelf: 'flex-end'}}
-          onPress={() => { navigation.navigate('all') }}
-          marginRight={10}
-          accessibilityRole="button"
-          accessibilityLabel="Poistumisnappi"
-          accessibilityHint='Johtaa listanäkymään'>
-          <AntDesign name="closecircleo" size={24} />
-        </TouchableOpacity>
+      <TouchableOpacity
+        style={{alignSelf: 'flex-end'}}
+        onPress={() => { navigation.navigate('all') }}
+        marginRight={10}
+        accessibilityRole="button"
+        accessibilityLabel="Poistumisnappi"
+        accessibilityHint='Johtaa listanäkymään'>
+        <AntDesign name="closecircleo" size={24} />
+      </TouchableOpacity>
     </View>
   )
 }

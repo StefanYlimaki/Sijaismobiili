@@ -73,7 +73,7 @@ export default StyleSheet.create({
     paddingBottom: 10,
     paddingTop: 10,
     textAlign: 'center',
-   // textTransform: 'uppercase',
+    // textTransform: 'uppercase',
   },
   h2AndInfoButton:{
     alignItems: 'center',
@@ -192,7 +192,7 @@ export default StyleSheet.create({
     marginTop: 32
   },
   singleSubstitutionInfoContainer: {
-    backgroundColor: krGreen,
+    backgroundColor: Colors.krGreen,
     flexDirection: 'row', 
     justifyContent: 'space-between', 
     marginTop: '6%',
