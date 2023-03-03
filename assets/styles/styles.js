@@ -1,6 +1,5 @@
 import { StyleSheet } from 'react-native'
 import * as Colors from './colors.js'
-import {krGreen} from './colors.js'
 
 export default StyleSheet.create({
 
@@ -181,7 +180,7 @@ export default StyleSheet.create({
     marginTop: 32
   },
   singleSubstitutionInfoContainer: {
-    backgroundColor: krGreen,
+    backgroundColor: Colors.krGreen,
     flexDirection: 'row', 
     justifyContent: 'space-between', 
     marginTop: '6%',
