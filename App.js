@@ -19,6 +19,7 @@ import * as Localisation from 'expo-localization'
 import { I18n } from 'i18n-js'
 import { LocaleContext } from './contexts/LocaleContext'
 import {UserInformationStack} from './screens/UserInformation/UserInformationStack'
+import SubstitutionCard from './components/SubstitutionCard'
 
 const Stack = createNativeStackNavigator()
 
@@ -74,6 +75,7 @@ export default function App() {
                 <Stack.Screen name="MainApplication" component={ AppTabs } />
                 <Stack.Screen name="UserInfoScreen" component={ UserInformationStack } />
                 <Stack.Screen name="SingleSubstitution" component={ SingleSubstitutionScreen } /> 
+                <Stack.Screen name='SubstitutionCard' component={SubstitutionCard} options={{ presentation: 'transparentModal', headerShown: false }}/>
               </Stack.Navigator>
             </View>
           </NavigationContainer>
