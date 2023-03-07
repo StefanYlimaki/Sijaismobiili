@@ -1,21 +1,19 @@
-import { Text, View, Button } from 'react-native'
+import { Text, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
 
-import SubstitutionsList from '../components/SubstitutionsList'
-import substitutions from '../assets/data/substitutionsData_new.json'
+import SubstitutionsList from '../../components/SubstitutionsList'
+import substitutions from '../../assets/data/substitutionsData_new.json'
 
-import { orderAndFilterSubstitutionsByPreferences } from '../utils/orderAndFilterSubstitutionsByPreferences'
+import { orderAndFilterSubstitutionsByPreferences } from '../../utils/orderAndFilterSubstitutionsByPreferences'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
 let updatedAt = 0
 
-const TailoredSubsitutions = ({ route, navigation, tabBarHidden, setTabBarHidden, swipeEnabled, setSwipeEnabled }) => {
+const TailoredSubsitutions = ({ route, navigation }) => {
 
   const [loading, setLoading] = useState(true)
   const [tailoredSubstitutions, setTailoredSubstitutions] = useState([])
-  const [shouldReload, setShouldReload] = useState(false)
 
-  
   async function callOrderAndFilterSubstitutionsByPreferences() {
     const UserUpdatedAt = await AsyncStorage.getItem('updatedAt')
     if(UserUpdatedAt > updatedAt){
@@ -39,14 +37,6 @@ const TailoredSubsitutions = ({ route, navigation, tabBarHidden, setTabBarHidden
         <Text>Ladataan, hetki vain.</Text>
       </View>
     )
-  }
-
-  if(tabBarHidden && navigation.isFocused()){
-    setTabBarHidden(false)
-  }
-
-  if(!swipeEnabled && navigation.isFocused()){
-    setSwipeEnabled(true)
   }
 
   if(tailoredSubstitutions.length === 0){

@@ -5,10 +5,10 @@ import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { useFonts } from 'expo-font'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
-import CustomStatusBar from './screens/CustomStatusBar'
-import SwipeScreen from './screens/SwipeScreen'
-import AppTabs from './screens/AppTabs'
-import UserTabs from './screens/UserTabs'
+import CustomStatusBar from './components/CustomStatusBar'
+import SwipeScreen from './screens/SwipeScreen/SwipeScreen'
+import AppTabs from './screens/MainApplication/AppTabs'
+import UserTabs from './screens/UserInformation/UserTabs'
 
 import styles from './assets/styles/styles.js'
 import { krGreen } from './assets/styles/colors'
@@ -18,6 +18,8 @@ import { fi, se, en } from './assets/data/localisation/localisations'
 import * as Localisation from 'expo-localization'
 import { I18n } from 'i18n-js'
 import { LocaleContext } from './contexts/LocaleContext'
+import {UserInformationStack} from './screens/UserInformation/UserInformationStack'
+import SubstitutionCard from './components/SubstitutionCard'
 
 const Stack = createNativeStackNavigator()
 
@@ -71,7 +73,9 @@ export default function App() {
                 screenOptions={{headerShown: false}}>
                 <Stack.Screen name="SwipeScreen" component={ SwipeScreen } />
                 <Stack.Screen name="MainApplication" component={ AppTabs } />
-                <Stack.Screen name="UserInfoScreen" component={ UserTabs } />
+                <Stack.Screen name="UserInfoScreen" component={ UserInformationStack } />
+                <Stack.Screen name="SingleSubstitution" component={ SingleSubstitutionScreen } /> 
+                <Stack.Screen name='SubstitutionCard' component={SubstitutionCard} options={{ presentation: 'transparentModal', headerShown: false }}/>
               </Stack.Navigator>
             </View>
           </NavigationContainer>

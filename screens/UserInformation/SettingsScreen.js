@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { View, Text, Switch, Pressable } from 'react-native'
-import styles from '../assets/styles/styles'
-import { LocaleContext } from '../contexts/LocaleContext'
+import styles from '../../assets/styles/styles'
+import { LocaleContext } from '../../contexts/LocaleContext'
 
 function SettingsScreen({navigation}) {
   const [useNotifications, setUseNotifications] = useState(true)
