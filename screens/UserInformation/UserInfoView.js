@@ -8,12 +8,12 @@ import {
   Button,
   Pressable,
 } from 'react-native'
-import {logUserData} from '../utils/logUserData'
-import * as Colors from '../assets/styles/colors.js'
-import styles from '../assets/styles/styles'
-import { setUserData } from '../utils/setUserData'
+import {logUserData} from '../../utils/logUserData'
+import * as Colors from '../../assets/styles/colors.js'
+import styles from '../../assets/styles/styles'
+import { setUserData } from '../../utils/setUserData'
 import {ListItem} from '@rneui/base'
-import postCode from '../assets/data/postcode_map_light.json'
+import postCode from '../../assets/data/postcode_map_light.json'
 
 const UserInfoView = ({ user, setUser, navigation }) => {
   const handleChange = async (event, key, subKey) => {

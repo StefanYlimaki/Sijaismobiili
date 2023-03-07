@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useWindowDimensions } from 'react'
-import * as userData from '../assets/data/userData.json'
+import * as userData from '../../assets/data/userData.json'
 import {
   View,
   Text,
@@ -9,11 +9,11 @@ import {
 } from 'react-native'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { Slider } from '@rneui/themed'
-import * as Colors from '../assets/styles/colors.js'
-import styles from '../assets/styles/styles'
+import * as Colors from '../../assets/styles/colors.js'
+import styles from '../../assets/styles/styles'
 import {Icon} from '@rneui/base'
-import { getUserData } from '../utils/getUserData'
-import { setUserData } from '../utils/setUserData'
+import { getUserData } from '../../utils/getUserData'
+import { setUserData } from '../../utils/setUserData'
 import { AntDesign } from '@expo/vector-icons'
 
 function UserPreferencesScreen() {

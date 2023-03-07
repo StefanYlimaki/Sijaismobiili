@@ -14,16 +14,8 @@ import { krGreen } from '../assets/styles/colors'
 import DenyBookmarkAndAcceptButton from '../components/DenyBookmarkAndAcceptButtons'
 import acceptSubstitution from '../utils/acceptSubstitution'
 
-const SingleSubstitutionScreen = ({ route, navigation, tabBarHidden, setTabBarHidden, swipeEnabled, setSwipeEnabled }) => {
+const SingleSubstitutionScreen = ({ route, navigation }) => {
   const { substitution } = route.params
-
-  if(!tabBarHidden && navigation.isFocused()){
-    setTabBarHidden(true)
-  }
-
-  if(swipeEnabled && navigation.isFocused()){
-    setSwipeEnabled(false)
-  }
 
   const benefits = substitution.item.benefits.map((benefit, i) => {
     return (
