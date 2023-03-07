@@ -1,5 +1,4 @@
-import { Pressable, Component, StyleSheet, Text, View, Dimensions, Image, Animated, PanResponder } from 'react-native'
-
+import {  Text, View, Dimensions, Animated, PanResponder } from 'react-native'
 import React, {useRef, useState} from 'react'
 import substitutions from '../../assets/data/substitutionsData_new.json'
 import styles from '../../assets/styles/styles'

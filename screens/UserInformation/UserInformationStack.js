@@ -1,5 +1,3 @@
-
-
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import UserInfoScreen from './UserInfoScreen'
 import SettingsScreen from './SettingsScreen'
