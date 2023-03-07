@@ -12,7 +12,7 @@ export function UserInformationStack() {
   return (
     <UserInfoStack.Navigator>
       <UserInfoStack.Screen name='User' component={UserTabs} options={{ headerShown: false }}/>
-      <UserInfoStack.Screen name='Settings' component={SettingsScreen} options={{ headerShown: true }} />
+      <UserInfoStack.Screen name='Settings' component={SettingsScreen} options={{ headerShown: true, title: 'Asetukset' }} />
       <UserInfoStack.Screen name='RemoveAccountPopup' component={RemoveAccountPopup} options={{ presentation: 'transparentModal', headerShown: false }}/>
     </UserInfoStack.Navigator>
   )

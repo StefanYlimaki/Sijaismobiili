@@ -41,7 +41,7 @@ const TabBar = ({ state, descriptors, navigation }) => {
         })}
       </View>
       <TouchableOpacity
-        style={{alignSelf: 'flex-end'}}
+        style={{ height: 50, width: 50, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
         onPress={() => { navigation.navigate('MainApplication') }}
         marginRight={10}
         accessibilityRole="button"

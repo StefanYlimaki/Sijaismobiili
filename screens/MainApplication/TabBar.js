@@ -40,11 +40,11 @@ const TabBar = ({ state, descriptors, navigation,  }) => {
           </TouchableOpacity>
         )
       })}
-      <View>
-        <Pressable onPress={() => { navigation.navigate('UserInfoScreen') }}>
+      <Pressable onPress={() => { navigation.navigate('UserInfoScreen') }}>
+        <View style={{ height: 50, width: 50, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <AntDesign name="user" size={24} color="black" />
-        </Pressable>
-      </View>
+        </View>
+      </Pressable>
     </View>
   )
 }
