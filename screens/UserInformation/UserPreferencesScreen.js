@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useWindowDimensions } from 'react'
+import React, { useEffect, useState } from 'react'
 import * as userData from '../../assets/data/userData.json'
 import {
   View,
@@ -7,7 +7,6 @@ import {
   KeyboardAvoidingView,
   TouchableWithoutFeedback,
 } from 'react-native'
-import AsyncStorage from '@react-native-async-storage/async-storage'
 import { Slider } from '@rneui/themed'
 import * as Colors from '../../assets/styles/colors.js'
 import styles from '../../assets/styles/styles'
