@@ -19,13 +19,16 @@ const SWIPE_THRESHOLD = 120
 
 const SubstitutionCard = ({route}) => {
   return (
-    <BlurView intensity={5} style={{flex: 1, backgroundColor: 'rgba(58,58,58,0.5)'}}>
-      <View style={{flexDirection: 'column', marginTop: Constants.statusBarHeight + 20}}>
-        {renderSubstitution(route.params.substitution.item, route.params.navigation)}
-      </View>
-    </BlurView>
+
+    <View style={ {backgroundColor: 'rgba(0,0,0,0.3)'} }>
+      <BlurView intensity={10} style={ {height: '100%'} }>
+        <View style={{flexDirection: 'column', marginTop: Constants.statusBarHeight + 20}}>
+          {renderSubstitution(route.params.substitution.item, route.params.navigation)}
+        </View>
+      </BlurView>
+    </View>
+
   )
-  
 }
 
 const renderSubstitution = (item, navigation) => {
@@ -39,7 +42,7 @@ const renderSubstitution = (item, navigation) => {
       onStartShouldSetPanResponder: () => true,
 
       onMoveShouldSetPanResponderCapture: (evt, gestureState) => {
-        return gestureState.dx != 0 && gestureState.dy != 0
+        return gestureState.dx !== 0 && gestureState.dy !== 0
       },
 
       //Update position variable when moved
