@@ -1,6 +1,8 @@
 
 import { Pressable, Component, StyleSheet, Text, View, Dimensions, Image, Animated, PanResponder } from 'react-native'
 import React, {useRef, useState} from 'react'
+import Constants from 'expo-constants'
+import { BlurView } from 'expo-blur'
 import styles from '../assets/styles/styles'
 import { krBlue } from '../assets/styles/colors'
 import { formatDate, formatTime } from '../utils'
@@ -17,11 +19,16 @@ const SWIPE_THRESHOLD = 120
 
 const SubstitutionCard = ({route}) => {
   return (
-    <View style={{flexDirection: 'column'}}>
-      {renderSubstitution(route.params.substitution.item, route.params.navigation)}
+
+    <View style={ {backgroundColor: 'rgba(0,0,0,0.3)'} }>
+      <BlurView intensity={10} style={ {height: '100%'} }>
+        <View style={{flexDirection: 'column', marginTop: Constants.statusBarHeight + 20}}>
+          {renderSubstitution(route.params.substitution.item, route.params.navigation)}
+        </View>
+      </BlurView>
     </View>
+
   )
-  
 }
 
 const renderSubstitution = (item, navigation) => {
@@ -35,7 +42,7 @@ const renderSubstitution = (item, navigation) => {
       onStartShouldSetPanResponder: () => true,
 
       onMoveShouldSetPanResponderCapture: (evt, gestureState) => {
-        return gestureState.dx != 0 && gestureState.dy != 0
+        return gestureState.dx !== 0 && gestureState.dy !== 0
       },
 
       //Update position variable when moved
