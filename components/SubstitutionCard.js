@@ -1,6 +1,8 @@
 
 import { Pressable, Component, StyleSheet, Text, View, Dimensions, Image, Animated, PanResponder } from 'react-native'
 import React, {useRef, useState} from 'react'
+import Constants from 'expo-constants'
+import { BlurView } from 'expo-blur'
 import styles from '../assets/styles/styles'
 import { krBlue } from '../assets/styles/colors'
 import { formatDate, formatTime } from '../utils'
@@ -17,9 +19,11 @@ const SWIPE_THRESHOLD = 120
 
 const SubstitutionCard = ({route}) => {
   return (
-    <View style={{flexDirection: 'column'}}>
-      {renderSubstitution(route.params.substitution.item, route.params.navigation)}
-    </View>
+    <BlurView intensity={5} style={{flex: 1, backgroundColor: 'rgba(58,58,58,0.5)'}}>
+      <View style={{flexDirection: 'column', marginTop: Constants.statusBarHeight + 20}}>
+        {renderSubstitution(route.params.substitution.item, route.params.navigation)}
+      </View>
+    </BlurView>
   )
   
 }
