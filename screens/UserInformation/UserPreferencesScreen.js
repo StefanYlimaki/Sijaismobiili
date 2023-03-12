@@ -1,5 +1,5 @@
-import React, {useContext, useEffect, useState, useWindowDimensions} from 'react'
-import * as userData from '../assets/data/userData.json'
+import React, { useEffect, useState } from 'react'
+import * as userData from '../../assets/data/userData.json'
 import {
   View,
   Text,
@@ -7,19 +7,17 @@ import {
   KeyboardAvoidingView,
   TouchableWithoutFeedback,
 } from 'react-native'
-import AsyncStorage from '@react-native-async-storage/async-storage'
 import { Slider } from '@rneui/themed'
-import * as Colors from '../assets/styles/colors.js'
-import styles from '../assets/styles/styles'
+import * as Colors from '../../assets/styles/colors.js'
+import styles from '../../assets/styles/styles'
 import {Icon} from '@rneui/base'
-import { getUserData } from '../utils/getUserData'
-import { setUserData } from '../utils/setUserData'
+import { getUserData } from '../../utils/getUserData'
+import { setUserData } from '../../utils/setUserData'
 import { AntDesign } from '@expo/vector-icons'
-import {LocaleContext} from '../contexts/LocaleContext'
 
 function UserPreferencesScreen() {
   delete userData['default']
-  const { i18n, locale, setLocale } = useContext(LocaleContext)
+
   const [loading, setLoading] = useState(true)
   const [user, setUser] = useState({})
   const [morning, setMorning] = useState()
@@ -66,7 +64,7 @@ function UserPreferencesScreen() {
   if(loading){
     return(
       <View>
-        <Text>{i18n.t('loading')}</Text>
+        <Text>Ladataan, hetki vain.</Text>
       </View>
     )
   }
@@ -79,7 +77,7 @@ function UserPreferencesScreen() {
         <ScrollView style={styles.userContent}>
           <View>
             <Text style={styles.h1}>
-              <Text>{i18n.t('hello')}</Text>
+              <Text>Moi,</Text>
               <Text style={{ color: Colors.krBlue, fontFamily: 'Inter-DisplayExtraBold' }}> {user.firstname}!</Text>
             </Text>
           </View>
@@ -87,7 +85,7 @@ function UserPreferencesScreen() {
           <View>
             <View style={styles.h2AndInfoButton}>
               <Text style={styles.h2}>
-                {i18n.t('maxDistance')}
+                Enimmäisetäisyys
               </Text>
               <View style={{paddingLeft: 12.5}}>
                 <AntDesign name="infocirlceo" size={24} color="black" />
@@ -110,7 +108,7 @@ function UserPreferencesScreen() {
           </View>
           <View style={styles.h2AndInfoButton}>
             <Text style={styles.h2}>
-              {i18n.t('preferences')}
+              Mieltymykset
             </Text>
             <View style={{paddingLeft: 12.5}}>
               <AntDesign name="infocirlceo" size={24} color="black" />
@@ -119,7 +117,7 @@ function UserPreferencesScreen() {
           <View style={[styles.sliderList,{textAlign:'center'}]}>
             <View >
               <Text style={styles.label}>
-                {i18n.t('morningShifts')}
+                Aamuvuorot
               </Text>
             </View>
             <Slider
@@ -150,7 +148,7 @@ function UserPreferencesScreen() {
             />
             <View>
               <Text style={styles.label}>
-                {i18n.t('eveningShifts')}
+                Iltavuorot
               </Text>
             </View>
             <Slider
@@ -181,7 +179,7 @@ function UserPreferencesScreen() {
             />
             <View>
               <Text style={styles.label}>
-                {i18n.t('nightShifts')}
+                Yövuorot
               </Text>
             </View>
             <Slider
@@ -212,7 +210,7 @@ function UserPreferencesScreen() {
             />
             <View>
               <Text style={styles.label}>
-                {i18n.t('salary')}
+                Palkka
               </Text>
             </View>
             <Slider
@@ -243,7 +241,7 @@ function UserPreferencesScreen() {
             />
             <View>
               <Text style={styles.label}>
-                {i18n.t('fullShifts')}
+                Täydet vuorot
               </Text>
             </View>
             <Slider

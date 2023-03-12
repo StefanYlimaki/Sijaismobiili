@@ -1,8 +1,8 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { AntDesign } from '@expo/vector-icons'
 import { View, Text } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
-import Styles from '../assets/styles/styles'
+import Styles from '../../assets/styles/styles'
 
 const TabBar = ({ state, descriptors, navigation }) => {
 //style={Styles.userTabBar}
@@ -41,8 +41,8 @@ const TabBar = ({ state, descriptors, navigation }) => {
         })}
       </View>
       <TouchableOpacity
-        style={{alignSelf: 'flex-end'}}
-        onPress={() => { navigation.navigate('all') }}
+        style={{ height: 50, width: 50, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+        onPress={() => { navigation.navigate('MainApplication') }}
         marginRight={10}
         accessibilityRole="button"
         accessibilityLabel="Poistumisnappi"
@@ -54,7 +54,6 @@ const TabBar = ({ state, descriptors, navigation }) => {
 }
 
 const TopTab = ({ type, size = 24, isFocused, index, navigation }) => {
-  navigation.setOptions({ tabBarStyle: { display: 'none' }})
   switch(index) {
   case 0:
     if(isFocused){

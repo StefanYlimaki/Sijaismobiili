@@ -2,29 +2,12 @@
 import { AntDesign } from '@expo/vector-icons'
 import { View, Pressable, Text } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
-import { useRoute } from '@react-navigation/native'
-import Styles from '../assets/styles/styles'
+import Styles from '../../assets/styles/styles'
 
-export const getTopBarStyle = (tabBarHidden) => {
-  if(tabBarHidden){
-    return {
-      display: 'none',
-    }
-  } else {
-    return {
-      alignItems: 'center',
-      flexDirection: 'row',
-      height: 60,
-      justifyContent: 'space-around',
-      width: '100%',
-    }
-  }
-}
 
-const TabBar = ({ state, descriptors, navigation, tabBarHidden }) => {
+const TabBar = ({ state, descriptors, navigation,  }) => {
   return (
-    <View
-      style={getTopBarStyle(tabBarHidden)}>
+    <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center', height: 50}}>
       {state.routes.map((route, index) => {
         const isFocused = state.index === index
         const { options } = descriptors[route.key]
@@ -45,6 +28,7 @@ const TabBar = ({ state, descriptors, navigation, tabBarHidden }) => {
             onPress={onPress}
             testID={options.tabBarTestID}
             accessibilityRole="button"
+            style={{ display: 'flex' }}
           >
             <TopTab
               index={index}
@@ -55,17 +39,16 @@ const TabBar = ({ state, descriptors, navigation, tabBarHidden }) => {
           </TouchableOpacity>
         )
       })}
-      <View>
-        <Pressable onPress={() => { navigation.navigate('UserInfoScreen') }}>
+      <Pressable onPress={() => { navigation.navigate('UserInfoScreen') }}>
+        <View style={{ height: 50, width: 50, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <AntDesign name="user" size={24} color="black" />
-        </Pressable>
-      </View>
+        </View>
+      </Pressable>
     </View>
   )
 }
 
 const TopTab = ({ type, size = 24, isFocused, index, navigation }) => {
-  navigation.setOptions({ tabBarStyle: { display: 'none' }})
   switch(index) {
   case 0:
     if(isFocused){
