@@ -44,7 +44,7 @@ const UserInfoView = ({ user, setUser, navigation }) => {
             </Text>
             <View style={styles.userInfoList}
               importantForAutofill={'yes'} >
-              <ListItem containerStyle={styles.listItemContainer} bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Etuninmi</Text></ListItem.Title>
+              <ListItem containerStyle={styles.listItemContainer} bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Etunimi</Text></ListItem.Title>
                 <ListItem.Input
                   autoCompleteType={'name-given'}
                   editable
@@ -118,6 +118,13 @@ const UserInfoView = ({ user, setUser, navigation }) => {
                 <ListItem.Input
                   editable
                   defaultValue={user.valviraID}
+                  keyboardType={'numeric'}
+                  onEndEditing={(e) => handleChange(e, 'valviraID')}
+                />
+              </ListItem>
+              <ListItem containerStyle={styles.listItemContainer}><ListItem.Title><Text style={styles.textfieldlist}>Notifikaatio Token</Text></ListItem.Title>
+                <ListItem.Input
+                  defaultValue={user.token}
                   keyboardType={'numeric'}
                   onEndEditing={(e) => handleChange(e, 'valviraID')}
                 />
