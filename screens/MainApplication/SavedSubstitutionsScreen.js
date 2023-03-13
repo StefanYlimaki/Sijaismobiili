@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, View } from 'react-native'
+import { View } from 'react-native'
 
 import SubstitutionsList from '../../components/SubstitutionsList'
 import substitutions from '../../assets/data/substitutionsData_new.json'
@@ -10,7 +10,6 @@ const SavedSubstitutions = ({ navigation }) => {
 
   return (
     <View>
-      <Text>Tässä listassa on joka 12. sijaisuus</Text>
       <SubstitutionsList navigation={navigation} substitutions={saved}/>
     </View>
   ) 
