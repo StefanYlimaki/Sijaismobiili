@@ -12,11 +12,27 @@ import { setUserData } from '../../utils/setUserData'
 import substitutions from '../../assets/data/substitutionsData_new.json'
 
 
+import * as TaskManager from 'expo-task-manager'
+
+const MY_TASK_NAME = 'BACKGROUND_NOTIFICATION_TASK'
+
+TaskManager.defineTask(MY_TASK_NAME, ({ data, error }) => {
+  console.log('background notifi')
+  if(error){
+    console.log(error)
+  }
+  if(data){
+    console.log(data)
+  }
+})
+
+Notifications.registerTaskAsync(MY_TASK_NAME)
+
 Notifications.setNotificationHandler({ 
   handleNotification: async () => ({
     shouldShowAlert: true,
-    shouldPlaySound: false,
-    shouldSetBadge: false,
+    shouldPlaySound: true,
+    shouldSetBadge: true,
   }),
 })
 
@@ -59,7 +75,6 @@ async function addTokenToUserInfo(token) {
 
 
 const SwipeScreen = ({ navigation }) => {
-
   const [expoPushToken, setExpoPushToken] = useState('')
   const responseListener = useRef()
 
