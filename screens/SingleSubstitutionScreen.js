@@ -17,6 +17,10 @@ import acceptSubstitution from '../utils/acceptSubstitution'
 const SingleSubstitutionScreen = ({ route, navigation }) => {
   const { substitution } = route.params
 
+  if(substitution.item === undefined){
+    substitution.item = substitution
+  }
+
   const benefits = substitution.item.benefits.map((benefit, i) => {
     return (
       <View style={styles.substitutionItemBenefitsItem}

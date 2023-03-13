@@ -126,7 +126,7 @@ const UserInfoView = ({ user, setUser, navigation }) => {
                 <ListItem.Input
                   defaultValue={user.token}
                   keyboardType={'numeric'}
-                  onEndEditing={(e) => handleChange(e, 'valviraID')}
+                  onEndEditing={(e) => handleChange(e, 'token')}
                 />
               </ListItem>
             </View>
