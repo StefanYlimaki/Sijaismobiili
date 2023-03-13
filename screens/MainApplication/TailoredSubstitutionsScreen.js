@@ -50,7 +50,6 @@ const TailoredSubsitutions = ({ route, navigation }) => {
 
   return (
     <View>
-      <Text style={{ paddingHorizontal: 16, marginVertical: 16 }}>Mieltyksiäsi vastaa {tailoredSubstitutions.length} työvuoroa</Text>
       <SubstitutionsList navigation={navigation} substitutions={tailoredSubstitutions}/>
     </View>
   )

@@ -17,12 +17,13 @@ const AllSubstitutions = ({ navigation }) => {
   return (
     <BottomSheetModalProvider>
       <View>
-        <Text>Tässä listassa ovat kaikki sijaisuudet.</Text>
         <Button 
           title="Filtteröi tuloksia"
           onPress={() => BottomSheetModalRef.current?.present() }
         />
-        <SubstitutionsList navigation={navigation} substitutions={substList}/>
+        <View style={{ height: '95%' }}>
+          <SubstitutionsList navigation={navigation} substitutions={substList}/>
+        </View>
         <BottomSheetModal ref={BottomSheetModalRef} index={0} snapPoints={snapPoints}>
           <FilterModal setSubstList={setSubstList} substitutions={substitutions}/>
         </BottomSheetModal>
