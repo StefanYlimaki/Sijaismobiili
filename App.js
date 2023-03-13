@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { NavigationContainer } from '@react-navigation/native'
+import { NavigationContainer, useNavigation } from '@react-navigation/native'
 import { Text, View, Button, Platform } from 'react-native'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
@@ -13,7 +13,6 @@ import { I18n } from 'i18n-js'
 import CustomStatusBar from './components/CustomStatusBar'
 import SwipeScreen from './screens/SwipeScreen/SwipeScreen'
 import AppTabs from './screens/MainApplication/AppTabs'
-import UserTabs from './screens/UserInformation/UserTabs'
 import styles from './assets/styles/styles.js'
 import { krGreen } from './assets/styles/colors'
 import SingleSubstitutionScreen from './screens/SingleSubstitutionScreen'
@@ -21,74 +20,7 @@ import { fi, se, en } from './assets/data/localisation/localisations'
 import { LocaleContext } from './contexts/LocaleContext'
 import { UserInformationStack } from './screens/UserInformation/UserInformationStack'
 import SubstitutionCard from './components/SubstitutionCard'
-import { getUserData } from './utils'
-import { setUserData } from './utils/setUserData'
 
-Notifications.setNotificationHandler({
-  handleNotification: async () => ({
-    shouldShowAlert: true,
-    shouldPlaySound: false,
-    shouldSetBadge: false,
-  }),
-})
-
-// Can use this function below OR use Expo's Push Notification Tool from: https://expo.dev/notifications
-async function sendPushNotification(expoPushToken) {
-  const message = {
-    to: expoPushToken,
-    sound: 'default',
-    title: 'Original Title',
-    body: 'And here is the body!',
-    data: { someData: 'goes here' },
-  }
-
-  await fetch('https://exp.host/--/api/v2/push/send', {
-    method: 'POST',
-    headers: {
-      Accept: 'application/json',
-      'Accept-encoding': 'gzip, deflate',
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(message),
-  })
-}
-
-async function registerForPushNotificationsAsync() {
-  let token
-  if (Device.isDevice) {
-    const { status: existingStatus } = await Notifications.getPermissionsAsync()
-    let finalStatus = existingStatus
-    if (existingStatus !== 'granted') {
-      const { status } = await Notifications.requestPermissionsAsync()
-      finalStatus = status
-    }
-    if (finalStatus !== 'granted') {
-      alert('Failed to get push token for push notification!')
-      return
-    }
-    token = (await Notifications.getExpoPushTokenAsync()).data
-    console.log(token)
-  } else {
-    alert('Must use physical device for Push Notifications')
-  }
-
-  if (Platform.OS === 'android') {
-    Notifications.setNotificationChannelAsync('default', {
-      name: 'default',
-      importance: Notifications.AndroidImportance.MAX,
-      vibrationPattern: [0, 250, 250, 250],
-      lightColor: '#FF231F7C',
-    })
-  }
-
-  return token
-}
-
-async function addTokenToUserInfo(token) {
-  const user = await getUserData()
-  user.token = token
-  await setUserData(user)
-}
 
 const Stack = createNativeStackNavigator()
 
@@ -107,34 +39,6 @@ const AppTheme = {
 const i18n = new I18n() //For localisation
 
 export default function App() {
-
-  const [expoPushToken, setExpoPushToken] = useState('')
-  const [notification, setNotification] = useState(false)
-  const notificationListener = useRef()
-  const responseListener = useRef()
-
-  useEffect(() => {
-    registerForPushNotificationsAsync().then(token => {
-      setExpoPushToken(token)
-    })
-
-    notificationListener.current = Notifications.addNotificationReceivedListener(notification => {
-      setNotification(notification)
-    })
-
-    responseListener.current = Notifications.addNotificationResponseReceivedListener(response => {
-      console.log(response)
-    })
-
-    return () => {
-      Notifications.removeNotificationSubscription(notificationListener.current)
-      Notifications.removeNotificationSubscription(responseListener.current)
-    }
-  }, [])
-
-  useEffect(() => {
-    addTokenToUserInfo(expoPushToken)
-  }, [expoPushToken])
 
   //Localisation
   const [locale, setLocale] = useState(Localisation.locale) // use system language
