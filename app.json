@@ -28,8 +28,7 @@
       },
       "package": "com.proj.sijaismobiili",
       "versionCode": 2,
-      "permissions": ["NOTIFICATIONS"],
-      "useNextNotificationAPI": true
+      "permissions": ["NOTIFICATIONS"]
     },
     "web": {
       "favicon": "./assets/favicon.png"
