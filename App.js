@@ -5,10 +5,9 @@ import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { useFonts } from 'expo-font'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
-import * as Device from 'expo-device'
-import * as Notifications from 'expo-notifications'
 import * as Localisation from 'expo-localization'
 import { I18n } from 'i18n-js'
+
 
 import CustomStatusBar from './components/CustomStatusBar'
 import SwipeScreen from './screens/SwipeScreen/SwipeScreen'
@@ -39,7 +38,6 @@ const AppTheme = {
 const i18n = new I18n() //For localisation
 
 export default function App() {
-
   //Localisation
   const [locale, setLocale] = useState(Localisation.locale) // use system language
   i18n.enableFallback = true
