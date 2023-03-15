@@ -11,23 +11,6 @@ import { setUserData } from '../../utils/setUserData'
 
 import substitutions from '../../assets/data/substitutionsData_new.json'
 
-
-import * as TaskManager from 'expo-task-manager'
-
-const MY_TASK_NAME = 'BACKGROUND_NOTIFICATION_TASK'
-
-TaskManager.defineTask(MY_TASK_NAME, ({ data, error }) => {
-  console.log('background notifi')
-  if(error){
-    console.log(error)
-  }
-  if(data){
-    console.log(data)
-  }
-})
-
-Notifications.registerTaskAsync(MY_TASK_NAME)
-
 Notifications.setNotificationHandler({ 
   handleNotification: async () => ({
     shouldShowAlert: true,
@@ -79,15 +62,11 @@ const SwipeScreen = ({ navigation }) => {
   const responseListener = useRef()
 
   useEffect(() => {
-    registerForPushNotificationsAsync().then(token => {
-      setExpoPushToken(token)
-    })
+    registerForPushNotificationsAsync().then(token => setExpoPushToken(token))
 
-    responseListener.current = Notifications.addNotificationResponseReceivedListener(response => {
-      
-      console.log(substitutions[0])
+    responseListener.current = Notifications.addNotificationResponseReceivedListener((response) => {
       navigation.navigate('SingleSubstitution', {
-        substitution: substitutions[0],
+        substitution: substitutions.find(s => s.id === response.notification.request.content.data.id),
         navigation: navigation
       })
     })
