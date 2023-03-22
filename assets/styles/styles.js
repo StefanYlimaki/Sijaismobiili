@@ -145,6 +145,40 @@ export default StyleSheet.create({
   pressedSubstitutionItem: {
     opacity: 0.9,
   },
+  recommendationCardAnimated: {
+    backgroundColor: 'white',
+    borderRadius: 20,
+    position: 'absolute',
+    resizeMode: 'cover',
+  },
+  recommendationCardInfoBarElement: {
+    backgroundColor: Colors.krBlue,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: 20,
+    padding: 10
+  },
+  recommendationCardInfoBarLeftElement: {
+    alignSelf: 'flex-start',
+    color: 'white',
+    fontSize: 13
+  },
+  recommendationCardInfoBarRightElement: {
+    alignSelf: 'flex-end',
+    color: 'white',
+    fontSize: 13
+  },
+  recommendationCardInfoElement: {
+    flexDirection: 'column',
+    paddingLeft: 10,
+    paddingTop: '25%'
+  },
+  recommendationCardSalaryElement: {
+    flexDirection: 'row',
+    flexWrap: 'nowrap',
+    justifyContent: 'flex-end',
+    padding: 10
+  },
   removeAccountButton: {
     backgroundColor: Colors.danger,
     borderRadius: 100,
@@ -222,6 +256,52 @@ export default StyleSheet.create({
     fontSize: 12,
     opacity: 0.8,
     textAlign: 'right',
+  },
+  substitutionCardAnimated: {
+    alignSelf: 'center',
+    backgroundColor: 'white',
+    borderRadius: 20,
+    position: 'absolute',
+    resizeMode: 'cover',
+  },
+  substitutionCardInfoBar: {
+    backgroundColor: Colors.krBlue,
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    marginTop: 20,
+    padding: 10,
+    paddingHorizontal: '10%'
+  },
+  substitutionCardInfoBarLeftElement: {
+    alignSelf: 'flex-start',
+    color: 'white',
+    fontSize: 13
+  }, 
+  substitutionCardInfoBarRighBotElement: {
+    alignSelf: 'flex-end',
+    color: 'white',
+    fontSize: 13
+  },
+  substitutionCardInfoBarRightTopElement: {
+    alignItems: 'flex-end',
+    alignSelf: 'flex-end',
+    color: 'white',
+    flexDirection: 'column',
+    flex:2,
+    fontSize: 13
+  },
+  substitutionCardInfoElement: {
+    alignItems: 'flex-start',
+    flexDirection: 'column',
+    height: '15%',
+    paddingLeft: 10,
+    paddingTop: '10%'
+  },
+  substitutionCardSalaryItem: {
+    flexDirection: 'row',
+    flexWrap: 'nowrap',
+    justifyContent: 'flex-end',
+    padding: 10
   },
   substitutionContainer: {
     alignItems: 'center',
