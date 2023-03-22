@@ -5,7 +5,7 @@ import calculateDistance from '../utils/calculateDistance'
 import { LinearGradient } from 'expo-linear-gradient'
 
 
-const image = { uri: 'https://images.unsplash.com/photo-1584432810601-6c7f27d2362b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2766&q=80' }
+const image = { uri: 'https://images.unsplash.com/photo-1584432810601-6c7f27d2362b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8' }
 const SubstitutionItem = ({ substitution, navigation }) => {
 
   const getDistance = () => {
@@ -24,6 +24,7 @@ const SubstitutionItem = ({ substitution, navigation }) => {
         style={({ pressed }) => pressed && styles.pressedSubstitutionItem}
       >
         <View style={styles.substitutionPreviewComponent}>
+
           <View style={styles.substitutionPreviewComponentTopElement}>
             <View style={{flexDirection: 'column', flex: 1, justifyContent: 'space-between'}}>
               <Text style={styles.whiteText}>
@@ -42,12 +43,18 @@ const SubstitutionItem = ({ substitution, navigation }) => {
               </Text>
             </View>
           </View>
-          <ImageBackground source={image} style={styles.bgimage} >
+          <ImageBackground
+              source={image}
+              imageStyle={styles.bgimage}
+          >
             <LinearGradient
-              colors={['transparent', 'rgba(0,0,0,0.5)']}
-              start={{ x: 0, y: 0}}
-              end={{x: 0.0, y: 0.8}}>
-              <View style={[styles.substitutionHeroPreviewComponentBottomElement, {backgroundColor: styles.backgroundColor}, ]}>
+                colors={['transparent', 'rgba(0,0,0,0.5)']}
+                start={{ x: 0, y: 0.3}}
+                end={{x: 0.0, y: 0.8}}
+            style={{borderRadius: 20}}>
+            <View style={[styles.substitutionHeroPreviewComponentBottomElement ]}>
+
+
                 <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginBottom: 25, height: '90%'}}>
                   <View style={{ flexDirection: 'column', justifyContent: 'flex-end'}}>
                     <Text style={[styles.whiteText, { fontSize: 30, fontFamily: 'Inter-DisplayBlack'}]}>
@@ -56,9 +63,17 @@ const SubstitutionItem = ({ substitution, navigation }) => {
                     <Text style={[styles.whiteText, { paddingRight: 8, fontWeight: 'bold', fontSize: 20}]}>
                       {substitution.item.department}
                     </Text>
-
                   </View>
                   <View style={{ flexDirection: 'column'}}>
+
+                    <View style={{ flexDirection: 'row', alignItems: 'flex-end'}}>
+                      <Text style={ styles.hourlypay}>
+                        {formatHourlyPay(substitution.item.hourlyPay)}€/h
+                      </Text>
+                      <Text style={ styles.hourlypayTotal}>
+                        (~{formatHourlyPay((substitution.item.timing.duration / 60) * substitution.item.hourlyPay)} €)
+                      </Text>
+                    </View>
                     {substitution.item.benefits.length !== 0
                       ? <View>
                         {substitution.item.benefits.map(b =>
@@ -71,19 +86,12 @@ const SubstitutionItem = ({ substitution, navigation }) => {
                       </View>
                       :<></>
                     }
-                    <View style={{flexDirection: 'row', alignItems: 'flex-end', height: '100%'}}>
-                      <Text style={ [styles.blackText, { paddingRight: 8, fontWeight: 'bold'}]}>
-                        {formatHourlyPay(substitution.item.hourlyPay)}€/h
-                      </Text>
-                      <Text style={ [styles.blackText, { paddingRight: 16 }]}>
-                        (~{formatHourlyPay((substitution.item.timing.duration / 60) * substitution.item.hourlyPay)} €)
-                      </Text>
-                    </View>
+
                   </View>
                 </View>
-              </View>
-            </LinearGradient>
-          </ImageBackground>
+          </View>
+          </LinearGradient>
+      </ImageBackground>
         </View>
       </Pressable>
     </Animated.View>

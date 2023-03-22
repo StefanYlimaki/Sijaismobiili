@@ -4,9 +4,12 @@ import * as Colors from './colors.js'
 export default StyleSheet.create({
 
   bgimage: {
-    borderRadius: 20,
-    flex: 1,
+    borderBottomRightRadius: 20,
+    borderBottomLeftRadius: 20,
     resizeMode: 'cover',
+    overflow: 'hidden'
+
+
   },
   blackText: {
     color: Colors.textDark,
@@ -84,6 +87,20 @@ export default StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'center',
+  },
+  hourlypay: {
+    color: Colors.textLight,
+    fontFamily: 'Inter-DisplaySemiBold',
+    opacity: 0.8,
+    paddingHorizontal: 5,
+    paddingVertical : 10,
+  },
+  hourlypayTotal: {
+    color: Colors.textLight,
+    fontFamily: 'Inter-DisplayMedium',
+    opacity: 0.8,
+    paddingHorizontal  : 5,
+    paddingVertical : 10,
   },
   label: {
     color: Colors.textDark,
@@ -263,7 +280,7 @@ export default StyleSheet.create({
     borderRadius: 20,
     position: 'absolute',
     resizeMode: 'cover',
-  },
+  }, 
   substitutionCardInfoBar: {
     backgroundColor: Colors.krBlue,
     flexDirection: 'row',
@@ -276,7 +293,7 @@ export default StyleSheet.create({
     alignSelf: 'flex-start',
     color: 'white',
     fontSize: 13
-  }, 
+  },
   substitutionCardInfoBarRighBotElement: {
     alignSelf: 'flex-end',
     color: 'white',
@@ -309,6 +326,7 @@ export default StyleSheet.create({
     marginTop: 32,
     paddingHorizontal: 16,
   },
+
   substitutionElement: {
     alignItems: 'center',
     flexDirection: 'row',
@@ -316,7 +334,7 @@ export default StyleSheet.create({
   },
   substitutionHeroItemContainer: {
     elevation: 5,
-    marginTop: 20,
+    paddingVertical: 16,
     shadowColor: '#000000',
     shadowOffset: {
       width: 0,
@@ -326,9 +344,8 @@ export default StyleSheet.create({
     shadowRadius: 3.84,
     width: '100%',
   },
-
   substitutionHeroPreviewComponentBottomElement: {
-    backgroundColor: '#e50000',
+    flex: 1,
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20,
     minHeight: 250,
@@ -463,6 +480,7 @@ export default StyleSheet.create({
   whiteText: {
     color: Colors.textLight,
     opacity: 0.8,
-  }
-}
+  },
+},
+
 )
