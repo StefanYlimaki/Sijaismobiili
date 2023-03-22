@@ -2,6 +2,12 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import UserInfoScreen from './UserInfoScreen'
 import SettingsScreen from './SettingsScreen'
 import UserTabs from './UserTabs'
+import {useContext} from 'react'
+import {LocaleContext} from '../../App'
+import PopupDialog from '../../components/PopupDialog'
+import {Pressable, View, Text} from 'react-native'
+import styles from '../../assets/styles/styles'
+import * as Colors from '../../assets/styles/colors'
 
 
 const UserInfoStack = createNativeStackNavigator()
