@@ -1,8 +1,20 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Dimensions } from 'react-native'
 import * as Colors from './colors.js'
+
+const {width: W} = Dimensions.get('window')
 
 export default StyleSheet.create({
 
+  agenda: {
+    alignItems: 'center',
+    borderBottomColor: 'black',
+    borderBottomWidth: 1,
+    borderTopColor: 'black',
+    borderTopWidth: 1,
+    justifyContent: 'center',
+    paddingHorizontal: '6%',
+    paddingVertical: 8,
+  },
   blackText: {
     color: Colors.textDark,
     opacity: 0.8,
@@ -29,6 +41,11 @@ export default StyleSheet.create({
     color: Colors.textLight,
     fontFamily: 'Inter-DisplaySemiBold',
   },
+  calendar:{
+    borderWidth: 1,
+    borderColor: 'transparent',
+    height: '50%',
+  },
   container: {
     flex: 1,
     fontFamily: 'Inter-Display'
@@ -52,6 +69,13 @@ export default StyleSheet.create({
     borderRadius: 100,
     height: 35,
     width: 35,
+  },
+  footer: {
+    borderRadius: 150,
+    color: Colors.krGreen,
+    height: '20%',
+    top: -85,
+    width: W - 100,
   },
   footerButtonText: {
     color: Colors.danger,

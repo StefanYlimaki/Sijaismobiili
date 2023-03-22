@@ -61,7 +61,6 @@ const FilterModal = ({setSubstList, substitutions}) => {
       })
     }
     
-
     // How shifts are determined while filtering (starting times) /  TODO: Do the times make sense? 
     // morning shift: 06:00 - 13:59
     // evening shift: 14:00 - 21:59
