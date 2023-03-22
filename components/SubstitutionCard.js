@@ -125,89 +125,44 @@ const renderSubstitution = (item, navigation) => {
 
   return (
     <Animated.View 
-      //If card is on top, apply panresponder
       {...panResponder.panHandlers}
       style={[
-        //If card is on top, apply rotation
         rotateAndTranslate,
         {
           height: SCREEN_HEIGHT - 120,
           width: SCREEN_WIDTH,
-          position: 'absolute',
-          backgroundColor: 'white',
-          borderRadius: 20,
-          resizeMode: 'cover',
-          alignSelf: 'center',
-        }
+        },
+        styles.substitutionCardAnimated
       ]}
     >
-      <View style={{paddingVertical:20}}>
+      <View style={{paddingTop:'5%'}}>
         {benefits}
       </View>
-      <View style={{
-        flexDirection: 'column',
-        alignItems: 'flex-end',
-        height: '15%',
-        paddingTop: 20
-      }}>
+      <View style={styles.substitutionCardInfoElement}>
       </View>
-      <View style={{
-        flexDirection: 'column',
-        paddingLeft: 10
-      }}>
-        <Text style={{
-          fontWeight: 'bold',
-          fontSize: 30
-        }}>
+      <View style={styles.substitutionCardInfoElement}>
+        <Text style={{fontWeight: 'bold', fontSize: 30}}>
           {item.title}
         </Text>
-        <Text style={{
-          fontSize: 20
-        }}>
+        <Text style={{fontSize: 20}}>
           {item.department}
         </Text>
 
       </View>
-      <View style={{
-        marginTop: 20,
-        padding: 10,
-        backgroundColor: krBlue,
-        flexDirection: 'row',
-        justifyContent: 'space-evenly',
-        paddingHorizontal: '10%'
-      }}>
+      <View style={styles.substitutionCardInfoBar}>
         <View>
-          <Text style={{
-            color: 'white',
-            alignSelf: 'flex-start',
-            fontSize: 13
-          }}>
+          <Text style={styles.substitutionCardInfoBarLeftElement}>
             {formatDate(item.date)} 
           </Text>
-          <Text style={{
-            color: 'white',
-            alignSelf: 'flex-start',
-            fontSize: 13
-          }}>
+          <Text style={styles.substitutionCardInfoBarLeftElement}>
             {formatTime(item.date, item.timing.duration)} 
           </Text>
         </View>
         <View>
-          <Text style={{
-            color: 'white',
-            alignSelf: 'flex-end',
-            flexDirection: 'column',
-            alignItems: 'flex-end',
-            flex:2,
-            fontSize: 13
-          }}>
+          <Text style={styles.substitutionCardInfoBarRightTopElement}>
             {item.organisation}
           </Text>
-          <Text style={{
-            color: 'white',
-            alignSelf: 'flex-end',
-            fontSize: 13
-          }}>
+          <Text style={styles.substitutionCardInfoBarRighBotElement}>
             {calculateDistance(
               parseFloat(item.coordinates.latitude), 
               parseFloat(item.coordinates.longitude),
@@ -218,12 +173,7 @@ const renderSubstitution = (item, navigation) => {
         </View>
       </View>
 
-      <View style={{
-        flexDirection: 'row',
-        justifyContent: 'flex-end',
-        flexWrap: 'nowrap',
-        padding: 10
-      }}>
+      <View style={styles.substitutionCardSalaryItem}>
         <Text style={{fontWeight:'bold', textAlign:'right'}}>
           {item.hourlyPay + '€/h'}
         </Text>
