@@ -3,6 +3,11 @@ import * as Colors from './colors.js'
 
 export default StyleSheet.create({
 
+  bgimage: {
+    borderRadius: 20,
+    flex: 1,
+    resizeMode: 'cover',
+  },
   blackText: {
     color: Colors.textDark,
     opacity: 0.8,
@@ -309,12 +314,36 @@ export default StyleSheet.create({
     flexDirection: 'row',
     width: '100%',
   },
+  substitutionHeroItemContainer: {
+    elevation: 5,
+    marginTop: 20,
+    shadowColor: '#000000',
+    shadowOffset: {
+      width: 0,
+      height: 0,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    width: '100%',
+  },
+
+  substitutionHeroPreviewComponentBottomElement: {
+    backgroundColor: '#e50000',
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
+    minHeight: 250,
+    paddingBottom: 16,
+    paddingLeft: 16,
+    paddingVertical: 10,
+    width: '100%',
+  },
   substitutionItemBenefitsItem: {
     backgroundColor: Colors.krBlue,
     borderBottomLeftRadius: 5,
     borderTopLeftRadius: 5,
-    marginBottom: 2,
-    padding: 4
+    marginVertical: 2,
+    paddingHorizontal: 10,
+    paddingVertical: 6
   },
   substitutionItemContainer: {
     elevation: 5,
@@ -385,7 +414,7 @@ export default StyleSheet.create({
       right: 20,
     },
     shadowOpacity: 0.41,
-    shadowRadius: 9.11,  
+    shadowRadius: 9.11,
   },
   userContainer: {
     flex: 1,
@@ -435,5 +464,5 @@ export default StyleSheet.create({
     color: Colors.textLight,
     opacity: 0.8,
   }
-},
+}
 )
