@@ -4,10 +4,10 @@ import * as Colors from './colors.js'
 export default StyleSheet.create({
 
   bgimage: {
-    borderBottomRightRadius: 20,
     borderBottomLeftRadius: 20,
-    resizeMode: 'cover',
-    overflow: 'hidden'
+    borderBottomRightRadius: 20,
+    overflow: 'hidden',
+    resizeMode: 'cover'
 
 
   },
@@ -90,17 +90,14 @@ export default StyleSheet.create({
   },
   hourlypay: {
     color: Colors.textLight,
-    fontFamily: 'Inter-DisplaySemiBold',
+    fontFamily: 'Inter-DisplayBold',
     opacity: 0.8,
-    paddingHorizontal: 5,
-    paddingVertical : 10,
+    paddingRight: 5,
   },
   hourlypayTotal: {
     color: Colors.textLight,
     fontFamily: 'Inter-DisplayMedium',
     opacity: 0.8,
-    paddingHorizontal  : 5,
-    paddingVertical : 10,
   },
   label: {
     color: Colors.textDark,
@@ -153,6 +150,8 @@ export default StyleSheet.create({
     marginTop: 32,
     paddingHorizontal: 16,
   },
+  
+
   prefSlider: {
     paddingBottom: 30,
     paddingTop: 30,
@@ -236,10 +235,9 @@ export default StyleSheet.create({
     paddingTop: 20
   },
   singleSubstitutionBenefitsContainer: {
-    flexAlign:'flex-end', 
-    flexDirection:'column', 
+    alignSelf: 'flex-start',
     flexWrap:'wrap', 
-    width:'100%'
+    fontFamily: 'Inter-DisplaySemiBold',
   },
   singleSubstitutionContainer: {
     flex: 1,
@@ -273,14 +271,14 @@ export default StyleSheet.create({
     fontSize: 12,
     opacity: 0.8,
     textAlign: 'right',
-  },
+  }, 
   substitutionCardAnimated: {
     alignSelf: 'center',
     backgroundColor: 'white',
     borderRadius: 20,
     position: 'absolute',
     resizeMode: 'cover',
-  }, 
+  },
   substitutionCardInfoBar: {
     backgroundColor: Colors.krBlue,
     flexDirection: 'row',
@@ -320,13 +318,13 @@ export default StyleSheet.create({
     justifyContent: 'flex-end',
     padding: 10
   },
+
   substitutionContainer: {
     alignItems: 'center',
     flex: 1,
     marginTop: 32,
     paddingHorizontal: 16,
   },
-
   substitutionElement: {
     alignItems: 'center',
     flexDirection: 'row',
@@ -345,22 +343,20 @@ export default StyleSheet.create({
     width: '100%',
   },
   substitutionHeroPreviewComponentBottomElement: {
-    flex: 1,
-    borderBottomLeftRadius: 20,
-    borderBottomRightRadius: 20,
+    flexDirection: 'column',
     minHeight: 250,
     paddingBottom: 16,
     paddingLeft: 16,
-    paddingVertical: 10,
     width: '100%',
   },
   substitutionItemBenefitsItem: {
+    alignSelf: 'flex-end',
     backgroundColor: Colors.krBlue,
     borderBottomLeftRadius: 5,
     borderTopLeftRadius: 5,
     marginVertical: 2,
     paddingHorizontal: 10,
-    paddingVertical: 6
+    paddingVertical: 6,
   },
   substitutionItemContainer: {
     elevation: 5,
@@ -480,7 +476,8 @@ export default StyleSheet.create({
   whiteText: {
     color: Colors.textLight,
     opacity: 0.8,
-  },
+  }
+
 },
 
 )

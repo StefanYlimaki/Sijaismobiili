@@ -11,14 +11,22 @@ const SubstitutionsList = ({ navigation, substitutions }) => {
       <FlatList
         data={substitutions}
         renderItem={(substitution) => {
-          return (
-            <SubstitutionHeroItem
+          if (substitution.index === 0) {
+            return (
+              <SubstitutionHeroItem
+                substitution={substitution}
+                navigation={navigation}
+              />
+            )
+          }
+           else return (
+            <SubstitutionItem
               substitution={substitution}
               navigation={navigation}
             />
           )
         }}
-        keyExtractor={(substitution, index) => {
+        keyExtractor={(substitution) => {
           return substitution.id
         }}
         showsVerticalScrollIndicator={false}
