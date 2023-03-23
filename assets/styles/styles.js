@@ -6,12 +6,10 @@ const {width: W} = Dimensions.get('window')
 export default StyleSheet.create({
 
   agenda: {
-    alignItems: 'center',
     borderBottomColor: 'black',
     borderBottomWidth: 1,
     borderTopColor: 'black',
     borderTopWidth: 1,
-    justifyContent: 'center',
     paddingHorizontal: '6%',
     paddingVertical: 8,
   },

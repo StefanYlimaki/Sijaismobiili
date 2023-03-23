@@ -2,9 +2,9 @@
 //Palkkakuittia varten tarvitaan dataa menneistä VUOROISTA, joihin käyttäjä on kiinnittäytynyt.
 //Täytyy voida hakea kuittiin vuorot vain kuluneen kuun osalta. Kuitti nollaantuu kuun 1. päivä.
 
-import { Text, View, Button } from 'react-native'
-import {Calendar, CalendarList, Agenda, LocaleConfig, DateData, AgendaEntry, AgendaSchedule, CalendarProvider, CalendarContext} from 'react-native-calendars'
-import React, { useRef, useState } from 'react'
+import { Text, View } from 'react-native'
+import {Calendar, LocaleConfig, DateData, CalendarProvider, CalendarContext} from 'react-native-calendars'
+import React, { useState, useEffect } from 'react'
 
 import Styles from '../../assets/styles/styles'
 import * as Colors from '../../assets/styles/colors.js'
@@ -35,19 +35,36 @@ const OwnSubstitutionsScreen = ({ navigation }) => {
       };
       LocaleConfig.defaultLocale = 'fi';
 
-      const [selected, setSelected] = useState(selected);
+      let today = new Date().toDateString();
+      const [selected, setSelected] = useState(today);
       const [item, setItem] = useState('');
+
+      useEffect(() => {
+
+      }, [selected]);
+
   return (
     <View style= {{justifyContent: 'space-between'}}>
-
-    
-    <View style ={Styles.calendar}>
-        <Calendar 
-            style ={Styles.calendar}
-            headerStyle={{paddingTop: 5}}
-            markingType={'period'}>
-                current = {new Date()}
-                onDayPress={(event) => {setSelected(event, selected)}}
+        <View style ={Styles.calendar}>
+            <Calendar 
+                style ={Styles.calendar}
+                headerStyle={{paddingTop: 5}}
+                firstDay = {1}
+                markingType={'custom'}
+                markedDates={{
+                    selected: {
+                      customStyles: {
+                        container: {
+                          backgroundColor: 'green'
+                        },
+                        text: {
+                          color: 'black',
+                          fontWeight: 'bold'
+                        }
+                      }
+                    },
+                }}
+                onDayPress={() => setSelected(selected)}
                 theme={{
                     backgroundColor: '#ffffff',
                     calendarBackground: '#ffffff',
@@ -56,15 +73,17 @@ const OwnSubstitutionsScreen = ({ navigation }) => {
                     selectedDayTextColor: Colors.krGreen,
                     dayTextColor: '#2d4150',
                     textDisabledColor: '',
-                }}         
-        </Calendar>
+                }}   
+            />
+        </View>
         
+        <View style={{paddingHorizontal: '5%'}}>
+            <View style={Styles.agenda}>
+                <Text style={{textAlign: 'left', fontWeight: 'bold'}}>{selected}{selected == today ? <Text> (tänään)</Text>: null}{"\n"}{"\n"}</Text>
+                <Text style={{textAlign: 'center'}}>Ei merkintöjä.{"\n"}{"\n"}</Text>
+            </View>
+        </View>
     </View>
-    <View style={Styles.agenda}>
-        <Text>{selected}</Text>
-        <Text>lolololololllllllllllllllllllllllllllllllllllllllllllllllloooooooooooooooooooooooooooooooooooooooooooooo</Text>
-    </View>
-</View>
   )
 }
 
