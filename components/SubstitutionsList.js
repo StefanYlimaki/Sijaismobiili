@@ -2,6 +2,7 @@ import { View, FlatList } from 'react-native'
 
 import SubstitutionItem from './SubstitutionItem'
 import styles from '../assets/styles/styles'
+import SubstitutionHeroItem from './SubstitutionHeroItem'
 
 const SubstitutionsList = ({ navigation, substitutions }) => {
 
@@ -10,14 +11,22 @@ const SubstitutionsList = ({ navigation, substitutions }) => {
       <FlatList
         data={substitutions}
         renderItem={(substitution) => {
-          return (
+          if (substitution.index === 0) {
+            return (
+              <SubstitutionHeroItem
+                substitution={substitution}
+                navigation={navigation}
+              />
+            )
+          }
+           else return (
             <SubstitutionItem
               substitution={substitution}
               navigation={navigation}
             />
           )
         }}
-        keyExtractor={(substitution, index) => {
+        keyExtractor={(substitution) => {
           return substitution.id
         }}
         showsVerticalScrollIndicator={false}
