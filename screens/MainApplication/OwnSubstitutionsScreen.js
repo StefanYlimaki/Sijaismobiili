@@ -1,7 +1,3 @@
-//Seuraavaa vuoroa varten tarvitaan dataa niistä keikoista ja vuoroista, joihin käyttäjä on kiinnittäytynyt
-//Palkkakuittia varten tarvitaan dataa menneistä VUOROISTA, joihin käyttäjä on kiinnittäytynyt.
-//Täytyy voida hakea kuittiin vuorot vain kuluneen kuun osalta. Kuitti nollaantuu kuun 1. päivä.
-
 import { Text, View } from 'react-native'
 import {Calendar, LocaleConfig, DateData, CalendarProvider, CalendarContext} from 'react-native-calendars'
 import React, { useState, useEffect } from 'react'
@@ -39,9 +35,6 @@ const OwnSubstitutionsScreen = ({ navigation }) => {
       const [selected, setSelected] = useState(today);
       const [item, setItem] = useState('');
 
-      useEffect(() => {
-
-      }, [selected]);
 
   return (
     <View style= {{justifyContent: 'space-between'}}>
