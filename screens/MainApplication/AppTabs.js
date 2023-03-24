@@ -5,6 +5,7 @@ import TailoredSubstitutionsScreen from './TailoredSubstitutionsScreen'
 import SavedSubstitutionsScreen from './SavedSubstitutionsScreen'
 import { View, TouchableOpacity, Animated } from 'react-native'
 import TabBar from './TabBar'
+import OwnSubstitutionsScreen from './OwnSubstitutionsScreen'
 
 const Tab = createMaterialTopTabNavigator()
 
@@ -21,7 +22,7 @@ const AppTabs = ({ navigation, route }) => {
       tabBar={props => <TabBar {...props}/>}
       initialRouteName={'Sinulle'}
     >
-      <Tab.Screen name="Tykätyt" component={ SavedSubstitutionsScreen } />
+      <Tab.Screen name="Omat keikat" component={ OwnSubstitutionsScreen } />
       <Tab.Screen name="Sinulle" component={ TailoredSubstitutionsScreen }/>
       <Tab.Screen name="Haku" component={ AllSubstitutionsScreen }/>
     </Tab.Navigator>
