@@ -385,8 +385,8 @@ export default StyleSheet.create({
   },
   substitutionPreviewComponentTopElement: {
     backgroundColor: Colors.krGreen,
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
     flexDirection: 'row',
     minHeight: 50,
     paddingHorizontal: 16,

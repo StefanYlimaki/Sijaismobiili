@@ -52,7 +52,7 @@ const SubstitutionItem = ({ substitution, navigation }) => {
               colors={['transparent', 'rgba(0,0,0,0.5)']}
               start={{ x: 0, y: 0.3}}
               end={{x: 0.0, y: 0.8}}
-              style={{borderRadius: 20}}>
+              style={{borderRadius: 10}}>
               <View style={styles.substitutionHeroPreviewComponentBottomElement}>
                 
                 <View style={{ flexDirection: 'row', alignContent: 'space-between'}}>
