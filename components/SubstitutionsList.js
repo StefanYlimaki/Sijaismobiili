@@ -19,7 +19,7 @@ const SubstitutionsList = ({ navigation, substitutions }) => {
               />
             )
           }
-           else return (
+          else return (
             <SubstitutionItem
               substitution={substitution}
               navigation={navigation}
