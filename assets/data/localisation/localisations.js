@@ -33,7 +33,9 @@ const fi = {
   yes: 'Kyllä',
   preferences: 'Mieltymykset',
   deleteConfirmation: 'Haluatko varmasti poistaa tilisi pysyvästi? Jos haluat palata takaisin, sinun on luotava uusi tili.',
+  deleteConfirmation2: 'Oletko varma? Menetät kaikki tietosi, sijaisuushistoriasi ja asetukset pysyvästi.',
   removeAccount: 'Poista tili pysyvästi',
+  removeAccountConfirmation: 'Haluatko varmasti poistaa tilisi?',
 }
 const se = {
   hello: 'Hej',
@@ -69,8 +71,10 @@ const se = {
   settingsDisabled: 'Avstängd',
   yes: 'Ja',
   preferences: 'Mieltymykserna',
-  deleteConfirmation: 'Haluatko varmasti poistaa tilisi pysyvästi mutta ruotsiksi',
-  removeAccount: 'Poista tili pysyvästi',
+  deleteConfirmation: 'Är du säker på att du vill radera ditt konto permanent men på svenska?',
+  deleteConfirmation2: 'Är du säker? Du kommer att förlora alla dina data, din ersättningshistorik och dina inställningar permanent.',
+  removeAccount: 'Ta bort ett konto permanent',
+  removeAccountConfirmation: 'Är du säker på att du vill ta bort ditt konto?',
 }
 const en = {
   hello: 'Hello',
@@ -107,7 +111,9 @@ const en = {
   yes: 'Yes',
   preferences: 'Preferences',
   deleteConfirmation: 'Are you sure you want to delete your account? In order to return, you must create a new account.',
+  deleteConfirmation2: 'Are you sure? You will lose all your data, your substitution history and your settings permanently.',
   removeAccount: 'Delete account permanently',
+  removeAccountConfirmation: 'Are you sure you want to delete your account?',
 }
 
 export { fi, se, en }

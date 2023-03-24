@@ -13,6 +13,12 @@ export default StyleSheet.create({
     paddingHorizontal: '6%',
     paddingVertical: 8,
   },
+  bgimage: {
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
+    overflow: 'hidden',
+    resizeMode: 'cover'
+  },
   blackText: {
     color: Colors.textDark,
     opacity: 0.8,
@@ -102,6 +108,17 @@ export default StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
   },
+  hourlypay: {
+    color: Colors.textLight,
+    fontFamily: 'Inter-DisplayBold',
+    opacity: 0.8,
+    paddingRight: 5,
+  },
+  hourlypayTotal: {
+    color: Colors.textLight,
+    fontFamily: 'Inter-DisplayMedium',
+    opacity: 0.8,
+  },
   label: {
     color: Colors.textDark,
     fontFamily: 'Inter-DisplayExtraBold',
@@ -153,6 +170,8 @@ export default StyleSheet.create({
     marginTop: 32,
     paddingHorizontal: 16,
   },
+  
+
   prefSlider: {
     paddingBottom: 30,
     paddingTop: 30,
@@ -161,6 +180,40 @@ export default StyleSheet.create({
   },
   pressedSubstitutionItem: {
     opacity: 0.9,
+  },
+  recommendationCardAnimated: {
+    backgroundColor: 'white',
+    borderRadius: 20,
+    position: 'absolute',
+    resizeMode: 'cover',
+  },
+  recommendationCardInfoBarElement: {
+    backgroundColor: Colors.krBlue,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: 20,
+    padding: 10
+  },
+  recommendationCardInfoBarLeftElement: {
+    alignSelf: 'flex-start',
+    color: 'white',
+    fontSize: 13
+  },
+  recommendationCardInfoBarRightElement: {
+    alignSelf: 'flex-end',
+    color: 'white',
+    fontSize: 13
+  },
+  recommendationCardInfoElement: {
+    flexDirection: 'column',
+    paddingLeft: 10,
+    paddingTop: '25%'
+  },
+  recommendationCardSalaryElement: {
+    flexDirection: 'row',
+    flexWrap: 'nowrap',
+    justifyContent: 'flex-end',
+    padding: 10
   },
   removeAccountButton: {
     backgroundColor: Colors.danger,
@@ -202,10 +255,9 @@ export default StyleSheet.create({
     paddingTop: 20
   },
   singleSubstitutionBenefitsContainer: {
-    flexAlign:'flex-end', 
-    flexDirection:'column', 
+    alignSelf: 'flex-start',
     flexWrap:'wrap', 
-    width:'100%'
+    fontFamily: 'Inter-DisplaySemiBold',
   },
   singleSubstitutionContainer: {
     flex: 1,
@@ -239,7 +291,54 @@ export default StyleSheet.create({
     fontSize: 12,
     opacity: 0.8,
     textAlign: 'right',
+  }, 
+  substitutionCardAnimated: {
+    alignSelf: 'center',
+    backgroundColor: 'white',
+    borderRadius: 20,
+    position: 'absolute',
+    resizeMode: 'cover',
   },
+  substitutionCardInfoBar: {
+    backgroundColor: Colors.krBlue,
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    marginTop: 20,
+    padding: 10,
+    paddingHorizontal: '10%'
+  },
+  substitutionCardInfoBarLeftElement: {
+    alignSelf: 'flex-start',
+    color: 'white',
+    fontSize: 13
+  },
+  substitutionCardInfoBarRighBotElement: {
+    alignSelf: 'flex-end',
+    color: 'white',
+    fontSize: 13
+  },
+  substitutionCardInfoBarRightTopElement: {
+    alignItems: 'flex-end',
+    alignSelf: 'flex-end',
+    color: 'white',
+    flexDirection: 'column',
+    flex:2,
+    fontSize: 13
+  },
+  substitutionCardInfoElement: {
+    alignItems: 'flex-start',
+    flexDirection: 'column',
+    height: '15%',
+    paddingLeft: 10,
+    paddingTop: '10%'
+  },
+  substitutionCardSalaryItem: {
+    flexDirection: 'row',
+    flexWrap: 'nowrap',
+    justifyContent: 'flex-end',
+    padding: 10
+  },
+
   substitutionContainer: {
     alignItems: 'center',
     flex: 1,
@@ -251,12 +350,33 @@ export default StyleSheet.create({
     flexDirection: 'row',
     width: '100%',
   },
+  substitutionHeroItemContainer: {
+    elevation: 5,
+    paddingVertical: 16,
+    shadowColor: '#000000',
+    shadowOffset: {
+      width: 0,
+      height: 0,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    width: '100%',
+  },
+  substitutionHeroPreviewComponentBottomElement: {
+    flexDirection: 'column',
+    minHeight: 250,
+    paddingBottom: 16,
+    paddingLeft: 16,
+    width: '100%',
+  },
   substitutionItemBenefitsItem: {
+    alignSelf: 'flex-end',
     backgroundColor: Colors.krBlue,
     borderBottomLeftRadius: 5,
     borderTopLeftRadius: 5,
-    marginBottom: 2,
-    padding: 4
+    marginVertical: 2,
+    paddingHorizontal: 10,
+    paddingVertical: 6,
   },
   substitutionItemContainer: {
     elevation: 5,
@@ -327,7 +447,7 @@ export default StyleSheet.create({
       right: 20,
     },
     shadowOpacity: 0.41,
-    shadowRadius: 9.11,  
+    shadowRadius: 9.11,
   },
   userContainer: {
     flex: 1,
@@ -377,5 +497,7 @@ export default StyleSheet.create({
     color: Colors.textLight,
     opacity: 0.8,
   }
+
 },
+
 )

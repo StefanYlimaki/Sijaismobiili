@@ -1,6 +1,7 @@
 import { View, Text, StyleSheet, Pressable , Animated} from 'react-native'
 import * as Colors from '../assets/styles/colors.js'
 import { Icon } from '@rneui/themed'
+import styles from '../assets/styles/styles'
 
 function PopupDialog(props) {
   return(
@@ -19,7 +20,7 @@ function PopupDialog(props) {
           </View>
           <View style={{flex:1, marginTop: 7}}>
             <Pressable onPress={() => {props.navigation.pop()}}>
-              <Icon name='close-circle-outline' type="material-community" color={Colors.textLight}/>
+              <Icon name='close-circle-outline' type="material-community" color={styles.whiteText}/>
             </Pressable>
           </View>
         </View>
@@ -52,7 +53,7 @@ const popupStyles = StyleSheet.create({
     minHeight: 100,
   },
   popupHeaderText: {
-    color: Colors.textLight,
+    color: 'white',
     fontFamily: 'Inter-DisplayBlack',
     opacity: 0.8,
     textAlign: 'center'
