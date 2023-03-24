@@ -40,8 +40,8 @@ export default StyleSheet.create({
     fontFamily: 'Inter-DisplaySemiBold',
   },
   calendar:{
-    borderWidth: 1,
     borderColor: 'transparent',
+    borderWidth: 1,
     height: '50%',
   },
   container: {

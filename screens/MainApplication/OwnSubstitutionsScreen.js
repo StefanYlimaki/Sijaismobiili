@@ -9,73 +9,73 @@ import substitutions from '../../assets/data/substitutionsData_new.json'
 
 const OwnSubstitutionsScreen = ({ navigation }) => {
 
-    LocaleConfig.locales['fi'] = {
-        monthNames: [
-          'Tammikuu',
-          'Helmikuu',
-          'Maaliskuu',
-          'Huhtikuu',
-          'Toukokuu',
-          'Kesäkuu',
-          'Heinäkuu',
-          'Elokuu',
-          'Syyskuu',
-          'Lokakuu',
-          'Marraskuu',
-          'Joulukuu'
-        ],
-        monthNamesShort: ['Tammi', 'Helmi', 'Maalis', 'Huhti', 'Touko', 'Kesä', 'Heinä', 'Elo', 'Syys', 'Loka', 'Marras', 'Joulu'],
-        dayNames: ['Sunnuntai', 'Maanantai', 'Tiistai', 'Keskiviikko', 'Torstai', 'Perjantai', 'Lauantai'],
-        dayNamesShort: ['Su', 'Ma', 'Ti', 'Ke', 'To', 'Pe', 'La'],
-        today: "Tänään"
-      };
-      LocaleConfig.defaultLocale = 'fi';
+  LocaleConfig.locales['fi'] = {
+    monthNames: [
+      'Tammikuu',
+      'Helmikuu',
+      'Maaliskuu',
+      'Huhtikuu',
+      'Toukokuu',
+      'Kesäkuu',
+      'Heinäkuu',
+      'Elokuu',
+      'Syyskuu',
+      'Lokakuu',
+      'Marraskuu',
+      'Joulukuu'
+    ],
+    monthNamesShort: ['Tammi', 'Helmi', 'Maalis', 'Huhti', 'Touko', 'Kesä', 'Heinä', 'Elo', 'Syys', 'Loka', 'Marras', 'Joulu'],
+    dayNames: ['Sunnuntai', 'Maanantai', 'Tiistai', 'Keskiviikko', 'Torstai', 'Perjantai', 'Lauantai'],
+    dayNamesShort: ['Su', 'Ma', 'Ti', 'Ke', 'To', 'Pe', 'La'],
+    today: 'Tänään'
+  }
+  LocaleConfig.defaultLocale = 'fi'
 
-      let today = new Date().toDateString();
-      const [selected, setSelected] = useState(today);
-      const [item, setItem] = useState('');
+  let today = new Date().toDateString()
+  const [selected, setSelected] = useState(today)
+  const [item, setItem] = useState('')
 
 
   return (
     <View style= {{justifyContent: 'space-between'}}>
-        <View style ={Styles.calendar}>
-            <Calendar 
-                style ={Styles.calendar}
-                headerStyle={{paddingTop: 5}}
-                firstDay = {1}
-                markingType={'custom'}
-                markedDates={{
-                    selected: {
-                      customStyles: {
-                        container: {
-                          backgroundColor: 'green'
-                        },
-                        text: {
-                          color: 'black',
-                          fontWeight: 'bold'
-                        }
-                      }
-                    },
-                }}
-                onDayPress={() => setSelected(selected)}
-                theme={{
-                    backgroundColor: '#ffffff',
-                    calendarBackground: '#ffffff',
-                    textSectionTitleColor: '#b6c1cd',
-                    selectedDayBackgroundColor: '#00adf5',
-                    selectedDayTextColor: Colors.krGreen,
-                    dayTextColor: '#2d4150',
-                    textDisabledColor: '',
-                }}   
-            />
-        </View>
+      <View style ={Styles.calendar}>
+        <Calendar 
+          style ={Styles.calendar}
+          headerStyle={{paddingTop: 5}}
+          firstDay = {1}
+          markingType={'custom'}
+          markedDates={{
+            selected: {
+              customStyles: {
+                container: {
+                  backgroundColor: 'green'
+                },
+                text: {
+                  color: 'black',
+                  fontWeight: 'bold'
+                }
+              }
+            },
+          }}
+          onDayPress={() => setSelected(selected)}
+          theme={{
+            backgroundColor: '#ffffff',
+            calendarBackground: '#ffffff',
+            textSectionTitleColor: '#b6c1cd',
+            selectedDayBackgroundColor: '#00adf5',
+            selectedDayTextColor: Colors.krGreen,
+            dayTextColor: '#2d4150',
+            textDisabledColor: '',
+          }}   
+        />
+      </View>
         
-        <View style={{paddingHorizontal: '5%'}}>
-            <View style={Styles.agenda}>
-                <Text style={{textAlign: 'left', fontWeight: 'bold'}}>{selected}{selected == today ? <Text> (tänään)</Text>: null}{"\n"}{"\n"}</Text>
-                <Text style={{textAlign: 'center'}}>Ei merkintöjä.{"\n"}{"\n"}</Text>
-            </View>
+      <View style={{paddingHorizontal: '5%'}}>
+        <View style={Styles.agenda}>
+          <Text style={{textAlign: 'left', fontWeight: 'bold'}}>{selected}{selected == today ? <Text> (tänään)</Text>: null}{'\n'}{'\n'}</Text>
+          <Text style={{textAlign: 'center'}}>Ei merkintöjä.{'\n'}{'\n'}</Text>
         </View>
+      </View>
     </View>
   )
 }
