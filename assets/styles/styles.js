@@ -14,11 +14,12 @@ export default StyleSheet.create({
     paddingVertical: 8,
   },
   bgimage: {
-    borderBottomLeftRadius: 20,
-    borderBottomRightRadius: 20,
+    borderBottomLeftRadius: 10,
+    borderBottomRightRadius: 10,
     overflow: 'hidden',
-    resizeMode: 'cover'
+    resizeMode: 'cover',
   },
+
   blackText: {
     color: Colors.textDark,
     opacity: 0.8,
@@ -295,7 +296,7 @@ export default StyleSheet.create({
   substitutionCardAnimated: {
     alignSelf: 'center',
     backgroundColor: 'white',
-    borderRadius: 20,
+    borderRadius: 10,
     position: 'absolute',
     resizeMode: 'cover',
   },
@@ -391,15 +392,15 @@ export default StyleSheet.create({
     width: '100%',
   },
   substitutionPreviewComponent: {
-    borderRadius: 20,
+    borderRadius: 10,
     color: 'white',
     flex: 1,
     flexDirection: 'column'
   },
   substitutionPreviewComponentBottomElement: {
     backgroundColor: '#D9D9D9',
-    borderBottomLeftRadius: 20,
-    borderBottomRightRadius: 20,
+    borderBottomLeftRadius: 10,
+    borderBottomRightRadius: 10,
     paddingBottom: 16,
     paddingLeft: 16,
     paddingVertical: 8
