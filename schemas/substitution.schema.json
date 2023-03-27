@@ -91,6 +91,14 @@
                     "type": "string"
                 }
             }
+        },
+        "logo": {
+            "description": "Filename of logo image",
+            "type": "string"
+        },
+        "image": {
+            "description": "URL that retrieves an image",
+            "type": "string"
         }
     },
     "required": [ "id", "title", "description", "organisation", "location", "timing", "hourlyPay" ]

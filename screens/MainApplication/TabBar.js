@@ -53,10 +53,10 @@ const TopTab = ({ type, size = 24, isFocused, index, navigation }) => {
   case 0:
     if(isFocused){
       return(
-        <View style={{  padding: 5, borderRadius: 10, marginLeft: 20 }}><Text style={Styles.tabActiveText}>Tykätyt</Text></View>
+        <View style={{  padding: 5, borderRadius: 10, marginLeft: 20 }}><Text style={Styles.tabActiveText}>Omat keikat</Text></View>
       )
     }
-    return(<View style={{ padding: 5, marginLeft: 20 }}><Text>Tykätyt</Text></View>)
+    return(<View style={{ padding: 5, marginLeft: 20 }}><Text>Omat keikat</Text></View>)
   case 1:
     if(isFocused){
       return(

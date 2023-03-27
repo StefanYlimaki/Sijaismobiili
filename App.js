@@ -52,6 +52,7 @@ export default function App() {
     'Inter-DisplayExtraLight': require('./assets/styles/fonts/Inter-DisplayExtraLight.ttf',),
     'Inter-DisplayLight': require('./assets/styles/fonts/Inter-DisplayLight.ttf',),
     'Inter-DisplayMedium': require('./assets/styles/fonts/Inter-DisplayMedium.ttf',),
+    'Inter-DisplayMediumItalic': require('./assets/styles/fonts/Inter-DisplayMediumItalic.ttf',),
     'Inter-Display': require('./assets/styles/fonts/Inter-Display.ttf',),
     'Inter-DisplaySemiBold': require('./assets/styles/fonts/Inter-DisplaySemiBold.ttf',),
     'Inter-DisplayThin': require('./assets/styles/fonts/Inter-DisplayThin.ttf',),
