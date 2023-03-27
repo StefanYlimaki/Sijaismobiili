@@ -40,15 +40,17 @@ const SubstitutionItem = ({ substitution, navigation }) => {
             </View>
           </View>
           <View style={styles.substitutionPreviewComponentBottomElement}>
+
             <View style={{ flexDirection: 'row', justifyContent: 'space-between'}}>
-              <View style={{ flexDirection: 'column'}}>
-                <Text style={{ fontSize: 20}}>
+              <View style={{ flexDirection: 'column', justifyContent: 'flex-end'}}>
+                <Text style={[styles.blackText, { fontSize: 20, fontFamily: 'Inter-DisplayBold'}]}>
                   {substitution.item.title}
                 </Text>
-                <Text>
+                <Text style={[styles.blackText, { paddingRight: 8, fontFamily: 'Inter-DisplayMedium', fontSize: 15}]}>
                   {substitution.item.department}
                 </Text>
               </View>
+
               <View style={{ flexDirection: 'column'}}>
                 <View style={{ flexDirection: 'row', justifyContent: 'flex-start'}}>
                   <Text style={ [styles.blackText, { paddingRight: 8, fontWeight: 'bold'}]}>

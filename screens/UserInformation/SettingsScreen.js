@@ -1,11 +1,46 @@
 import React, { useContext, useState } from 'react'
-import { View, Text, Switch, Pressable } from 'react-native'
+import {View, Text, Switch, Pressable, Alert} from 'react-native'
 import styles from '../../assets/styles/styles'
 import { LocaleContext } from '../../contexts/LocaleContext'
 
 function SettingsScreen({navigation}) {
   const [useNotifications, setUseNotifications] = useState(true)
   const { i18n, locale, setLocale } = useContext(LocaleContext)
+
+  const removeAccount = () => {
+    Alert.alert(
+      i18n.t('removeAccount'),
+      i18n.t('deleteConfirmation'),
+      [
+        { text: i18n.t('settingsRemoveAccount'),
+          onPress: () => {confirmation()},
+          style: 'destructive',},
+        {
+          text: i18n.t('cancel'),
+          onPress: () => console.log('Cancel Pressed'),
+          style: 'cancel',
+        },
+      ],
+      { cancelable: false }
+    )
+  }
+  const confirmation = () => {
+    Alert.alert(
+      i18n.t('removeAccountConfirmation'),
+      i18n.t('deleteConfirmation2'),
+      [
+        {
+          text: i18n.t('cancel'),
+          onPress: () => console.log('Cancel Pressed'),
+          style: 'cancel',
+        },
+        { text: i18n.t('settingsRemoveAccount'),
+          onPress: () => console.log('Remove Pressed'),
+          style: 'destructive',},
+      ],
+      { cancelable: false }
+    )
+  }
 
   return (
     <View style={styles.settingsScreen}>
@@ -70,7 +105,7 @@ function SettingsScreen({navigation}) {
           <Pressable>
             <Text style={styles.footerButtonText}>{i18n.t('settingsRestoreSettings')}</Text>
           </Pressable>
-          <Pressable onPress={() => {navigation.navigate('RemoveAccountPopup')}}>
+          <Pressable onPress={() => {removeAccount()}}>
             <Text style={styles.footerButtonText}>{i18n.t('settingsRemoveAccount')}</Text>
           </Pressable>
         </View>
@@ -79,5 +114,4 @@ function SettingsScreen({navigation}) {
     </View>
   )
 }
-
 export default SettingsScreen

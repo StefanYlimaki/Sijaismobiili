@@ -17,17 +17,3 @@ export function UserInformationStack() {
     </UserInfoStack.Navigator>
   )
 }
-
-function RemoveAccountPopup({navigation}) {
-  const { i18n } = useContext(LocaleContext)
-  
-  return (
-    <PopupDialog headerText={i18n.t('deleteConfirmation')} headerColor={Colors.danger} navigation={navigation}>
-      <View style={{justifyContent: 'center', alignItems: 'center', paddingTop: 25}}>
-        <Pressable style={styles.removeAccountButton}>
-          <Text style={styles.removeAccountButtonText}>{i18n.t('removeAccount')}</Text>
-        </Pressable>
-      </View>
-    </PopupDialog>
-  )
-}
