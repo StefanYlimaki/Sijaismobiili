@@ -1,5 +1,16 @@
 
-import { Pressable, Component, StyleSheet, Text, View, Dimensions, Image, Animated, PanResponder } from 'react-native'
+import {
+  Pressable,
+  Component,
+  StyleSheet,
+  Text,
+  View,
+  Dimensions,
+  Image,
+  Animated,
+  PanResponder,
+  ImageBackground
+} from 'react-native'
 import React, {useRef, useState} from 'react'
 import Constants from 'expo-constants'
 import { BlurView } from 'expo-blur'
@@ -34,6 +45,7 @@ const SubstitutionCard = ({route}) => {
 const renderSubstitution = (item, navigation) => {
   //Position variable for card on top
   const position = useRef(new Animated.ValueXY()).current
+
 
   //Create panresponder for swiping cards
   const panResponder = useRef(
@@ -122,6 +134,18 @@ const renderSubstitution = (item, navigation) => {
     )
   })
 
+  const placeholder = {uri: 'https://images.unsplash.com/photo-1584432810601-6c7f27d2362b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8'}
+  const test = {uri: 'https://images.unsplash.com/photo-1584432810601-6c7f27d2362b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8'}
+
+
+
+  const image = () => {
+    if (item.image) {
+      return {uri: item.image}
+    } else {
+      return placeholder
+    }  }
+
 
   return (
     <Animated.View 
@@ -135,20 +159,27 @@ const renderSubstitution = (item, navigation) => {
         styles.substitutionCardAnimated
       ]}
     >
-      <View style={{paddingTop:'5%'}}>
-        {benefits}
-      </View>
-      <View style={styles.substitutionCardInfoElement}>
-      </View>
-      <View style={styles.substitutionCardInfoElement}>
-        <Text style={{fontWeight: 'bold', fontSize: 30}}>
-          {item.title}
-        </Text>
-        <Text style={{fontSize: 20}}>
-          {item.department}
-        </Text>
 
-      </View>
+      <ImageBackground
+        source={image()}
+      >
+        <View>
+          <View style={{paddingTop:'5%'}}>
+            {benefits}
+          </View>
+          <View style={styles.substitutionCardInfoElement}>
+          </View>
+
+          <View style={styles.substitutionCardInfoElement}>
+            <Text style={{fontWeight: 'bold', fontSize: 30}}>
+              {item.title}
+            </Text>
+            <Text style={{fontSize: 20}}>
+              {item.department}
+            </Text>
+          </View>
+        </View>
+      </ImageBackground>
       <View style={styles.substitutionCardInfoBar}>
         <View>
           <Text style={styles.substitutionCardInfoBarLeftElement}>
