@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect, useRef } from 'react'
-import {View, Text, Button, Pressable} from 'react-native'
+import {View, Text, Button, Pressable, Alert} from 'react-native'
 import RecommendationView from './RecommendationView'
 import { krGreen } from '../../assets/styles/colors'
 import * as Notifications from 'expo-notifications'
@@ -26,6 +26,19 @@ Notifications.setNotificationHandler({
   }),
 })
 
+const handleClick = () => {
+  registerForPushNotificationsAsync().then(token => {
+    addTokenToUserData(token)
+    if(token){
+      Alert.alert('otsikko', `${token}`)
+    }
+    if(!token){
+      Alert.alert('otsikko','no token')
+    }
+  })
+}
+
+
 const SwipeScreen = ({ navigation }) => {
   const responseListener = useRef()
   const notificationListener = useRef()
@@ -34,8 +47,6 @@ const SwipeScreen = ({ navigation }) => {
 
     Notifications.registerTaskAsync(BACKGROUND_NOTIFICATION_TASK)
 
-    registerForPushNotificationsAsync().then(token => addTokenToUserData(token))
-
     // This is handler for notifications when app is open.
     notificationListener.current = Notifications.addNotificationReceivedListener(notification => {
       console.log('Notification', notification)
@@ -43,6 +54,9 @@ const SwipeScreen = ({ navigation }) => {
 
     // This is handler for notifications clicked on when the app is open.
     responseListener.current = Notifications.addNotificationResponseReceivedListener((response) => {
+      console.log('ID receiver from notification: ', response.notification.request.content.data.id)
+      const sub = substitutions.find(s => s.id === response.notification.request.content.data.id)
+      console.log(sub)
       navigation.navigate('SingleSubstitution', {
         substitution: substitutions.find(s => s.id === response.notification.request.content.data.id),
         navigation: navigation
@@ -72,7 +86,11 @@ const SwipeScreen = ({ navigation }) => {
           }}>
             Selaan räätälöityjä suosituksia taas huomenna
           </Text>
+          
         </View>
+      </Pressable>
+      <Pressable onPress={() => handleClick()}>
+        <View style={{ backgroundColor: 'green', padding: 30 }}><Text>alert</Text></View>
       </Pressable>
     </View>
   )

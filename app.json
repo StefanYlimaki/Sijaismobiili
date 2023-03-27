@@ -7,6 +7,15 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
+    "plugins": [
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/ic_stat_logo_fblanc_512_large.png",
+          "color": "#ffffff"
+        }
+      ]
+    ],
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -28,7 +37,9 @@
       },
       "package": "com.proj.sijaismobiili",
       "versionCode": 2,
-      "permissions": ["NOTIFICATIONS"]
+      "permissions": ["NOTIFICATIONS"],
+      "googleServicesFile": "./google-services.json",
+      "useNextNotificationsApi":true
     },
     "web": {
       "favicon": "./assets/favicon.png"

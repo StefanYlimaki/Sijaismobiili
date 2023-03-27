@@ -138,6 +138,10 @@ const UserInfoView = ({ user, setUser, navigation }) => {
               <Text style={styles.buttonText}>Asetukset</Text>
             </Pressable>
 
+            <Pressable style={styles.settingsButton} onPress={() => {navigation.navigate('LocalNotifications')}}>
+              <Text style={styles.buttonText}>LocalNotifications</Text>
+            </Pressable>
+
           </View>
         </ScrollView>
       </TouchableWithoutFeedback>

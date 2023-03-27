@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "818831837211",
+    "project_id": "sijaismobiili-69cd2",
+    "storage_bucket": "sijaismobiili-69cd2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:818831837211:android:1b71ff015d2cc6cd4290be",
+        "android_client_info": {
+          "package_name": "com.proj.sijaismobiili"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "818831837211-jvq6pdkt4g3svcg4jmqgqegogpgc1gpq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCN4zWUj7ZzmaHC2v2hSXZ2JtmfA0vjF48"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "818831837211-jvq6pdkt4g3svcg4jmqgqegogpgc1gpq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
