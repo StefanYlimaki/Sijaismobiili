@@ -38,8 +38,7 @@
       "package": "com.proj.sijaismobiili",
       "versionCode": 2,
       "permissions": ["NOTIFICATIONS"],
-      "googleServicesFile": "./google-services.json",
-      "useNextNotificationsApi":true
+      "googleServicesFile": "./google-services.json"
     },
     "web": {
       "favicon": "./assets/favicon.png"
