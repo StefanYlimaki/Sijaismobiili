@@ -18,6 +18,14 @@ const SubstitutionItem = ({ substitution, navigation }) => {
       return placeholder
     }  }
 
+  const logoImage = () => {
+    if (substitution.item.logo) {
+      return {uri: substitution.item.logo}
+    } else {
+      return logo
+    }
+  }
+
   return (
     <Animated.View style={styles.substitutionHeroItemContainer}>
       <Pressable
@@ -66,7 +74,7 @@ const SubstitutionItem = ({ substitution, navigation }) => {
                   <View style={{ backgroundColor: '#FAFAFA', marginTop: 10, padding:5, borderRadius: 10, flexDirection: 'row', alignItems: 'center',
                     alignSelf: 'flex-start',}}>
                     <Image
-                      source={logo}
+                      source={logoImage()}
                     />
                     <Text style={[styles.blackText, { fontSize: 30, fontFamily: 'Inter-DisplayBlack'}]}>LOGO</Text>
 
