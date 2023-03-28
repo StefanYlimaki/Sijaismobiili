@@ -19,9 +19,11 @@ export default StyleSheet.create({
     width: 90
   },
   buttonBookmark: {
+    alignItems: 'center',
     backgroundColor: '#0666DB',
     borderRadius: 50,
     height: 90,
+    justifyContent: 'center',
     width: 90
   },
   buttonDeny: {
