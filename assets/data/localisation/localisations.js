@@ -36,6 +36,26 @@ const fi = {
   deleteConfirmation2: 'Oletko varma? Menetät kaikki tietosi, sijaisuushistoriasi ja asetukset pysyvästi.',
   removeAccount: 'Poista tili pysyvästi',
   removeAccountConfirmation: 'Haluatko varmasti poistaa tilisi?',
+  calendar:{
+    monthNames: [
+      'Tammikuu',
+      'Helmikuu',
+      'Maaliskuu',
+      'Huhtikuu',
+      'Toukokuu',
+      'Kesäkuu',
+      'Heinäkuu',
+      'Elokuu',
+      'Syyskuu',
+      'Lokakuu',
+      'Marraskuu',
+      'Joulukuu'
+    ],
+    monthNamesShort: ['Tammi', 'Helmi', 'Maalis', 'Huhti', 'Touko', 'Kesä', 'Heinä', 'Elo', 'Syys', 'Loka', 'Marras', 'Joulu'],
+    dayNames: ['Sunnuntai', 'Maanantai', 'Tiistai', 'Keskiviikko', 'Torstai', 'Perjantai', 'Lauantai'],
+    dayNamesShort: ['Su', 'Ma', 'Ti', 'Ke', 'To', 'Pe', 'La'],
+    today: 'Tänään'
+  },
 }
 const se = {
   hello: 'Hej',
@@ -70,7 +90,7 @@ const se = {
   settingsRemoveAccount: 'Ta bort konto',
   settingsDisabled: 'Avstängd',
   yes: 'Ja',
-  preferences: 'Mieltymykserna',
+  preferences: 'Preferenser',
   deleteConfirmation: 'Är du säker på att du vill radera ditt konto permanent men på svenska?',
   deleteConfirmation2: 'Är du säker? Du kommer att förlora alla dina data, din ersättningshistorik och dina inställningar permanent.',
   removeAccount: 'Ta bort ett konto permanent',
@@ -114,6 +134,26 @@ const en = {
   deleteConfirmation2: 'Are you sure? You will lose all your data, your substitution history and your settings permanently.',
   removeAccount: 'Delete account permanently',
   removeAccountConfirmation: 'Are you sure you want to delete your account?',
+  calendar:{
+    monthNames: [
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December'
+    ],
+    monthNamesShort: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+    dayNames: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+    dayNamesShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+    today: 'Today'
+  },
 }
 
 export { fi, se, en }
