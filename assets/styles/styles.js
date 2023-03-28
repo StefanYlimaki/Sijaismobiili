@@ -328,15 +328,15 @@ export default StyleSheet.create({
     width: '100%',
   },
   substitutionHeroItemContainer: {
-    elevation: 5,
-    paddingVertical: 16,
+    elevation: 17,
+    padding: 16,
     shadowColor: '#000000',
     shadowOffset: {
       width: 0,
-      height: 0,
+      height: 8,
     },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
+    shadowOpacity: 0.46,
+    shadowRadius: 11.14,
     width: '100%',
   },
   substitutionHeroPreviewComponentBottomElement: {
@@ -356,15 +356,15 @@ export default StyleSheet.create({
     paddingVertical: 6,
   },
   substitutionItemContainer: {
-    elevation: 5,
-    marginTop: 20,
+    elevation: 10,
+    paddingHorizontal: 16,
+    paddingVertical: 8,
     shadowColor: '#000000',
     shadowOffset: {
       width: 0,
       height: 0,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
+    },shadowOpacity: 0.34,
+    shadowRadius: 6.27,
     width: '100%',
   },
   substitutionPreviewComponent: {
@@ -392,7 +392,6 @@ export default StyleSheet.create({
   },
   substitutionsListContainer: {
     height: '100%',
-    marginHorizontal: 16,
     paddingBottom: 10
   },
   switchContainer: {

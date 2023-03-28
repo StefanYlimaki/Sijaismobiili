@@ -1,4 +1,4 @@
-import {View, Text, StyleSheet, Pressable, Animated, ImageBackground, Image} from 'react-native'
+import {View, Text, Pressable, Animated, ImageBackground, Image} from 'react-native'
 import { formatHourlyPay, formatDate, formatTime } from '../utils'
 import styles from '../assets/styles/styles'
 import calculateDistance from '../utils/calculateDistance'
@@ -17,6 +17,14 @@ const SubstitutionItem = ({ substitution, navigation }) => {
     } else {
       return placeholder
     }  }
+
+  const logoImage = () => {
+    if (substitution.item.logo) {
+      return {uri: substitution.item.logo}
+    } else {
+      return logo
+    }
+  }
 
   return (
     <Animated.View style={styles.substitutionHeroItemContainer}>
@@ -66,9 +74,10 @@ const SubstitutionItem = ({ substitution, navigation }) => {
                   <View style={{ backgroundColor: '#FAFAFA', marginTop: 10, padding:5, borderRadius: 10, flexDirection: 'row', alignItems: 'center',
                     alignSelf: 'flex-start',}}>
                     <Image
-                      source={logo}
+                      source={logoImage()}
+                      style={{maxWidth: 100, maxHeight: 50, margin: 5, width: 80, height: 40}}
+                      resizeMode={'contain'}
                     />
-                    <Text style={[styles.blackText, { fontSize: 30, fontFamily: 'Inter-DisplayBlack'}]}>LOGO</Text>
 
                   </View>
 
@@ -93,7 +102,7 @@ const SubstitutionItem = ({ substitution, navigation }) => {
 
                 <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginBottom: 25, flex: 5}}>
                   <View style={{ flexDirection: 'column', justifyContent: 'flex-end'}}>
-                    <Text style={[styles.whiteText, { fontSize: 30, fontFamily: 'Inter-DisplayBlack'}]}>
+                    <Text style={[styles.whiteText, { fontSize: 33, fontFamily: 'Figtree-ExtraBold'}]}>
                       {substitution.item.title}
                     </Text>
                     <Text style={[styles.whiteText, { paddingRight: 8, fontWeight: 'bold', fontSize: 20}]}>

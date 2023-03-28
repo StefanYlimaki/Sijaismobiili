@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import * as userData from '../../assets/data/userData.json'
-import { View, Text, Button } from 'react-native'
-import { getUserData } from '../../utils/getUserData'
+import {View, ActivityIndicator} from 'react-native'
+import { getUserData } from '../../utils'
 import UserInfoView from './UserInfoView'
-import {logUserData} from '../../utils/logUserData'
+import {krBlue} from '../../assets/styles/colors'
 
 function UserInfoScreen({navigation}) {
   delete userData['default']
@@ -23,8 +23,14 @@ function UserInfoScreen({navigation}) {
   
   if(loading){
     return(
-      <View>
-        <Text>Ladataan, hetki vain.</Text>
+      <View
+        style={{
+          flex: 1,
+          justifyContent: 'center',
+          alignItems: 'center',
+          flexDirection: 'row',
+        }}>
+        <ActivityIndicator size="large" color= {krBlue} />
       </View>
     )
     
