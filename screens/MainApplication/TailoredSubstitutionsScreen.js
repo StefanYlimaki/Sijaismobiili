@@ -1,4 +1,4 @@
-import { Text, View } from 'react-native'
+import {ActivityIndicator, Text, View} from 'react-native'
 import React, { useEffect, useState } from 'react'
 
 import SubstitutionsList from '../../components/SubstitutionsList'
@@ -6,6 +6,7 @@ import substitutions from '../../assets/data/substitutionsData_new.json'
 
 import { orderAndFilterSubstitutionsByPreferences } from '../../utils/orderAndFilterSubstitutionsByPreferences'
 import AsyncStorage from '@react-native-async-storage/async-storage'
+import {krBlue} from '../../assets/styles/colors'
 
 let updatedAt = 0
 
@@ -33,8 +34,14 @@ const TailoredSubsitutions = ({ route, navigation }) => {
   
   if(loading){
     return(
-      <View>
-        <Text>Ladataan, hetki vain.</Text>
+      <View
+        style={{
+          flex: 1,
+          justifyContent: 'center',
+          alignItems: 'center',
+          flexDirection: 'row',
+        }}>
+        <ActivityIndicator size="large" color= {krBlue} />
       </View>
     )
   }
