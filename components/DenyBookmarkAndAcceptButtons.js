@@ -1,7 +1,7 @@
-import { View, Pressable } from 'react-native'
+import { View, Pressable, StyleSheet } from 'react-native'
 import { acc } from 'react-native-reanimated'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
-import styles from '../assets/styles/styles'
+import { Entypo, Feather, Ionicons } from '@expo/vector-icons'
 
 function DenyBookmarkAndAcceptButton({denyCallback, bookmarkCallback, acceptCallback}) {
   return (
@@ -12,6 +12,7 @@ function DenyBookmarkAndAcceptButton({denyCallback, bookmarkCallback, acceptCall
         }}
       >
         <View style={styles.buttonDeny}>
+          <Ionicons name='close-outline' size={70} color='white'/>
         </View>
       </Pressable>
 
@@ -21,6 +22,7 @@ function DenyBookmarkAndAcceptButton({denyCallback, bookmarkCallback, acceptCall
         }}
       >
         <View style={styles.buttonBookmark}>
+          <Ionicons name='bookmark-outline' size={55} color='white'/>
         </View>
       </Pressable>
 
@@ -30,10 +32,44 @@ function DenyBookmarkAndAcceptButton({denyCallback, bookmarkCallback, acceptCall
         }}
       >
         <View style={styles.buttonAccept}>
+          <Feather name='check' size={55} color='white'/>
         </View>
       </Pressable>
     </View>
   )
 }
+
+const styles = StyleSheet.create({
+  buttonAccept: {
+    alignItems: 'center',
+    backgroundColor: '#13912A',
+    borderRadius: 50,
+    height: 90,
+    justifyContent: 'center',
+    width: 90
+  },
+  buttonBookmark: {
+    alignItems: 'center',
+    backgroundColor: '#0666DB',
+    borderRadius: 50,
+    height: 90,
+    justifyContent: 'center',
+    width: 90
+  },
+  buttonDeny: {
+    alignItems: 'center',
+    backgroundColor: '#91041D',
+    borderRadius: 50,
+    height: 90,
+    justifyContent: 'center',
+    width: 90
+  },
+  denyBookmarkAcceptButtonsContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingHorizontal: 20,
+    paddingTop: '50%'
+  }
+})
 
 export default DenyBookmarkAndAcceptButton

@@ -24,24 +24,6 @@ export default StyleSheet.create({
     color: Colors.textDark,
     opacity: 0.8,
   },
-  buttonAccept: {
-    backgroundColor: '#13912A',
-    borderRadius: 50,
-    height: 90,
-    width: 90
-  },
-  buttonBookmark: {
-    backgroundColor: '#0666DB',
-    borderRadius: 50,
-    height: 90,
-    width: 90
-  },
-  buttonDeny: {
-    backgroundColor: '#91041D',
-    borderRadius: 50,
-    height: 90,
-    width: 90
-  },
   buttonText: {
     color: Colors.textLight,
     fontFamily: 'Inter-DisplaySemiBold',
@@ -58,12 +40,6 @@ export default StyleSheet.create({
   currentDistance:{
     paddingBottom: 10,
     textAlign: 'center',
-  },
-  denyBookmarkAcceptButtonsContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingHorizontal: 20,
-    paddingTop: '50%'
   },
   distanceSlider:{
     flexDirection: 'row',
