@@ -20,7 +20,8 @@ const SubstitutionItem = ({ substitution, navigation }) => {
 
   const logoImage = () => {
     if (substitution.item.logo) {
-      return {uri: substitution.item.logo}
+      //return {uri: substitution.item.logo}
+      return logo
     } else {
       return logo
     }
