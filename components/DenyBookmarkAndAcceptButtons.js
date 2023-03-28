@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     alignSelf: 'center',
     backgroundColor: success,
-    borderRadius: '50%',
+    borderRadius: 50,
     height: 90,
     justifyContent: 'center',
     width: 90
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     alignSelf: 'center',
     backgroundColor: info,
-    borderRadius: '50%',
+    borderRadius: 50,
     height: 90,
     justifyContent: 'center',
     width: 90
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     alignSelf: 'center',
     backgroundColor: danger,
-    borderRadius: '50%',
+    borderRadius: 50,
     height: 90,
     justifyContent: 'center',
     width: 90
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingTop: '50%',
+    paddingTop: 50,
     width: '90%'
   }
 })
