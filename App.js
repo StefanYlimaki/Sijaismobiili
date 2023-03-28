@@ -168,11 +168,14 @@ export default function App() {
             <View style={ styles.container }>
               <CustomStatusBar backgroundColor={ krGreen } />
               <Stack.Navigator
-                screenOptions={{headerShown: false}}>
-                <Stack.Screen name="SwipeScreen" component={ SwipeScreen } />
+                screenOptions={{headerShown: false
+                }}
+                mode="modal"
+              >
+                <Stack.Screen name="SwipeScreen" component={ SwipeScreen } options={{ presentation: 'transparentModal', headerShown: false }} />
                 <Stack.Screen name="MainApplication" component={ AppTabs } />
                 <Stack.Screen name="UserInfoScreen" component={ UserInformationStack } />
-                <Stack.Screen name="SingleSubstitution" component={ SingleSubstitutionScreen } /> 
+                <Stack.Screen name="SingleSubstitution" component={ SingleSubstitutionScreen } />
                 <Stack.Screen name='SubstitutionCard' component={SubstitutionCard} options={{ presentation: 'transparentModal', headerShown: false }}/>
               </Stack.Navigator>
             </View>

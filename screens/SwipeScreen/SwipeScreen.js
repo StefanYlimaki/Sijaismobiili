@@ -3,14 +3,36 @@ import React from 'react'
 import {View, Text, Button, Pressable} from 'react-native'
 import RecommendationView from './RecommendationView'
 import { krGreen } from '../../assets/styles/colors'
+import {CommonActions} from '@react-navigation/native'
 
 
 const SwipeScreen = ({ navigation }) => {
+    
+  function navito() {
+    navigation.navigate('MainApplication')
+  }
+    
+  function dispatcher() {
+    navigation.dispatch(
+      CommonActions.reset({
+        index: 1,
+        routes: [
+          { name: 'MainApplication' },
+        ],
+      })
+    )
+  }
+
+  function skipScreen() {
+    navito()
+    dispatcher()
+  }
+    
   return(
     <View>
       <RecommendationView/>
       <Pressable
-        onPress={() => navigation.navigate('MainApplication')}
+        onPress={() => skipScreen()}
       >
         <View style={{
           padding: 20,
