@@ -20,7 +20,7 @@ const RecommendationView = ({navigation}) => {
       <View style={{height:60}}>
       </View>
       <View style={{flex:1}}>
-        {renderSubstitutions()}
+        {renderSubstitutions(navigation)}
       </View>
       <View style={{height:60}}>
       </View>
@@ -28,7 +28,7 @@ const RecommendationView = ({navigation}) => {
   )
 }
 
-const renderSubstitutions = () => {
+const renderSubstitutions = (navigation) => {
   //Position variable for card on top
   const position = useRef(new Animated.ValueXY()).current
   const [currentIndex, incrementIndex] = useState(0)
@@ -52,9 +52,14 @@ const renderSubstitutions = () => {
             useNativeDriver: false
           }
           ).start(() => {
-            acceptSubstitution('asdfasd')
-            incrementIndex(prevIndex => prevIndex + 1)
             position.setValue({x: 0, y: 0})
+            incrementIndex(prevIndex => prevIndex + 1)
+            navigation.navigate('ConfirmSubstitution', {
+              substitution: substitutions[currentIndex],
+              onAccept: () => {
+                navigation.navigate('MainApplication')
+              }
+            })
           })
 
         //Deny / Left swipe

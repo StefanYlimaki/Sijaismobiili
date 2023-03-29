@@ -8,7 +8,7 @@ import { krGreen } from '../../assets/styles/colors'
 const SwipeScreen = ({ navigation }) => {
   return(
     <View>
-      <RecommendationView/>
+      <RecommendationView navigation={navigation}/>
       <Pressable
         onPress={() => navigation.navigate('MainApplication')}
       >

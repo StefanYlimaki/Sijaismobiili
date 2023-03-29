@@ -67,11 +67,17 @@ const renderSubstitution = (item, navigation) => {
         if (gestureState.dx > SWIPE_THRESHOLD) {
           Animated.spring(position, {
             toValue: {x: SCREEN_WIDTH + 100, y: gestureState.dy},
-            useNativeDriver: false
+            useNativeDriver: false,
+            speed: 24
           }
           ).start(() => {
-            acceptSubstitution(item.id)
-            navigation.pop()
+            //acceptSubstitution(item.id)
+            navigation.navigate('ConfirmSubstitution', {
+              substitution: item,
+              onAccept: () => {
+                navigation.pop(2)
+              }
+            })
           })
 
         //Deny / Left swipe
@@ -228,8 +234,9 @@ const renderSubstitution = (item, navigation) => {
           navigation.pop()
         }}
         acceptCallback={()=>{
-          acceptSubstitution(item.id)
-          navigation.pop()
+          navigation.navigate('ConfirmSubstitution', {
+            substitution: item
+          })
         }}
       />
     </Animated.View>
