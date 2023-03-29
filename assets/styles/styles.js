@@ -22,7 +22,7 @@ export default StyleSheet.create({
 
   blackText: {
     color: Colors.textDark,
-    opacity: 0.8,
+    opacity: 0.85,
   },
   buttonText: {
     color: Colors.textLight,
@@ -88,13 +88,13 @@ export default StyleSheet.create({
   hourlypay: {
     color: Colors.textLight,
     fontFamily: 'Inter-DisplayBold',
-    opacity: 0.8,
+    opacity: 0.85,
     paddingRight: 5,
   },
   hourlypayTotal: {
     color: Colors.textLight,
     fontFamily: 'Inter-DisplayMedium',
-    opacity: 0.8,
+    opacity: 0.85,
   },
   label: {
     color: Colors.textDark,
@@ -204,7 +204,7 @@ export default StyleSheet.create({
     color: Colors.textLight,
     fontFamily: 'Inter-DisplayBlack',
     fontSize: 20,
-    opacity: 0.8,
+    opacity: 0.85,
     textAlign: 'center'
   },
   settingsButton: {
@@ -266,7 +266,7 @@ export default StyleSheet.create({
     color: Colors.textLight,
     fontFamily: 'Inter-DisplaySemiBold',
     fontSize: 12,
-    opacity: 0.8,
+    opacity: 0.85,
     textAlign: 'right',
   }, 
   substitutionCardAnimated: {
@@ -471,7 +471,7 @@ export default StyleSheet.create({
   },
   whiteText: {
     color: Colors.textLight,
-    opacity: 0.8,
+    opacity: 0.85,
   }
 
 },
