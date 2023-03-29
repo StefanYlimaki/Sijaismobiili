@@ -30,7 +30,7 @@ const SwipeScreen = ({ navigation }) => {
     
   return(
     <View>
-      <RecommendationView/>
+      <RecommendationView navigation={navigation}/>
       <Pressable
         onPress={() => skipScreen()}
       >

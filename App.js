@@ -16,6 +16,7 @@ import AppTabs from './screens/MainApplication/AppTabs'
 import styles from './assets/styles/styles.js'
 import { krGreen } from './assets/styles/colors'
 import SingleSubstitutionScreen from './screens/SingleSubstitutionScreen'
+import AcceptSubstitutionPopUp from './components/AcceptSubstitutionPopUp'
 import { fi, se, en } from './assets/data/localisation/localisations'
 import { LocaleContext } from './contexts/LocaleContext'
 import { UserInformationStack } from './screens/UserInformation/UserInformationStack'
@@ -177,6 +178,7 @@ export default function App() {
                 <Stack.Screen name="UserInfoScreen" component={ UserInformationStack } />
                 <Stack.Screen name="SingleSubstitution" component={ SingleSubstitutionScreen } />
                 <Stack.Screen name='SubstitutionCard' component={SubstitutionCard} options={{ presentation: 'transparentModal', headerShown: false }}/>
+                <Stack.Screen name="ConfirmSubstitution" component={AcceptSubstitutionPopUp} options={{ presentation: 'transparentModal', headerShown: false}}/>
               </Stack.Navigator>
             </View>
           </NavigationContainer>
