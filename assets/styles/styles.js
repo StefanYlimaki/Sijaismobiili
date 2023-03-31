@@ -19,7 +19,16 @@ export default StyleSheet.create({
     overflow: 'hidden',
     resizeMode: 'cover',
   },
-
+  bigButton: {
+    alignItems: 'center',
+    alignSelf: 'center',
+    backgroundColor: Colors.krGreen,
+    borderRadius: 26,
+    borderWidth: 0,
+    height: '16%',
+    paddingVertical: '5%',
+    width: '78%',
+  },
   blackText: {
     color: Colors.textDark,
     opacity: 0.8,
@@ -77,8 +86,7 @@ export default StyleSheet.create({
     fontSize: 18,
     paddingBottom: 10,
     paddingTop: 10,
-    textAlign: 'center',
-    // textTransform: 'uppercase',
+    textAlign: 'left',
   },
   h2AndInfoButton:{
     alignItems: 'center',
@@ -210,7 +218,7 @@ export default StyleSheet.create({
   settingsButton: {
     alignItems: 'center',
     alignSelf: 'center',
-    backgroundColor: Colors.info,
+    backgroundColor: Colors.blueBright,
     borderRadius: 100,
     marginBottom: 50,
     paddingBottom: 5,

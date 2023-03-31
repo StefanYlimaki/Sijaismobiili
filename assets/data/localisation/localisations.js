@@ -95,6 +95,26 @@ const se = {
   deleteConfirmation2: 'Är du säker? Du kommer att förlora alla dina data, din ersättningshistorik och dina inställningar permanent.',
   removeAccount: 'Ta bort ett konto permanent',
   removeAccountConfirmation: 'Är du säker på att du vill ta bort ditt konto?',
+  calendar:{
+    monthNames: [
+      'Januari',
+      'Februari',
+      'Mars',
+      'April',
+      'Maj',
+      'Juni',
+      'Juli',
+      'Augusti',
+      'September',
+      'Oktober',
+      'November',
+      'December'
+    ],
+    monthNamesShort: ['Jan', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec'],
+    dayNames: ['Söndag', 'Måndag', 'Tisdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lördag'],
+    dayNamesShort: ['Sön', 'Mån', 'Tis', 'Ons', 'Tor', 'Fre', 'Lör'],
+    today: 'Idag'
+  },
 }
 const en = {
   hello: 'Hello',
@@ -131,7 +151,7 @@ const en = {
   yes: 'Yes',
   preferences: 'Preferences',
   deleteConfirmation: 'Are you sure you want to delete your account? In order to return, you must create a new account.',
-  deleteConfirmation2: 'Are you sure? You will lose all your data, your substitution history and your settings permanently.',
+  deleteConfirmation2: 'Are you sure? You will permanently lose all your data, your substitution history and your settings.',
   removeAccount: 'Delete account permanently',
   removeAccountConfirmation: 'Are you sure you want to delete your account?',
   calendar:{

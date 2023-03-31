@@ -11,7 +11,7 @@ import { LocaleContext } from '../../contexts/LocaleContext'
 const OwnSubstitutionsScreen = ({ navigation }) => {
   const { i18n, locale, setLocale } = useContext(LocaleContext)
 
-  LocaleConfig.locales['en'] = i18n.t('calendar')
+  LocaleConfig.locales[locale] = i18n.t('calendar')
   LocaleConfig.defaultLocale = 'en'
 
   let today = new Date().toDateString()
@@ -19,7 +19,7 @@ const OwnSubstitutionsScreen = ({ navigation }) => {
   const [item, setItem] = useState('')
 
   return (
-    <View style={{ justifyContent: 'space-between' }}>
+    <View style={{ justifyContent: 'space-between'}}>
       <View>
         <Calendar
           style={Styles.calendar}
@@ -27,7 +27,7 @@ const OwnSubstitutionsScreen = ({ navigation }) => {
           firstDay={1}
           markingType={'custom'}
           hideExtraDays={true}
-          
+
           onDayPress={() => setSelected(selected)}
           theme={{
             backgroundColor: '#ffffff',
@@ -40,15 +40,29 @@ const OwnSubstitutionsScreen = ({ navigation }) => {
           }}
         />
       </View>
+      <View style={{ justifyContent: 'space-between', paddingHorizontal: '5%' }}>
+        <View>
+          <View style={Styles.agenda}>
+            <Text style={{ textAlign: 'left', fontWeight: 'bold' }}>
+              {selected}
+              {selected == today ? <Text> ({i18n.t('calendar.today').toLowerCase()})</Text> : null}
+              {'\n'}{'\n'}
+            </Text>
+            <Text style={{ textAlign: 'center' }}>Ei merkintöjä.{'\n'}{'\n'}</Text>
+          </View>
+        </View>
 
-      <View style={{ paddingHorizontal: '5%' }}>
-        <View style={Styles.agenda}>
-          <Text style={{ textAlign: 'left', fontWeight: 'bold' }}>
-            {selected}
-            {selected == today ? <Text> ({i18n.t('calendar.today').toLowerCase()})</Text> : null}
-            {'\n'}{'\n'}
-          </Text>
-          <Text style={{ textAlign: 'center' }}>Ei merkintöjä.{'\n'}{'\n'}</Text>
+        <View>
+          <Text style={Styles.h2}>Seuraava vuoro</Text>
+          <View style={{ alignItems: 'center', backgroundColor: Colors.krGray, borderColor: Colors.textDark, borderRadius: 9, width: '78%' }}>
+          </View>
+        </View>
+
+        <Text style={Styles.h2}>Palkkakuitti</Text>
+        <View style={{alignItems: 'center', alignSelf: 'center', backgroundColor: Colors.krGray, borderColor: Colors.textDark, borderRadius: 9, width: '100%' }}>
+          <Text>Kuluneen kuun aikana olet ansainnut</Text>
+          <Text style={{ fontFamily: 'Inter-DisplaySemiBold', fontSize: 20 }}>noin 0 €</Text>
+          <Text>Tarkastele palkkakuittiasi</Text>
         </View>
       </View>
     </View>
