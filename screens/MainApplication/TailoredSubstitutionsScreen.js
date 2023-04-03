@@ -55,7 +55,7 @@ const TailoredSubstitutions = ({ route, navigation }) => {
           <Text style= {{fontFamily: 'Inter-DisplaySemiBold', textAlign:'center',}}>Emme tällä kertaa löytäneet mieltymyksiäsi vastaavia keikkoja. Kokeile myöhemmin uudelleen!</Text>
         </View>
         <Pressable style={styles.bigButton}
-        onPress>
+          onPress>
           <Text style={{color: textLight}}>Muokkaa mieltymyksiä</Text>
         </Pressable>
         <Pressable style={styles.bigButton}>
