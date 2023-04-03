@@ -7,6 +7,7 @@ import { formatDate, formatTime } from '../../utils'
 import DenyBookmarkAndAcceptButton from '../../components/DenyBookmarkAndAcceptButtons'
 import acceptSubstitution from '../../utils/acceptSubstitution'
 import userData from '../../assets/data/userData.json'
+import { CommonActions } from '@react-navigation/native'
 
 const SCREEN_HEIGHT = Dimensions.get('window').height
 const SCREEN_WIDTH = Dimensions.get('window').width
@@ -28,11 +29,22 @@ const RecommendationView = ({navigation}) => {
   )
 }
 
+
 const renderSubstitutions = (navigation) => {
   //Position variable for card on top
   const position = useRef(new Animated.ValueXY()).current
   const [currentIndex, incrementIndex] = useState(0)
 
+  const dispatcher = () => {
+    navigation.dispatch(
+      CommonActions.reset({
+        index: 1,
+        routes: [
+          { name: 'MainApplication' },
+        ],
+      })
+    )
+  }
   //Create panresponder for swiping cards
   const panResponder = useRef(
     PanResponder.create({
@@ -58,6 +70,7 @@ const renderSubstitutions = (navigation) => {
               substitution: substitutions[currentIndex],
               onAccept: () => {
                 navigation.navigate('MainApplication')
+                dispatcher()
               }
             })
           })
