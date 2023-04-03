@@ -19,7 +19,7 @@ function PopupDialog(props) {
             <Text style={popupStyles.popupHeaderText}>{props.headerText}</Text>
           </View>
           <View style={{flex:1, marginTop: 7}}>
-            <Pressable onPress={() => {props.navigation.pop()}}>
+            <Pressable onPress={() => {props.navigation.pop(props.popCount? props.popCount : 1)}}>
               <Icon name='close-circle-outline' type="material-community" color={styles.whiteText}/>
             </Pressable>
           </View>

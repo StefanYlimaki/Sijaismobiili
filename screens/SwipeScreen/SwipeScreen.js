@@ -6,6 +6,7 @@ import { krGreen } from '../../assets/styles/colors'
 import * as Notifications from 'expo-notifications'
 import * as TaskManager from 'expo-task-manager'
 import * as Updates from 'expo-updates'
+import {CommonActions} from '@react-navigation/native'
 
 import { registerForPushNotificationsAsync } from '../../utils/registerForPushNotificationAsync'
 import { addTokenToUserData } from '../../utils/addTokenToUserData'
@@ -69,11 +70,36 @@ const SwipeScreen = ({ navigation }) => {
     }
   }, [])
 
+
+
+
+const SwipeScreen = ({ navigation }) => {
+    
+  function navito() {
+    navigation.navigate('MainApplication')
+  }
+    
+  function dispatcher() {
+    navigation.dispatch(
+      CommonActions.reset({
+        index: 1,
+        routes: [
+          { name: 'MainApplication' },
+        ],
+      })
+    )
+  }
+
+  function skipScreen() {
+    navito()
+    dispatcher()
+  }
+  
   return(
     <View>
-      <RecommendationView/>
+      <RecommendationView navigation={navigation}/>
       <Pressable
-        onPress={() => navigation.navigate('MainApplication')}
+        onPress={() => skipScreen()}
       >
         <View style={{
           padding: 20,

@@ -5,15 +5,16 @@ import {
   Text,
   ScrollView,
   KeyboardAvoidingView,
-  TouchableWithoutFeedback,
+  TouchableWithoutFeedback, ActivityIndicator,
 } from 'react-native'
 import { Slider } from '@rneui/themed'
 import * as Colors from '../../assets/styles/colors.js'
 import styles from '../../assets/styles/styles'
 import {Icon} from '@rneui/base'
-import { getUserData } from '../../utils/getUserData'
+import { getUserData } from '../../utils'
 import { setUserData } from '../../utils/setUserData'
 import { AntDesign } from '@expo/vector-icons'
+import {krBlue} from '../../assets/styles/colors.js'
 
 function UserPreferencesScreen() {
   delete userData['default']
@@ -63,8 +64,14 @@ function UserPreferencesScreen() {
 
   if(loading){
     return(
-      <View>
-        <Text>Ladataan, hetki vain.</Text>
+      <View
+        style={{
+          flex: 1,
+          justifyContent: 'center',
+          alignItems: 'center',
+          flexDirection: 'row',
+        }}>
+        <ActivityIndicator size="large" color= {krBlue} />
       </View>
     )
   }

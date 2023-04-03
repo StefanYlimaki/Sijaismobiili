@@ -22,25 +22,7 @@ export default StyleSheet.create({
 
   blackText: {
     color: Colors.textDark,
-    opacity: 0.8,
-  },
-  buttonAccept: {
-    backgroundColor: '#13912A',
-    borderRadius: 50,
-    height: 90,
-    width: 90
-  },
-  buttonBookmark: {
-    backgroundColor: '#0666DB',
-    borderRadius: 50,
-    height: 90,
-    width: 90
-  },
-  buttonDeny: {
-    backgroundColor: '#91041D',
-    borderRadius: 50,
-    height: 90,
-    width: 90
+    opacity: 0.85,
   },
   buttonText: {
     color: Colors.textLight,
@@ -58,12 +40,6 @@ export default StyleSheet.create({
   currentDistance:{
     paddingBottom: 10,
     textAlign: 'center',
-  },
-  denyBookmarkAcceptButtonsContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingHorizontal: 20,
-    paddingTop: '50%'
   },
   distanceSlider:{
     flexDirection: 'row',
@@ -112,13 +88,13 @@ export default StyleSheet.create({
   hourlypay: {
     color: Colors.textLight,
     fontFamily: 'Inter-DisplayBold',
-    opacity: 0.8,
+    opacity: 0.85,
     paddingRight: 5,
   },
   hourlypayTotal: {
     color: Colors.textLight,
     fontFamily: 'Inter-DisplayMedium',
-    opacity: 0.8,
+    opacity: 0.85,
   },
   label: {
     color: Colors.textDark,
@@ -228,7 +204,7 @@ export default StyleSheet.create({
     color: Colors.textLight,
     fontFamily: 'Inter-DisplayBlack',
     fontSize: 20,
-    opacity: 0.8,
+    opacity: 0.85,
     textAlign: 'center'
   },
   settingsButton: {
@@ -290,7 +266,7 @@ export default StyleSheet.create({
     color: Colors.textLight,
     fontFamily: 'Inter-DisplaySemiBold',
     fontSize: 12,
-    opacity: 0.8,
+    opacity: 0.85,
     textAlign: 'right',
   }, 
   substitutionCardAnimated: {
@@ -352,15 +328,15 @@ export default StyleSheet.create({
     width: '100%',
   },
   substitutionHeroItemContainer: {
-    elevation: 5,
-    paddingVertical: 16,
+    elevation: 17,
+    padding: 16,
     shadowColor: '#000000',
     shadowOffset: {
       width: 0,
-      height: 0,
+      height: 8,
     },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
+    shadowOpacity: 0.46,
+    shadowRadius: 11.14,
     width: '100%',
   },
   substitutionHeroPreviewComponentBottomElement: {
@@ -380,15 +356,15 @@ export default StyleSheet.create({
     paddingVertical: 6,
   },
   substitutionItemContainer: {
-    elevation: 5,
-    marginTop: 20,
+    elevation: 10,
+    paddingHorizontal: 16,
+    paddingVertical: 8,
     shadowColor: '#000000',
     shadowOffset: {
       width: 0,
       height: 0,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
+    },shadowOpacity: 0.34,
+    shadowRadius: 6.27,
     width: '100%',
   },
   substitutionPreviewComponent: {
@@ -416,7 +392,6 @@ export default StyleSheet.create({
   },
   substitutionsListContainer: {
     height: '100%',
-    marginHorizontal: 16,
     paddingBottom: 10
   },
   switchContainer: {
@@ -496,7 +471,7 @@ export default StyleSheet.create({
   },
   whiteText: {
     color: Colors.textLight,
-    opacity: 0.8,
+    opacity: 0.85,
   }
 
 },

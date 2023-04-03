@@ -15,6 +15,7 @@ import AppTabs from './screens/MainApplication/AppTabs'
 import styles from './assets/styles/styles.js'
 import { krGreen } from './assets/styles/colors'
 import SingleSubstitutionScreen from './screens/SingleSubstitutionScreen'
+import AcceptSubstitutionPopUp from './components/AcceptSubstitutionPopUp'
 import { fi, se, en } from './assets/data/localisation/localisations'
 import { LocaleContext } from './contexts/LocaleContext'
 import { UserInformationStack } from './screens/UserInformation/UserInformationStack'
@@ -46,6 +47,7 @@ export default function App() {
   i18n.locale = locale
 
   const [loaded] = useFonts({
+    'Figtree-ExtraBold': require('./assets/styles/fonts/Figtree-ExtraBold.ttf',),
     'Inter-DisplayBlack': require('./assets/styles/fonts/Inter-DisplayBlack.ttf',),
     'Inter-DisplayBold': require('./assets/styles/fonts/Inter-DisplayBold.ttf',),
     'Inter-DisplayExtraBold': require('./assets/styles/fonts/Inter-DisplayExtraBold.ttf',),
@@ -70,12 +72,16 @@ export default function App() {
             <View style={ styles.container }>
               <CustomStatusBar backgroundColor={ krGreen } />
               <Stack.Navigator
-                screenOptions={{headerShown: false}}>
-                <Stack.Screen name="SwipeScreen" component={ SwipeScreen } />
+                screenOptions={{headerShown: false
+                }}
+                mode="modal"
+              >
+                <Stack.Screen name="SwipeScreen" component={ SwipeScreen } options={{ presentation: 'transparentModal', headerShown: false }} />
                 <Stack.Screen name="MainApplication" component={ AppTabs } />
                 <Stack.Screen name="UserInfoScreen" component={ UserInformationStack } />
-                <Stack.Screen name="SingleSubstitution" component={ SingleSubstitutionScreen } /> 
+                <Stack.Screen name="SingleSubstitution" component={ SingleSubstitutionScreen } />
                 <Stack.Screen name='SubstitutionCard' component={SubstitutionCard} options={{ presentation: 'transparentModal', headerShown: false }}/>
+                <Stack.Screen name="ConfirmSubstitution" component={AcceptSubstitutionPopUp} options={{ presentation: 'transparentModal', headerShown: false}}/>
               </Stack.Navigator>
             </View>
           </NavigationContainer>
