@@ -1,6 +1,6 @@
 const fi = {
   hello: 'Hei',
-  loading : 'Ladataan, hetki vain...',
+  loading: 'Ladataan, hetki vain...',
   firstname: 'Etunimi',
   lastname: 'Sukunimi',
   email: 'Sähköposti',
@@ -36,7 +36,7 @@ const fi = {
   deleteConfirmation2: 'Oletko varma? Menetät kaikki tietosi, sijaisuushistoriasi ja asetukset pysyvästi.',
   removeAccount: 'Poista tili pysyvästi',
   removeAccountConfirmation: 'Haluatko varmasti poistaa tilisi?',
-  calendar:{
+  calendar: {
     monthNames: [
       'Tammikuu',
       'Helmikuu',
@@ -56,10 +56,26 @@ const fi = {
     dayNamesShort: ['Su', 'Ma', 'Ti', 'Ke', 'To', 'Pe', 'La'],
     today: 'Tänään'
   },
+  monthNamesPartitive: [
+    'tammikuuta',
+    'helmikuuta',
+    'maaliskuuta',
+    'huhtikuuta',
+    'toukokuuta',
+    'kesäkuuta',
+    'heinäkuuta',
+    'elokuuta',
+    'syyskuuta',
+    'lokakuuta',
+    'marraskuuta',
+    'joulukuuta'
+  ],
+  dayMonthDivider: '. ',
+  agendaDefault: 'Ei merkintöjä.',
 }
 const se = {
   hello: 'Hej',
-  loading : 'Laddar, en stund...',
+  loading: 'Laddar, en stund...',
   firstname: 'Förnamn',
   lastname: 'Efternamn',
   email: 'E-post',
@@ -95,7 +111,7 @@ const se = {
   deleteConfirmation2: 'Är du säker? Du kommer att förlora alla dina data, din ersättningshistorik och dina inställningar permanent.',
   removeAccount: 'Ta bort ett konto permanent',
   removeAccountConfirmation: 'Är du säker på att du vill ta bort ditt konto?',
-  calendar:{
+  calendar: {
     monthNames: [
       'Januari',
       'Februari',
@@ -115,10 +131,26 @@ const se = {
     dayNamesShort: ['Sön', 'Mån', 'Tis', 'Ons', 'Tor', 'Fre', 'Lör'],
     today: 'Idag'
   },
+  monthNamesPartitive: [
+    'januari',
+    'februari',
+    'mars',
+    'april',
+    'maj',
+    'juni',
+    'juli',
+    'augusti',
+    'september',
+    'oktober',
+    'november',
+    'december'
+  ],
+  dayMonthDivider: ' ',
+  agendaDefault: 'Inga anteckningar.',
 }
 const en = {
   hello: 'Hello',
-  loading : 'Loading, please wait...',
+  loading: 'Loading, please wait...',
   firstname: 'First name',
   lastname: 'Last name',
   email: 'Email',
@@ -154,7 +186,7 @@ const en = {
   deleteConfirmation2: 'Are you sure? You will permanently lose all your data, your substitution history and your settings.',
   removeAccount: 'Delete account permanently',
   removeAccountConfirmation: 'Are you sure you want to delete your account?',
-  calendar:{
+  calendar: {
     monthNames: [
       'January',
       'February',
@@ -174,6 +206,22 @@ const en = {
     dayNamesShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
     today: 'Today'
   },
+  monthNamesPartitive: [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December'
+  ],
+  dayMonthDivider: ' ',
+  agendaDefault: 'No notes.',
 }
 
 export { fi, se, en }
