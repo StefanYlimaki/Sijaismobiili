@@ -74,9 +74,7 @@ const renderSubstitution = (item, navigation) => {
             //acceptSubstitution(item.id)
             navigation.navigate('ConfirmSubstitution', {
               substitution: item,
-              onAccept: () => {
-                navigation.pop(2)
-              }
+              caller: 'SubstitutionCard',
             })
           })
 

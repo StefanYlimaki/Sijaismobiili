@@ -35,16 +35,6 @@ const renderSubstitutions = (navigation) => {
   const position = useRef(new Animated.ValueXY()).current
   const [currentIndex, incrementIndex] = useState(0)
 
-  const dispatcher = () => {
-    navigation.dispatch(
-      CommonActions.reset({
-        index: 1,
-        routes: [
-          { name: 'MainApplication' },
-        ],
-      })
-    )
-  }
   //Create panresponder for swiping cards
   const panResponder = useRef(
     PanResponder.create({
@@ -68,10 +58,7 @@ const renderSubstitutions = (navigation) => {
             incrementIndex(prevIndex => prevIndex + 1)
             navigation.navigate('ConfirmSubstitution', {
               substitution: substitutions[currentIndex],
-              onAccept: () => {
-                navigation.navigate('MainApplication')
-                dispatcher()
-              }
+              caller: 'RecommendationView',
             })
           })
 
