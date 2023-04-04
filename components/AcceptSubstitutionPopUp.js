@@ -42,7 +42,8 @@ const AcceptSubstitutionPopUp = ({route, navigation}) => {
         <View style={{borderRadius: 20, backgroundColor: success, marginTop: 20}}>
           <Pressable style={styles.acceptButton} onPress={()=> {
             acceptSubstitution(route.params.substitution.id)
-            route.params.onAccept()
+            navigation.pop(2)
+            //route.params.onAccept()
           }}>
             <Text style={styles.buttonText}>{'Otan keikan!'}</Text>
           </Pressable>
