@@ -54,11 +54,10 @@ const TailoredSubstitutions = ({ route, navigation }) => {
         <View style={{width: '78%', paddingVertical: '9%'}}>
           <Text style= {{fontFamily: 'Inter-DisplaySemiBold', textAlign:'center',}}>Emme tällä kertaa löytäneet mieltymyksiäsi vastaavia keikkoja. Kokeile myöhemmin uudelleen!</Text>
         </View>
-        <Pressable style={styles.bigButton}
-          onPress>
+        <Pressable style={styles.bigButton} onPress={() => {navigation.navigate('UserPreferencesScreen')}}>
           <Text style={{color: textLight}}>Muokkaa mieltymyksiä</Text>
         </Pressable>
-        <Pressable style={styles.bigButton}>
+        <Pressable style={styles.bigButton} onPress={() => {navigation.navigate('AllSubstitutionsScreen')}}>
           <Text style={{color: textLight}}>Selaa kaikkia keikkoja</Text>
         </Pressable>
       </View>
