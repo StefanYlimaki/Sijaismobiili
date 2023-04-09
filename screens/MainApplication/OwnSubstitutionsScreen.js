@@ -6,6 +6,7 @@ import Styles from '../../assets/styles/styles'
 import * as Colors from '../../assets/styles/colors.js'
 import SubstitutionsList from '../../components/SubstitutionsList'
 import substitutions from '../../assets/data/substitutionsData_new.json'
+import UpcomingGigs from '../../components/UpcomingGigs'
 
 const OwnSubstitutionsScreen = ({ navigation }) => {
 
@@ -76,6 +77,9 @@ const OwnSubstitutionsScreen = ({ navigation }) => {
           <Text style={{textAlign: 'center'}}>Ei merkintöjä.{'\n'}{'\n'}</Text>
         </View>
       </View>
+      
+      {/* TODO: Vaihda substitutions keikkoihin johon on ilmottauduttu */}
+      <UpcomingGigs substitutions={substitutions}/>
     </View>
   )
 }
