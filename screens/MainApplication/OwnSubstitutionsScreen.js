@@ -79,7 +79,7 @@ const OwnSubstitutionsScreen = ({ navigation }) => {
       </View>
       
       {/* TODO: Vaihda substitutions keikkoihin johon on ilmottauduttu */}
-      <UpcomingGigs substitutions={substitutions}/>
+      <UpcomingGigs substitutions={substitutions} navigation={navigation}/>
     </View>
   )
 }

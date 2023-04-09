@@ -16,7 +16,7 @@ function EmptyGigs() {
   )
 }
 
-function UpcomingGigs({substitutions}) {
+function UpcomingGigs({substitutions, navigation}) {
 
   const sortedGigs = [...substitutions].sort((a,b) => ('' + a.timing.startTime).localeCompare(b.timing.startTime))
   const nextGig = sortedGigs[0]
@@ -59,7 +59,7 @@ function UpcomingGigs({substitutions}) {
           </View>
         </View>
 
-        <Pressable onPress={() => { console.log('TODO') }}>
+        <Pressable onPress={() => { navigation.navigate('UpcomingGigsList') }}>
           <View style={cardStyles.cardFooter}>
             <Text style={{ textAlign: 'center' }}>Näytä kaikki tulevat vuorot (X)</Text>
           </View>
