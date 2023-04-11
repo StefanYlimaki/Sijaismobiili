@@ -37,9 +37,6 @@ const AppTheme = {
 const i18n = new I18n() //For localisation
 
 export default function App() {
-  useEffect(() => {
-    addTokenToUserInfo(expoPushToken)
-  }, [expoPushToken])
 
   //Localisation
   const [locale, setLocale] = useState(Localisation.locale) // use system language
