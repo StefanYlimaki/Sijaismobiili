@@ -21,7 +21,7 @@ export default async function acceptSubstitution (substitution) {
         body: `Työvuorosi ${substitution.title} on alkamassa. Klikkaa tästä nähdäksesi tiedot!`,
         data: { id: substitution.id},
       },
-      trigger: { seconds: 3 /*(differenceInSeconds) - 3600*/ }
+      trigger: { seconds: (differenceInSeconds) - 3600 }
     })
 
     let userData = await getUserData()
