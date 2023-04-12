@@ -49,7 +49,7 @@ const AllSubstitutions = ({ navigation }) => {
     // Filtering by search
     filtered = filtered.filter(subst => {
       let searchableFields = subst.city + subst.department + subst.title + subst.description + subst.organisation
-      if (searchableFields.includes(search)) {
+      if (searchableFields.toLowerCase().includes(search)) {
         return true
       } else {
         return false
