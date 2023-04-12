@@ -19,6 +19,7 @@ import { fi, se, en } from './assets/data/localisation/localisations'
 import { LocaleContext } from './contexts/LocaleContext'
 import { UserInformationStack } from './screens/UserInformation/UserInformationStack'
 import SubstitutionCard from './components/SubstitutionCard'
+import UpcomingGigsList from './components/UpcomingGigsList'
 
 const Stack = createNativeStackNavigator()
 
