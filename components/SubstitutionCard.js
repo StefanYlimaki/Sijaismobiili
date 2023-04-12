@@ -42,13 +42,6 @@ const SubstitutionCard = ({route}) => {
   )
 }
 
-const navigateToPopUp = (navigation, item) => {
-  navigation.navigate('ConfirmSubstitution', {
-    substitution: item,
-    caller: 'SubstitutionCard',
-  })
-}
-
 const renderSubstitution = (item, navigation) => {
   //Position variable for card on top
   const position = useRef(new Animated.ValueXY()).current
@@ -78,9 +71,13 @@ const renderSubstitution = (item, navigation) => {
             speed: 24
           }
           ).start(() => {
-            acceptSubstitution(item)
-            navigateToPopUp(navigation, item)
-
+            //acceptSubstitution(item.id)
+            navigation.navigate('ConfirmSubstitution', {
+              substitution: item,
+              onAccept: () => {
+                navigation.pop(2)
+              }
+            })
           })
 
         //Deny / Left swipe
@@ -237,8 +234,9 @@ const renderSubstitution = (item, navigation) => {
           navigation.pop()
         }}
         acceptCallback={()=>{
-          acceptSubstitution(item)
-          navigateToPopUp(navigation, item)
+          navigation.navigate('ConfirmSubstitution', {
+            substitution: item
+          })
         }}
       />
     </Animated.View>

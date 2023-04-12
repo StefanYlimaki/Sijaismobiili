@@ -7,8 +7,6 @@ import { formatDate, formatTime } from '../../utils'
 import DenyBookmarkAndAcceptButton from '../../components/DenyBookmarkAndAcceptButtons'
 import acceptSubstitution from '../../utils/acceptSubstitution'
 import userData from '../../assets/data/userData.json'
-import { CommonActions } from '@react-navigation/native'
-import { sub } from 'react-native-reanimated'
 
 const SCREEN_HEIGHT = Dimensions.get('window').height
 const SCREEN_WIDTH = Dimensions.get('window').width
@@ -29,14 +27,6 @@ const RecommendationView = ({navigation}) => {
     </View>
   )
 }
-
-const navigateToPopUp = (navigation, currentIndex) => {
-  navigation.navigate('ConfirmSubstitution', {
-    substitution: substitutions[currentIndex],
-    caller: 'RecommendationView',
-  })
-}
-
 
 const renderSubstitutions = (navigation) => {
   //Position variable for card on top
@@ -64,8 +54,12 @@ const renderSubstitutions = (navigation) => {
           ).start(() => {
             position.setValue({x: 0, y: 0})
             incrementIndex(prevIndex => prevIndex + 1)
-            navigateToPopUp(navigation, currentIndex)
-            acceptSubstitution(substitutions[currentIndex])
+            navigation.navigate('ConfirmSubstitution', {
+              substitution: substitutions[currentIndex],
+              onAccept: () => {
+                navigation.navigate('MainApplication')
+              }
+            })
           })
 
         //Deny / Left swipe
@@ -211,10 +205,7 @@ const renderSubstitutions = (navigation) => {
           <DenyBookmarkAndAcceptButton
             denyCallback={()=>incrementIndex(prevIndex => prevIndex + 1)}
             bookmarkCallback={()=>incrementIndex(prevIndex => prevIndex + 1)}
-            acceptCallback={()=> {
-              navigateToPopUp(navigation, currentIndex)
-              acceptSubstitution(substitutions[currentIndex])
-            }}
+            acceptCallback={()=>incrementIndex(prevIndex => prevIndex + 1)}
           />
         </Animated.View>
       )
