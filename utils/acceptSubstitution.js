@@ -18,10 +18,10 @@ export default async function acceptSubstitution (substitution) {
     await Notifications.scheduleNotificationAsync({
       content: {
         title: 'Työvuorosi alkaa pian!',
-        body: `Työvuorosi ${substitution.title} on alkamassa. Klikkaa tästä nähdäksesi tiedot!`
+        body: `Työvuorosi ${substitution.title} on alkamassa. Klikkaa tästä nähdäksesi tiedot!`,
+        data: { id: substitution.id},
       },
-      data: {'id': substitution.id},
-      trigger: { seconds: (differenceInSeconds) - 3600 }
+      trigger: { seconds: 3 /*(differenceInSeconds) - 3600*/ }
     })
 
     let userData = await getUserData()
