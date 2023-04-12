@@ -237,7 +237,7 @@ const renderSubstitution = (item, navigation) => {
           navigation.pop()
         }}
         acceptCallback={()=>{
-          acceptSubstitution(substitution)
+          acceptSubstitution(item)
           navigateToPopUp(navigation, item)
         }}
       />
