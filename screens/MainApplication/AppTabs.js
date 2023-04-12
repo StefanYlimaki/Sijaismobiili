@@ -8,6 +8,8 @@ import TabBar from './TabBar'
 import OwnSubstitutionsScreen from './OwnSubstitutionsScreen'
 import * as Notifications from 'expo-notifications'
 
+import substitutions from '../../assets/data/substitutionsData_new.json'
+
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
     shouldShowAlert: true,
@@ -30,8 +32,8 @@ const AppTabs = ({ navigation, route }) => {
 
     responseListener.current = Notifications.addNotificationResponseReceivedListener(response => {
       console.log('response', response.notification.request.content.data.id)
-      navigation.navigate('SingleSubstitution')
-
+      const substitution = substitutions.find(s => s.id === response.notification.request.content.data.id)
+      navigation.navigate('SingleSubstitution', { substitution: substitution})
     })
 
     return () => {
