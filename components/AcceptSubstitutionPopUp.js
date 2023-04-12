@@ -4,20 +4,9 @@ import { View, Text, Pressable, StyleSheet } from 'react-native'
 import { success } from '../assets/styles/colors'
 import { formatDate, formatTime } from '../utils'
 import acceptSubstitution from '../utils/acceptSubstitution'
-import { CommonActions } from '@react-navigation/native'
+import { logUserData } from '../utils/logUserData'
 
 const AcceptSubstitutionPopUp = ({route, navigation}) => {
-
-  const dispatcher = () => {
-    navigation.dispatch(
-      CommonActions.reset({
-        index: 1,
-        routes: [
-          { name: 'MainApplication' },
-        ],
-      })
-    )
-  }
   return (
     <PopupDialog headerText={'No voi kun kiva!'} headerColor={krBlue} navigation={navigation} 
       popCount={2}>
@@ -53,13 +42,7 @@ const AcceptSubstitutionPopUp = ({route, navigation}) => {
         <View style={{borderRadius: 20, backgroundColor: success, marginTop: 20}}>
           <Pressable style={styles.acceptButton} onPress={()=> {
             acceptSubstitution(route.params.substitution)
-
-            if (route.params.caller == 'RecommendationView') {
-              navigation.navigate('MainApplication')
-              dispatcher()
-            } else if (route.params.caller == 'SubstitutionCard') {
-              navigation.pop(2)
-            }
+            route.params.onAccept()
           }}>
             <Text style={styles.buttonText}>{'Otan keikan!'}</Text>
           </Pressable>
