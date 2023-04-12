@@ -7,6 +7,9 @@ import * as Colors from '../../assets/styles/colors.js'
 import SubstitutionsList from '../../components/SubstitutionsList'
 import substitutions from '../../assets/data/substitutionsData_new.json'
 import UpcomingGigs from '../../components/UpcomingGigs'
+import { getUserData } from '../../utils'
+
+let userSubstitutions = []
 
 const OwnSubstitutionsScreen = ({ navigation }) => {
 
@@ -36,6 +39,19 @@ const OwnSubstitutionsScreen = ({ navigation }) => {
   const [selected, setSelected] = useState(today)
   const [item, setItem] = useState('')
 
+  useEffect(() => {
+    async function fetchUserSubstitutions() {
+      const userData = await getUserData()
+
+      if (!userData.substitutions) {
+        userData.substitutions = []
+      }
+
+      userSubstitutions = userData.substitutions
+    }
+
+    fetchUserSubstitutions()
+  })
 
   return (
     <View style= {{justifyContent: 'space-between'}}>
@@ -79,7 +95,7 @@ const OwnSubstitutionsScreen = ({ navigation }) => {
       </View>
       
       {/* TODO: Vaihda substitutions keikkoihin johon on ilmottauduttu */}
-      <UpcomingGigs substitutions={substitutions} navigation={navigation}/>
+      <UpcomingGigs substIDs={userSubstitutions} navigation={navigation}/>
     </View>
   )
 }

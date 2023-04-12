@@ -1,5 +1,4 @@
 import { View, Text, StyleSheet, FlatList, Pressable } from 'react-native'
-import substitutions from '../assets/data/substitutionsData_new.json'
 import { formatTime } from '../utils'
 import * as Colors from '../assets/styles/colors.js'
 import { Icon } from '@rneui/themed'
@@ -19,9 +18,11 @@ function GigListItem({ substitution }) {
   )
 }
 
-function UpcomingGigsList({ navigation }) {
+function UpcomingGigsList({ route, navigation }) {
 
-  console.log('TODO, vaihda käyttämään hyväksyttyjä sijaisuuksia')
+  const { sortedGigs } = route.params
+
+  console.log(sortedGigs)
 
   return (
     <View style={gigListStyles.modalContainer}>
@@ -33,7 +34,7 @@ function UpcomingGigsList({ navigation }) {
             </Pressable>
           </View>
           <FlatList
-            data={substitutions}
+            data={sortedGigs}
             renderItem={
               (substitution) => { return <GigListItem substitution={substitution} /> }
             }

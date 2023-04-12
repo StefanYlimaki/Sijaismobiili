@@ -3,6 +3,7 @@ import { useState } from 'react'
 import styles from '../assets/styles/styles'
 import { formatDate, formatTime } from '../utils'
 import calculateDistance from '../utils/calculateDistance'
+import substitutions from '../assets/data/substitutionsData_new.json'
 
 function EmptyGigs() {
   return (
@@ -16,16 +17,20 @@ function EmptyGigs() {
   )
 }
 
-function UpcomingGigs({substitutions, navigation}) {
+function UpcomingGigs({substIDs, navigation}) {
 
-  const sortedGigs = [...substitutions].sort((a,b) => ('' + a.timing.startTime).localeCompare(b.timing.startTime))
-  const nextGig = sortedGigs[0]
+  const userSubstitutions = substitutions.filter((subst) => {
+    return substIDs.includes(subst.id)
+  })
+  const sortedGigs = [...userSubstitutions].sort((a,b) => ('' + a.timing.startTime).localeCompare(b.timing.startTime))
 
-  const getDistance = () => {
-    return calculateDistance(parseFloat(nextGig.coordinates.latitude), parseFloat(nextGig.coordinates.longitude), 65.05941, 25.46642, false)
+  const getDistance = (substitution) => {
+    return calculateDistance(parseFloat(substitution.coordinates.latitude), parseFloat(substitution.coordinates.longitude), 65.05941, 25.46642, false)
   }
 
-  if (substitutions.length !== 0) {
+  if (sortedGigs.length !== 0) {
+    const nextGig = sortedGigs[0]
+
     return (
       <View style={cardStyles.upcomingGigsCard}>
 
@@ -43,7 +48,7 @@ function UpcomingGigs({substitutions, navigation}) {
               {nextGig.organisation}
             </Text>
             <Text style={styles.whiteText}>
-              {getDistance(nextGig.location)}
+              {getDistance(nextGig)}
             </Text>
           </View>
         </View>
@@ -59,9 +64,9 @@ function UpcomingGigs({substitutions, navigation}) {
           </View>
         </View>
 
-        <Pressable onPress={() => { navigation.navigate('UpcomingGigsList') }}>
+        <Pressable onPress={() => { navigation.navigate('UpcomingGigsList', {sortedGigs: sortedGigs}) }}>
           <View style={cardStyles.cardFooter}>
-            <Text style={{ textAlign: 'center' }}>Näytä kaikki tulevat vuorot (X)</Text>
+            <Text style={{ textAlign: 'center' }}>Näytä kaikki tulevat vuorot ({sortedGigs.length})</Text>
           </View>
         </Pressable>
       </View>
