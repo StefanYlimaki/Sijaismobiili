@@ -10,12 +10,18 @@ import {
 
 import { formatHourlyPay, formatDate, formatTime } from '../utils/'
 import styles from '../assets/styles/styles'
-import { krGreen } from '../assets/styles/colors'
 import DenyBookmarkAndAcceptButton from '../components/DenyBookmarkAndAcceptButtons'
 import acceptSubstitution from '../utils/acceptSubstitution'
 
 const SingleSubstitutionScreen = ({ route, navigation }) => {
   const { substitution } = route.params
+
+  // The following is needed for the local notification to work
+  if(substitution.item === undefined) {
+    substitution.item = substitution
+  }
+
+  console.log('substitution got', substitution)
 
   const benefits = substitution.item.benefits.map((benefit, i) => {
     return (
