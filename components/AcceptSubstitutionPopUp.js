@@ -52,7 +52,7 @@ const AcceptSubstitutionPopUp = ({route, navigation}) => {
         </View>
         <View style={{borderRadius: 20, backgroundColor: success, marginTop: 20}}>
           <Pressable style={styles.acceptButton} onPress={()=> {
-            acceptSubstitution(route.params.substitution.id)
+            acceptSubstitution(route.params.substitution)
 
             if (route.params.caller == 'RecommendationView') {
               navigation.navigate('MainApplication')
