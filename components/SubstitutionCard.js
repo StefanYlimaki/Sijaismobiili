@@ -16,17 +16,21 @@ import Constants from 'expo-constants'
 import { BlurView } from 'expo-blur'
 import styles from '../assets/styles/styles'
 import { krBlue } from '../assets/styles/colors'
-import { formatDate, formatTime } from '../utils'
+import {formatDate, formatHourlyPay, formatTime} from '../utils'
 import calculateDistance from '../utils/calculateDistance'
 import DenyBookmarkAndAcceptButton from '../components/DenyBookmarkAndAcceptButtons'
 import acceptSubstitution from '../utils/acceptSubstitution'
 import { krGreenLight } from '../assets/styles/colors'
+import {LinearGradient} from 'expo-linear-gradient'
 
 const SCREEN_HEIGHT = Dimensions.get('window').height
 const SCREEN_WIDTH = Dimensions.get('window').width - 50
 
 //Threshold for registering swipes
 const SWIPE_THRESHOLD = 120
+
+const logo = { uri: 'https://www.sttinfo.fi/data/images/00063/de7b594d-309c-4622-8e66-b8d8b84dafd3-w_300_h_100.png' }
+
 
 const SubstitutionCard = ({route}) => {
   return (
@@ -124,15 +128,18 @@ const renderSubstitution = (item, navigation) => {
   const benefits = item.benefits.map((benefit, i) => {
     return (
       <View style={[styles.substitutionItemBenefitsItem, {
-        width:'30%',
-        alignSelf: 'flex-end'
-
+        alignSelf: 'flex-end',
+        marginVertical: 5,
       }
       ]}
       key={i}
       >
-        <Text
-          //style={{alignSelf: 'flex-end'}}
+        <Text style=
+          {[styles.whiteText, {
+            fontSize: 16,
+            fontFamily: 'Inter-DisplaySemiBold',
+          }
+          ]}
         >
           {benefit}
         </Text>
@@ -152,6 +159,15 @@ const renderSubstitution = (item, navigation) => {
       return placeholder
     }  }
 
+  const logoImage = () => {
+    if (item.logo) {
+      //return {uri: substitution.item.logo}
+      return logo
+    } else {
+      return logo
+    }
+  }
+
 
   return (
     <Animated.View 
@@ -165,47 +181,67 @@ const renderSubstitution = (item, navigation) => {
         styles.substitutionCardAnimated
       ]}
     >
-
       <ImageBackground
         source={image()}
+        imageStyle={{borderTopRightRadius: 10, borderTopLeftRadius: 10 }}
       >
-        <View>
-          <View style={{paddingTop:'5%'}}>
-            {benefits}
-          </View>
-          <View style={styles.substitutionCardInfoElement}>
-          </View>
+        <LinearGradient
+          colors={['transparent', 'rgba(0,0,0,0.5)']}
+          start={{ x: 0, y: 0.3}}
+          end={{x: 0.0, y: 0.8}}
+          style={{borderTopRightRadius: 10, borderTopLeftRadius: 10}}>
+          <View style={styles.substitutionHeroPreviewComponentBottomElement}>
 
-          <View style={styles.substitutionCardInfoElement}>
-            <Text style={{fontWeight: 'bold', fontSize: 30}}>
-              {item.title}
-            </Text>
-            <Text style={{fontSize: 20}}>
-              {item.department}
-            </Text>
+            <View style={{ flexDirection: 'row', alignContent: 'space-between'}}>
+
+              <View style={{ backgroundColor: '#FAFAFA', marginTop: 15, padding:5, borderRadius: 10, flexDirection: 'row', alignItems: 'center',
+                alignSelf: 'flex-start',}}>
+                <Image
+                  source={logoImage()}
+                  style={{maxWidth: 100, maxHeight: 50, margin: 5, width: 80, height: 40}}
+                  resizeMode={'contain'}
+                />
+
+              </View>
+
+              <View style={{ flex: 1, paddingTop: '5%' }}>
+                {benefits}
+              </View>
+
+            </View>
+
+
+            <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginBottom: 25, flex: 5}}>
+              <View style={{ flexDirection: 'column', justifyContent: 'flex-end'}}>
+                <Text style={[styles.whiteText, { fontSize: 33, fontFamily: 'Figtree-ExtraBold'}]}>
+                  {item.title}
+                </Text>
+                <Text style={[styles.whiteText, { paddingRight: 8, fontWeight: 'bold', fontSize: 20}]}>
+                  {item.department}
+                </Text>
+              </View>
+
+            </View>
           </View>
-        </View>
+        </LinearGradient>
       </ImageBackground>
-      <View style={styles.substitutionCardInfoBar}>
-        <View>
-          <Text style={styles.substitutionCardInfoBarLeftElement}>
-            {formatDate(item.date)} 
+
+
+      <View style={styles.recommendationCardInfoBarElement}>
+        <View style={{flexDirection: 'column', flex: 1, justifyContent: 'space-between'}}>
+          <Text style={styles.whiteText}>
+            {formatDate(item.timing.startTime)}
           </Text>
-          <Text style={styles.substitutionCardInfoBarLeftElement}>
-            {formatTime(item.date, item.timing.duration)} 
+          <Text style={styles.whiteText}>
+            {formatTime(item.timing.startTime, item.timing.duration)}
           </Text>
         </View>
-        <View>
-          <Text style={styles.substitutionCardInfoBarRightTopElement}>
+        <View style={{flexDirection: 'column', alignItems: 'flex-end', flex:2}}>
+          <Text style={styles.substItemOrganisationText}>
             {item.organisation}
           </Text>
-          <Text style={styles.substitutionCardInfoBarRighBotElement}>
-            {calculateDistance(
-              parseFloat(item.coordinates.latitude), 
-              parseFloat(item.coordinates.longitude),
-              65.05941,
-              25.46642
-            )}
+          <Text style={styles.whiteText}>
+            {calculateDistance(item.location)}
           </Text>
         </View>
       </View>

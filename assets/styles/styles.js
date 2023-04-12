@@ -166,9 +166,9 @@ export default StyleSheet.create({
   recommendationCardInfoBarElement: {
     backgroundColor: Colors.krBlue,
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginTop: 20,
-    padding: 10
+    minHeight: 50,
+    paddingHorizontal: 16,
+    paddingVertical: 8,
   },
   recommendationCardInfoBarLeftElement: {
     alignSelf: 'flex-start',
@@ -279,9 +279,7 @@ export default StyleSheet.create({
     backgroundColor: Colors.krBlue,
     flexDirection: 'row',
     justifyContent: 'space-evenly',
-    marginTop: 20,
-    padding: 10,
-    paddingHorizontal: '10%'
+    padding: 10
   },
   substitutionCardInfoBarLeftElement: {
     alignSelf: 'flex-start',
@@ -294,8 +292,8 @@ export default StyleSheet.create({
     fontSize: 13
   },
   substitutionCardInfoBarRightTopElement: {
-    alignItems: 'flex-end',
-    alignSelf: 'flex-end',
+    alignItems: 'flex-start',
+    alignSelf: 'flex-start',
     color: 'white',
     flexDirection: 'column',
     flex:2,
@@ -304,17 +302,15 @@ export default StyleSheet.create({
   substitutionCardInfoElement: {
     alignItems: 'flex-start',
     flexDirection: 'column',
-    height: '15%',
-    paddingLeft: 10,
-    paddingTop: '10%'
+    padding: 20,
   },
+
   substitutionCardSalaryItem: {
     flexDirection: 'row',
     flexWrap: 'nowrap',
     justifyContent: 'flex-end',
     padding: 10
   },
-
   substitutionContainer: {
     alignItems: 'center',
     flex: 1,
@@ -471,7 +467,7 @@ export default StyleSheet.create({
   whiteText: {
     color: Colors.textLight,
     opacity: 0.85,
-  }
+  },
 
 },
 
