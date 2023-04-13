@@ -9,8 +9,6 @@ const GigConfirmedPopup = ({ route, navigation }) => {
 
   const { substitution, waitingForConfirmation} = route.params
 
-  console.log(waitingForConfirmation)
-
   if (!waitingForConfirmation) {
     return (
       <View style={{flex: 1, justifyContent: 'flex-end'}}>
