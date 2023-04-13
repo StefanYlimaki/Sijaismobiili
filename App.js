@@ -18,7 +18,7 @@ import { LocaleContext } from './contexts/LocaleContext'
 import { UserInformationStack } from './screens/UserInformation/UserInformationStack'
 import SubstitutionCard from './components/SubstitutionCard'
 import UpcomingGigsList from './components/UpcomingGigsList'
-import {colors} from "./assets/styles/colors";
+import {colors} from './assets/styles/colors'
 import GigConfirmedPopup from './components/GigConfirmedPopup'
 
 const Stack = createNativeStackNavigator()
