@@ -18,13 +18,14 @@ import { LocaleContext } from './contexts/LocaleContext'
 import { UserInformationStack } from './screens/UserInformation/UserInformationStack'
 import SubstitutionCard from './components/SubstitutionCard'
 import UpcomingGigsList from './components/UpcomingGigsList'
+import {colors} from "./assets/styles/colors";
 
 const Stack = createNativeStackNavigator()
 
 const AppTheme = {
   dark: false,
   colors: {
-    primary: krGreen,
+    primary: colors.krGreen,
     background: 'rgb(255, 255, 255)',
     card: 'rgb(255, 255, 255)',
     text: 'rgb(28, 28, 30)',
