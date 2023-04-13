@@ -9,7 +9,8 @@ import {
   Image,
   Animated,
   PanResponder,
-  ImageBackground
+  ImageBackground,
+  Alert
 } from 'react-native'
 import React, {useRef, useState} from 'react'
 import Constants from 'expo-constants'
@@ -78,9 +79,7 @@ const renderSubstitution = (item, navigation) => {
             speed: 24
           }
           ).start(() => {
-            acceptSubstitution(item)
             navigateToPopUp(navigation, item)
-
           })
 
         //Deny / Left swipe
@@ -237,7 +236,6 @@ const renderSubstitution = (item, navigation) => {
           navigation.pop()
         }}
         acceptCallback={()=>{
-          acceptSubstitution(item)
           navigateToPopUp(navigation, item)
         }}
       />
