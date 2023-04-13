@@ -78,9 +78,16 @@ const renderSubstitution = (item, navigation) => {
             speed: 24
           }
           ).start(() => {
-            acceptSubstitution(item)
-            navigateToPopUp(navigation, item)
+            const nowInMillis = new Date().getTime()
+            const subStartTime = new Date(item.timing.startTime)
+            const subsStartTimeInMillis = subStartTime.getTime()
 
+            if(nowInMillis > subsStartTimeInMillis){
+              alert('Et voi kiinnittäytyä jo alkaneeseen vuoroon')
+            } else {
+              acceptSubstitution(item)
+              navigateToPopUp(navigation, item)
+            }
           })
 
         //Deny / Left swipe
@@ -237,8 +244,17 @@ const renderSubstitution = (item, navigation) => {
           navigation.pop()
         }}
         acceptCallback={()=>{
-          acceptSubstitution(item)
-          navigateToPopUp(navigation, item)
+          const nowInMillis = new Date().getTime()
+          const subStartTime = new Date(item.timing.startTime)
+          const subsStartTimeInMillis = subStartTime.getTime()
+
+          if(nowInMillis > subsStartTimeInMillis){
+            alert('Et voi kiinnittäytyä jo alkaneeseen vuoroon')
+          } else {
+            acceptSubstitution(item)
+            navigateToPopUp(navigation, item)
+          }
+          
         }}
       />
     </Animated.View>
