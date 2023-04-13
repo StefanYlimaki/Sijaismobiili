@@ -1,8 +1,6 @@
 
 import {
   Pressable,
-  Component,
-  StyleSheet,
   Text,
   View,
   Dimensions,
@@ -111,7 +109,7 @@ const renderSubstitution = (item, navigation) => {
   //Rotate card based on how far it has been dragged
   const rotatePosition = position.x.interpolate({
     inputRange: [-SCREEN_WIDTH / 2, 0, SCREEN_WIDTH / 2],
-    outputRange: ['-10deg', '0deg', '10deg'],
+    outputRange: ['-10deg', '0deg', '0deg'],
     extrapolate: 'clamp'
   })
 
@@ -120,10 +118,11 @@ const renderSubstitution = (item, navigation) => {
     transform: [
       {rotate: rotatePosition},
       {translateX: position.x},
-      {translateY: position.y}
+      {translateY: position.y},
+      {rotateY: position.x.interpolate({ inputRange: [-SCREEN_WIDTH / 2, 0, SCREEN_WIDTH / 2], outputRange: ['90deg', '0deg', '0deg'], extrapolate: 'clamp' })},
+      {scale: position.x.interpolate({ inputRange: [-SCREEN_WIDTH / 2, 0, SCREEN_WIDTH / 2], outputRange: [0.7, 1, 1.1], extrapolate: 'clamp' })},
     ]
   }
-
 
   //Render cards from JSON
   const benefits = item.benefits.map((benefit, i) => {
@@ -176,7 +175,7 @@ const renderSubstitution = (item, navigation) => {
       style={[
         rotateAndTranslate,
         {
-          height: SCREEN_HEIGHT - 120,
+          height: SCREEN_HEIGHT - 250,
           width: SCREEN_WIDTH,
         },
         styles.substitutionCardAnimated
@@ -257,7 +256,7 @@ const renderSubstitution = (item, navigation) => {
 
       </View>
 
-      <View style={{paddingHorizontal: 16}}>
+      <View style={{paddingHorizontal: 16, flex: 3}}>
         <Pressable >
           <Text>{item.description}</Text>
         </Pressable>
