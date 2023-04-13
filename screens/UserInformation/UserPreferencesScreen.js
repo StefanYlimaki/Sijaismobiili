@@ -70,7 +70,7 @@ function UserPreferencesScreen() {
           alignItems: 'center',
           flexDirection: 'row',
         }}>
-        <ActivityIndicator size="large" color= {krBlue} />
+        <ActivityIndicator size="large" color= {colors.krBlue} />
       </View>
     )
   }

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { StyleSheet, View, Text, Pressable } from 'react-native'
 import styles from '../assets/styles/styles'
-import * as Colors from '../assets/styles/colors.js'
+import { colors } from '../assets/styles/colors'
 import DropDownPicker from 'react-native-dropdown-picker'
 
 const FilterModal = ({ substitutions, selectedOrder, selectedShift, search, value, setValue, filterSubstitutions}) => {
@@ -88,7 +88,7 @@ const FilterModal = ({ substitutions, selectedOrder, selectedShift, search, valu
 
 const stylesTest = StyleSheet.create({
   filterButton: {
-    borderColor: Colors.krBlue,
+    borderColor: colors.krBlue,
     borderRadius: 100,
     borderWidth: 2,
     marginRight: 10,
@@ -99,8 +99,8 @@ const stylesTest = StyleSheet.create({
     paddingTop: 5,
   },
   filterButtonActive: {
-    backgroundColor: Colors.krGreen,
-    borderColor: Colors.krGreen,
+    backgroundColor: colors.krGreen,
+    borderColor: colors.krGreen,
     borderRadius: 100,
     borderWidth: 2,
     marginRight: 10,
@@ -111,11 +111,11 @@ const stylesTest = StyleSheet.create({
     paddingTop: 5,
   },
   filterButtonText: {
-    color: Colors.textDark,
+    color: colors.textDark,
     textAlign: 'center',
   },
   filterButtonTextActive: {
-    color: Colors.textLight,
+    color: colors.textLight,
     textAlign: 'center',
   },
   filterContainer: {

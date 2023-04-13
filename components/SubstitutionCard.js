@@ -16,12 +16,11 @@ import React, {useRef, useState} from 'react'
 import Constants from 'expo-constants'
 import { BlurView } from 'expo-blur'
 import styles from '../assets/styles/styles'
-import { krBlue } from '../assets/styles/colors'
 import {formatDate, formatHourlyPay, formatTime} from '../utils'
 import calculateDistance from '../utils/calculateDistance'
 import DenyBookmarkAndAcceptButton from '../components/DenyBookmarkAndAcceptButtons'
 import acceptSubstitution from '../utils/acceptSubstitution'
-import { krGreenLight } from '../assets/styles/colors'
+import { colors } from '../assets/styles/colors'
 import {LinearGradient} from 'expo-linear-gradient'
 
 const SCREEN_HEIGHT = Dimensions.get('window').height

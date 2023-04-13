@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { StyleSheet, View, Text, Pressable } from 'react-native'
 import styles from '../assets/styles/styles'
 import { formatDate, formatHourlyPay } from '../utils'
-import * as Colors from '../assets/styles/colors.js'
+import { colors } from '../assets/styles/colors'
 import { Icon } from '@rneui/themed'
 
 const GigConfirmedPopup = ({ route, navigation }) => {
@@ -22,7 +22,7 @@ const GigConfirmedPopup = ({ route, navigation }) => {
             </View>
             <View style={{flex: 1, marginRight: 7}}>
               <Pressable onPress={() => {navigation.pop()}}>
-                <Icon name='close-circle-outline' type="material-community" color={Colors.textLight}/>
+                <Icon name='close-circle-outline' type="material-community" color={colors.textLight}/>
               </Pressable>
             </View>
           </View>
@@ -68,7 +68,7 @@ const GigConfirmedPopup = ({ route, navigation }) => {
             </View>
             <View style={{flex: 1, marginRight: 7}}>
               <Pressable onPress={() => {navigation.pop()}}>
-                <Icon name='close-circle-outline' type="material-community" color={Colors.textLight}/>
+                <Icon name='close-circle-outline' type="material-community" color={colors.textLight}/>
               </Pressable>
             </View>
           </View>
