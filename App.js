@@ -19,6 +19,7 @@ import { fi, se, en } from './assets/data/localisation/localisations'
 import { LocaleContext } from './contexts/LocaleContext'
 import { UserInformationStack } from './screens/UserInformation/UserInformationStack'
 import SubstitutionCard from './components/SubstitutionCard'
+import UpcomingGigsList from './components/UpcomingGigsList'
 
 const Stack = createNativeStackNavigator()
 
@@ -81,6 +82,7 @@ export default function App() {
                 <Stack.Screen name="SingleSubstitution" component={ SingleSubstitutionScreen } />
                 <Stack.Screen name='SubstitutionCard' component={SubstitutionCard} options={{ presentation: 'transparentModal', headerShown: false }}/>
                 <Stack.Screen name="ConfirmSubstitution" component={AcceptSubstitutionPopUp} options={{ presentation: 'transparentModal', headerShown: false}}/>
+                <Stack.Screen name="UpcomingGigsList" component={UpcomingGigsList} options={{ presentation: 'transparentModal', headerShown: false}}/>
               </Stack.Navigator>
             </View>
           </NavigationContainer>
