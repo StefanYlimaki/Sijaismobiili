@@ -1,5 +1,6 @@
 import { useContext } from 'react'
 import { LocaleContext } from '../contexts/LocaleContext'
+import { Platform } from 'react-native'
 
 export function formatTime(timestamp, duration) {
   const { locale } = useContext(LocaleContext)
