@@ -2,7 +2,7 @@
 import React from 'react'
 import {View, Text, Button, Pressable} from 'react-native'
 import RecommendationView from './RecommendationView'
-import { krGreen } from '../../assets/styles/colors'
+import { colors } from '../../assets/styles/colors'
 import {CommonActions} from '@react-navigation/native'
 
 
@@ -36,7 +36,7 @@ const SwipeScreen = ({ navigation }) => {
       >
         <View style={{
           padding: 20,
-          backgroundColor: krGreen,
+          backgroundColor: colors.krGreen,
           borderRadius: 20
         }}
         >

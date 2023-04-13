@@ -7,12 +7,10 @@ import { useFonts } from 'expo-font'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
 import * as Localisation from 'expo-localization'
 import { I18n } from 'i18n-js'
-
 import CustomStatusBar from './components/CustomStatusBar'
 import SwipeScreen from './screens/SwipeScreen/SwipeScreen'
 import AppTabs from './screens/MainApplication/AppTabs'
 import styles from './assets/styles/styles.js'
-import { krGreen } from './assets/styles/colors'
 import SingleSubstitutionScreen from './screens/SingleSubstitutionScreen'
 import AcceptSubstitutionPopUp from './components/AcceptSubstitutionPopUp'
 import { fi, se, en } from './assets/data/localisation/localisations'
@@ -70,7 +68,7 @@ export default function App() {
         <LocaleContext.Provider value={{ i18n, locale, setLocale }}>
           <NavigationContainer theme={ AppTheme }>
             <View style={ styles.container }>
-              <CustomStatusBar backgroundColor={ krGreen } />
+              <CustomStatusBar backgroundColor={ colors.krGreen } />
               <Stack.Navigator
                 screenOptions={{headerShown: false
                 }}
