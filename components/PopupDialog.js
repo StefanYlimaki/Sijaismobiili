@@ -1,5 +1,4 @@
 import { View, Text, StyleSheet, Pressable , Animated} from 'react-native'
-import * as Colors from '../assets/styles/colors.js'
 import { Icon } from '@rneui/themed'
 import styles from '../assets/styles/styles'
 
