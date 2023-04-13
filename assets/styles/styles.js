@@ -147,13 +147,12 @@ export default StyleSheet.create({
     marginTop: 32,
     paddingHorizontal: 16,
   },
-  
-
   prefSlider: {
+    marginHorizontal: 15,
     paddingBottom: 30,
     paddingTop: 30,
     //thumbTintColor : Colors.krGreen,
-    width: '100%'
+    width: '90%'
   },
   pressedSubstitutionItem: {
     opacity: 0.9,

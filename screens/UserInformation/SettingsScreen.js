@@ -54,8 +54,8 @@ function SettingsScreen({navigation}) {
           <View style={styles.languageButtonsContainer}>
 
             <Pressable
-              style={locale==='fi' ? styles.languageButton : styles.languageButtonDisabled}
-              onPress={() => {setLocale('fi')}}
+              style={locale==='fi-FI' ? styles.languageButton : styles.languageButtonDisabled}
+              onPress={() => {setLocale('fi-FI')}}
             >
               <Text style={styles.buttonText}>Finnish</Text>
             </Pressable>

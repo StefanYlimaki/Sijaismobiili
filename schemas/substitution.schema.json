@@ -99,7 +99,11 @@
         "image": {
             "description": "URL that retrieves an image",
             "type": "string"
+        },
+        "needsConfirmation": {
+            "description": "A boolean describing whether the registration needs confirmation or not",
+            "type": "boolean"
         }
     },
-    "required": [ "id", "title", "description", "organisation", "location", "timing", "hourlyPay" ]
+    "required": [ "id", "date", "title", "description", "organisation", "location", "timing", "hourlyPay", "needsConfirmation" ]
 }
