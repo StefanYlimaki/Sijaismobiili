@@ -13,7 +13,7 @@
 
 #### 2. Open the Expo Go application.
 
-#### 3. Select "Enter URL manually"
+#### 3. Select "Scan QR code" or "Enter URL manually"
 
 ##### 3.1 Scan this QR-code: ![Capture7](https://user-images.githubusercontent.com/71447366/216351205-f5f2f5d9-b41e-4cd9-9cf0-417f4d89e0fe.PNG)
 
