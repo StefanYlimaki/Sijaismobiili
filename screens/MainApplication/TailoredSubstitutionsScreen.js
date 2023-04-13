@@ -1,5 +1,5 @@
 import {ActivityIndicator, Text, View} from 'react-native'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 
 import SubstitutionsList from '../../components/SubstitutionsList'
 import substitutions from '../../assets/data/substitutionsData_new.json'
@@ -14,6 +14,7 @@ const TailoredSubsitutions = ({ route, navigation }) => {
 
   const [loading, setLoading] = useState(true)
   const [tailoredSubstitutions, setTailoredSubstitutions] = useState([])
+
 
   async function callOrderAndFilterSubstitutionsByPreferences() {
     const UserUpdatedAt = await AsyncStorage.getItem('updatedAt')

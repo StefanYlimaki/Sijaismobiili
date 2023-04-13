@@ -19,6 +19,7 @@ import { UserInformationStack } from './screens/UserInformation/UserInformationS
 import SubstitutionCard from './components/SubstitutionCard'
 import UpcomingGigsList from './components/UpcomingGigsList'
 import {colors} from "./assets/styles/colors";
+import GigConfirmedPopup from './components/GigConfirmedPopup'
 
 const Stack = createNativeStackNavigator()
 
@@ -82,6 +83,7 @@ export default function App() {
                 <Stack.Screen name='SubstitutionCard' component={SubstitutionCard} options={{ presentation: 'transparentModal', headerShown: false }}/>
                 <Stack.Screen name="ConfirmSubstitution" component={AcceptSubstitutionPopUp} options={{ presentation: 'transparentModal', headerShown: false}}/>
                 <Stack.Screen name="UpcomingGigsList" component={UpcomingGigsList} options={{ presentation: 'transparentModal', headerShown: false}}/>
+                <Stack.Screen name="GigConfirmedPopup" component={GigConfirmedPopup} options={{ presentation: 'transparentModal', headerShown: false}}/>
               </Stack.Navigator>
             </View>
           </NavigationContainer>
