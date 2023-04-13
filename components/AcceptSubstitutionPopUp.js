@@ -1,7 +1,6 @@
-import { krBlue, krGreen, textLight } from '../assets/styles/colors'
 import PopupDialog from './PopupDialog'
 import { View, Text, Pressable, StyleSheet, Alert } from 'react-native'
-import { success } from '../assets/styles/colors'
+import { colors } from '../assets/styles/colors'
 import { formatDate, formatTime } from '../utils'
 import acceptSubstitution from '../utils/acceptSubstitution'
 import { CommonActions } from '@react-navigation/native'
@@ -31,7 +30,7 @@ const AcceptSubstitutionPopUp = ({route, navigation}) => {
   } else {
 
     return (
-      <PopupDialog headerText={'No voi kun kiva!'} headerColor={krBlue} navigation={navigation} 
+      <PopupDialog headerText={'No voi kun kiva!'} headerColor={colors.krBlue} navigation={navigation}
         popCount={2}>
         <View>
 
@@ -62,7 +61,7 @@ const AcceptSubstitutionPopUp = ({route, navigation}) => {
               </Text>
             </View>
           </View>
-          <View style={{borderRadius: 20, backgroundColor: success, marginTop: 20}}>
+          <View style={{borderRadius: 20, backgroundColor: colors.success, marginTop: 20}}>
             <Pressable style={styles.acceptButton} onPress={()=> {
               const nowInMillis = new Date().getTime()
               const subStartTime = new Date(route.params.substitution.timing.startTime)
@@ -101,7 +100,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     alignSelf: 'center', 
-    color: textLight, 
+    color: colors.textLight,
     fontFamily: 'Inter-DisplayBlack',
     fontSize: 25, 
     fontWeight: 'bold'
