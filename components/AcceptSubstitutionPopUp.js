@@ -56,7 +56,7 @@ const AcceptSubstitutionPopUp = ({route, navigation}) => {
               </Text>
             </View>
             <View style={{flex:1}}>
-              <Text style={{fontWeight:'bold', alignSelf: 'flex-end', color:krGreen}}>
+              <Text style={{fontWeight:'bold', alignSelf: 'flex-end', color: colors.krGreen}}>
                 {route.params.substitution.hourlyPay + '€/h'}
               </Text>
             </View>
