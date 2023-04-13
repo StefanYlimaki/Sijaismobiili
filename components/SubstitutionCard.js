@@ -79,16 +79,7 @@ const renderSubstitution = (item, navigation) => {
             speed: 24
           }
           ).start(() => {
-            const nowInMillis = new Date().getTime()
-            const subStartTime = new Date(item.timing.startTime)
-            const subsStartTimeInMillis = subStartTime.getTime()
-
-            if(nowInMillis > subsStartTimeInMillis){
-              Alert.alert('Kiinnittäytyminen ei onnistunut','Et voi kiinnittäytyä jo alkaneeseen vuoroon', [{ text: 'Selvä', style: 'cancel' }])
-              navigation.pop()
-            } else {
-              navigateToPopUp(navigation, item)
-            }
+            navigateToPopUp(navigation, item)
           })
 
         //Deny / Left swipe
@@ -245,16 +236,7 @@ const renderSubstitution = (item, navigation) => {
           navigation.pop()
         }}
         acceptCallback={()=>{
-          const nowInMillis = new Date().getTime()
-          const subStartTime = new Date(item.timing.startTime)
-          const subsStartTimeInMillis = subStartTime.getTime()
-
-          if(nowInMillis > subsStartTimeInMillis){
-            Alert.alert('Kiinnittäytyminen ei onnistunut','Et voi kiinnittäytyä jo alkaneeseen vuoroon', [{ text: 'Selvä', style: 'cancel' }])
-          } else {
-            navigateToPopUp(navigation, item)
-          }
-          
+          navigateToPopUp(navigation, item)
         }}
       />
     </Animated.View>
