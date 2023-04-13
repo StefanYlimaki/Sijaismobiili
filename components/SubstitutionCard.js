@@ -9,7 +9,8 @@ import {
   Image,
   Animated,
   PanResponder,
-  ImageBackground
+  ImageBackground,
+  Alert
 } from 'react-native'
 import React, {useRef, useState} from 'react'
 import Constants from 'expo-constants'
@@ -83,7 +84,8 @@ const renderSubstitution = (item, navigation) => {
             const subsStartTimeInMillis = subStartTime.getTime()
 
             if(nowInMillis > subsStartTimeInMillis){
-              alert('Et voi kiinnittäytyä jo alkaneeseen vuoroon')
+              Alert.alert('Kiinnittäytyminen ei onnistunut','Et voi kiinnittäytyä jo alkaneeseen vuoroon', [{ text: 'Selvä', style: 'cancel' }])
+              navigation.pop()
             } else {
               acceptSubstitution(item)
               navigateToPopUp(navigation, item)
@@ -249,7 +251,7 @@ const renderSubstitution = (item, navigation) => {
           const subsStartTimeInMillis = subStartTime.getTime()
 
           if(nowInMillis > subsStartTimeInMillis){
-            alert('Et voi kiinnittäytyä jo alkaneeseen vuoroon')
+            Alert.alert('Kiinnittäytyminen ei onnistunut','Et voi kiinnittäytyä jo alkaneeseen vuoroon', [{ text: 'Selvä', style: 'cancel' }])
           } else {
             acceptSubstitution(item)
             navigateToPopUp(navigation, item)
