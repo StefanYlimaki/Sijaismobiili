@@ -57,8 +57,10 @@ const AcceptSubstitutionPopUp = ({route, navigation}) => {
             if (route.params.caller == 'RecommendationView') {
               navigation.navigate('MainApplication')
               dispatcher()
+              navigation.navigate('GigConfirmedPopup', {substitution: route.params.substitution, waitingForConfirmation: route.params.substitution.needsConfirmation})
             } else if (route.params.caller == 'SubstitutionCard') {
               navigation.pop(2)
+              navigation.navigate('GigConfirmedPopup', {substitution: route.params.substitution, waitingForConfirmation: route.params.substitution.needsConfirmation})
             }
           }}>
             <Text style={styles.buttonText}>{'Otan keikan!'}</Text>
