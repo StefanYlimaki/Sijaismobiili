@@ -19,12 +19,8 @@ const SWIPE_THRESHOLD = 120
 const RecommendationView = ({navigation}) => {
   return (
     <View style={{flex:1}}>
-      <View style={{height:60}}>
-      </View>
       <View style={{flex:1}}>
         {renderSubstitutions(navigation)}
-      </View>
-      <View style={{height:60}}>
       </View>
     </View>
   )
@@ -135,7 +131,7 @@ const renderSubstitutions = (navigation) => {
           }
           key={i}
           >
-            <Text>
+            <Text style={{color: 'white', fontFamily: 'Inter-Display', fontSize: 10}}>
               {benefit}
             </Text>
           </View>
@@ -156,8 +152,8 @@ const renderSubstitutions = (navigation) => {
             //If card is NOT on top, apply opacity
             (i != currentIndex? {opacity: nextCardOpacity}: null),
             {
-              height: SCREEN_HEIGHT - 120,
-              width: SCREEN_WIDTH,
+              height: SCREEN_HEIGHT - 250,
+              width: SCREEN_WIDTH - 30,
             },
             styles.recommendationCardAnimated
           ]}
@@ -166,10 +162,10 @@ const renderSubstitutions = (navigation) => {
             {benefits}
           </View>
           <View style={styles.recommendationCardInfoElement}>
-            <Text style={{fontWeight: 'bold', fontSize: 30}}>
+            <Text style={{fontSize: 20, fontFamily: 'Inter-Display'}}>
               {item.title}
             </Text>
-            <Text style={{fontSize: 20}}>
+            <Text style={{fontWeight: 'bold', fontSize: 30, fontFamily: 'Inter-Display'}}>
               {item.department}
             </Text>
 
@@ -206,6 +202,11 @@ const renderSubstitutions = (navigation) => {
               {'(~' + Math.floor(item.hourlyPay * (item.timing.duration/60)) + '€)'}
             </Text>
 
+          </View>
+          <View style={{paddingHorizontal: 20}}>
+            <Text style={{textAlign: 'center'}}>
+              {item.description}
+            </Text>
           </View>
 
           <DenyBookmarkAndAcceptButton

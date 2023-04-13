@@ -158,10 +158,10 @@ export default StyleSheet.create({
     opacity: 0.9,
   },
   recommendationCardAnimated: {
-    backgroundColor: 'white',
+    alignSelf: 'center',
+    backgroundColor: '#F6F6F6',
     borderRadius: 20,
     position: 'absolute',
-    resizeMode: 'cover',
   },
   recommendationCardInfoBarElement: {
     backgroundColor: Colors.krBlue,
