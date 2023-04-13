@@ -87,7 +87,6 @@ const renderSubstitution = (item, navigation) => {
               Alert.alert('Kiinnittäytyminen ei onnistunut','Et voi kiinnittäytyä jo alkaneeseen vuoroon', [{ text: 'Selvä', style: 'cancel' }])
               navigation.pop()
             } else {
-              acceptSubstitution(item)
               navigateToPopUp(navigation, item)
             }
           })
@@ -253,7 +252,6 @@ const renderSubstitution = (item, navigation) => {
           if(nowInMillis > subsStartTimeInMillis){
             Alert.alert('Kiinnittäytyminen ei onnistunut','Et voi kiinnittäytyä jo alkaneeseen vuoroon', [{ text: 'Selvä', style: 'cancel' }])
           } else {
-            acceptSubstitution(item)
             navigateToPopUp(navigation, item)
           }
           
