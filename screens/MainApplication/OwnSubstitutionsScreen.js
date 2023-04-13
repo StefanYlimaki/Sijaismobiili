@@ -9,8 +9,6 @@ import substitutions from '../../assets/data/substitutionsData_new.json'
 import UpcomingGigs from '../../components/UpcomingGigs'
 import { getUserData } from '../../utils'
 
-let userSubstitutions = []
-
 const OwnSubstitutionsScreen = ({ navigation }) => {
 
   LocaleConfig.locales['fi'] = {
@@ -38,6 +36,7 @@ const OwnSubstitutionsScreen = ({ navigation }) => {
   let today = new Date().toDateString()
   const [selected, setSelected] = useState(today)
   const [item, setItem] = useState('')
+  const [userSubstitutions, setUserSubstitutions] = useState()
 
   useEffect(() => {
     async function fetchUserSubstitutions() {
@@ -47,7 +46,7 @@ const OwnSubstitutionsScreen = ({ navigation }) => {
         userData.substitutions = []
       }
 
-      userSubstitutions = userData.substitutions
+      setUserSubstitutions(userData.substitutions)
     }
 
     fetchUserSubstitutions()
@@ -94,8 +93,8 @@ const OwnSubstitutionsScreen = ({ navigation }) => {
         </View>
       </View>
       
-      {/* TODO: Vaihda substitutions keikkoihin johon on ilmottauduttu */}
-      <UpcomingGigs substIDs={userSubstitutions} navigation={navigation}/>
+      
+      {userSubstitutions && <UpcomingGigs substIDs={userSubstitutions} navigation={navigation}/>}
     </View>
   )
 }
