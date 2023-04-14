@@ -18,7 +18,7 @@ const OwnSubstitutionsScreen = ({ navigation }) => {
 
   return (
     <View style={{ justifyContent: 'space-between' }}>
-      <View style={{ flexDirection: "row", justifyContent: 'flex-start', paddingHorizontal: '5%' }}>
+      <View style={{ flexDirection: 'row', justifyContent: 'flex-start', paddingHorizontal: '5%' }}>
         <Pressable style={{ paddingRight: '5%' }} onPress={() => setIsMonth(true)}><Text>{i18n.t('month')}</Text></Pressable>
         <Pressable style={{ paddingLeft: '5%' }} onPress={() => setIsMonth(false)}><Text>{i18n.t('week')}</Text></Pressable>
       </View>
