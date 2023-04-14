@@ -5,29 +5,57 @@ import styles from '../../assets/styles/styles'
 import calculateDistance from '../../utils/calculateDistance'
 import { formatDate, formatTime } from '../../utils'
 import DenyBookmarkAndAcceptButton from '../../components/DenyBookmarkAndAcceptButtons'
-import acceptSubstitution from '../../utils/acceptSubstitution'
 import userData from '../../assets/data/userData.json'
 import { CommonActions } from '@react-navigation/native'
-import { sub } from 'react-native-reanimated'
+import { orderAndFilterSubstitutionsByPreferences } from '../../utils/orderAndFilterSubstitutionsByPreferences'
+import { StyleSheet } from 'react-native-web'
+import { colors } from '../../assets/styles/colors'
 
 const SCREEN_HEIGHT = Dimensions.get('window').height
 const SCREEN_WIDTH = Dimensions.get('window').width
+
+//Count of cards shown to the user
+const CARD_COUNT = 5
 
 //Threshold for registering swipes
 const SWIPE_THRESHOLD = 120
 
 const RecommendationView = ({navigation}) => {
-  return (
-    <View style={{flex:1}}>
-      <View style={{height:60}}>
+  const [tailoredSubstitutions, setTailoredSubstitutions] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  async function callOrderAndFilterSubstitutionsByPreferences() {
+    const result = await orderAndFilterSubstitutionsByPreferences(substitutions)
+
+    //Get first CARD_COUNT elements of substitutions
+    setTailoredSubstitutions(result.slice(0, CARD_COUNT))
+
+    setLoading(false)
+  }
+
+  useState(() => {
+    const getSubstitutions = async () => {
+      await callOrderAndFilterSubstitutionsByPreferences()
+    }
+
+    getSubstitutions()
+  })
+
+  if (loading) {
+    return (
+      <View>
+        <Text>Loading...</Text>
       </View>
+    )
+  } else {
+    return (
       <View style={{flex:1}}>
-        {renderSubstitutions(navigation)}
+        <View style={{flex:1}}>
+          <RecommendationCards navigation={navigation} substitutions={tailoredSubstitutions}/>
+        </View>
       </View>
-      <View style={{height:60}}>
-      </View>
-    </View>
-  )
+    )
+  }
 }
 
 const navigateToPopUp = (navigation, currentIndex) => {
@@ -38,10 +66,25 @@ const navigateToPopUp = (navigation, currentIndex) => {
 }
 
 
-const renderSubstitutions = (navigation) => {
+
+
+const RecommendationCards = ({navigation, substitutions}) => {
   //Position variable for card on top
   const position = useRef(new Animated.ValueXY()).current
   const [currentIndex, incrementIndex] = useState(0)
+
+
+  const dispatcher = (navigation) => {
+    navigation.dispatch(
+      CommonActions.reset({
+        index: 1,
+        routes: [
+          { name: 'MainApplication' },
+        ],
+      })
+    )
+  }
+
 
   //Create panresponder for swiping cards
   const panResponder = useRef(
@@ -65,7 +108,6 @@ const renderSubstitutions = (navigation) => {
             position.setValue({x: 0, y: 0})
             incrementIndex(prevIndex => prevIndex + 1)
             navigateToPopUp(navigation, currentIndex)
-            acceptSubstitution(substitutions[currentIndex])
           })
 
         //Deny / Left swipe
@@ -124,9 +166,15 @@ const renderSubstitutions = (navigation) => {
 
   //Render cards from JSON
   return substitutions.map((item, i) => {
+    if (currentIndex > CARD_COUNT - 1) {
+      navigation.navigate('MainApplication')
+      dispatcher(navigation)
+    }
+
     if (i < currentIndex) {
       return null
     } else {
+
 
       const benefits = item.benefits.map((benefit, i) => {
         return (
@@ -135,7 +183,7 @@ const renderSubstitutions = (navigation) => {
           }
           key={i}
           >
-            <Text>
+            <Text style={{color: 'white', fontFamily: 'Inter-Display', fontSize: 10}}>
               {benefit}
             </Text>
           </View>
@@ -156,38 +204,38 @@ const renderSubstitutions = (navigation) => {
             //If card is NOT on top, apply opacity
             (i != currentIndex? {opacity: nextCardOpacity}: null),
             {
-              height: SCREEN_HEIGHT - 120,
-              width: SCREEN_WIDTH,
+              height: SCREEN_HEIGHT - 250,
+              width: SCREEN_WIDTH - 30,
             },
-            styles.recommendationCardAnimated
+            localStyles.recommendationCardAnimated
           ]}
         >
           <View style={{paddingTop:10}}>
             {benefits}
           </View>
-          <View style={styles.recommendationCardInfoElement}>
-            <Text style={{fontWeight: 'bold', fontSize: 30}}>
+          <View style={localStyles.recommendationCardInfoElement}>
+            <Text style={{fontSize: 20, fontFamily: 'Inter-Display'}}>
               {item.title}
             </Text>
-            <Text style={{fontSize: 20}}>
+            <Text style={{fontWeight: 'bold', fontSize: 30, fontFamily: 'Inter-Display'}}>
               {item.department}
             </Text>
 
           </View>
-          <View style={styles.recommendationCardInfoBarElement}>
-            <View>
-              <Text style={styles.recommendationCardInfoBarLeftElement}>
+          <View style={localStyles.recommendationCardInfoBarElement}>
+            <View style={{flex:1}}>
+              <Text style={localStyles.recommendationCardInfoBarLeftElement}>
                 {formatDate(item.date)} 
               </Text>
-              <Text style={styles.recommendationCardInfoBarLeftElement}>
+              <Text style={localStyles.recommendationCardInfoBarLeftElement}>
                 {formatTime(item.date, item.timing.duration)} 
               </Text>
             </View>
-            <View>
-              <Text style={styles.recommendationCardInfoBarRightElement}>
+            <View style={{flex:2, flexShrink: 5}}>
+              <Text style={localStyles.recommendationCardInfoBarRightElement}>
                 {item.organisation}
               </Text>
-              <Text style={styles.recommendationCardInfoBarRightElement}>
+              <Text style={localStyles.recommendationCardInfoBarRightElement}>
                 {calculateDistance(
                   parseFloat(item.coordinates.latitude), 
                   parseFloat(item.coordinates.longitude),
@@ -198,7 +246,7 @@ const renderSubstitutions = (navigation) => {
             </View>
           </View>
 
-          <View style={styles.recommendationCardSalaryElement}>
+          <View style={localStyles.recommendationCardSalaryElement}>
             <Text style={{fontWeight:'bold', textAlign:'right'}}>
               {item.hourlyPay + '€/h'}
             </Text>
@@ -207,13 +255,17 @@ const renderSubstitutions = (navigation) => {
             </Text>
 
           </View>
+          <View style={{paddingHorizontal: 20}}>
+            <Text style={{textAlign: 'center'}}>
+              {item.description}
+            </Text>
+          </View>
 
           <DenyBookmarkAndAcceptButton
             denyCallback={()=>incrementIndex(prevIndex => prevIndex + 1)}
             bookmarkCallback={()=>incrementIndex(prevIndex => prevIndex + 1)}
             acceptCallback={()=> {
               navigateToPopUp(navigation, currentIndex)
-              acceptSubstitution(substitutions[currentIndex])
             }}
           />
         </Animated.View>
@@ -221,5 +273,50 @@ const renderSubstitutions = (navigation) => {
     }
   }).reverse()
 }
+
+const localStyles = StyleSheet.create({
+  recommendationCardAnimated: {
+    alignSelf: 'center',
+    backgroundColor: '#F6F6F6',
+    borderRadius: 20,
+    position: 'absolute',
+  },
+  recommendationCardInfoBarElement: {
+    backgroundColor: colors.krBlue,
+    flexDirection: 'row',
+    flexGrow: 0.25,
+    height:'auto',
+    justifyContent: 'space-between',
+    marginTop: 20,
+    padding: 10
+  },
+  recommendationCardInfoBarLeftElement: {
+    alignSelf: 'flex-start',
+    color: 'white',
+    fontFamily: 'Inter-DisplaySemiBold',
+    fontSize: 13,
+    opacity: 0.85
+  },
+  recommendationCardInfoBarRightElement: {
+    alignSelf: 'flex-end',
+    color: 'white',
+    flex: 2,
+    flexDirection: 'column',
+    fontFamily: 'Inter-DisplaySemiBold',
+    fontSize: 13,
+    opacity: 0.85,
+  },
+  recommendationCardInfoElement: {
+    flexDirection: 'column',
+    paddingLeft: 10,
+    paddingTop: '25%'
+  },
+  recommendationCardSalaryElement: {
+    flexDirection: 'row',
+    flexWrap: 'nowrap',
+    justifyContent: 'flex-end',
+    padding: 10
+  },
+})
 
 export default RecommendationView

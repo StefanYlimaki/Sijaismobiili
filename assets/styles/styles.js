@@ -156,40 +156,7 @@ const style = StyleSheet.create({
   pressedSubstitutionItem: {
     opacity: 0.9,
   },
-  recommendationCardAnimated: {
-    backgroundColor: 'white',
-    borderRadius: 20,
-    position: 'absolute',
-    resizeMode: 'cover',
-  },
-  recommendationCardInfoBarElement: {
-    backgroundColor: colors.krBlue,
-    flexDirection: 'row',
-    minHeight: 50,
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-  },
-  recommendationCardInfoBarLeftElement: {
-    alignSelf: 'flex-start',
-    color: 'white',
-    fontSize: 13
-  },
-  recommendationCardInfoBarRightElement: {
-    alignSelf: 'flex-end',
-    color: 'white',
-    fontSize: 13
-  },
-  recommendationCardInfoElement: {
-    flexDirection: 'column',
-    paddingLeft: 10,
-    paddingTop: '25%'
-  },
-  recommendationCardSalaryElement: {
-    flexDirection: 'row',
-    flexWrap: 'nowrap',
-    justifyContent: 'flex-end',
-    padding: 10
-  },
+
   removeAccountButton: {
     backgroundColor: colors.danger,
     borderRadius: 100,
