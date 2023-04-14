@@ -5,6 +5,8 @@ import { colors } from '../../assets/styles/colors'
 
 import SubstitutionsList from '../../components/SubstitutionsList'
 import substitutions from '../../assets/data/substitutionsData_new.json'
+import UpcomingGigs from '../../components/UpcomingGigs'
+import { getUserData } from '../../utils'
 
 import { LocaleContext } from '../../contexts/LocaleContext'
 import { ScrollView, TouchableWithoutFeedback } from 'react-native-gesture-handler'
@@ -15,6 +17,21 @@ const OwnSubstitutionsScreen = ({ navigation }) => {
 
   const [isMonth, setIsMonth] = React.useState(true)
   const [item, setItem] = useState('')
+  const [userSubstitutions, setUserSubstitutions] = useState()
+
+  useEffect(() => {
+    async function fetchUserSubstitutions() {
+      const userData = await getUserData()
+
+      if (!userData.substitutions) {
+        userData.substitutions = []
+      }
+
+      setUserSubstitutions(userData.substitutions)
+    }
+
+    fetchUserSubstitutions()
+  })
 
   return (
     <View style={{ justifyContent: 'space-between' }}>
@@ -39,6 +56,9 @@ const OwnSubstitutionsScreen = ({ navigation }) => {
           <Text>{'\n'}Tarkastele palkkakuittiasi</Text>
         </View>
       </View>
+      
+      
+      {userSubstitutions && <UpcomingGigs substIDs={userSubstitutions} navigation={navigation}/>}
     </View>
   )
 }
