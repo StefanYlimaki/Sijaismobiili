@@ -5,14 +5,11 @@ import styles from '../../assets/styles/styles'
 import calculateDistance from '../../utils/calculateDistance'
 import { formatDate, formatTime } from '../../utils'
 import DenyBookmarkAndAcceptButton from '../../components/DenyBookmarkAndAcceptButtons'
-import acceptSubstitution from '../../utils/acceptSubstitution'
 import userData from '../../assets/data/userData.json'
 import { CommonActions } from '@react-navigation/native'
-import { sub } from 'react-native-reanimated'
-import { useEffect } from 'react'
 import { orderAndFilterSubstitutionsByPreferences } from '../../utils/orderAndFilterSubstitutionsByPreferences'
 import { StyleSheet } from 'react-native-web'
-import { colors } from './colors.js'
+import { colors } from '../../assets/styles/colors'
 
 const SCREEN_HEIGHT = Dimensions.get('window').height
 const SCREEN_WIDTH = Dimensions.get('window').width
