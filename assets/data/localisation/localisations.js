@@ -1,5 +1,4 @@
 const fi = {
-
   //UserInfoScreen
   hello: 'Hei',
   loading: 'Ladataan, hetki vain...',

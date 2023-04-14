@@ -13,6 +13,7 @@ export function getCalendar(isMonth) {
 
     let today = new Date().toDateString()
     const { i18n, locale, setLocale } = useContext(LocaleContext)
+    LocaleConfig.locales[locale] = i18n.t('calendar')
     LocaleConfig.defaultLocale = locale
 
     const [item, setItem] = useState('')
@@ -24,7 +25,7 @@ export function getCalendar(isMonth) {
 
     if (isMonth) {
         return (
-            <View style={{ justifyContent: 'space-between', paddingHorizontal: '5%' }}>
+            <View style={{ justifyContent: 'space-between', paddingHorizontal: '5%', }}>
                 <Calendar
                     style={Styles.calendar}
                     headerStyle={{ paddingTop: 5 }}
@@ -51,7 +52,7 @@ export function getCalendar(isMonth) {
                             {selected == today ? <Text> ({i18n.t('calendar.today').toLowerCase()})</Text> : null}
                             {'\n'}{'\n'}
                         </Text>
-                        <Pressable style={{ backgroundColor: Colors.krGray, borderRadius: 9, height: '38%', width: '55%' }}>
+                        <Pressable style={{ backgroundColor: Colors.krGray, borderRadius: 9, height: '42%', width: '55%' }}>
                             <Text style={{ textAlign: 'center' }}>{i18n.t('editAvailability')}</Text>
                         </Pressable>
                     </View>
@@ -62,15 +63,15 @@ export function getCalendar(isMonth) {
         );
     }
     return (
-        <View style={{ justifyContent: 'space-between', paddingHorizontal: '5%' }}>
+        <View style={{  paddingHorizontal: '5%' }}>
             <WeekCalendar
                 style={Styles.calendar}
                 headerStyle={{ paddingTop: 5 }}
+                allowShadow={false}
 
                 firstDay={1}
                 current={selected}
                 markingType={'custom'}
-                hideExtraDays={true}
 
                 onDayPress={day => setSelected(day.dateString)}
                 theme={{
