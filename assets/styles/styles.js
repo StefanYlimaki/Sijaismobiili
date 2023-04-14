@@ -234,6 +234,13 @@ const style = StyleSheet.create({
     opacity: 0.85,
     textAlign: 'right',
   },
+  substItemOrganisationTextDark: {
+    color: colors.textDark,
+    fontFamily: 'Inter-DisplaySemiBold',
+    fontSize: 12,
+    opacity: 0.85,
+    textAlign: 'right',
+  },
   substitutionCardAnimated: {
     alignSelf: 'center',
     backgroundColor: 'white',
