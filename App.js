@@ -5,96 +5,28 @@ import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { useFonts } from 'expo-font'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
-import * as Device from 'expo-device'
-import * as Notifications from 'expo-notifications'
 import * as Localisation from 'expo-localization'
 import { I18n } from 'i18n-js'
-
 import CustomStatusBar from './components/CustomStatusBar'
 import SwipeScreen from './screens/SwipeScreen/SwipeScreen'
 import AppTabs from './screens/MainApplication/AppTabs'
 import styles from './assets/styles/styles.js'
-import { krGreen } from './assets/styles/colors'
 import SingleSubstitutionScreen from './screens/SingleSubstitutionScreen'
+import AcceptSubstitutionPopUp from './components/AcceptSubstitutionPopUp'
 import { fi, se, en } from './assets/data/localisation/localisations'
 import { LocaleContext } from './contexts/LocaleContext'
 import { UserInformationStack } from './screens/UserInformation/UserInformationStack'
 import SubstitutionCard from './components/SubstitutionCard'
-import { getUserData } from './utils'
-import { setUserData } from './utils/setUserData'
-
-Notifications.setNotificationHandler({
-  handleNotification: async () => ({
-    shouldShowAlert: true,
-    shouldPlaySound: false,
-    shouldSetBadge: false,
-  }),
-})
-
-// Can use this function below OR use Expo's Push Notification Tool from: https://expo.dev/notifications
-async function sendPushNotification(expoPushToken) {
-  const message = {
-    to: expoPushToken,
-    sound: 'default',
-    title: 'Original Title',
-    body: 'And here is the body!',
-    data: { someData: 'goes here' },
-  }
-
-  await fetch('https://exp.host/--/api/v2/push/send', {
-    method: 'POST',
-    headers: {
-      Accept: 'application/json',
-      'Accept-encoding': 'gzip, deflate',
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(message),
-  })
-}
-
-async function registerForPushNotificationsAsync() {
-  let token
-  if (Device.isDevice) {
-    const { status: existingStatus } = await Notifications.getPermissionsAsync()
-    let finalStatus = existingStatus
-    if (existingStatus !== 'granted') {
-      const { status } = await Notifications.requestPermissionsAsync()
-      finalStatus = status
-    }
-    if (finalStatus !== 'granted') {
-      alert('Failed to get push token for push notification!')
-      return
-    }
-    token = (await Notifications.getExpoPushTokenAsync()).data
-    console.log(token)
-  } else {
-    alert('Must use physical device for Push Notifications')
-  }
-
-  if (Platform.OS === 'android') {
-    Notifications.setNotificationChannelAsync('default', {
-      name: 'default',
-      importance: Notifications.AndroidImportance.MAX,
-      vibrationPattern: [0, 250, 250, 250],
-      lightColor: '#FF231F7C',
-    })
-  }
-
-  return token
-}
-
-async function addTokenToUserInfo(token) {
-  const user = await getUserData()
-  user.token = token
-  await setUserData(user)
-}
+import UpcomingGigsList from './components/UpcomingGigsList'
+import {colors} from './assets/styles/colors'
+import GigConfirmedPopup from './components/GigConfirmedPopup'
 
 const Stack = createNativeStackNavigator()
 
 const AppTheme = {
   dark: false,
   colors: {
-    primary: krGreen,
+    primary: colors.krGreen,
     background: 'rgb(255, 255, 255)',
     card: 'rgb(255, 255, 255)',
     text: 'rgb(28, 28, 30)',
@@ -106,34 +38,6 @@ const AppTheme = {
 const i18n = new I18n() //For localisation
 
 export default function App() {
-
-  const [expoPushToken, setExpoPushToken] = useState('')
-  const [notification, setNotification] = useState(false)
-  const notificationListener = useRef()
-  const responseListener = useRef()
-
-  useEffect(() => {
-    registerForPushNotificationsAsync().then(token => {
-      setExpoPushToken(token)
-    })
-
-    notificationListener.current = Notifications.addNotificationReceivedListener(notification => {
-      setNotification(notification)
-    })
-
-    responseListener.current = Notifications.addNotificationResponseReceivedListener(response => {
-      console.log(response)
-    })
-
-    return () => {
-      Notifications.removeNotificationSubscription(notificationListener.current)
-      Notifications.removeNotificationSubscription(responseListener.current)
-    }
-  }, [])
-
-  useEffect(() => {
-    addTokenToUserInfo(expoPushToken)
-  }, [expoPushToken])
 
   //Localisation
   const [locale, setLocale] = useState(Localisation.locale) // use system language
@@ -166,14 +70,20 @@ export default function App() {
         <LocaleContext.Provider value={{ i18n, locale, setLocale }}>
           <NavigationContainer theme={ AppTheme }>
             <View style={ styles.container }>
-              <CustomStatusBar backgroundColor={ krGreen } />
+              <CustomStatusBar backgroundColor={ colors.krGreen } />
               <Stack.Navigator
-                screenOptions={{headerShown: false}}>
-                <Stack.Screen name="SwipeScreen" component={ SwipeScreen } />
+                screenOptions={{headerShown: false
+                }}
+                mode="modal"
+              >
+                <Stack.Screen name="SwipeScreen" component={ SwipeScreen } options={{ presentation: 'transparentModal', headerShown: false }} />
                 <Stack.Screen name="MainApplication" component={ AppTabs } />
                 <Stack.Screen name="UserInfoScreen" component={ UserInformationStack } />
-                <Stack.Screen name="SingleSubstitution" component={ SingleSubstitutionScreen } /> 
+                <Stack.Screen name="SingleSubstitution" component={ SingleSubstitutionScreen } />
                 <Stack.Screen name='SubstitutionCard' component={SubstitutionCard} options={{ presentation: 'transparentModal', headerShown: false }}/>
+                <Stack.Screen name="ConfirmSubstitution" component={AcceptSubstitutionPopUp} options={{ presentation: 'transparentModal', headerShown: false}}/>
+                <Stack.Screen name="UpcomingGigsList" component={UpcomingGigsList} options={{ headerShown: true, title: 'Kaikki tulevat keikat' }}/>
+                <Stack.Screen name="GigConfirmedPopup" component={GigConfirmedPopup} options={{ presentation: 'transparentModal', headerShown: false}}/>
               </Stack.Navigator>
             </View>
           </NavigationContainer>
