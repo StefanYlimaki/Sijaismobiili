@@ -11,6 +11,8 @@ import { CommonActions } from '@react-navigation/native'
 import { sub } from 'react-native-reanimated'
 import { useEffect } from 'react'
 import { orderAndFilterSubstitutionsByPreferences } from '../../utils/orderAndFilterSubstitutionsByPreferences'
+import { StyleSheet } from 'react-native-web'
+import * as Colors from '../../assets/styles/colors.js'
 
 const SCREEN_HEIGHT = Dimensions.get('window').height
 const SCREEN_WIDTH = Dimensions.get('window').width
@@ -208,13 +210,13 @@ const RecommendationCards = ({navigation, substitutions}) => {
               height: SCREEN_HEIGHT - 250,
               width: SCREEN_WIDTH - 30,
             },
-            styles.recommendationCardAnimated
+            localStyles.recommendationCardAnimated
           ]}
         >
           <View style={{paddingTop:10}}>
             {benefits}
           </View>
-          <View style={styles.recommendationCardInfoElement}>
+          <View style={localStyles.recommendationCardInfoElement}>
             <Text style={{fontSize: 20, fontFamily: 'Inter-Display'}}>
               {item.title}
             </Text>
@@ -223,20 +225,20 @@ const RecommendationCards = ({navigation, substitutions}) => {
             </Text>
 
           </View>
-          <View style={styles.recommendationCardInfoBarElement}>
-            <View>
-              <Text style={styles.recommendationCardInfoBarLeftElement}>
+          <View style={localStyles.recommendationCardInfoBarElement}>
+            <View style={{flex:1}}>
+              <Text style={localStyles.recommendationCardInfoBarLeftElement}>
                 {formatDate(item.date)} 
               </Text>
-              <Text style={styles.recommendationCardInfoBarLeftElement}>
+              <Text style={localStyles.recommendationCardInfoBarLeftElement}>
                 {formatTime(item.date, item.timing.duration)} 
               </Text>
             </View>
-            <View>
-              <Text style={styles.recommendationCardInfoBarRightElement}>
+            <View style={{flex:2, flexShrink: 5}}>
+              <Text style={localStyles.recommendationCardInfoBarRightElement}>
                 {item.organisation}
               </Text>
-              <Text style={styles.recommendationCardInfoBarRightElement}>
+              <Text style={localStyles.recommendationCardInfoBarRightElement}>
                 {calculateDistance(
                   parseFloat(item.coordinates.latitude), 
                   parseFloat(item.coordinates.longitude),
@@ -247,7 +249,7 @@ const RecommendationCards = ({navigation, substitutions}) => {
             </View>
           </View>
 
-          <View style={styles.recommendationCardSalaryElement}>
+          <View style={localStyles.recommendationCardSalaryElement}>
             <Text style={{fontWeight:'bold', textAlign:'right'}}>
               {item.hourlyPay + '€/h'}
             </Text>
@@ -274,5 +276,50 @@ const RecommendationCards = ({navigation, substitutions}) => {
     }
   }).reverse()
 }
+
+const localStyles = StyleSheet.create({
+  recommendationCardAnimated: {
+    alignSelf: 'center',
+    backgroundColor: '#F6F6F6',
+    borderRadius: 20,
+    position: 'absolute',
+  },
+  recommendationCardInfoBarElement: {
+    backgroundColor: Colors.krBlue,
+    flexDirection: 'row',
+    flexGrow: 0.25,
+    height:'auto',
+    justifyContent: 'space-between',
+    marginTop: 20,
+    padding: 10
+  },
+  recommendationCardInfoBarLeftElement: {
+    alignSelf: 'flex-start',
+    color: 'white',
+    fontFamily: 'Inter-DisplaySemiBold',
+    fontSize: 13,
+    opacity: 0.85
+  },
+  recommendationCardInfoBarRightElement: {
+    alignSelf: 'flex-end',
+    color: 'white',
+    flex: 2,
+    flexDirection: 'column',
+    fontFamily: 'Inter-DisplaySemiBold',
+    fontSize: 13,
+    opacity: 0.85,
+  },
+  recommendationCardInfoElement: {
+    flexDirection: 'column',
+    paddingLeft: 10,
+    paddingTop: '25%'
+  },
+  recommendationCardSalaryElement: {
+    flexDirection: 'row',
+    flexWrap: 'nowrap',
+    justifyContent: 'flex-end',
+    padding: 10
+  },
+})
 
 export default RecommendationView

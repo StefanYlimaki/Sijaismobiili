@@ -157,40 +157,6 @@ export default StyleSheet.create({
   pressedSubstitutionItem: {
     opacity: 0.9,
   },
-  recommendationCardAnimated: {
-    alignSelf: 'center',
-    backgroundColor: '#F6F6F6',
-    borderRadius: 20,
-    position: 'absolute',
-  },
-  recommendationCardInfoBarElement: {
-    backgroundColor: Colors.krBlue,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginTop: 20,
-    padding: 10
-  },
-  recommendationCardInfoBarLeftElement: {
-    alignSelf: 'flex-start',
-    color: 'white',
-    fontSize: 13
-  },
-  recommendationCardInfoBarRightElement: {
-    alignSelf: 'flex-end',
-    color: 'white',
-    fontSize: 13
-  },
-  recommendationCardInfoElement: {
-    flexDirection: 'column',
-    paddingLeft: 10,
-    paddingTop: '25%'
-  },
-  recommendationCardSalaryElement: {
-    flexDirection: 'row',
-    flexWrap: 'nowrap',
-    justifyContent: 'flex-end',
-    padding: 10
-  },
   removeAccountButton: {
     backgroundColor: Colors.danger,
     borderRadius: 100,
