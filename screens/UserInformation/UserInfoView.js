@@ -9,7 +9,7 @@ import {
   Pressable,
 } from 'react-native'
 import {logUserData} from '../../utils/logUserData'
-import * as Colors from '../../assets/styles/colors.js'
+import { colors } from '../../assets/styles/colors.js'
 import styles from '../../assets/styles/styles'
 import { setUserData } from '../../utils/setUserData'
 import {ListItem} from '@rneui/base'
@@ -147,19 +147,19 @@ const UserInfoView = ({ user, setUser, navigation }) => {
 
 const thumbTheme = (y) => {
   if (y === 1) {
-    return Colors.danger
+    return colors.danger
   }
   if (y === 2) {
-    return Colors.warning
+    return colors.warning
   }
   if (y === 3) {
-    return Colors.krGreen
+    return colors.krGreen
   }
   if (y === 4) {
-    return Colors.info
+    return colors.info
   }
   if (y === 5) {
-    return Colors.success
+    return colors.success
   }
 }
 const thumbIcon = (y) => {

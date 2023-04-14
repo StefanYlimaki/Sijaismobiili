@@ -2,7 +2,7 @@ import { View, Button, StyleSheet, Pressable } from 'react-native'
 import React, { useRef, useState } from 'react'
 import { SearchBar } from '@rneui/base'
 import { Icon } from '@rneui/themed'
-import * as Colors from '../../assets/styles/colors'
+import { colors } from '../../assets/styles/colors'
 
 import calculateDistance from '../../utils/calculateDistance'
 import SubstitutionsList from '../../components/SubstitutionsList'
@@ -152,7 +152,7 @@ const AllSubstitutions = ({ navigation }) => {
           </View>
           <View style={{flex: 1, justifyContent: 'center', marginRight: 15}}>
             <Pressable onPress={() => BottomSheetModalRef.current?.present()}>
-              <Icon name='tune-variant' type="material-community" size={27} color={Colors.textDark}/>
+              <Icon name='tune-variant' type="material-community" size={27} color={colors.textDark}/>
             </Pressable>
           </View>
         </View>

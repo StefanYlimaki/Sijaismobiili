@@ -1,5 +1,5 @@
 import { Pressable, Text, View } from 'react-native'
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import Styles from '../../assets/styles/styles'
 import { colors } from '../../assets/styles/colors'
 
@@ -56,9 +56,9 @@ const OwnSubstitutionsScreen = ({ navigation }) => {
           <Text>{'\n'}Tarkastele palkkakuittiasi</Text>
         </View>
       </View>
-      
-      
-      {userSubstitutions && <UpcomingGigs substIDs={userSubstitutions} navigation={navigation}/>}
+
+
+      {userSubstitutions && <UpcomingGigs substIDs={userSubstitutions} navigation={navigation} />}
     </View>
   )
 }

@@ -21,7 +21,7 @@ const style = StyleSheet.create({
   bigButton: {
     alignItems: 'center',
     alignSelf: 'center',
-    backgroundColor: Colors.krGreen,
+    backgroundColor: colors.krGreen,
     borderRadius: 26,
     borderWidth: 0,
     height: '16%',
@@ -183,7 +183,7 @@ const style = StyleSheet.create({
   settingsButton: {
     alignItems: 'center',
     alignSelf: 'center',
-    backgroundColor: Colors.blueBright,
+    backgroundColor: colors.blueBright,
     borderRadius: 100,
     marginBottom: 50,
     paddingBottom: 5,
