@@ -1,7 +1,7 @@
 import { Pressable, Text, View } from 'react-native'
 import React, { useState, useContext } from 'react'
 import Styles from '../../assets/styles/styles'
-import * as Colors from '../../assets/styles/colors.js'
+import { colors } from './colors.js'
 
 import SubstitutionsList from '../../components/SubstitutionsList'
 import substitutions from '../../assets/data/substitutionsData_new.json'
@@ -28,12 +28,12 @@ const OwnSubstitutionsScreen = ({ navigation }) => {
       <View style={{ paddingHorizontal: '5%' }}>
         <View>
           <Text style={Styles.h2}>{i18n.t('nextShift')}</Text>
-          <View style={{ alignItems: 'center', backgroundColor: Colors.krGray, borderColor: Colors.textDark, borderRadius: 9, width: '78%' }}>
+          <View style={{ alignItems: 'center', backgroundColor: colors.krGray, borderColor: colors.textDark, borderRadius: 9, width: '78%' }}>
           </View>
         </View>
 
         <Text style={Styles.h2}>Palkkakuitti</Text>
-        <View style={{ alignItems: 'center', alignSelf: 'center', backgroundColor: Colors.krGray, borderColor: Colors.textDark, borderRadius: 9, borderWidth: 1, padding: '5%', width: '100%' }}>
+        <View style={{ alignItems: 'center', alignSelf: 'center', backgroundColor: colors.krGray, borderColor: colors.textDark, borderRadius: 9, borderWidth: 1, padding: '5%', width: '100%' }}>
           <Text>Kuluneen kuun aikana olet ansainnut{'\n'}</Text>
           <Text style={{ fontFamily: 'Inter-DisplaySemiBold', fontSize: 20 }}>noin 0 €</Text>
           <Text>{'\n'}Tarkastele palkkakuittiasi</Text>

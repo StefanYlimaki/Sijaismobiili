@@ -1,5 +1,5 @@
 import Styles from '../assets/styles/styles'
-import * as Colors from '../assets/styles/colors.js'
+import { colors } from './colors.js'
 import { LocaleContext } from '../contexts/LocaleContext'
 
 import { Pressable, Text, View, TouchableHighlight } from 'react-native'
@@ -41,7 +41,7 @@ export function getCalendar(isMonth) {
                         calendarBackground: '#ffffff',
                         textSectionTitleColor: '#b6c1cd',
                         selectedDayBackgroundColor: '#00adf5',
-                        selectedDayTextColor: Colors.krGreen,
+                        selectedDayTextColor: colors.krGreen,
                         textDisabledColor: '',
                     }}
                 />
@@ -52,7 +52,7 @@ export function getCalendar(isMonth) {
                             {selected == today ? <Text> ({i18n.t('calendar.today').toLowerCase()})</Text> : null}
                             {'\n'}{'\n'}
                         </Text>
-                        <Pressable style={{ backgroundColor: Colors.krGray, borderRadius: 9, height: '42%', width: '55%' }}>
+                        <Pressable style={{ backgroundColor: colors.krGray, borderRadius: 9, height: '42%', width: '55%' }}>
                             <Text style={{ textAlign: 'center' }}>{i18n.t('editAvailability')}</Text>
                         </Pressable>
                     </View>
@@ -79,7 +79,7 @@ export function getCalendar(isMonth) {
                     calendarBackground: '#ffffff',
                     textSectionTitleColor: '#b6c1cd',
                     selectedDayBackgroundColor: '#00adf5',
-                    selectedDayTextColor: Colors.krGreen,
+                    selectedDayTextColor: colors.krGreen,
                     textDisabledColor: '',
                 }}
             />
@@ -90,7 +90,7 @@ export function getCalendar(isMonth) {
                         {selected == today ? <Text> ({i18n.t('calendar.today').toLowerCase()})</Text> : null}
                         {'\n'}{'\n'}
                     </Text>
-                    <Pressable style={{ backgroundColor: Colors.krGray, borderRadius: 9, height: '38%', width: '55%' }}>
+                    <Pressable style={{ backgroundColor: colors.krGray, borderRadius: 9, height: '38%', width: '55%' }}>
                         <Text style={{ textAlign: 'center' }}>{i18n.t('editAvailability')}</Text>
                     </Pressable>
                 </View>
