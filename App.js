@@ -7,12 +7,10 @@ import { useFonts } from 'expo-font'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
 import * as Localisation from 'expo-localization'
 import { I18n } from 'i18n-js'
-
 import CustomStatusBar from './components/CustomStatusBar'
 import SwipeScreen from './screens/SwipeScreen/SwipeScreen'
 import AppTabs from './screens/MainApplication/AppTabs'
 import styles from './assets/styles/styles.js'
-import { krGreen } from './assets/styles/colors'
 import SingleSubstitutionScreen from './screens/SingleSubstitutionScreen'
 import AcceptSubstitutionPopUp from './components/AcceptSubstitutionPopUp'
 import { fi, se, en } from './assets/data/localisation/localisations'
@@ -20,13 +18,15 @@ import { LocaleContext } from './contexts/LocaleContext'
 import { UserInformationStack } from './screens/UserInformation/UserInformationStack'
 import SubstitutionCard from './components/SubstitutionCard'
 import UpcomingGigsList from './components/UpcomingGigsList'
+import {colors} from './assets/styles/colors'
+import GigConfirmedPopup from './components/GigConfirmedPopup'
 
 const Stack = createNativeStackNavigator()
 
 const AppTheme = {
   dark: false,
   colors: {
-    primary: krGreen,
+    primary: colors.krGreen,
     background: 'rgb(255, 255, 255)',
     card: 'rgb(255, 255, 255)',
     text: 'rgb(28, 28, 30)',
@@ -70,7 +70,7 @@ export default function App() {
         <LocaleContext.Provider value={{ i18n, locale, setLocale }}>
           <NavigationContainer theme={ AppTheme }>
             <View style={ styles.container }>
-              <CustomStatusBar backgroundColor={ krGreen } />
+              <CustomStatusBar backgroundColor={ colors.krGreen } />
               <Stack.Navigator
                 screenOptions={{headerShown: false
                 }}
@@ -82,7 +82,8 @@ export default function App() {
                 <Stack.Screen name="SingleSubstitution" component={ SingleSubstitutionScreen } />
                 <Stack.Screen name='SubstitutionCard' component={SubstitutionCard} options={{ presentation: 'transparentModal', headerShown: false }}/>
                 <Stack.Screen name="ConfirmSubstitution" component={AcceptSubstitutionPopUp} options={{ presentation: 'transparentModal', headerShown: false}}/>
-                <Stack.Screen name="UpcomingGigsList" component={UpcomingGigsList} options={{ presentation: 'transparentModal', headerShown: false}}/>
+                <Stack.Screen name="UpcomingGigsList" component={UpcomingGigsList} options={{ headerShown: true, title: 'Kaikki tulevat keikat' }}/>
+                <Stack.Screen name="GigConfirmedPopup" component={GigConfirmedPopup} options={{ presentation: 'transparentModal', headerShown: false}}/>
               </Stack.Navigator>
             </View>
           </NavigationContainer>

@@ -2,7 +2,7 @@ import { View, Pressable, StyleSheet } from 'react-native'
 import { acc } from 'react-native-reanimated'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import { Entypo, Feather, Ionicons } from '@expo/vector-icons'
-import {danger, info, success} from '../assets/styles/colors'
+import {colors} from '../assets/styles/colors'
 
 function DenyBookmarkAndAcceptButton({denyCallback, bookmarkCallback, acceptCallback}) {
   return (
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
   buttonAccept: {
     alignItems: 'center',
     alignSelf: 'center',
-    backgroundColor: success,
+    backgroundColor: colors.success,
     borderRadius: 50,
     height: 90,
     justifyContent: 'center',
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
   buttonBookmark: {
     alignItems: 'center',
     alignSelf: 'center',
-    backgroundColor: info,
+    backgroundColor: colors.info,
     borderRadius: 50,
     height: 90,
     justifyContent: 'center',
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
   buttonDeny: {
     alignItems: 'center',
     alignSelf: 'center',
-    backgroundColor: danger,
+    backgroundColor: colors.danger,
     borderRadius: 50,
     height: 90,
     justifyContent: 'center',
@@ -72,8 +72,10 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     flexDirection: 'row',
     justifyContent: 'space-between',
+    paddingBottom: 50,
     paddingTop: 50,
     width: '90%'
+
   }
 })
 

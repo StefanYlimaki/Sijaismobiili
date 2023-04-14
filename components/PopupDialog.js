@@ -1,34 +1,36 @@
 import { View, Text, StyleSheet, Pressable , Animated} from 'react-native'
-import * as Colors from '../assets/styles/colors.js'
 import { Icon } from '@rneui/themed'
 import styles from '../assets/styles/styles'
+import {BlurView} from 'expo-blur'
 
 function PopupDialog(props) {
   return(
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <View style={popupStyles.popupContainer}>
-        <View style={{
-          backgroundColor: props.headerColor,
-          borderTopLeftRadius: 15,
-          borderTopRightRadius: 15,
-          flexDirection:'row',
-          width: '100%'
-        }}>
-          <View style={{flex:1}}/>
-          <View style={popupStyles.popupHeaderTextContainer}>
-            <Text style={popupStyles.popupHeaderText}>{props.headerText}</Text>
+    <BlurView intensity={10} style={ {height: '100%'} }>
+      <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+        <View style={popupStyles.popupContainer}>
+          <View style={{
+            backgroundColor: props.headerColor,
+            borderTopLeftRadius: 15,
+            borderTopRightRadius: 15,
+            flexDirection:'row',
+            width: '100%'
+          }}>
+            <View style={{flex:1}}/>
+            <View style={popupStyles.popupHeaderTextContainer}>
+              <Text style={popupStyles.popupHeaderText}>{props.headerText}</Text>
+            </View>
+            <View style={{flex:1, marginTop: 7}}>
+              <Pressable onPress={() => {props.navigation.pop(props.popCount? props.popCount : 1)}}>
+                <Icon name='close-circle-outline' type="material-community" color={styles.whiteText}/>
+              </Pressable>
+            </View>
           </View>
-          <View style={{flex:1, marginTop: 7}}>
-            <Pressable onPress={() => {props.navigation.pop(props.popCount? props.popCount : 1)}}>
-              <Icon name='close-circle-outline' type="material-community" color={styles.whiteText}/>
-            </Pressable>
+          <View style={popupStyles.popupContent}>
+            {props.children}
           </View>
-        </View>
-        <View style={popupStyles.popupContent}>
-          {props.children}
         </View>
       </View>
-    </View>
+    </BlurView>
   )
 }
 

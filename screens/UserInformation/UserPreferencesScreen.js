@@ -8,13 +8,12 @@ import {
   TouchableWithoutFeedback, ActivityIndicator,
 } from 'react-native'
 import { Slider } from '@rneui/themed'
-import * as Colors from '../../assets/styles/colors.js'
 import styles from '../../assets/styles/styles'
 import {Icon} from '@rneui/base'
 import { getUserData } from '../../utils'
 import { setUserData } from '../../utils/setUserData'
 import { AntDesign } from '@expo/vector-icons'
-import {krBlue} from '../../assets/styles/colors.js'
+import {colors} from '../../assets/styles/colors.js'
 
 function UserPreferencesScreen() {
   delete userData['default']
@@ -71,7 +70,7 @@ function UserPreferencesScreen() {
           alignItems: 'center',
           flexDirection: 'row',
         }}>
-        <ActivityIndicator size="large" color= {krBlue} />
+        <ActivityIndicator size="large" color= {colors.krBlue} />
       </View>
     )
   }
@@ -85,7 +84,7 @@ function UserPreferencesScreen() {
           <View>
             <Text style={styles.h1}>
               <Text>Moi,</Text>
-              <Text style={{ color: Colors.krBlue, fontFamily: 'Inter-DisplayExtraBold' }}> {user.firstname}!</Text>
+              <Text style={{ color: colors.krBlue, fontFamily: 'Inter-DisplayExtraBold' }}> {user.firstname}!</Text>
             </Text>
           </View>
           
@@ -104,10 +103,10 @@ function UserPreferencesScreen() {
             <Slider
               maximumValue={300}
               minimumValue={1}
-              minimumTrackTintColor={Colors.blueBright}
+              minimumTrackTintColor={colors.blueBright}
               step={1}
               trackStyle={{ height: 10, backgroundColor: 'transparent', borderRadius: 5 }}
-              thumbStyle={{ height: 30, width: 30, backgroundColor: Colors.blueBright, borderRadius: 15 }}
+              thumbStyle={{ height: 30, width: 30, backgroundColor: colors.blueBright, borderRadius: 15 }}
               value={user.preferences.distance}
               onSlidingComplete={(event) => handleChange(event, 'preferences', 'distance')}
               onValueChange={(event) => setDistance(event)}
@@ -288,19 +287,19 @@ export default UserPreferencesScreen
 
 const thumbTheme = (y) => {
   if (y === 1) {
-    return Colors.danger
+    return colors.danger
   }
   if (y === 2) {
-    return Colors.warning
+    return colors.warning
   }
   if (y === 3) {
-    return Colors.krGreen
+    return colors.krGreen
   }
   if (y === 4) {
-    return Colors.blueBright
+    return colors.blueBright
   }
   if (y === 5) {
-    return Colors.success
+    return colors.success
   }
 }
 const thumbIcon = (y) => {

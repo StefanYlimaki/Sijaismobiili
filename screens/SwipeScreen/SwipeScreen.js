@@ -2,7 +2,8 @@
 import React from 'react'
 import {View, Text, Button, Pressable} from 'react-native'
 import RecommendationView from './RecommendationView'
-import { colors } from './colors.js'
+
+import { colors } from '../../assets/styles/colors'
 import {CommonActions} from '@react-navigation/native'
 import { AntDesign } from '@expo/vector-icons'
 
@@ -73,6 +74,7 @@ const SwipeScreen = ({ navigation }) => {
 
         <Pressable
           onPress={() => skipScreen()}
+
         >
           <View style={{
             padding: 20,
