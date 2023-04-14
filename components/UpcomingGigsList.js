@@ -2,6 +2,7 @@ import { View, Text, StyleSheet, FlatList, Pressable } from 'react-native'
 import { formatHourlyPay, formatDate, formatTime } from '../utils'
 import calculateDistance from '../utils/calculateDistance'
 import styles from '../assets/styles/styles'
+import { colors } from '../assets/styles/colors'
 
 function GigListItem({ substitution, navigation }) {
   const getDistance = () => {
@@ -25,28 +26,30 @@ function GigListItem({ substitution, navigation }) {
         style={({ pressed }) => pressed && styles.pressedSubstitutionItem}
       >
         <View style={styles.substitutionPreviewComponent}>
-          <View style={styles.substitutionPreviewComponentTopElement}>
+          <View style={
+            substitution.item.needsConfirmation ?
+              [styles.substitutionPreviewComponentTopElement, {backgroundColor: '#DE841D'}]
+              : styles.substitutionPreviewComponentTopElement}>
             <View style={{ flexDirection: 'column', flex: 1, justifyContent: 'space-between' }}>
-              <Text style={styles.whiteText}>
+              <Text style={substitution.item.needsConfirmation ? styles.blackText : styles.whiteText}>
                 {formatDate(substitution.item.timing.startTime)}
               </Text>
-              <Text style={styles.whiteText}>
+              <Text style={substitution.item.needsConfirmation ? styles.blackText : styles.whiteText}>
                 {formatTime(substitution.item.timing.startTime, substitution.item.timing.duration)}
               </Text>
             </View>
             <View style={{ flexDirection: 'column', alignItems: 'flex-end', flex: 2 }}>
-              <Text style={styles.substItemOrganisationText}>
+              <Text style={substitution.item.needsConfirmation ? styles.substItemOrganisationTextDark : styles.substItemOrganisationText}>
                 {substitution.item.organisation}
               </Text>
-              <Text style={styles.whiteText}>
+              <Text style={substitution.item.needsConfirmation ? styles.blackText : styles.whiteText}>
                 {getDistance(substitution.item.location)}
               </Text>
             </View>
           </View>
           <View style={styles.substitutionPreviewComponentBottomElement}>
-
             <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-              <View style={{ flexDirection: 'column', justifyContent: 'flex-end' }}>
+              <View style={{ flexDirection: 'column', justifyContent: 'center' }}>
                 <Text style={[styles.blackText, { fontSize: 20, fontFamily: 'Inter-DisplayBold' }]}>
                   {substitution.item.title}
                 </Text>
@@ -78,6 +81,9 @@ function GigListItem({ substitution, navigation }) {
                 }
               </View>
             </View>
+            {substitution.item.needsConfirmation &&
+              <Text style={{marginTop: 7}}>Työnantaja ei ole vielä vahvistanut ilmoittautumistasi</Text>
+            }
           </View>
         </View>
       </Pressable>

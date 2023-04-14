@@ -85,7 +85,8 @@ const style = StyleSheet.create({
     fontSize: 18,
     paddingBottom: 10,
     paddingTop: 10,
-    textAlign: 'left',
+    textAlign: 'center',
+    // textTransform: 'uppercase',
   },
   h2AndInfoButton:{
     alignItems: 'center',
@@ -237,6 +238,13 @@ const style = StyleSheet.create({
   },
   substItemOrganisationText: {
     color: colors.textLight,
+    fontFamily: 'Inter-DisplaySemiBold',
+    fontSize: 12,
+    opacity: 0.85,
+    textAlign: 'right',
+  },
+  substItemOrganisationTextDark: {
+    color: colors.textDark,
     fontFamily: 'Inter-DisplaySemiBold',
     fontSize: 12,
     opacity: 0.85,
