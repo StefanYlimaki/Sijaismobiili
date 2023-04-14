@@ -18,16 +18,7 @@ const style = StyleSheet.create({
     overflow: 'hidden',
     resizeMode: 'cover',
   },
-  bigButton: {
-    alignItems: 'center',
-    alignSelf: 'center',
-    backgroundColor: Colors.krGreen,
-    borderRadius: 26,
-    borderWidth: 0,
-    height: '16%',
-    paddingVertical: '5%',
-    width: '78%',
-  },
+
   blackText: {
     color: colors.textDark,
     opacity: 0.85,
@@ -85,7 +76,8 @@ const style = StyleSheet.create({
     fontSize: 18,
     paddingBottom: 10,
     paddingTop: 10,
-    textAlign: 'left',
+    textAlign: 'center',
+    // textTransform: 'uppercase',
   },
   h2AndInfoButton:{
     alignItems: 'center',
@@ -183,7 +175,7 @@ const style = StyleSheet.create({
   settingsButton: {
     alignItems: 'center',
     alignSelf: 'center',
-    backgroundColor: Colors.blueBright,
+    backgroundColor: colors.info,
     borderRadius: 100,
     marginBottom: 50,
     paddingBottom: 5,
