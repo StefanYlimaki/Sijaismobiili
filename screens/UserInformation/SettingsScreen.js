@@ -57,13 +57,13 @@ function SettingsScreen({navigation}) {
               style={locale==='fi-FI' ? styles.languageButton : styles.languageButtonDisabled}
               onPress={() => {setLocale('fi-FI')}}
             >
-              <Text style={styles.buttonText}>Finnish</Text>
+              <Text style={styles.buttonText}>Suomi</Text>
             </Pressable>
             <Pressable
               style={locale==='se' ? styles.languageButton : styles.languageButtonDisabled}
               onPress={() => {setLocale('se')}}
             >
-              <Text style={styles.buttonText}>Swedish</Text>
+              <Text style={styles.buttonText}>Svenska</Text>
             </Pressable>
             <Pressable
               style={locale==='en' ? styles.languageButton : styles.languageButtonDisabled}
