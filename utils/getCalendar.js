@@ -1,5 +1,5 @@
 import Styles from '../assets/styles/styles'
-import { colors } from './colors.js'
+import { colors } from '../assets/styles/colors'
 import { LocaleContext } from '../contexts/LocaleContext'
 
 import { Pressable, Text, View, TouchableHighlight } from 'react-native'

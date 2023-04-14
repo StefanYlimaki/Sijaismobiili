@@ -1,7 +1,7 @@
 import { Pressable, Text, View } from 'react-native'
 import React, { useState, useContext } from 'react'
 import Styles from '../../assets/styles/styles'
-import { colors } from './colors.js'
+import { colors } from '../../assets/styles/colors'
 
 import SubstitutionsList from '../../components/SubstitutionsList'
 import substitutions from '../../assets/data/substitutionsData_new.json'
