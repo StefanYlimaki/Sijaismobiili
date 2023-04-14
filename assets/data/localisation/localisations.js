@@ -1,7 +1,6 @@
 const fi = {
-  //UserInfoScreen
   hello: 'Hei',
-  loading: 'Ladataan, hetki vain...',
+  loading : 'Ladataan, hetki vain...',
   firstname: 'Etunimi',
   lastname: 'Sukunimi',
   email: 'Sähköposti',
@@ -15,16 +14,12 @@ const fi = {
   delete: 'Poista',
   personNumber: 'Henkilötunnus',
   valviraID: 'Valviran rekisterinumero',
-
-  //UserPreferencesScreen
   morningShifts: 'Aamuvuoro',
   eveningShifts: 'Iltavuoro',
   nightShifts: 'Yövuoro',
   salary: 'Palkka',
   fullShifts: 'Täysi vuoro',
   maxDistance: 'Maksimietäisyys',
-
-  //SettingsScreen
   settings: 'Asetukset',
   settingsLanguage: 'Kieli',
   settingsNotifications: 'Ilmoitukset',
@@ -41,58 +36,10 @@ const fi = {
   deleteConfirmation2: 'Oletko varma? Menetät kaikki tietosi, sijaisuushistoriasi ja asetukset pysyvästi.',
   removeAccount: 'Poista tili pysyvästi',
   removeAccountConfirmation: 'Haluatko varmasti poistaa tilisi?',
-
-  //OwnSubstitutionsScreen
-  calendar: {
-    monthNames: [
-      'Tammikuu',
-      'Helmikuu',
-      'Maaliskuu',
-      'Huhtikuu',
-      'Toukokuu',
-      'Kesäkuu',
-      'Heinäkuu',
-      'Elokuu',
-      'Syyskuu',
-      'Lokakuu',
-      'Marraskuu',
-      'Joulukuu'
-    ],
-    monthNamesShort: ['Tammi', 'Helmi', 'Maalis', 'Huhti', 'Touko', 'Kesä', 'Heinä', 'Elo', 'Syys', 'Loka', 'Marras', 'Joulu'],
-    dayNames: ['Sunnuntai', 'Maanantai', 'Tiistai', 'Keskiviikko', 'Torstai', 'Perjantai', 'Lauantai'],
-    dayNamesShort: ['Su', 'Ma', 'Ti', 'Ke', 'To', 'Pe', 'La'],
-    today: 'Tänään'
-  },
-  monthNamesPartitive: [
-    'tammikuuta',
-    'helmikuuta',
-    'maaliskuuta',
-    'huhtikuuta',
-    'toukokuuta',
-    'kesäkuuta',
-    'heinäkuuta',
-    'elokuuta',
-    'syyskuuta',
-    'lokakuuta',
-    'marraskuuta',
-    'joulukuuta'
-  ],
-  dayMonthDivider: '. ',
-  agendaDefault: 'Ei merkintöjä.',
-  editAvailability: 'Muokkaa käytettävyyttä',
-  month: 'Kuukausi',
-  week: 'Viikko',
-  nextShift: 'Seuraava vuoro',
-
-  //TailoredSubstitutionsScreen
-  noShifts: 'Emme tällä kertaa löytäneet mieltymyksiäsi vastaavia keikkoja. Kokeile myöhemmin uudelleen!',
-  editPreferences: 'Muokkaa mieltymyksiä',
-  seeAllShifts: 'Selaa kaikkia keikkoja',
 }
 const se = {
-  //UserInfoScreen
   hello: 'Hej',
-  loading: 'Laddar, en stund...',
+  loading : 'Laddar, en stund...',
   firstname: 'Förnamn',
   lastname: 'Efternamn',
   email: 'E-post',
@@ -106,16 +53,12 @@ const se = {
   delete: 'Ta bort',
   personNumber: 'Personnummer',
   valviraID: 'Valviras registreringsnummer',
-
-  //UserPreferencesScreen
   morningShifts: 'Morgonpass',
   eveningShifts: 'Kvällspass',
   nightShifts: 'Nattpass',
   salary: 'Lön',
   fullShifts: 'Full pass',
   maxDistance: 'Max avstånd',
-
-  //SettingsScreen
   settings: 'Inställningar',
   settingsLanguage: 'Språk',
   settingsNotifications: 'Aviseringar',
@@ -127,64 +70,15 @@ const se = {
   settingsRemoveAccount: 'Ta bort konto',
   settingsDisabled: 'Avstängd',
   yes: 'Ja',
-  preferences: 'Preferenser',
-  deleteConfirmation: 'Är du säker på att du vill radera ditt konto permanent?',
+  preferences: 'Mieltymykserna',
+  deleteConfirmation: 'Är du säker på att du vill radera ditt konto permanent men på svenska?',
   deleteConfirmation2: 'Är du säker? Du kommer att förlora alla dina data, din ersättningshistorik och dina inställningar permanent.',
   removeAccount: 'Ta bort ett konto permanent',
   removeAccountConfirmation: 'Är du säker på att du vill ta bort ditt konto?',
-
-  //OwnSubstitutionsScreen
-  calendar: {
-    monthNames: [
-      'Januari',
-      'Februari',
-      'Mars',
-      'April',
-      'Maj',
-      'Juni',
-      'Juli',
-      'Augusti',
-      'September',
-      'Oktober',
-      'November',
-      'December'
-    ],
-    monthNamesShort: ['Jan', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec'],
-    dayNames: ['Söndag', 'Måndag', 'Tisdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lördag'],
-    dayNamesShort: ['Sön', 'Mån', 'Tis', 'Ons', 'Tor', 'Fre', 'Lör'],
-    today: 'Idag'
-  },
-  monthNamesPartitive: [
-    'januari',
-    'februari',
-    'mars',
-    'april',
-    'maj',
-    'juni',
-    'juli',
-    'augusti',
-    'september',
-    'oktober',
-    'november',
-    'december'
-  ],
-  dayMonthDivider: ' ',
-  agendaDefault: 'Inga anteckningar.',
-  editAvailability: 'Ändra tillgänglighet',
-  month: 'Månad',
-  week: 'Vecka',
-  nextShift: 'Nästa skift',
-
-  //TailoredSubstitutionsScreen
-  noShifts: 'Vi hittade inga platsannonser som passar med dina preferenser. Försök senare igen!',
-  editPreferences: 'Muokkaa mieltymyksiä',
-  seeAllShifts: 'Se alla platsannonser',
 }
-
 const en = {
-  //UserInfoScreen
   hello: 'Hello',
-  loading: 'Loading, please wait...',
+  loading : 'Loading, please wait...',
   firstname: 'First name',
   lastname: 'Last name',
   email: 'Email',
@@ -198,16 +92,12 @@ const en = {
   delete: 'Delete',
   personNumber: 'Person number',
   valviraID: 'Valvira ID',
-
-  //UserPreferencesScreen
   morningShifts: 'Morning shifts',
   eveningShifts: 'Evening shifts',
   nightShifts: 'Night shifts',
   salary: 'Salary',
   fullShifts: 'Full shifts',
   maxDistance: 'Max distance',
-
-  //SettingsScreen
   settings: 'Settings',
   settingsLanguage: 'Language',
   settingsNotifications: 'Notifications',
@@ -221,56 +111,9 @@ const en = {
   yes: 'Yes',
   preferences: 'Preferences',
   deleteConfirmation: 'Are you sure you want to delete your account? In order to return, you must create a new account.',
-  deleteConfirmation2: 'Are you sure? You will permanently lose all your data, your substitution history and your settings.',
+  deleteConfirmation2: 'Are you sure? You will lose all your data, your substitution history and your settings permanently.',
   removeAccount: 'Delete account permanently',
   removeAccountConfirmation: 'Are you sure you want to delete your account?',
-  
-  //OwnSubstitutionsScreen
-  calendar: {
-    monthNames: [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July',
-      'August',
-      'September',
-      'October',
-      'November',
-      'December'
-    ],
-    monthNamesShort: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-    dayNames: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-    dayNamesShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-    today: 'Today'
-  },
-  monthNamesPartitive: [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December'
-  ],
-  dayMonthDivider: ' ',
-  agendaDefault: 'No notes.',
-  editAvailability: 'Edit availability',
-  month: 'Month',
-  week: 'Week',
-  nextShift: 'Next shift',
-
-  //TailoredSubstitutionsScreen
-  noShifts: 'Unfortunately we did not find any shifts that match with your preferences. Try again later!',
-  editPreferences: 'Edit preferences',
-  seeAllShifts: 'See all shifts',
 }
 
 export { fi, se, en }
