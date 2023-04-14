@@ -2,7 +2,7 @@
 import React from 'react'
 import {View, Text, Button, Pressable} from 'react-native'
 import RecommendationView from './RecommendationView'
-import { danger, krGreen } from '../../assets/styles/colors'
+import { colors } from './colors.js'
 import {CommonActions} from '@react-navigation/native'
 import { AntDesign } from '@expo/vector-icons'
 
@@ -36,7 +36,7 @@ const SwipeScreen = ({ navigation }) => {
         marginVertical: -50,
         paddingVertical: 60,
         height: 170,
-        backgroundColor: krGreen, 
+        backgroundColor: colors.krGreen, 
         marginBottom: 10, 
         alignContent: 'center',
         borderRadius: 150,
@@ -76,7 +76,7 @@ const SwipeScreen = ({ navigation }) => {
         >
           <View style={{
             padding: 20,
-            backgroundColor: krGreen,
+            backgroundColor: colors.krGreen,
             borderRadius: 50,
             marginBottom: 5
           }}
@@ -91,7 +91,7 @@ const SwipeScreen = ({ navigation }) => {
         </Pressable>
         <Pressable onPress={()=> skipScreen()}>
           <View>
-            <Text style={{textAlign: 'center', color: danger, fontFamily: 'Inter-Display'}}>
+            <Text style={{textAlign: 'center', color: colors.danger, fontFamily: 'Inter-Display'}}>
               En halua nähdä enää räätälöityjä suosituksia              
             </Text>
           </View>

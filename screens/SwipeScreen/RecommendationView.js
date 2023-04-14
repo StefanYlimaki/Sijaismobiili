@@ -12,7 +12,7 @@ import { sub } from 'react-native-reanimated'
 import { useEffect } from 'react'
 import { orderAndFilterSubstitutionsByPreferences } from '../../utils/orderAndFilterSubstitutionsByPreferences'
 import { StyleSheet } from 'react-native-web'
-import * as Colors from '../../assets/styles/colors.js'
+import { colors } from './colors.js'
 
 const SCREEN_HEIGHT = Dimensions.get('window').height
 const SCREEN_WIDTH = Dimensions.get('window').width
@@ -285,7 +285,7 @@ const localStyles = StyleSheet.create({
     position: 'absolute',
   },
   recommendationCardInfoBarElement: {
-    backgroundColor: Colors.krBlue,
+    backgroundColor: colors.krBlue,
     flexDirection: 'row',
     flexGrow: 0.25,
     height:'auto',
