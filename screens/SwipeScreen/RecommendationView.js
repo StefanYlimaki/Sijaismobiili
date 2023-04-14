@@ -9,21 +9,54 @@ import acceptSubstitution from '../../utils/acceptSubstitution'
 import userData from '../../assets/data/userData.json'
 import { CommonActions } from '@react-navigation/native'
 import { sub } from 'react-native-reanimated'
+import { useEffect } from 'react'
+import { orderAndFilterSubstitutionsByPreferences } from '../../utils/orderAndFilterSubstitutionsByPreferences'
 
 const SCREEN_HEIGHT = Dimensions.get('window').height
 const SCREEN_WIDTH = Dimensions.get('window').width
+
+//Count of cards shown to the user
+const CARD_COUNT = 5
 
 //Threshold for registering swipes
 const SWIPE_THRESHOLD = 120
 
 const RecommendationView = ({navigation}) => {
-  return (
-    <View style={{flex:1}}>
-      <View style={{flex:1}}>
-        {renderSubstitutions(navigation)}
+  const [tailoredSubstitutions, setTailoredSubstitutions] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  async function callOrderAndFilterSubstitutionsByPreferences() {
+    const result = await orderAndFilterSubstitutionsByPreferences(substitutions)
+
+    //Get first CARD_COUNT elements of substitutions
+    setTailoredSubstitutions(result.slice(0, CARD_COUNT))
+
+    setLoading(false)
+  }
+
+  useState(() => {
+    const getSubstitutions = async () => {
+      await callOrderAndFilterSubstitutionsByPreferences()
+    }
+
+    getSubstitutions()
+  })
+
+  if (loading) {
+    return (
+      <View>
+        <Text>Loading...</Text>
       </View>
-    </View>
-  )
+    )
+  } else {
+    return (
+      <View style={{flex:1}}>
+        <View style={{flex:1}}>
+          <RecommendationCards navigation={navigation} substitutions={tailoredSubstitutions}/>
+        </View>
+      </View>
+    )
+  }
 }
 
 const navigateToPopUp = (navigation, currentIndex) => {
@@ -34,10 +67,25 @@ const navigateToPopUp = (navigation, currentIndex) => {
 }
 
 
-const renderSubstitutions = (navigation) => {
+
+
+const RecommendationCards = ({navigation, substitutions}) => {
   //Position variable for card on top
   const position = useRef(new Animated.ValueXY()).current
   const [currentIndex, incrementIndex] = useState(0)
+
+
+  const dispatcher = (navigation) => {
+    navigation.dispatch(
+      CommonActions.reset({
+        index: 1,
+        routes: [
+          { name: 'MainApplication' },
+        ],
+      })
+    )
+  }
+
 
   //Create panresponder for swiping cards
   const panResponder = useRef(
@@ -61,7 +109,6 @@ const renderSubstitutions = (navigation) => {
             position.setValue({x: 0, y: 0})
             incrementIndex(prevIndex => prevIndex + 1)
             navigateToPopUp(navigation, currentIndex)
-            acceptSubstitution(substitutions[currentIndex])
           })
 
         //Deny / Left swipe
@@ -120,9 +167,15 @@ const renderSubstitutions = (navigation) => {
 
   //Render cards from JSON
   return substitutions.map((item, i) => {
+    if (currentIndex > CARD_COUNT - 1) {
+      navigation.navigate('MainApplication')
+      dispatcher(navigation)
+    }
+
     if (i < currentIndex) {
       return null
     } else {
+
 
       const benefits = item.benefits.map((benefit, i) => {
         return (
@@ -214,7 +267,6 @@ const renderSubstitutions = (navigation) => {
             bookmarkCallback={()=>incrementIndex(prevIndex => prevIndex + 1)}
             acceptCallback={()=> {
               navigateToPopUp(navigation, currentIndex)
-              acceptSubstitution(substitutions[currentIndex])
             }}
           />
         </Animated.View>

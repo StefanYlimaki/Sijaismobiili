@@ -4,6 +4,7 @@ import {View, Text, Button, Pressable} from 'react-native'
 import RecommendationView from './RecommendationView'
 import { danger, krGreen } from '../../assets/styles/colors'
 import {CommonActions} from '@react-navigation/native'
+import { AntDesign } from '@expo/vector-icons'
 
 
 const SwipeScreen = ({ navigation }) => {
@@ -39,14 +40,24 @@ const SwipeScreen = ({ navigation }) => {
         marginBottom: 10, 
         alignContent: 'center',
         borderRadius: 150,
-        transform: [{scaleX: 1.2}]
       }}> 
-        <Text style={{textAlign: 'center', transform: [{scaleX: 0.83}], color: 'white', 
-          fontFamily:'Inter-DisplayExtraBold', fontSize: 20
-        }}>
+        <View style={{flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
+          <View style={{flex: 1}}/>
+          <View style={{flex:1, alignSelf: 'center'}}>
+            <Text style={{textAlign: 'center', color: 'white', 
+              fontFamily:'Inter-DisplayExtraBold', fontSize: 20, alignSelf:'center'
+            }}>
           LOGO  
-        </Text>
-        <Text style={{textAlign: 'center', transform: [{scaleX: 0.83}], color: 'white',
+            </Text>
+          </View>
+          <Pressable style={{flex: 1, justifyContent: 'flex-end', flexDirection: 'row'}} 
+            onPress={() => { navigation.navigate('UserInfoScreen') }}>
+            <View style={{ height: 50, width: 50}}>
+              <AntDesign name="user" size={24} color="black" />
+            </View>
+          </Pressable>
+        </View>
+        <Text style={{textAlign: 'center', color: 'white',
           fontFamily: 'Inter-Display', fontSize: 15
         }}>
           {'Tervetuloa takaisin!'}
