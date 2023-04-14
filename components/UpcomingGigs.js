@@ -7,7 +7,7 @@ import substitutions from '../assets/data/substitutionsData_new.json'
 
 function EmptyGigs() {
   return (
-    <View style={cardStyles.upcomingGigsCard}>
+    <View>
       <View style={cardStyles.emptyCard}>
         <Text style={{ textAlign: 'center' }}>
           Et ole vielä kiinnittäytynyt keikkoihin.
@@ -112,9 +112,6 @@ const cardStyles = StyleSheet.create({
     justifyContent: 'center',
     minHeight: 110
   },
-  upcomingGigsCard: {
-    marginHorizontal: 15,
-  }
 })
 
 export default UpcomingGigs

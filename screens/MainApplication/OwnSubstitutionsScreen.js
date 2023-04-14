@@ -3,8 +3,6 @@ import React, { useState, useContext, useEffect } from 'react'
 import Styles from '../../assets/styles/styles'
 import { colors } from '../../assets/styles/colors'
 
-import SubstitutionsList from '../../components/SubstitutionsList'
-import substitutions from '../../assets/data/substitutionsData_new.json'
 import UpcomingGigs from '../../components/UpcomingGigs'
 import { getUserData } from '../../utils'
 
@@ -16,7 +14,6 @@ const OwnSubstitutionsScreen = ({ navigation }) => {
   const { i18n, locale, setLocale } = useContext(LocaleContext)
 
   const [isMonth, setIsMonth] = React.useState(true)
-  const [item, setItem] = useState('')
   const [userSubstitutions, setUserSubstitutions] = useState()
 
   useEffect(() => {
@@ -45,8 +42,7 @@ const OwnSubstitutionsScreen = ({ navigation }) => {
       <View style={{ paddingHorizontal: '5%' }}>
         <View>
           <Text style={Styles.h2}>{i18n.t('nextShift')}</Text>
-          <View style={{ alignItems: 'center', backgroundColor: colors.krGray, borderColor: colors.textDark, borderRadius: 9, width: '78%' }}>
-          </View>
+          {userSubstitutions && <UpcomingGigs substIDs={userSubstitutions} navigation={navigation} />}
         </View>
 
         <Text style={Styles.h2}>Palkkakuitti</Text>
@@ -56,9 +52,6 @@ const OwnSubstitutionsScreen = ({ navigation }) => {
           <Text>{'\n'}Tarkastele palkkakuittiasi</Text>
         </View>
       </View>
-
-
-      {userSubstitutions && <UpcomingGigs substIDs={userSubstitutions} navigation={navigation} />}
     </View>
   )
 }
