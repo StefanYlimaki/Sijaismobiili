@@ -296,6 +296,7 @@ const style = StyleSheet.create({
     width: '100%',
   },
   substitutionHeroItemContainer: {
+    backgroundColor: '#FFF',
     elevation: 17,
     padding: 16,
     shadowColor: '#000000',
@@ -324,6 +325,7 @@ const style = StyleSheet.create({
     paddingVertical: 6,
   },
   substitutionItemContainer: {
+    backgroundColor: '#FFF',
     elevation: 10,
     paddingHorizontal: 16,
     paddingVertical: 8,
@@ -382,6 +384,7 @@ const style = StyleSheet.create({
     textAlign: 'left',
   },
   thumb: {
+    backgroundColor: '#FFF',
     elevation: 14,
     shadowColor: '#000000',
     shadowOffset: {
