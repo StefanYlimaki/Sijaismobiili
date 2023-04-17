@@ -72,6 +72,9 @@ const SubstitutionItem = ({ substitution, navigation }) => {
                   </View>
                   :<></>
                 }
+                <Text>
+                  {substitution.item.points}
+                </Text>
                 
               </View>
             </View>
