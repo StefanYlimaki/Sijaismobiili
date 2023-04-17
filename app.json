@@ -27,7 +27,7 @@
         "backgroundColor": "#FFFFFF"
       },
       "package": "com.proj.sijaismobiili",
-      "versionCode": 2304131
+      "versionCode": 2304171
     },
     "web": {
       "favicon": "./assets/favicon.png"
