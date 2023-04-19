@@ -1,4 +1,4 @@
-import {  Text, View, Dimensions, Animated, PanResponder } from 'react-native'
+import {  Text, View, Dimensions, Animated, PanResponder, ImageBackground } from 'react-native'
 import React, {useRef, useState} from 'react'
 import substitutions from '../../assets/data/substitutionsData_new.json'
 import styles from '../../assets/styles/styles'
@@ -10,6 +10,7 @@ import { CommonActions } from '@react-navigation/native'
 import { orderAndFilterSubstitutionsByPreferences } from '../../utils/orderAndFilterSubstitutionsByPreferences'
 import { StyleSheet } from 'react-native-web'
 import { colors } from '../../assets/styles/colors'
+import { LinearGradient } from 'expo-linear-gradient'
 
 const SCREEN_HEIGHT = Dimensions.get('window').height
 const SCREEN_WIDTH = Dimensions.get('window').width
@@ -19,6 +20,8 @@ const CARD_COUNT = 5
 
 //Threshold for registering swipes
 const SWIPE_THRESHOLD = 120
+
+const placeholder = {uri: 'https://images.unsplash.com/photo-1584432810601-6c7f27d2362b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8'}
 
 const RecommendationView = ({navigation}) => {
   const [tailoredSubstitutions, setTailoredSubstitutions] = useState([])
@@ -164,6 +167,7 @@ const RecommendationCards = ({navigation, substitutions}) => {
     extrapolate: 'clamp'
   })
 
+
   //Render cards from JSON
   return substitutions.map((item, i) => {
     if (currentIndex > CARD_COUNT - 1) {
@@ -190,6 +194,13 @@ const RecommendationCards = ({navigation, substitutions}) => {
         )
       })
 
+      const image = () => {
+        if (item.image) {
+          return {uri: item.image}
+        } else {
+          return placeholder
+        }  
+      }
 
       return (
         <Animated.View 
@@ -210,18 +221,31 @@ const RecommendationCards = ({navigation, substitutions}) => {
             localStyles.recommendationCardAnimated
           ]}
         >
-          <View style={{paddingTop:10}}>
-            {benefits}
-          </View>
-          <View style={localStyles.recommendationCardInfoElement}>
-            <Text style={{fontSize: 20, fontFamily: 'Inter-Display'}}>
-              {item.title}
-            </Text>
-            <Text style={{fontWeight: 'bold', fontSize: 30, fontFamily: 'Inter-Display'}}>
-              {item.department}
-            </Text>
+          <ImageBackground
+            source={image()}
+            imageStyle={{borderTopRightRadius: 10, borderTopLeftRadius: 10}}
+            style={{flex: 1}}
+          >
+            <LinearGradient
+              colors={['transparent', 'rgba(0,0,0,0.5)']}
+              start={{ x: 0, y: 0.3}}
+              end={{x: 0.0, y: 0.8}}
+              style={{borderTopRightRadius: 10, borderTopLeftRadius: 10, flex: 1}}>
+              <View style={{paddingTop:10}}>
+                {benefits}
+              </View>
+              <View style={{flex: 1}}/>
+              <View style={localStyles.recommendationCardInfoElement}>
+                <Text style={[styles.whiteText, {fontSize: 20, fontFamily: 'Figtree-ExtraBold'}]}>
+                  {item.title}
+                </Text>
+                <Text style={[styles.whiteText, {fontWeight: 'bold', fontSize: 30, fontFamily: 'Inter-Display'}]}>
+                  {item.department}
+                </Text>
 
-          </View>
+              </View>
+            </LinearGradient>
+          </ImageBackground>
           <View style={localStyles.recommendationCardInfoBarElement}>
             <View style={{flex:1}}>
               <Text style={localStyles.recommendationCardInfoBarLeftElement}>
@@ -284,10 +308,9 @@ const localStyles = StyleSheet.create({
   recommendationCardInfoBarElement: {
     backgroundColor: colors.krBlue,
     flexDirection: 'row',
-    flexGrow: 0.25,
+    flexGrow: 0.2,
     height:'auto',
     justifyContent: 'space-between',
-    marginTop: 20,
     padding: 10
   },
   recommendationCardInfoBarLeftElement: {
@@ -309,7 +332,7 @@ const localStyles = StyleSheet.create({
   recommendationCardInfoElement: {
     flexDirection: 'column',
     paddingLeft: 10,
-    paddingTop: '25%'
+    //paddingTop: '25%'
   },
   recommendationCardSalaryElement: {
     flexDirection: 'row',
