@@ -9,7 +9,7 @@ import {Icon} from '@rneui/base'
 import {ListItem} from '@rneui/base'
 import postCode from '../../assets/data/postcode_map_light.json'
 
-const PageThree = ({ navigation }) => {
+const PageThree = ({ navigation, handleChange }) => {
   const [user, setUser] = useState()
   const [loading, setLoading] = useState(true)
 
