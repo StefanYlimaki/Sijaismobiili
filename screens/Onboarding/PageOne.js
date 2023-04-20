@@ -27,6 +27,11 @@ const PageOne = ({ handleChange, setPageToRender }) => {
       <Text>Me kerromme missä viihdyt</Text>
       <SubstitutionElement />
       <SubstitutionElement />
+      <View >
+        <Text style={styles.label}>
+                Aamuvuorot
+        </Text>
+      </View>
       <Slider
         style={styles.prefSlider}
         maximumValue={5}
