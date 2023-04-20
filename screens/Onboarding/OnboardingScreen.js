@@ -29,7 +29,6 @@ const OnboardingScreen = ({ navigation }) => {
   },[])
 
   const handleChange = async (event, key, subKey) => {
-    console.log(event, key, subKey)
     try {
       const newUser = {...user}
       if(subKey){
@@ -70,7 +69,7 @@ const OnboardingScreen = ({ navigation }) => {
         : <>
           {pageToRender === 2
             ? <PageTwo setPageToRender={setPageToRender} handleChange={handleChange}/>
-            : <PageThree navigation={navigation} />
+            : <PageThree navigation={navigation} handleChange={handleChange}/>
           }
         </>
       }
