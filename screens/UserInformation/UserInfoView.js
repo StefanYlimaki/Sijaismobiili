@@ -41,7 +41,7 @@ const UserInfoView = ({ user, setUser, navigation }) => {
       <ScrollView>
         <View style={styles.userContent}>
           <View>
-            <Text style={[styles.h2, styles.blackText, {textAlign: 'center'}]}>Käyttäjätiedot</Text>
+            <Text style={[styles.h2, styles.blackText, {textAlign: 'center'}]}>Henkilötiedot</Text>
           </View>
           <View style={styles.userInfoList}
             importantForAutofill={'yes'} >
