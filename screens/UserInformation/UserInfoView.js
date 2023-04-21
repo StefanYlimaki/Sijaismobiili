@@ -127,22 +127,11 @@ const UserInfoView = ({ user, setUser, navigation }) => {
                   onEndEditing={(e) => handleChange(e, 'valviraID')}
                 />
               </ListItem>
-              <ListItem containerStyle={styles.listItemContainer}><ListItem.Title><Text style={styles.textfieldlist}>Notifikaatio Token</Text></ListItem.Title>
-                <ListItem.Input
-                  defaultValue={user.token}
-                  keyboardType={'numeric'}
-                  onEndEditing={(e) => handleChange(e, 'valviraID')}
-                />
-              </ListItem>
             </View>
-
-            <Button title='log user' onPress={() => logUserData()} />
             <Text style={styles.textfieldlist}></Text>
-
             <Pressable style={styles.settingsButton} onPress={() => {navigation.navigate('Settings')}}>
               <Text style={styles.buttonText}>Asetukset</Text>
             </Pressable>
-
           </View>
         </ScrollView>
       </TouchableWithoutFeedback>
