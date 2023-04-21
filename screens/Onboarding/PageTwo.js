@@ -172,7 +172,7 @@ const PageTwo = ({ setStep, handleChange }) => {
           />
         </View>
       </View>
-      <View style={{ paddingTop: 10, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+      <View style={{ paddingTop: 2, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         <Pressable style={{
           height: 80,
           width: '50%',
