@@ -69,7 +69,7 @@ const PageThree = ({ navigation, handleChange }) => {
                 onEndEditing={(e) => handleChange(e, 'lastname')}
                 textContentType={'familyName'}
               /></ListItem>
-            <ListItem containerStyle={styles.listItemContainer} bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Sähköpostiosoite</Text></ListItem.Title>
+            <ListItem containerStyle={styles.listItemContainer} bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Sähköposti</Text></ListItem.Title>
               <ListItem.Input
                 autoComplete={'email'}
                 editable
@@ -130,7 +130,7 @@ const PageThree = ({ navigation, handleChange }) => {
           </View>
         </View>
       </ScrollView>
-      <View style={{ paddingTop: 40, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+      <View style={{ paddingTop: 60, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         <Pressable style={{
           height: 80,
           width: '50%',
