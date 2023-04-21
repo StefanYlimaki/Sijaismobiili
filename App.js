@@ -20,6 +20,7 @@ import SubstitutionCard from './components/SubstitutionCard'
 import UpcomingGigsList from './components/UpcomingGigsList'
 import {colors} from './assets/styles/colors'
 import GigConfirmedPopup from './components/GigConfirmedPopup'
+import OnboardingScreen from './screens/Onboarding/OnboardingScreen'
 
 const Stack = createNativeStackNavigator()
 
@@ -76,6 +77,7 @@ export default function App() {
                 }}
                 mode="modal"
               >
+                <Stack.Screen name="OnboardingScreen" component={OnboardingScreen}/>
                 <Stack.Screen name="SwipeScreen" component={ SwipeScreen } options={{ presentation: 'transparentModal', headerShown: false }} />
                 <Stack.Screen name="MainApplication" component={ AppTabs } />
                 <Stack.Screen name="UserInfoScreen" component={ UserInformationStack } />

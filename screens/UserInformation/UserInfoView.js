@@ -14,8 +14,10 @@ import styles from '../../assets/styles/styles'
 import { setUserData } from '../../utils/setUserData'
 import {ListItem} from '@rneui/base'
 import postCode from '../../assets/data/postcode_map_light.json'
+import { getPostalAddressByPostCode } from '../../utils/getPostalAddressByPostCode'
 
 const UserInfoView = ({ user, setUser, navigation }) => {
+  const [postalAddress, setPostalAddress] = useState(getPostalAddressByPostCode(user.postNumber))
   const handleChange = async (event, key, subKey) => {
     try {
       const newUser = {...user}
@@ -95,16 +97,19 @@ const UserInfoView = ({ user, setUser, navigation }) => {
                   editable
                   defaultValue={user.postNumber}
                   keyboardType="numeric"
-                  onEndEditing={(e) => handleChange(e, 'postNumber')}
+                  onChangeText={(e) => {
+                    setPostalAddress(getPostalAddressByPostCode(e))
+                  }}
+                  onEndEditing={(e) => {
+                    handleChange(e, 'postNumber')
+                  }}
                   textContentType={'postalCode'}
                 />
               </ListItem>
               <ListItem containerStyle={styles.listItemContainer} bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Postitoimipaikka</Text></ListItem.Title>
                 <ListItem.Input
-                  disabled //From post number
-                  value = {postCode[user.postNumber]}
-                  //onEndEditing={(e) => handleChange(e, 'city')}
-
+                  disabled 
+                  value = { postalAddress }
                 />
               </ListItem>
               <ListItem containerStyle={styles.listItemContainer} bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Henkilötunnus</Text></ListItem.Title>
