@@ -32,10 +32,10 @@ const PageOne = ({ handleChange, setStep }) => {
         <Text style={{ fontSize: 24, fontWeight: '600' }}>Keikkoja, joista pidät</Text>
       </View>
       <View style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-        <Text style={{ fontSize: 18, fontWeight: '500' }}>Kerro meille mistä pidät</Text>
+        <Text style={{ fontSize: 18, fontWeight: '500' }}>Kerro meille mistä pidät.</Text>
       </View>
       <View style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', paddingBottom: 40 }}>
-        <Text style={{ fontSize: 18, fontWeight: '500' }}>Me kerromme missä viihdyt</Text>
+        <Text style={{ fontSize: 18, fontWeight: '500' }}>Me kerromme missä viihdyt.</Text>
       </View>
 
       {morning === 0 || morning === 1 || morning === 2
