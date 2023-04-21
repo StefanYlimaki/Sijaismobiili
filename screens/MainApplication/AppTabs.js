@@ -26,12 +26,9 @@ const AppTabs = ({ navigation, route }) => {
   const responseListener = useRef()
 
   useEffect(() => {
-    notificationListener.current = Notifications.addNotificationReceivedListener(notification => {
-      console.log('notification when foregrounded')
-    })
+    notificationListener.current = Notifications.addNotificationReceivedListener()
 
     responseListener.current = Notifications.addNotificationResponseReceivedListener(response => {
-      console.log('response', response.notification.request.content.data.id)
       const substitution = substitutions.find(s => s.id === response.notification.request.content.data.id)
       navigation.navigate('SingleSubstitution', { substitution: substitution})
     })
