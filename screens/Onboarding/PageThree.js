@@ -17,6 +17,7 @@ const PageThree = ({ navigation, handleChange }) => {
     async function fetchUserData() {
       const user = await getUserData()
       setUser(user)
+      setPostalAddress(getPostalAddressByPostCode(user.postNumber))
       setLoading(false)
     }
 
@@ -103,9 +104,11 @@ const PageThree = ({ navigation, handleChange }) => {
                 editable
                 defaultValue={user.postNumber}
                 keyboardType="numeric"
+                onChangeText={(e) => {
+                  setPostalAddress(getPostalAddressByPostCode(e))
+                }}
                 onEndEditing={(e) => {
                   handleChange(e, 'postNumber')
-                  setPostalAddress(getPostalAddressByPostCode(e.nativeEvent.text))
                 }}
                 textContentType={'postalCode'}
               />
