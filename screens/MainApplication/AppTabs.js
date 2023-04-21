@@ -26,7 +26,7 @@ const AppTabs = ({ navigation, route }) => {
   const responseListener = useRef()
 
   useEffect(() => {
-    notificationListener.current = Notifications.addNotificationReceivedListener()
+    notificationListener.current = Notifications.addNotificationReceivedListener(notification => {})
 
     responseListener.current = Notifications.addNotificationResponseReceivedListener(response => {
       const substitution = substitutions.find(s => s.id === response.notification.request.content.data.id)
