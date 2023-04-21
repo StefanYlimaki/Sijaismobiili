@@ -1,11 +1,6 @@
 import { useState, useEffect } from 'react'
-import { Pressable, Button, Text, View, StyleSheet, TouchableWithoutFeedback, ActivityIndicator } from 'react-native'
-import { Slider } from '@rneui/themed'
-import {Icon} from '@rneui/base'
-import SubstitutionItem from '../../components/SubstitutionItem'
-import styles from '../../assets/styles/styles'
+import { View, TouchableWithoutFeedback, ActivityIndicator } from 'react-native'
 import {colors} from '../../assets/styles/colors.js'
-import substitutions from '../../assets/data/substitutionsData_new.json'
 import { getUserData } from '../../utils'
 import { setUserData } from '../../utils/setUserData'
 

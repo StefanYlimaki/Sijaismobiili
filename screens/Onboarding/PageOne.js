@@ -1,12 +1,17 @@
 import { useState, useEffect } from 'react'
-import { Pressable, Button, Text, View, StyleSheet, TouchableWithoutFeedback, ActivityIndicator } from 'react-native'
+import { Button, Text, View } from 'react-native'
 import { Slider } from '@rneui/themed'
 import {Icon} from '@rneui/base'
-import SubstitutionItem from '../../components/SubstitutionItem'
 import styles from '../../assets/styles/styles'
-import {colors} from '../../assets/styles/colors.js'
 import substitutions from '../../assets/data/substitutionsData_new.json'
 import { getUserData } from '../../utils/getUserData'
+import thumbIcon from '../../utils/thumbIcon'
+import thumbTheme from '../../utils/thumbTheme'
+
+import { formatHourlyPay, formatDate, formatTime } from '../../utils'
+import calculateDistance from '../../utils/calculateDistance'
+
+
 
 const PageOne = ({ handleChange, setPageToRender }) => {
   const [morning, setMorning] = useState()
@@ -19,17 +24,30 @@ const PageOne = ({ handleChange, setPageToRender }) => {
     fetchUserData()
   },[])
 
+  
 
   return(
     <View>
       <Text>Keikkoja, joista pidät</Text>
       <Text>Kerro meille mistä pidät</Text>
       <Text>Me kerromme missä viihdyt</Text>
-      <SubstitutionElement />
-      <SubstitutionElement />
+
+      {/*morning === 0 || morning === 1 || morning === 2
+        ? 
+        <>
+          <SubstitutionElement substitution={substitutions[0]}/>
+          <SubstitutionElement substitution={substitutions[5]}/>
+        </>
+        : 
+        <>
+          <SubstitutionElement substitution={substitutions[5]}/>
+          <SubstitutionElement substitution={substitutions[0]}/>
+        </>
+      */}
+      
       <View >
         <Text style={styles.label}>
-                Aamuvuorot
+          Aamuvuorot
         </Text>
       </View>
       <Slider
@@ -63,45 +81,73 @@ const PageOne = ({ handleChange, setPageToRender }) => {
   )
 }
 
-const SubstitutionElement = () => {
+const SubstitutionElement = ({ substitution }) => {
+  const getDistance = () => {
+    return calculateDistance(parseFloat(substitution.item.coordinates.latitude), parseFloat(substitution.item.coordinates.longitude), 65.05941, 25.46642, false)
+  }
+  substitution.item = substitution
   return(
-    <View><Text>SubstitutionElement</Text></View>
+    <View style={{ paddingVertical: 12 }}>
+      <View style={styles.substitutionPreviewComponentTopElement}>
+        <View style={{flexDirection: 'column', flex: 1, justifyContent: 'space-between'}}>
+          <Text style={styles.whiteText}>
+            {formatDate(substitution.item.timing.startTime)}
+          </Text>
+          <Text style={styles.whiteText}>
+            {formatTime(substitution.item.timing.startTime, substitution.item.timing.duration)}
+          </Text>
+        </View>
+        <View style={{flexDirection: 'column', alignItems: 'flex-end', flex:2}}>
+          <Text style={styles.substItemOrganisationText}>
+            {substitution.item.organisation}
+          </Text>
+          <Text style={styles.whiteText}>
+            {getDistance(substitution.item.location)}
+          </Text>
+        </View>
+      </View>
+      <View style={styles.substitutionPreviewComponentBottomElement}>
+
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between'}}>
+          <View style={{ flexDirection: 'column', justifyContent: 'center'}}>
+            <Text style={[styles.blackText, { fontSize: 20, fontFamily: 'Inter-DisplayBold'}]}>
+              {substitution.item.title}
+            </Text>
+            <Text style={[styles.blackText, { paddingRight: 8, fontFamily: 'Inter-DisplayMedium', fontSize: 15}]}>
+              {substitution.item.department}
+            </Text>
+          </View>
+
+          <View style={{ flexDirection: 'column'}}>
+            <View style={{ flexDirection: 'row', justifyContent: 'flex-start'}}>
+              <Text style={ [styles.blackText, { paddingRight: 8, fontWeight: 'bold'}]}>
+                {formatHourlyPay(substitution.item.hourlyPay)}€/h
+              </Text>
+              <Text style={ [styles.blackText, { paddingRight: 16 }]}>
+                    (~{formatHourlyPay((substitution.item.timing.duration / 60) * substitution.item.hourlyPay)} €)
+              </Text>
+            </View>
+            {substitution.item.benefits.length !== 0
+              ? <View>
+                {substitution.item.benefits.map(b => 
+                  <View key={ b } style={styles.substitutionItemBenefitsItem} >
+                    <Text style={styles.whiteText} >
+                      {b}
+                    </Text>
+                  </View>
+                )}
+              </View>
+              :<></>
+            }
+            <Text>
+              {substitution.item.points}
+            </Text>
+                
+          </View>
+        </View>
+      </View>
+    </View>
   )
 }
 
 export default PageOne
-
-const thumbTheme = (y) => {
-  if (y === 1) {
-    return colors.danger
-  }
-  if (y === 2) {
-    return colors.warning
-  }
-  if (y === 3) {
-    return colors.krGreen
-  }
-  if (y === 4) {
-    return colors.blueBright
-  }
-  if (y === 5) {
-    return colors.success
-  }
-}
-const thumbIcon = (y) => {
-  if (y === 1) {
-    return 'heart-off'
-  }
-  if (y === 2) {
-    return 'emoticon-neutral'
-  }
-  if (y === 3) {
-    return 'emoticon-happy'
-  }
-  if (y === 4) {
-    return 'emoticon'
-  }
-  if (y === 5) {
-    return 'heart-multiple'
-  }
-}
