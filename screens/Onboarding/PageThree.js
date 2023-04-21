@@ -127,14 +127,6 @@ const PageThree = ({ navigation, handleChange }) => {
                 onEndEditing={(e) => handleChange(e, 'personNumber')}
               />
             </ListItem>
-            <ListItem containerStyle={styles.listItemContainer}><ListItem.Title><Text style={styles.textfieldlist}>Valviran rekisteröintinumero</Text></ListItem.Title>
-              <ListItem.Input
-                editable
-                defaultValue={user.valviraID}
-                keyboardType={'numeric'}
-                onEndEditing={(e) => handleChange(e, 'valviraID')}
-              />
-            </ListItem>
           </View>
         </View>
       </ScrollView>
