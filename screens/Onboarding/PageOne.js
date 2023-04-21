@@ -85,7 +85,7 @@ const PageOne = ({ handleChange, setStep }) => {
           onValueChange={(event) => setMorning(event)}
         />
       </View>
-      <View style={{ paddingTop: 40, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+      <View style={{ paddingTop: 30, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         <Pressable style={{
           height: 80,
           width: '50%',

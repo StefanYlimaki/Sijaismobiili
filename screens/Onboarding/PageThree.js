@@ -46,7 +46,7 @@ const PageThree = ({ navigation, handleChange }) => {
       <View style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         <Text style={{ fontSize: 16, fontWeight: '600' }}>Tehdään toisemme vielä tarkemmin tutuiksi.</Text>
       </View>
-      <ScrollView>
+      <ScrollView style={{ paddingTop: 20 }}>
         <View style={styles.userContent}>
           <Text style={{display: 'none'}}>
             <Text style={[styles.h2, styles.blackText]}>Moi! Tämä on täydellisen turha ostsikko, mutta ajakoot nyt placeholderin paikkaa!</Text>
@@ -130,7 +130,7 @@ const PageThree = ({ navigation, handleChange }) => {
           </View>
         </View>
       </ScrollView>
-      <View style={{ paddingTop: 60, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+      <View style={{ paddingTop: 68, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         <Pressable style={{
           height: 80,
           width: '50%',
