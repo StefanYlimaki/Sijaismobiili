@@ -120,7 +120,7 @@ const PageThree = ({ navigation, handleChange }) => {
 
               />
             </ListItem>
-            <ListItem containerStyle={styles.listItemContainer} bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Henkilötunnus</Text></ListItem.Title>
+            <ListItem containerStyle={styles.listItemContainer} ><ListItem.Title><Text style={styles.textfieldlist}>Henkilötunnus</Text></ListItem.Title>
               <ListItem.Input
                 editable
                 defaultValue={user.personNumber}

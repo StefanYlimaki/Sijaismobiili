@@ -37,139 +37,96 @@ const UserInfoView = ({ user, setUser, navigation }) => {
   }
 
   return (
-    <KeyboardAvoidingView style={styles.userContainer}>
-      <TouchableWithoutFeedback>
-        <ScrollView>
-          <View style={styles.userContent}>
-            <Text style={{display: 'none'}}>
-              <Text style={[styles.h2, styles.blackText]}>Moi! Tämä on täydellisen turha ostsikko, mutta ajakoot nyt placeholderin paikkaa!</Text>
-            </Text>
-            <View style={styles.userInfoList}
-              importantForAutofill={'yes'} >
-              <ListItem containerStyle={styles.listItemContainer} bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Etunimi</Text></ListItem.Title>
-                <ListItem.Input
-                  autoCompleteType={'name-given'}
-                  editable
-                  defaultValue={user.firstname}
-                  onEndEditing={(e) => handleChange(e, 'firstname')}
-                  textContentType={'givenName'}
-                /></ListItem>
-              <ListItem containerStyle={styles.listItemContainer} bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Sukunimi</Text></ListItem.Title>
-                <ListItem.Input
-                  autoCompleteType={'family-name'}
-                  editable
-                  defaultValue={user.lastname}
-                  onEndEditing={(e) => handleChange(e, 'lastname')}
-                  textContentType={'familyName'}
-                /></ListItem>
-              <ListItem containerStyle={styles.listItemContainer} bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Sähköposti</Text></ListItem.Title>
-                <ListItem.Input
-                  autoComplete={'email'}
-                  editable
-                  defaultValue={user.email}
-                  keyboardType={'email-address'}
-                  onEndEditing={(e) => handleChange(e, 'email')}
-                  textContentType={'emailAddress'}
-                />
-              </ListItem>
-              <ListItem containerStyle={styles.listItemContainer} bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Puhelinnumero</Text></ListItem.Title>
-                <ListItem.Input
-                  autoComplete={'tel'}
-                  editable
-                  defaultValue={user.phoneNumber}
-                  keyboardType={'phone-pad'}
-                  onEndEditing={(e) => handleChange(e, 'phoneNumber')}
-                  textContentType={'telephoneNumber'}
-                />
-              </ListItem>
-              <ListItem containerStyle={styles.listItemContainer} bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Katuosoite</Text></ListItem.Title>
-                <ListItem.Input
-                  autoComplete={'street-address'}
-                  editable
-                  defaultValue={user.address}
-                  onEndEditing={(e) => handleChange(e, 'address')}
-                  textContentType={'streetAddressLine1'}
-                />
-              </ListItem>
-              <ListItem containerStyle={styles.listItemContainer} bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Postinumero</Text></ListItem.Title>
-                <ListItem.Input
-                  autoComplete={'postal-code'}
-                  editable
-                  defaultValue={user.postNumber}
-                  keyboardType="numeric"
-                  onChangeText={(e) => {
-                    setPostalAddress(getPostalAddressByPostCode(e))
-                  }}
-                  onEndEditing={(e) => {
-                    handleChange(e, 'postNumber')
-                  }}
-                  textContentType={'postalCode'}
-                />
-              </ListItem>
-              <ListItem containerStyle={styles.listItemContainer} bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Postitoimipaikka</Text></ListItem.Title>
-                <ListItem.Input
-                  disabled 
-                  value = { postalAddress }
-                />
-              </ListItem>
-              <ListItem containerStyle={styles.listItemContainer} bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Henkilötunnus</Text></ListItem.Title>
-                <ListItem.Input
-                  editable
-                  defaultValue={user.personNumber}
-                  onEndEditing={(e) => handleChange(e, 'personNumber')}
-                />
-              </ListItem>
-              <ListItem containerStyle={styles.listItemContainer}><ListItem.Title><Text style={styles.textfieldlist}>Rekisteröintinumero</Text></ListItem.Title>
-                <ListItem.Input
-                  disabled
-                  defaultValue='41526262621'
-                />
-              </ListItem>
-            </View>
-            <Text style={styles.textfieldlist}></Text>
-            <Pressable style={styles.settingsButton} onPress={() => {navigation.navigate('Settings')}}>
-              <Text style={styles.buttonText}>Asetukset</Text>
-            </Pressable>
+    <KeyboardAvoidingView behavior='height' style={{ marginTop: 10 }}>
+      <ScrollView>
+        <View style={styles.userContent}>
+          <View>
+            <Text style={[styles.h2, styles.blackText, {textAlign: 'center'}]}>Käyttäjätiedot</Text>
           </View>
-        </ScrollView>
-      </TouchableWithoutFeedback>
-    </KeyboardAvoidingView >
-  )
-}
+          <View style={styles.userInfoList}
+            importantForAutofill={'yes'} >
+            <ListItem containerStyle={styles.listItemContainer} bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Etunimi</Text></ListItem.Title>
+              <ListItem.Input
+                autoCompleteType={'name-given'}
+                editable
+                defaultValue={user.firstname}
+                onEndEditing={(e) => handleChange(e, 'firstname')}
+                textContentType={'givenName'}
+              /></ListItem>
+            <ListItem containerStyle={styles.listItemContainer} bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Sukunimi</Text></ListItem.Title>
+              <ListItem.Input
+                autoCompleteType={'family-name'}
+                editable
+                defaultValue={user.lastname}
+                onEndEditing={(e) => handleChange(e, 'lastname')}
+                textContentType={'familyName'}
+              /></ListItem>
+            <ListItem containerStyle={styles.listItemContainer} bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Sähköposti</Text></ListItem.Title>
+              <ListItem.Input
+                autoComplete={'email'}
+                editable
+                defaultValue={user.email}
+                keyboardType={'email-address'}
+                onEndEditing={(e) => handleChange(e, 'email')}
+                textContentType={'emailAddress'}
+              />
+            </ListItem>
+            <ListItem containerStyle={styles.listItemContainer} bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Puhelinnumero</Text></ListItem.Title>
+              <ListItem.Input
+                autoComplete={'tel'}
+                editable
+                defaultValue={user.phoneNumber}
+                keyboardType={'phone-pad'}
+                onEndEditing={(e) => handleChange(e, 'phoneNumber')}
+                textContentType={'telephoneNumber'}
+              />
+            </ListItem>
+            <ListItem containerStyle={styles.listItemContainer} bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Katuosoite</Text></ListItem.Title>
+              <ListItem.Input
+                autoComplete={'street-address'}
+                editable
+                defaultValue={user.address}
+                onEndEditing={(e) => handleChange(e, 'address')}
+                textContentType={'streetAddressLine1'}
+              />
+            </ListItem>
+            <ListItem containerStyle={styles.listItemContainer} bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Postinumero</Text></ListItem.Title>
+              <ListItem.Input
+                autoComplete={'postal-code'}
+                editable
+                defaultValue={user.postNumber}
+                keyboardType="numeric"
+                onChangeText={(e) => {
+                  setPostalAddress(getPostalAddressByPostCode(e))
+                }}
+                onEndEditing={(e) => {
+                  handleChange(e, 'postNumber')
+                }}
+                textContentType={'postalCode'}
+              />
+            </ListItem>
+            <ListItem containerStyle={styles.listItemContainer} bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Postitoimipaikka</Text></ListItem.Title>
+              <ListItem.Input
+                disabled 
+                value = {postalAddress}
 
-const thumbTheme = (y) => {
-  if (y === 1) {
-    return Colors.danger
-  }
-  if (y === 2) {
-    return Colors.warning
-  }
-  if (y === 3) {
-    return Colors.krGreen
-  }
-  if (y === 4) {
-    return Colors.info
-  }
-  if (y === 5) {
-    return Colors.success
-  }
-}
-const thumbIcon = (y) => {
-  if (y === 1) {
-    return 'heart-off'
-  }
-  if (y === 2) {
-    return 'emoticon-neutral'
-  }
-  if (y === 3) {
-    return 'emoticon-happy'
-  }
-  if (y === 4) {
-    return 'emoticon'
-  }
-  if (y === 5) {
-    return 'heart-multiple'
-  }
+              />
+            </ListItem>
+            <ListItem containerStyle={styles.listItemContainer} ><ListItem.Title><Text style={styles.textfieldlist}>Henkilötunnus</Text></ListItem.Title>
+              <ListItem.Input
+                editable
+                defaultValue={user.personNumber}
+                onEndEditing={(e) => handleChange(e, 'personNumber')}
+              />
+            </ListItem>
+          </View>
+        </View>
+      </ScrollView>
+      <Pressable style={styles.settingsButton} onPress={() => {navigation.navigate('Settings')}}>
+        <Text style={styles.buttonText}>Asetukset</Text>
+      </Pressable>
+    </KeyboardAvoidingView>
+  )
 }
 
 export default UserInfoView

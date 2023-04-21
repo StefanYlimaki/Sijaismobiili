@@ -177,9 +177,9 @@ const style = StyleSheet.create({
     alignSelf: 'center',
     backgroundColor: colors.info,
     borderRadius: 100,
-    marginBottom: 50,
-    paddingBottom: 5,
-    paddingTop: 5,
+    marginTop: 20,
+    paddingBottom: 8,
+    paddingTop: 8,
     width: 120
   },
   settingsContainer: {
