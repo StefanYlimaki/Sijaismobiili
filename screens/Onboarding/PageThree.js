@@ -39,7 +39,7 @@ const PageThree = ({ navigation, handleChange }) => {
   }
 
   return(
-    <KeyboardAvoidingView style={styles.userContainer}>
+    <KeyboardAvoidingView>
       <View style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', paddingTop: 36, paddingBottom: 12}}>
         <Text style={{ fontSize: 24, fontWeight: '900' }}>Kerro vielä kuka olet</Text>
       </View>
