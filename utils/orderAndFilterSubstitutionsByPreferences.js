@@ -11,8 +11,10 @@ export async function orderAndFilterSubstitutionsByPreferences(subs) {
     longitude: 25.469885
   }
 
+  const filteredSubstitutionsThatHaveStartedAlready = subs.filter(s => !substitutionHasStartTimeInThePast(s))
+
   // Substitutions that locate within the max distance set in the user preferences
-  const filteredSubstitutionsByDistance = subs.filter(s => calculateDistance(userCoordinates.latitude, userCoordinates.longitude, s.coordinates.latitude, s.coordinates.longitude, true) < user.preferences.distance)
+  const filteredSubstitutionsByDistance = filteredSubstitutionsThatHaveStartedAlready.filter(s => calculateDistance(userCoordinates.latitude, userCoordinates.longitude, s.coordinates.latitude, s.coordinates.longitude, true) < user.preferences.distance)
   
   // Substitutions that locate within the max distance set in the user preferences and that are not unwanted based on the preferences 
   // (for example if user doesn't want night shifts, they are removed here)
@@ -23,6 +25,17 @@ export async function orderAndFilterSubstitutionsByPreferences(subs) {
   
   // Returning a ranked list with the first substitution being the most fitting.
   return(ratedAndFilteredSubstitutions.sort(compareSubstitutions))
+}
+
+// Checks whether given substitution has startTime in the past
+// If substitution has startTime in the past ==> return true
+function substitutionHasStartTimeInThePast(substitution){
+  const nowInMillis = new Date().getTime()
+  const substitutionStartTimeInMillis = new Date(substitution.timing.startTime).getTime()
+  if(nowInMillis > substitutionStartTimeInMillis){
+    return true
+  }
+  return false
 }
 
 function rateSubstitutions(substitutions, preferences){
