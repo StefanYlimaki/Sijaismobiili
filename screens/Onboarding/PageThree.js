@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react'
-import { View, Text, Pressable, ScrollView, ActivityIndicator } from 'react-native'
+import { View, Text, Pressable, ScrollView, ActivityIndicator, KeyboardAvoidingView } from 'react-native'
 import { ListItem } from '@rneui/base'
 
 import { getUserData } from '../../utils/getUserData'
@@ -39,7 +39,7 @@ const PageThree = ({ navigation, handleChange }) => {
   }
 
   return(
-    <View>
+    <KeyboardAvoidingView behavior='height'>
       <View style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', paddingTop: 36, paddingBottom: 12}}>
         <Text style={{ fontSize: 24, fontWeight: '900' }}>Kerro vielä kuka olet</Text>
       </View>
@@ -127,14 +127,6 @@ const PageThree = ({ navigation, handleChange }) => {
                 onEndEditing={(e) => handleChange(e, 'personNumber')}
               />
             </ListItem>
-            <ListItem containerStyle={styles.listItemContainer}><ListItem.Title><Text style={styles.textfieldlist}>Valviran rekisteröintinumero</Text></ListItem.Title>
-              <ListItem.Input
-                editable
-                defaultValue={user.valviraID}
-                keyboardType={'numeric'}
-                onEndEditing={(e) => handleChange(e, 'valviraID')}
-              />
-            </ListItem>
           </View>
         </View>
       </ScrollView>
@@ -152,7 +144,7 @@ const PageThree = ({ navigation, handleChange }) => {
           <Text style={{ color: '#fff', fontSize: 20, fontWeight: '600' }}>Jatka</Text>
         </Pressable>
       </View>
-    </View>
+    </KeyboardAvoidingView>
   )
 }
 
