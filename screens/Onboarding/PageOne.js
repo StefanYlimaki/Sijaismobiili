@@ -38,50 +38,53 @@ const PageOne = ({ handleChange, setStep }) => {
         <Text style={{ fontSize: 18, fontWeight: '500' }}>Me kerromme missä viihdyt.</Text>
       </View>
 
-      {morning === 0 || morning === 1 || morning === 2
+      {morning > 3
         ? 
         <>
-          <SubstitutionElement substitution={substitutions[0]}/>
           <SubstitutionElement substitution={substitutions[5]}/>
+          <SubstitutionElement substitution={substitutions[1]}/>
         </>
         : 
         <>
+          <SubstitutionElement substitution={substitutions[1]}/>
           <SubstitutionElement substitution={substitutions[5]}/>
-          <SubstitutionElement substitution={substitutions[0]}/>
         </>
       }
       
-      <View style={{ paddingTop: 20 }}>
-        <Text style={styles.label}>
-          Aamuvuorot
-        </Text>
+      
+      <View style={{ paddingHorizontal: 10, paddingTop: 20 }}>
+        <View>
+          <Text style={styles.label}>
+            Aamuvuorot
+          </Text>
+        </View>
+        <Slider
+          style={styles.prefSlider}
+          maximumValue={5}
+          minimumValue={1}
+          minimumTrackTintColor={'#d9d9d9'}
+          maximumTrackTintColor={'#d9d9d9'}
+          thumbProps={{
+            children: (
+              <Icon
+                name={thumbIcon(morning)}
+                type="material-community"
+                size={20}
+                reverse
+                containerStyle={{ bottom: 20, right: 20 }}
+                color={thumbTheme(morning)}
+              />
+            ),
+          }}
+          step={1}
+          allowTouchTrack={true}
+          trackStyle={{ height: 10, backgroundColor: 'transparent', borderRadius: 10 }}
+          thumbStyle={{ height: 20, width: 20, backgroundColor: 'transparent' }}
+          value={morning}
+          onSlidingComplete={(event) => handleChange(event, 'preferences', 'morning')}
+          onValueChange={(event) => setMorning(event)}
+        />
       </View>
-      <Slider
-        style={styles.prefSlider}
-        maximumValue={5}
-        minimumValue={1}
-        minimumTrackTintColor={'#d9d9d9'}
-        maximumTrackTintColor={'#d9d9d9'}
-        thumbProps={{
-          children: (
-            <Icon
-              name={thumbIcon(morning)}
-              type="material-community"
-              size={20}
-              reverse
-              containerStyle={{ bottom: 20, right: 20 }}
-              color={thumbTheme(morning)}
-            />
-          ),
-        }}
-        step={1}
-        allowTouchTrack={true}
-        trackStyle={{ height: 10, backgroundColor: 'transparent', borderRadius: 10 }}
-        thumbStyle={{ height: 20, width: 20, backgroundColor: 'transparent' }}
-        value={morning}
-        onSlidingComplete={(event) => handleChange(event, 'preferences', 'morning')}
-        onValueChange={(event) => setMorning(event)}
-      />
       <View style={{ paddingTop: 40, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         <Pressable style={{
           height: 80,
@@ -106,7 +109,7 @@ const SubstitutionElement = ({ substitution }) => {
   }
   substitution.item = substitution
   return(
-    <View style={{ paddingVertical: 12, paddingHorizontal: 12 }}>
+    <View style={{ paddingVertical: 12, paddingHorizontal: 20 }}>
       <View style={styles.substitutionPreviewComponentTopElement}>
         <View style={{flexDirection: 'column', flex: 1, justifyContent: 'space-between'}}>
           <Text style={styles.whiteText}>

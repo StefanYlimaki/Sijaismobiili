@@ -6,11 +6,12 @@ import { ListItem } from '@rneui/base'
 import { getUserData } from '../../utils/getUserData'
 import { colors } from '../../assets/styles/colors.js'
 import styles from '../../assets/styles/styles'
-import postCode from '../../assets/data/postcode_map_light.json'
+import { getPostalAddressByPostCode } from '../../utils/getPostalAddressByPostCode'
 
 const PageThree = ({ navigation, handleChange }) => {
   const [user, setUser] = useState()
   const [loading, setLoading] = useState(true)
+  const [postalAddress, setPostalAddress] = useState('')
 
   useEffect(() => {
     async function fetchUserData() {
@@ -102,15 +103,17 @@ const PageThree = ({ navigation, handleChange }) => {
                 editable
                 defaultValue={user.postNumber}
                 keyboardType="numeric"
-                onEndEditing={(e) => handleChange(e, 'postNumber')}
+                onEndEditing={(e) => {
+                  handleChange(e, 'postNumber')
+                  setPostalAddress(getPostalAddressByPostCode(e.nativeEvent.text))
+                }}
                 textContentType={'postalCode'}
               />
             </ListItem>
             <ListItem containerStyle={styles.listItemContainer} bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Postitoimipaikka</Text></ListItem.Title>
               <ListItem.Input
-                disabled //From post number
-                value = {postCode[user.postNumber]}
-                //onEndEditing={(e) => handleChange(e, 'city')}
+                disabled 
+                value = {postalAddress}
 
               />
             </ListItem>
