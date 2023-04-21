@@ -1,27 +1,29 @@
 import { useState, useEffect } from 'react'
-import { View, TouchableWithoutFeedback, ActivityIndicator } from 'react-native'
+import { View, TouchableWithoutFeedback, ActivityIndicator, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import {colors} from '../../assets/styles/colors.js'
 import { getUserData } from '../../utils'
 import { setUserData } from '../../utils/setUserData'
+import { StepNavigation, StepView } from 'react-native-step-view-navigation'
 
 import PageOne from './PageOne'
 import PageTwo from './PageTwo'
 import PageThree from './PageThree'
 
 const OnboardingScreen = ({ navigation }) => {
-  const [pageToRender, setPageToRender] = useState(1)
+  const [step, setStep] = useState(1)
   const [loading, setLoading] = useState(true)
   const [user, setUser] = useState({})
-
+  
   useEffect(() => {
     async function fetchUserData() {
       const user = await getUserData()
       setUser(user)
-      setLoading(false)
     }
 
     fetchUserData()
-  },[])
+    setLoading(false)
+
+  }, [])
 
   const handleChange = async (event, key, subKey) => {
     try {
@@ -55,20 +57,22 @@ const OnboardingScreen = ({ navigation }) => {
     )
   }
 
-  
   return(
-    <TouchableWithoutFeedback>
-      {pageToRender === 1 
-        ? 
-        <PageOne setPageToRender={setPageToRender} handleChange={handleChange}/> 
-        : <>
-          {pageToRender === 2
-            ? <PageTwo setPageToRender={setPageToRender} handleChange={handleChange}/>
-            : <PageThree navigation={navigation} handleChange={handleChange}/>
-          }
-        </>
-      }
-    </TouchableWithoutFeedback>
+    <StepNavigation
+      dots={false}
+      transitionDuration={1000}
+      step={step}
+    >
+      <StepView>
+        <PageOne handleChange={handleChange} setStep={setStep}/>
+      </StepView>
+      <StepView>
+        <PageTwo handleChange={handleChange} setStep={setStep}/>
+      </StepView>
+      <StepView>
+        <PageThree handleChange={handleChange} navigation={navigation}/>
+      </StepView>
+    </StepNavigation>
   )
 }
 

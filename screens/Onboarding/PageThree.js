@@ -1,12 +1,11 @@
-import { View, Text, Button, ScrollView } from 'react-native'
-import styles from '../../assets/styles/styles'
-import {colors} from '../../assets/styles/colors.js'
-import { getUserData } from '../../utils/getUserData'
+
 import { useState, useEffect } from 'react'
-import { Pressable, StyleSheet, TouchableWithoutFeedback, ActivityIndicator } from 'react-native'
-import { Slider } from '@rneui/themed'
-import {Icon} from '@rneui/base'
-import {ListItem} from '@rneui/base'
+import { View, Text, Pressable, ScrollView, ActivityIndicator } from 'react-native'
+import { ListItem } from '@rneui/base'
+
+import { getUserData } from '../../utils/getUserData'
+import { colors } from '../../assets/styles/colors.js'
+import styles from '../../assets/styles/styles'
 import postCode from '../../assets/data/postcode_map_light.json'
 
 const PageThree = ({ navigation, handleChange }) => {
@@ -39,8 +38,12 @@ const PageThree = ({ navigation, handleChange }) => {
 
   return(
     <View>
-      <Text>Kerro vielä kuka olet</Text>
-      <Text>Tehdään toisemme vielä tarkemmin tutuiksi.</Text>
+      <View style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', paddingTop: 36, paddingBottom: 12}}>
+        <Text style={{ fontSize: 24, fontWeight: '900' }}>Kerro vielä kuka olet</Text>
+      </View>
+      <View style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <Text style={{ fontSize: 16, fontWeight: '600' }}>Tehdään toisemme vielä tarkemmin tutuiksi.</Text>
+      </View>
       <ScrollView>
         <View style={styles.userContent}>
           <Text style={{display: 'none'}}>
@@ -126,17 +129,23 @@ const PageThree = ({ navigation, handleChange }) => {
                 onEndEditing={(e) => handleChange(e, 'valviraID')}
               />
             </ListItem>
-            <ListItem containerStyle={styles.listItemContainer}><ListItem.Title><Text style={styles.textfieldlist}>Notifikaatio Token</Text></ListItem.Title>
-              <ListItem.Input
-                defaultValue={user.token}
-                keyboardType={'numeric'}
-                onEndEditing={(e) => handleChange(e, 'valviraID')}
-              />
-            </ListItem>
           </View>
         </View>
       </ScrollView>
-      <Button title='Jatka' onPress={() => navigation.navigate('MainApplication')}/>
+      <View style={{ paddingTop: 40, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <Pressable style={{
+          height: 80,
+          width: '50%',
+          alignItems: 'center',
+          justifyContent: 'center',
+          borderRadius: 50,
+          elevation: 2,
+          backgroundColor: colors.krBlue
+        }} 
+        onPress={() => navigation.navigate('MainApplication')}>
+          <Text style={{ color: '#fff', fontSize: 20, fontWeight: '600' }}>Jatka</Text>
+        </Pressable>
+      </View>
     </View>
   )
 }
