@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import { NavigationContainer } from '@react-navigation/native'
-import { View, Platform } from 'react-native'
+import { View, ActivityIndicator } from 'react-native'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { useFonts } from 'expo-font'
@@ -21,6 +21,7 @@ import UpcomingGigsList from './components/UpcomingGigsList'
 import {colors} from './assets/styles/colors'
 import GigConfirmedPopup from './components/GigConfirmedPopup'
 import OnboardingScreen from './screens/Onboarding/OnboardingScreen'
+import { getUserData } from './utils'
 
 const Stack = createNativeStackNavigator()
 
@@ -39,6 +40,28 @@ const AppTheme = {
 const i18n = new I18n() //For localisation
 
 export default function App() {
+  const [loading, setLoading] = useState(true)
+  const [initialRouteName, setInitialRouteName] = useState('SwipeScreen')
+  const [user, setUser] = useState()
+
+  useEffect(() => {
+    async function fetchUserData() {
+      const user = await getUserData()
+      setUser(user)
+    }
+    fetchUserData()
+  }, [])
+
+  useEffect(() => {
+    if(user){
+      if(user.firstname === ''){
+        setInitialRouteName('OnboardingScreen')
+        setLoading(false)
+      } else if (user.firstname !== ''){
+        setLoading(false)
+      }
+    }
+  }, [user])
 
   //Localisation
   const [locale, setLocale] = useState(Localisation.locale) // use system language
@@ -61,8 +84,22 @@ export default function App() {
     'Inter-DisplayThin': require('./assets/styles/fonts/Inter-DisplayThin.ttf',),
   })
 
-  if (!loaded) {
+  if(!loaded) {
     return null
+  }
+
+  if(loading){
+    return(
+      <View
+        style={{
+          flex: 1,
+          justifyContent: 'center',
+          alignItems: 'center',
+          flexDirection: 'row',
+        }}>
+        <ActivityIndicator size="large" color= {colors.krBlue} />
+      </View>
+    )
   }
 
   return (
@@ -73,8 +110,9 @@ export default function App() {
             <View style={ styles.container }>
               <CustomStatusBar backgroundColor={ colors.krGreen } />
               <Stack.Navigator
-                screenOptions={{headerShown: false
-                }}
+                initialRouteName={initialRouteName}
+                screenOptions={{ headerShown: false }}
+                
                 mode="modal"
               >
                 <Stack.Screen name="OnboardingScreen" component={OnboardingScreen}/>
