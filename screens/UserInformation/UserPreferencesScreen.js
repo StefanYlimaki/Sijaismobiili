@@ -14,6 +14,7 @@ import { getUserData } from '../../utils'
 import { setUserData } from '../../utils/setUserData'
 import { AntDesign } from '@expo/vector-icons'
 import {colors} from '../../assets/styles/colors.js'
+import OrderPreferences from '../../components/OrderPreferences'
 
 function UserPreferencesScreen() {
   delete userData['default']
@@ -26,6 +27,7 @@ function UserPreferencesScreen() {
   const [pay, setPay] = useState()
   const [fullShift, setFullShift] = useState()
   const [distance, setDistance] = useState()
+  const [preferenceOrder, setPreferenceOrder] = useState()
 
   useEffect(() => {
     async function fetchUserData() {
@@ -38,10 +40,39 @@ function UserPreferencesScreen() {
       setPay(user.preferences.pay)
       setFullShift(user.preferences.fullShift)
       setDistance(user.preferences.distance)
+      setPreferenceOrder(user.preferences.preferenceOrder)
     }
 
     fetchUserData()
   },[])
+
+  //Used by OrderPreferences to update the set data to memory
+  const handleOrderChange = (data) => {
+    //Update data indexes
+    console.log(data)
+    const updatedData = data.map((item, index) => {
+      const tempObj = {
+        key: item.key,
+        label: item.label,
+        index: index
+      }
+      console.log(tempObj)
+      return tempObj
+    })
+    // Update state
+    setPreferenceOrder(updatedData)
+    // Update internal storage
+    try {
+      const newUser = {...user}
+      delete newUser['preferences']['preferenceOrder']
+      newUser['preferences']['preferenceOrder'] = updatedData
+      
+      setUserData(newUser)
+      setUser(newUser)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   const handleChange = async (event, key, subKey) => {
     try {
@@ -277,6 +308,15 @@ function UserPreferencesScreen() {
               onValueChange={(event) => setFullShift(event)}
             />
           </View>
+          <View style={styles.h2AndInfoButton}>
+            <Text style={styles.h2}>
+                Tärkeintä minulle on...
+            </Text>
+            <View style={{paddingLeft: 12.5}}>
+              <AntDesign name="infocirlceo" size={24} color="black" />
+            </View>
+          </View>
+          { preferenceOrder && <OrderPreferences preferenceOrder={preferenceOrder} setPreferenceOrder={handleOrderChange}/> }
         </ScrollView>
       </TouchableWithoutFeedback>
     </KeyboardAvoidingView >
