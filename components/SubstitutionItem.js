@@ -72,7 +72,11 @@ const SubstitutionItem = ({ substitution, navigation }) => {
                   </View>
                   :<></>
                 }
-                
+                {/* for testing purposes, displays scores of the tailored substitution list
+                  <Text>
+                    {substitution.item.points}
+                  </Text>
+                */}
               </View>
             </View>
           </View>

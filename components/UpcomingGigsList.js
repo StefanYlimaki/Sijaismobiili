@@ -86,7 +86,18 @@ function GigListItem({ substitution, navigation }) {
             }
           </View>
         </View>
+        {/* Display an overlay if the gig is expired and the user has not been confirmed */}
+        { substitution.item.needsConfirmation && substitution.item.timing.startTime < new Date(Date.now()).toISOString() &&
+          <View style={gigListStyles.expiredOverlay}>
+            <View style={{flex: 1,justifyContent: 'center', alignItems: 'center'}}>
+              <View style={{backgroundColor: colors.danger, padding: 7, borderRadius: 10}}>
+                <Text style={styles.buttonText}>Valitettavasti et saanut tätä keikkaa</Text>
+              </View>
+            </View>
+          </View>
+        }
       </Pressable>
+      
     </View>
   )
 }
@@ -112,9 +123,18 @@ function UpcomingGigsList({ route, navigation }) {
 }
 
 const gigListStyles = StyleSheet.create({
+  expiredOverlay: {
+    backgroundColor: 'rgba(255,255,255,0.4)',
+    borderRadius: 10,
+    height: '100%',
+    left: 0,
+    position: 'absolute',
+    top: 0,
+    width: '100%'
+  },
   gigListContainer: {
     paddingBottom: 10,
-  },
+  }
 })
 
 export default UpcomingGigsList

@@ -20,7 +20,6 @@ const TailoredSubsitutions = ({ route, navigation }) => {
     const UserUpdatedAt = await AsyncStorage.getItem('updatedAt')
     if(UserUpdatedAt > updatedAt){
       const result = await orderAndFilterSubstitutionsByPreferences(substitutions)
-      console.log(result.length)
       setTailoredSubstitutions(result)
       updatedAt = UserUpdatedAt
     }
