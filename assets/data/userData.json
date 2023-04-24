@@ -20,6 +20,28 @@
       "night": 3,
       "pay": 3,
       "fullShift": 3,
-      "distance": 20
+      "distance": 20,
+      "preferenceOrder": [
+        {
+          "key": "pay",
+          "label": "Parempi palkka",
+          "index": 1
+        },
+        {
+          "key": "location",
+          "label": "Sijainti lähellä",
+          "index": 2
+        },
+        {
+          "key": "history",
+          "label": "Tuttu paikka",
+          "index": 3
+        },
+        {
+          "key": "shift",
+          "label": "Suosikkivuoro",
+          "index": 4
+        }
+      ]
     }
   }
