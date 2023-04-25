@@ -70,9 +70,11 @@ const renderSubstitution = (item, navigation) => {
         return gestureState.dx !== 0 && gestureState.dy !== 0
       },
 
-      //Update position variable when moved
-      onPanResponderMove: Animated.event([null, {dx: position.x,
-        dy: position.y}], {useNativeDriver: false}),
+      //animate movement of card with native driver
+      onPanResponderMove: Animated.event(
+        [null, {dx: position.x, dy: position.y}],
+        {useNativeDriver: false}
+      ),
 
       //Called when card is released
       onPanResponderRelease: (evt, gestureState) => {
@@ -80,7 +82,7 @@ const renderSubstitution = (item, navigation) => {
         if (gestureState.dx > SWIPE_THRESHOLD) {
           Animated.spring(position, {
             toValue: {x: SCREEN_WIDTH + 100, y: gestureState.dy},
-            useNativeDriver: false,
+            useNativeDriver: true,
             speed: 24
           }
           ).start(() => {
@@ -91,7 +93,7 @@ const renderSubstitution = (item, navigation) => {
         } else if (gestureState.dx < -SWIPE_THRESHOLD) {
           Animated.spring(position, {
             toValue: {x: -SCREEN_WIDTH - 100, y: gestureState.dy},
-            useNativeDriver: false
+            useNativeDriver: true
           }
           ).start(() => {
             navigation.pop()
@@ -102,7 +104,7 @@ const renderSubstitution = (item, navigation) => {
           Animated.spring(position, {
             toValue: {x: 0, y: 0},
             friction: 4,
-            useNativeDriver: false
+            useNativeDriver: true
           }).start()
         }
       }
