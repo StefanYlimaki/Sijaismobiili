@@ -112,7 +112,7 @@ const renderSubstitution = (item, navigation) => {
   //Rotate card based on how far it has been dragged
   const rotatePosition = position.x.interpolate({
     inputRange: [-SCREEN_WIDTH / 2, 0, SCREEN_WIDTH / 2],
-    outputRange: ['-10deg', '0deg', '0deg'],
+    outputRange: ['-10deg', '0deg', '10deg'],
     extrapolate: 'clamp'
   })
 
