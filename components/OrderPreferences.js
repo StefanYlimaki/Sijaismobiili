@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { View, Text, StyleSheet, Pressable, TouchableOpacity } from 'react-native'
-import DraggableFlatList, { OpacityDecorator } from 'react-native-draggable-flatlist'
+import DraggableFlatList, { NestableDraggableFlatList, OpacityDecorator } from 'react-native-draggable-flatlist'
 import { colors } from '../assets/styles/colors'
 import { Icon } from '@rneui/themed'
 
@@ -23,8 +23,6 @@ function OrderPreferences({preferenceOrder, setPreferenceOrder}) {
           <View style={{flex: 1, flexDirection: 'row-reverse'}}>
             <Text>{item.index + 1}.</Text>
           </View>
-
-          
         </TouchableOpacity>
       </OpacityDecorator>
     )
@@ -32,7 +30,7 @@ function OrderPreferences({preferenceOrder, setPreferenceOrder}) {
 
   return (
     <View style={prefStyles.orderPreferencesContainer}>
-      <DraggableFlatList
+      <NestableDraggableFlatList
         data={preferenceOrder}
         onDragEnd={({ data }) => setPreferenceOrder(data)}
         keyExtractor={(item) => item.key}
