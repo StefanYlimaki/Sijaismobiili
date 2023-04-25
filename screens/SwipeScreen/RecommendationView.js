@@ -21,14 +21,21 @@ const CARD_COUNT = 5
 const SWIPE_THRESHOLD = 120
 
 const RecommendationView = ({navigation}) => {
+
+  
+  const [cardCount, setCardCount] = useState(CARD_COUNT)
   const [tailoredSubstitutions, setTailoredSubstitutions] = useState([])
   const [loading, setLoading] = useState(true)
 
   async function callOrderAndFilterSubstitutionsByPreferences() {
     const result = await orderAndFilterSubstitutionsByPreferences(substitutions)
 
-    //Get first CARD_COUNT elements of substitutions
-    setTailoredSubstitutions(result.slice(0, CARD_COUNT))
+    if(result.length < 5){
+      setCardCount(result.length)
+    }
+
+    //Get first cardCount elements of substitutions
+    setTailoredSubstitutions(result.slice(0, cardCount))
 
     setLoading(false)
   }
@@ -51,7 +58,7 @@ const RecommendationView = ({navigation}) => {
     return (
       <View style={{flex:1}}>
         <View style={{flex:1}}>
-          <RecommendationCards navigation={navigation} substitutions={tailoredSubstitutions}/>
+          <RecommendationCards navigation={navigation} substitutions={tailoredSubstitutions} cardCount={cardCount}/>
         </View>
       </View>
     )
@@ -68,7 +75,7 @@ const navigateToPopUp = (navigation, currentIndex) => {
 
 
 
-const RecommendationCards = ({navigation, substitutions}) => {
+const RecommendationCards = ({navigation, substitutions, cardCount}) => {
   //Position variable for card on top
   const position = useRef(new Animated.ValueXY()).current
   const [currentIndex, incrementIndex] = useState(0)
@@ -166,7 +173,7 @@ const RecommendationCards = ({navigation, substitutions}) => {
 
   //Render cards from JSON
   return substitutions.map((item, i) => {
-    if (currentIndex > CARD_COUNT - 1) {
+    if (currentIndex > cardCount - 1) {
       navigation.navigate('MainApplication')
       dispatcher(navigation)
     }
