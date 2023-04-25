@@ -20,7 +20,6 @@ const TailoredSubsitutions = ({ route, navigation }) => {
     const UserUpdatedAt = await AsyncStorage.getItem('updatedAt')
     if(UserUpdatedAt > updatedAt){
       const result = await orderAndFilterSubstitutionsByPreferences(substitutions)
-      console.log(result.length)
       setTailoredSubstitutions(result)
       updatedAt = UserUpdatedAt
     }
@@ -28,10 +27,12 @@ const TailoredSubsitutions = ({ route, navigation }) => {
   }
   
   useEffect(() => {
-    setInterval(async () => {
-      await callOrderAndFilterSubstitutionsByPreferences()
-    }, 1000)
-  }, [])
+    const unsubscribe = navigation.addListener('focus', () => {
+      callOrderAndFilterSubstitutionsByPreferences()
+    })
+
+    return unsubscribe
+  }, [navigation])
   
   if(loading){
     return(

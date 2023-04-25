@@ -1,48 +1,56 @@
-import React, { useEffect, useState } from 'react'
-import {
-  View,
-  Text,
-  ScrollView,
-  KeyboardAvoidingView,
-  TouchableWithoutFeedback,
-  Button,
-  Pressable,
-} from 'react-native'
-import {logUserData} from '../../utils/logUserData'
-import * as Colors from '../../assets/styles/colors.js'
+
+import { useState, useEffect } from 'react'
+import { View, Text, Pressable, ScrollView, ActivityIndicator, KeyboardAvoidingView } from 'react-native'
+import { ListItem } from '@rneui/base'
+
+import { getUserData } from '../../utils/getUserData'
+import { colors } from '../../assets/styles/colors.js'
 import styles from '../../assets/styles/styles'
-import { setUserData } from '../../utils/setUserData'
-import {ListItem} from '@rneui/base'
-import postCode from '../../assets/data/postcode_map_light.json'
 import { getPostalAddressByPostCode } from '../../utils/getPostalAddressByPostCode'
 
-const UserInfoView = ({ user, setUser, navigation }) => {
-  const [postalAddress, setPostalAddress] = useState(getPostalAddressByPostCode(user.postNumber))
-  const handleChange = async (event, key, subKey) => {
-    try {
-      const newUser = {...user}
-      if(subKey){
-        delete newUser[key][subKey]
-        newUser[key][subKey] = event
-      } else {
-        const value = event.nativeEvent.text
-        delete newUser[key]
-        newUser[key] = value
-      }
-      setUserData(newUser)
-      setUser(newUser)
-    } catch (error) {
-      console.log(error)
+const PageThree = ({ navigation, handleChange }) => {
+  const [user, setUser] = useState()
+  const [loading, setLoading] = useState(true)
+  const [postalAddress, setPostalAddress] = useState('')
+
+  useEffect(() => {
+    async function fetchUserData() {
+      const user = await getUserData()
+      setUser(user)
+      setPostalAddress(getPostalAddressByPostCode(user.postNumber))
+      setLoading(false)
     }
+
+    fetchUserData()
+  }, [])
+
+  if(loading){
+    return(
+      <View
+        style={{
+          flex: 1,
+          justifyContent: 'center',
+          alignItems: 'center',
+          flexDirection: 'row',
+        }}>
+        <ActivityIndicator size="large" color= {colors.krBlue} />
+      </View>
+    )
   }
 
-  return (
-    <KeyboardAvoidingView behavior='height' style={{ marginTop: 10 }}>
-      <ScrollView>
+  return(
+    <KeyboardAvoidingView behavior='height'>
+      <View style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', paddingTop: 36, paddingBottom: 12}}>
+        <Text style={{ fontSize: 24, fontWeight: '900' }}>Kerro vielä kuka olet</Text>
+      </View>
+      <View style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <Text style={{ fontSize: 16, fontWeight: '600' }}>Tehdään toisemme vielä tarkemmin tutuiksi.</Text>
+      </View>
+      <ScrollView style={{ paddingTop: 20 }}>
         <View style={styles.userContent}>
-          <View>
-            <Text style={[styles.h2, styles.blackText, {textAlign: 'center'}]}>Henkilötiedot</Text>
-          </View>
+          <Text style={{display: 'none'}}>
+            <Text style={[styles.h2, styles.blackText]}>Moi! Tämä on täydellisen turha ostsikko, mutta ajakoot nyt placeholderin paikkaa!</Text>
+          </Text>
           <View style={styles.userInfoList}
             importantForAutofill={'yes'} >
             <ListItem containerStyle={styles.listItemContainer} bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Etunimi</Text></ListItem.Title>
@@ -122,11 +130,22 @@ const UserInfoView = ({ user, setUser, navigation }) => {
           </View>
         </View>
       </ScrollView>
-      <Pressable style={styles.settingsButton} onPress={() => {navigation.navigate('Settings')}}>
-        <Text style={styles.buttonText}>Asetukset</Text>
-      </Pressable>
+      <View style={{ paddingTop: 68, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <Pressable style={{
+          height: 80,
+          width: '50%',
+          alignItems: 'center',
+          justifyContent: 'center',
+          borderRadius: 50,
+          elevation: 2,
+          backgroundColor: colors.krBlue
+        }} 
+        onPress={() => navigation.navigate('MainApplication')}>
+          <Text style={{ color: '#fff', fontSize: 20, fontWeight: '600' }}>Jatka</Text>
+        </Pressable>
+      </View>
     </KeyboardAvoidingView>
   )
 }
 
-export default UserInfoView
+export default PageThree

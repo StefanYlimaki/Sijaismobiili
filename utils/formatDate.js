@@ -10,7 +10,7 @@ export function formatDate(timestamp) {
   // Can't use toLocaleDateString on android due to ancient JavaScriptCore, therefore:
   if (Platform.OS === 'android') {
     // Fallback
-    return date.getDate() + '.' + date.getMonth() + '.' + date.getFullYear()
+    return date.getDate() + '.' + (date.getMonth() + 1) + '.' + date.getFullYear()
   } else {
     return date.toLocaleDateString(locale)
   }
