@@ -29,10 +29,8 @@ const SWIPE_THRESHOLD = 120
 
 const logo = { uri: 'https://www.sttinfo.fi/data/images/00063/de7b594d-309c-4622-8e66-b8d8b84dafd3-w_300_h_100.png' }
 
-
 const SubstitutionCard = ({route}) => {
   return (
-
     <View style={ {backgroundColor: 'rgba(0,0,0,0.3)'} }>
       <BlurView intensity={10} style={ {height: '100%'} }>
         <View style={{flexDirection: 'column', marginTop: Constants.statusBarHeight + 20}}>
@@ -40,7 +38,6 @@ const SubstitutionCard = ({route}) => {
         </View>
       </BlurView>
     </View>
-
   )
 }
 
@@ -51,10 +48,17 @@ const navigateToPopUp = (navigation, item) => {
   })
 }
 
+const navigateToSingleSubstitutionScreen = (navigation, item) => { 
+  navigation.navigate('SingleSubstitution', {
+    substitution: item,
+    caller: 'SubstitutionCard',
+  })
+}
+
 const renderSubstitution = (item, navigation) => {
+
   //Position variable for card on top
   const position = useRef(new Animated.ValueXY()).current
-
 
   //Create panresponder for swiping cards
   const panResponder = useRef(
@@ -101,7 +105,6 @@ const renderSubstitution = (item, navigation) => {
             useNativeDriver: false
           }).start()
         }
-
       }
     })
   ).current
@@ -257,8 +260,8 @@ const renderSubstitution = (item, navigation) => {
       </View>
 
       <View style={{paddingHorizontal: 16, flex: 3}}>
-        <Pressable >
-          <Text>{item.description}</Text>
+        <Pressable style={{ paddingHorizontal: 16, height: 50, borderColor: '#000', borderStyle: 'solid', borderWidth: 1 }} onPress={() => {console.log('m'), navigateToSingleSubstitutionScreen(navigation, item)}} >
+          <Text >{item.description}</Text>
         </Pressable>
       </View>
 

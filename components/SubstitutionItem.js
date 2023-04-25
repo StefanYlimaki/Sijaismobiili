@@ -12,11 +12,11 @@ const SubstitutionItem = ({ substitution, navigation }) => {
   return (
     <Animated.View style={styles.substitutionItemContainer}>
       <Pressable
-        onPress={() =>
+        onPress={() => {
           navigation.navigate('SubstitutionCard', {
             substitution: substitution,
             navigation: navigation
-          })
+          })}
         }
         style={({ pressed }) => pressed && styles.pressedSubstitutionItem}
       >
@@ -40,7 +40,6 @@ const SubstitutionItem = ({ substitution, navigation }) => {
             </View>
           </View>
           <View style={styles.substitutionPreviewComponentBottomElement}>
-
             <View style={{ flexDirection: 'row', justifyContent: 'space-between'}}>
               <View style={{ flexDirection: 'column', justifyContent: 'center'}}>
                 <Text style={[styles.blackText, { fontSize: 20, fontFamily: 'Inter-DisplayBold'}]}>
@@ -50,7 +49,6 @@ const SubstitutionItem = ({ substitution, navigation }) => {
                   {substitution.item.department}
                 </Text>
               </View>
-
               <View style={{ flexDirection: 'column'}}>
                 <View style={{ flexDirection: 'row', justifyContent: 'flex-start'}}>
                   <Text style={ [styles.blackText, { paddingRight: 8, fontWeight: 'bold'}]}>
