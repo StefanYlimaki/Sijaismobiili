@@ -121,9 +121,7 @@ const renderSubstitution = (item, navigation) => {
     transform: [
       {rotate: rotatePosition},
       {translateX: position.x},
-      {translateY: position.y},
-      {rotateY: position.x.interpolate({ inputRange: [-SCREEN_WIDTH / 2, 0, SCREEN_WIDTH / 2], outputRange: ['90deg', '0deg', '0deg'], extrapolate: 'clamp' })},
-      {scale: position.x.interpolate({ inputRange: [-SCREEN_WIDTH / 2, 0, SCREEN_WIDTH / 2], outputRange: [0.7, 1, 1.1], extrapolate: 'clamp' })},
+      {translateY: position.y}
     ]
   }
 
