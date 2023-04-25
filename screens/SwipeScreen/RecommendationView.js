@@ -11,6 +11,7 @@ import { orderAndFilterSubstitutionsByPreferences } from '../../utils/orderAndFi
 import { StyleSheet } from 'react-native-web'
 import { colors } from '../../assets/styles/colors'
 import { LinearGradient } from 'expo-linear-gradient'
+import saveSubstitution from '../../utils/saveSubstitution'
 
 const SCREEN_HEIGHT = Dimensions.get('window').height
 const SCREEN_WIDTH = Dimensions.get('window').width
@@ -20,6 +21,8 @@ const CARD_COUNT = 5
 
 //Threshold for registering swipes
 const SWIPE_THRESHOLD = 120
+
+const TOUCH_THRESHOLD = 20
 
 const placeholder = {uri: 'https://images.unsplash.com/photo-1584432810601-6c7f27d2362b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8'}
 
@@ -99,8 +102,13 @@ const RecommendationCards = ({navigation, substitutions, cardCount}) => {
   //Create panresponder for swiping cards
   const panResponder = useRef(
     PanResponder.create({
-      onMoveShouldSetPanResponder: () => true,
-      onStartShouldSetPanResponder: () => true,
+      onMoveShouldSetPanResponder: (e, gestureState) => {
+        const {dx, dy} = gestureState
+
+        return (Math.abs(dx) > TOUCH_THRESHOLD || (Math.abs(dy) > TOUCH_THRESHOLD))
+      },
+
+      onStartShouldSetPanResponder: () => false,
 
       //Update position variable when moved
       onPanResponderMove: Animated.event([null, {dx: position.x,
@@ -294,7 +302,10 @@ const RecommendationCards = ({navigation, substitutions, cardCount}) => {
 
           <DenyBookmarkAndAcceptButton
             denyCallback={()=>incrementIndex(prevIndex => prevIndex + 1)}
-            bookmarkCallback={()=>incrementIndex(prevIndex => prevIndex + 1)}
+            bookmarkCallback={()=> {
+              incrementIndex(prevIndex => prevIndex + 1)
+              saveSubstitution(item)
+            }}
             acceptCallback={()=> {
               navigateToPopUp(navigation, currentIndex)
             }}

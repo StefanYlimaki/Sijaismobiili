@@ -2,8 +2,10 @@ import { View, Text, StyleSheet, Pressable , Animated} from 'react-native'
 import { formatHourlyPay, formatDate, formatTime } from '../utils'
 import styles from '../assets/styles/styles'
 import calculateDistance from '../utils/calculateDistance'
+import { Ionicons } from '@expo/vector-icons'
+import { colors } from '../assets/styles/colors'
 
-const SubstitutionItem = ({ substitution, navigation }) => {
+const SubstitutionItem = ({ substitution, navigation, isBookmarked }) => {
 
   const getDistance = () => {
     return calculateDistance(parseFloat(substitution.item.coordinates.latitude), parseFloat(substitution.item.coordinates.longitude), 65.05941, 25.46642, false)
@@ -41,6 +43,11 @@ const SubstitutionItem = ({ substitution, navigation }) => {
           </View>
           <View style={styles.substitutionPreviewComponentBottomElement}>
             <View style={{ flexDirection: 'row', justifyContent: 'space-between'}}>
+              {!isBookmarked? null : (
+                <View style={{alignSelf: 'center'}}>
+                  <Ionicons name='bookmark' color={colors.krBlueDark} size={20} />
+                </View>
+              )}
               <View style={{ flexDirection: 'column', justifyContent: 'center'}}>
                 <Text style={[styles.blackText, { fontSize: 20, fontFamily: 'Inter-DisplayBold'}]}>
                   {substitution.item.title}
