@@ -1,6 +1,5 @@
 import {  Text, View, Dimensions, Animated, PanResponder } from 'react-native'
 import React, {useRef, useState} from 'react'
-import substitutions from '../../assets/data/substitutionsData_new.json'
 import styles from '../../assets/styles/styles'
 import calculateDistance from '../../utils/calculateDistance'
 import { formatDate, formatTime } from '../../utils'
@@ -14,55 +13,18 @@ import { colors } from '../../assets/styles/colors'
 const SCREEN_HEIGHT = Dimensions.get('window').height
 const SCREEN_WIDTH = Dimensions.get('window').width
 
-//Count of cards shown to the user
-const CARD_COUNT = 5
-
 //Threshold for registering swipes
 const SWIPE_THRESHOLD = 120
 
-const RecommendationView = ({navigation}) => {
-
-  
-  const [cardCount, setCardCount] = useState(CARD_COUNT)
-  const [tailoredSubstitutions, setTailoredSubstitutions] = useState([])
-  const [loading, setLoading] = useState(true)
-
-  async function callOrderAndFilterSubstitutionsByPreferences() {
-    const result = await orderAndFilterSubstitutionsByPreferences(substitutions)
-
-    if(result.length < 5){
-      setCardCount(result.length)
-    }
-
-    //Get first cardCount elements of substitutions
-    setTailoredSubstitutions(result.slice(0, cardCount))
-
-    setLoading(false)
-  }
-
-  useState(() => {
-    const getSubstitutions = async () => {
-      await callOrderAndFilterSubstitutionsByPreferences()
-    }
-
-    getSubstitutions()
-  })
-
-  if (loading) {
-    return (
-      <View>
-        <Text>Loading...</Text>
-      </View>
-    )
-  } else {
-    return (
+const RecommendationView = ({navigation, substitutions}) => {
+  return (
+    <View style={{flex:1}}>
       <View style={{flex:1}}>
-        <View style={{flex:1}}>
-          <RecommendationCards navigation={navigation} substitutions={tailoredSubstitutions} cardCount={cardCount}/>
-        </View>
+        <RecommendationCards navigation={navigation} substitutions={substitutions} cardCount={substitutions.length}/>
       </View>
-    )
-  }
+    </View>
+  )
+  
 }
 
 const navigateToPopUp = (navigation, currentIndex) => {
@@ -72,14 +34,11 @@ const navigateToPopUp = (navigation, currentIndex) => {
   })
 }
 
-
-
-
 const RecommendationCards = ({navigation, substitutions, cardCount}) => {
+
   //Position variable for card on top
   const position = useRef(new Animated.ValueXY()).current
   const [currentIndex, incrementIndex] = useState(0)
-
 
   const dispatcher = (navigation) => {
     navigation.dispatch(
@@ -91,7 +50,6 @@ const RecommendationCards = ({navigation, substitutions, cardCount}) => {
       })
     )
   }
-
 
   //Create panresponder for swiping cards
   const panResponder = useRef(
@@ -181,8 +139,6 @@ const RecommendationCards = ({navigation, substitutions, cardCount}) => {
     if (i < currentIndex) {
       return null
     } else {
-
-
       const benefits = item.benefits.map((benefit, i) => {
         return (
           <View style={[styles.substitutionItemBenefitsItem, {
@@ -196,7 +152,6 @@ const RecommendationCards = ({navigation, substitutions, cardCount}) => {
           </View>
         )
       })
-
 
       return (
         <Animated.View 
@@ -227,7 +182,6 @@ const RecommendationCards = ({navigation, substitutions, cardCount}) => {
             <Text style={{fontWeight: 'bold', fontSize: 30, fontFamily: 'Inter-Display'}}>
               {item.department}
             </Text>
-
           </View>
           <View style={localStyles.recommendationCardInfoBarElement}>
             <View style={{flex:1}}>
@@ -252,7 +206,6 @@ const RecommendationCards = ({navigation, substitutions, cardCount}) => {
               </Text>
             </View>
           </View>
-
           <View style={localStyles.recommendationCardSalaryElement}>
             <Text style={{fontWeight:'bold', textAlign:'right'}}>
               {item.hourlyPay + '€/h'}
@@ -260,14 +213,12 @@ const RecommendationCards = ({navigation, substitutions, cardCount}) => {
             <Text>
               {'(~' + Math.floor(item.hourlyPay * (item.timing.duration/60)) + '€)'}
             </Text>
-
           </View>
           <View style={{paddingHorizontal: 20}}>
             <Text style={{textAlign: 'center'}}>
               {item.description}
             </Text>
           </View>
-
           <DenyBookmarkAndAcceptButton
             denyCallback={()=>incrementIndex(prevIndex => prevIndex + 1)}
             bookmarkCallback={()=>incrementIndex(prevIndex => prevIndex + 1)}
