@@ -19,8 +19,6 @@ const SubstitutionsList = ({ navigation, substitutions }) => {
         (value, index, array) => array.indexOf(value) === index
       )
 
-      console.log(uniqueSubstitutions)
-
       //Filter all substitutions to ones that match the id
       setData(uniqueSubstitutions)
     }
