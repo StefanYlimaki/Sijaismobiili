@@ -97,7 +97,7 @@ with open("substitutionsData_new.json", "w", encoding="utf-8") as target:
         sijainti = rnd.choice(organisaatio["osoitteet"])
         sijaisuus = {
             "id": i,
-            "date": (datetime.datetime(year=2023, month=4, day=13, hour=12, minute=0, second=0) + datetime.timedelta(hours=i)).isoformat(),
+            "date": (datetime.datetime.now() + datetime.timedelta(hours=i)).isoformat(),
             "title": rnd.choice(tittelit),
             "description": "Tähän tulee lyhyt kuvaus työstä",
             "department": rnd.choice(osastot),
@@ -109,7 +109,7 @@ with open("substitutionsData_new.json", "w", encoding="utf-8") as target:
                 "latitude": sijainti["koordinaatit"]["latitude"]
             },
             "timing": {
-                "startTime": (datetime.datetime(year=2023, month=4, day=13, hour=12, minute=0, second=0) + datetime.timedelta(hours=i*3)).isoformat(),
+                "startTime": (datetime.datetime.now() + datetime.timedelta(hours=i*3)).isoformat(),
                 "duration": round(rnd.randint(240, 480) / 10) * 10,
                 "isFlexible": rnd.choice([True, False])
             },
