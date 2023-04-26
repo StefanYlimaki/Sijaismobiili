@@ -84,7 +84,7 @@ if lkm > 1000:
     print("\nVouh! Kuinkas paljon meinasit muistia rohmuta?")
     sys.exit()
 
-with open("substitutionsData.json", "w", encoding="utf-8") as target:
+with open("substitutionsData_new.json", "w", encoding="utf-8") as target:
     for i in range(lkm):
         if rnd.choice([True, False]):
             logo = "lintunen.png"
