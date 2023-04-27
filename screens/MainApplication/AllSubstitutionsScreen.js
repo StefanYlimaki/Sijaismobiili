@@ -62,16 +62,6 @@ const AllSubstitutions = ({ navigation, route }) => {
     }
   }, [route.params])
 
-  
-  //If route params have been set, change state and reset params
-  /*
-  if (route.params?.showSavedOnly && !showSavedOnly) {
-    setOnlySaved(true)
-    route.params.showSavedOnly = false
-    console.log(showSavedOnly)
-    filterSubstitutions(selectedOrder, selectedShift, true, search)
-  }
-  */
 
   const updateSearch = (search) => {
     setSearch(search)

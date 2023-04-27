@@ -19,58 +19,21 @@ const SCREEN_WIDTH = Dimensions.get('window').width
 const SWIPE_THRESHOLD = 120
 
 
+
+
 const TOUCH_THRESHOLD = 20
 
 const placeholder = {uri: 'https://images.unsplash.com/photo-1584432810601-6c7f27d2362b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8'}
 
-const RecommendationView = ({navigation}) => {
-
-  
-  const [cardCount, setCardCount] = useState(CARD_COUNT)
-  const [tailoredSubstitutions, setTailoredSubstitutions] = useState([])
-  const [loading, setLoading] = useState(true)
-
-  async function callOrderAndFilterSubstitutionsByPreferences() {
-    const result = await orderAndFilterSubstitutionsByPreferences(substitutions)
-
-    if(result.length < 5){
-      setCardCount(result.length)
-    }
-
-    //Get first cardCount elements of substitutions
-    setTailoredSubstitutions(result.slice(0, cardCount))
-
-    setLoading(false)
-  }
-
-  useState(() => {
-    const getSubstitutions = async () => {
-      await callOrderAndFilterSubstitutionsByPreferences()
-    }
-
-    getSubstitutions()
-  })
-
-  if (loading) {
-    return (
-      <View>
-        <Text>Loading...</Text>
-      </View>
-    )
-  } else {
-    return (
-    
 const RecommendationView = ({navigation, substitutions}) => {
   return (
-      <View style={{flex:1}}>
-        <RecommendationCards navigation={navigation} substitutions={substitutions} cardCount={substitutions.length}/>
-      </View>
+    <View style={{flex:1}}>
+      <RecommendationCards navigation={navigation} substitutions={substitutions} cardCount={substitutions.length}/>
     </View>
   )
-  
 }
 
-const navigateToPopUp = (navigation, currentIndex) => {
+const navigateToPopUp = (navigation, currentIndex, substitutions) => {
   navigation.navigate('ConfirmSubstitution', {
     substitution: substitutions[currentIndex],
     caller: 'RecommendationView',
@@ -120,7 +83,7 @@ const RecommendationCards = ({navigation, substitutions, cardCount}) => {
           ).start(() => {
             position.setValue({x: 0, y: 0})
             incrementIndex(prevIndex => prevIndex + 1)
-            navigateToPopUp(navigation, currentIndex)
+            navigateToPopUp(navigation, currentIndex, substitutions)
           })
 
         //Deny / Left swipe
@@ -298,7 +261,7 @@ const RecommendationCards = ({navigation, substitutions, cardCount}) => {
               saveSubstitution(item)
             }}
             acceptCallback={()=> {
-              navigateToPopUp(navigation, currentIndex)
+              navigateToPopUp(navigation, currentIndex, substitutions)
             }}
           />
         </Animated.View>
