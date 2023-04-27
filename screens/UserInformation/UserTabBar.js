@@ -8,7 +8,7 @@ const TabBar = ({ state, descriptors, navigation }) => {
 //style={Styles.userTabBar}
   return (
     <View style={Styles.userTabBar}>
-      <View style={[Styles.userTab, {alignSelf: 'center', margin: 45}]}>
+      <View style={[Styles.userTab, {alignSelf: 'center', margin: 5}]}>
         {state.routes.map((route, index) => {
           const isFocused = state.index === index
           const { options } = descriptors[route.key]
