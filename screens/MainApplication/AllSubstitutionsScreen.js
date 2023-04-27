@@ -3,7 +3,7 @@ import React, { useRef, useState, useEffect } from 'react'
 import { Text } from 'react-native'
 import { SearchBar } from '@rneui/base'
 import { Icon } from '@rneui/themed'
-import * as Colors from '../../assets/styles/colors'
+import { colors } from '../../assets/styles/colors'
 import { getUserData } from '../../utils'
 
 import calculateDistance from '../../utils/calculateDistance'
@@ -203,11 +203,24 @@ const AllSubstitutions = ({ navigation, route }) => {
             </View>
             <View style={{flex: 1, justifyContent: 'center', marginRight: 15}}>
               <Pressable onPress={() => BottomSheetModalRef.current?.present()}>
-                <Icon name='tune-variant' type="material-community" size={27} color={Colors.textDark}/>
+                <Icon name='tune-variant' type="material-community" size={27} color={colors.textDark}/>
               </Pressable>
             </View>
           </View>
           <View style={{ height: '95%' }}>
+            {showSavedOnly? (
+              <View style={{
+                backgroundColor: colors.krGreen,
+                width: '33%',
+                padding: 6,
+                marginLeft: 16,
+                borderRadius: 10,
+                marginBottom: 2
+
+              }}>
+                <Text style={{color: colors.textLight, textAlign: 'center'}}>Tallennetut</Text>
+              </View>
+            ) : null}
             <SubstitutionsList navigation={navigation} substitutions={substList} />
           </View>
           <BottomSheetModal ref={BottomSheetModalRef} index={0} snapPoints={snapPoints}>
