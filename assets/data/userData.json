@@ -1,25 +1,25 @@
  {
-    "firstname": "Lilja-Kerttuli",
-    "lastname": "Mäki-Marjastaja",
+    "firstname": "",
+    "lastname": "",
     "jobcode": "2 SAIRAANHOITAJA",
     "isStudent": false,
-    "email": "kerttuliz@gmail.com",
-    "phoneNumber": "0551234567",
-    "address": "Kaakattajankatu 3 A 25",
-    "postNumber": "90100",
-    "city": "Oulu",
+    "email": "",
+    "phoneNumber": "",
+    "address": "",
+    "postNumber": "",
+    "city": "",
     "location": {
      "lat": 65.01400638325627,
      "lng": 25.44645867588842
     },
-    "personNumber": "060588-0142",
-    "valviraID": "123456789",
+    "personNumber": "",
+    "valviraID": "",
     "preferences": {
-      "morning": 2,
+      "morning": 3,
       "evening": 3,
-      "night": 1,
-      "pay": 4,
-      "fullShift": 5,
+      "night": 3,
+      "pay": 3,
+      "fullShift": 3,
       "distance": 20
     }
   }

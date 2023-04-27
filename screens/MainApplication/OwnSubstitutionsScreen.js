@@ -6,12 +6,7 @@ import { colors } from '../../assets/styles/colors'
 import UpcomingGigs from '../../components/UpcomingGigs'
 import { getUserData } from '../../utils'
 
-import { LocaleContext } from '../../contexts/LocaleContext'
-import { ScrollView, TouchableWithoutFeedback } from 'react-native-gesture-handler'
-import { getCalendar } from '../../utils/getCalendar.js'
-
 const OwnSubstitutionsScreen = ({ navigation }) => {
-  const { i18n, locale, setLocale } = useContext(LocaleContext)
 
   const [isMonth, setIsMonth] = React.useState(true)
   const [userSubstitutions, setUserSubstitutions] = useState()
@@ -31,10 +26,37 @@ const OwnSubstitutionsScreen = ({ navigation }) => {
   })
 
   return (
-    <View style={{ justifyContent: 'space-between' }}>
-      <View style={{ flexDirection: 'row', justifyContent: 'flex-start', paddingHorizontal: '5%' }}>
-        <Pressable style={{ paddingRight: '5%' }} onPress={() => setIsMonth(true)}><Text>{i18n.t('month')}</Text></Pressable>
-        <Pressable style={{ paddingLeft: '5%' }} onPress={() => setIsMonth(false)}><Text>{i18n.t('week')}</Text></Pressable>
+    <View style= {{justifyContent: 'space-between'}}>
+      <View style ={Styles.calendar}>
+        <Calendar 
+          style ={Styles.calendar}
+          headerStyle={{paddingTop: 5}}
+          firstDay = {1}
+          markingType={'custom'}
+          markedDates={{
+            selected: {
+              customStyles: {
+                container: {
+                  backgroundColor: 'green'
+                },
+                text: {
+                  color: 'black',
+                  fontWeight: 'bold'
+                }
+              }
+            },
+          }}
+          onDayPress={() => setSelected(selected)}
+          theme={{
+            backgroundColor: '#ffffff',
+            calendarBackground: '#ffffff',
+            textSectionTitleColor: '#b6c1cd',
+            selectedDayBackgroundColor: '#00adf5',
+            selectedDayTextColor: Colors.krGreen,
+            dayTextColor: '#2d4150',
+            textDisabledColor: '',
+          }}   
+        />
       </View>
 
       {getCalendar(isMonth)}

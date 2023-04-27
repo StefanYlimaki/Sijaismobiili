@@ -85,7 +85,8 @@ const style = StyleSheet.create({
     fontSize: 18,
     paddingBottom: 10,
     paddingTop: 10,
-    textAlign: 'left',
+    textAlign: 'center',
+    // textTransform: 'uppercase',
   },
   h2AndInfoButton:{
     alignItems: 'center',
@@ -185,9 +186,9 @@ const style = StyleSheet.create({
     alignSelf: 'center',
     backgroundColor: colors.blueBright,
     borderRadius: 100,
-    marginBottom: 50,
-    paddingBottom: 5,
-    paddingTop: 5,
+    marginTop: 20,
+    paddingBottom: 8,
+    paddingTop: 8,
     width: 120
   },
   settingsContainer: {
@@ -237,6 +238,13 @@ const style = StyleSheet.create({
   },
   substItemOrganisationText: {
     color: colors.textLight,
+    fontFamily: 'Inter-DisplaySemiBold',
+    fontSize: 12,
+    opacity: 0.85,
+    textAlign: 'right',
+  },
+  substItemOrganisationTextDark: {
+    color: colors.textDark,
     fontFamily: 'Inter-DisplaySemiBold',
     fontSize: 12,
     opacity: 0.85,

@@ -42,7 +42,7 @@ const SubstitutionItem = ({ substitution, navigation }) => {
           <View style={styles.substitutionPreviewComponentBottomElement}>
 
             <View style={{ flexDirection: 'row', justifyContent: 'space-between'}}>
-              <View style={{ flexDirection: 'column', justifyContent: 'flex-end'}}>
+              <View style={{ flexDirection: 'column', justifyContent: 'center'}}>
                 <Text style={[styles.blackText, { fontSize: 20, fontFamily: 'Inter-DisplayBold'}]}>
                   {substitution.item.title}
                 </Text>
@@ -72,7 +72,11 @@ const SubstitutionItem = ({ substitution, navigation }) => {
                   </View>
                   :<></>
                 }
-                
+                {/* for testing purposes, displays scores of the tailored substitution list
+                  <Text>
+                    {substitution.item.points}
+                  </Text>
+                */}
               </View>
             </View>
           </View>

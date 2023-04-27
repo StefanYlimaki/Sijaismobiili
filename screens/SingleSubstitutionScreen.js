@@ -1,12 +1,5 @@
-import { Pressable, Button, Text, View, StyleSheet } from 'react-native'
-import {
-  AntDesign,
-  Ionicons,
-  Feather,
-  FontAwesome,
-  Entypo,
-  FontAwesome5,
-} from '@expo/vector-icons'
+import { Pressable, Text, View } from 'react-native'
+import { FontAwesome5 } from '@expo/vector-icons'
 
 import { formatHourlyPay, formatDate, formatTime } from '../utils/'
 import styles from '../assets/styles/styles'
@@ -20,8 +13,6 @@ const SingleSubstitutionScreen = ({ route, navigation }) => {
   if(substitution.item === undefined) {
     substitution.item = substitution
   }
-
-  console.log('substitution got', substitution)
 
   const benefits = substitution.item.benefits.map((benefit, i) => {
     return (
@@ -73,7 +64,7 @@ const SingleSubstitutionScreen = ({ route, navigation }) => {
         <View>
           <View style={{alignSelf: 'flex-end', flexDirection: 'row'}}>
             <Text style={{color: 'white', fontWeight: 'bold'}}>
-              {formatHourlyPay(substitution.item.hourlyPay)} €/h
+              {formatHourlyPay(substitution.item.hourlyPay)}€/h
             </Text>
             <Text style={{color:'white'}}>
               {'(~' + Math.floor(substitution.item.hourlyPay * (substitution.item.timing.duration/60)) + '€)'}

@@ -5,15 +5,11 @@ import * as Notifications from 'expo-notifications'
 export default async function acceptSubstitution (substitution) {
   const substitutionStartTime = new Date(substitution.timing.startTime)
   const now = new Date()
-  console.log('käyttäjä kiinnittäytyy sijaisuuteen, joka alkaa', substitutionStartTime.getDate() + '.' + substitutionStartTime.getMonth() + 1 + '.' + substitutionStartTime.getFullYear(), 'kello:', substitutionStartTime.getHours() + '.' + substitutionStartTime.getMinutes() + '.' + substitutionStartTime.getSeconds())
-  console.log('nyt on', now.getDate() + '.' + now.getMonth() + 1 + '.' + now.getFullYear(), 'kello:', now.getHours() + '.' + now.getMinutes() + '.' + now.getSeconds())
-
   if(now.getTime() > substitutionStartTime.getTime()){
     alert('Et voi kiinnittäytyä jo alkaneeseen vuoroon!')
   } else {
+    // The following variable could be used, if wanted. Now, however the notification is always to three seconds into the future.
     const differenceInSeconds = (substitutionStartTime.getTime() - now.getTime()) / 1000
-
-    console.log('difference in seconds', differenceInSeconds)
 
     await Notifications.scheduleNotificationAsync({
       content: {
