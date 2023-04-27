@@ -3,7 +3,7 @@ import { colors } from '../assets/styles/colors'
 import { LocaleContext } from '../contexts/LocaleContext'
 
 import { Pressable, Text, View, TouchableHighlight } from 'react-native'
-import { Calendar, LocaleConfig, DateData, CalendarProvider, CalendarContext, WeekCalendar } from 'react-native-calendars'
+import { Calendar, LocaleConfig, DateData, CalendarProvider, CalendarContext, WeekCalendar, ExpandableCalendar } from 'react-native-calendars'
 import React, { useState, useEffect, useContext, Fragment, useCallback } from 'react'
 import { AntDesign, FontAwesome } from '@expo/vector-icons'
 
@@ -63,26 +63,39 @@ export function getCalendar(isMonth) {
     )
   }
   return (
-    <View style={{  paddingHorizontal: '5%' }}>
-      <WeekCalendar
-        style={Styles.calendar}
-        headerStyle={{ paddingTop: 5 }}
-        allowShadow={false}
+    <ScrollView >
+      <CalendarProvider 
+      date={selected}
+      onDayPress={day => setSelected(day.dateString)}
+      >
+        <View>
+          <ExpandableCalendar
+            hideKnob = {true}
+            disablePan = {true}
+            initialPosition='closed'
+            allowShadow = {false}
+            firstDay={1}
 
-        firstDay={1}
-        current={selected}
-        markingType={'custom'}
 
-        onDayPress={day => setSelected(day.dateString)}
-        theme={{
-          backgroundColor: '#ffffff',
-          calendarBackground: '#ffffff',
-          textSectionTitleColor: '#b6c1cd',
-          selectedDayBackgroundColor: '#00adf5',
-          selectedDayTextColor: colors.krGreen,
-          textDisabledColor: '',
-        }}
-      />
+           /* style={Styles.calendar}
+            headerStyle={{ paddingTop: 5 }}
+            allowShadow={false}
+
+            current={selected}
+            markingType={'custom'}
+
+            theme={{
+              backgroundColor: '#ffffff',
+              calendarBackground: '#ffffff',
+              textSectionTitleColor: '#b6c1cd',
+              selectedDayBackgroundColor: '#00adf5',
+              selectedDayTextColor: colors.krGreen,
+              textDisabledColor: '',
+            }}*/
+          />
+        </View>
+      </CalendarProvider>
+
       <View style={Styles.agenda}>
         <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
           <Text style={{ textAlign: 'left', fontWeight: 'bold' }}>
@@ -96,6 +109,6 @@ export function getCalendar(isMonth) {
         </View>
         <Text style={{ textAlign: 'center' }}>{i18n.t('agendaDefault')}{'\n'}{'\n'}</Text>
       </View>
-    </View>
+    </ScrollView>
   )
 }
