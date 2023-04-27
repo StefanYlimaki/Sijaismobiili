@@ -19,8 +19,11 @@ const SubstitutionsList = ({ navigation, substitutions }) => {
         (value, index, array) => array.indexOf(value) === index
       )
 
-      //Filter all substitutions to ones that match the id
-      setData(uniqueSubstitutions)
+      if (uniqueSubstitutions.length == 0) {
+        setData(true)
+      } else {
+        setData(uniqueSubstitutions)
+      }
     }
     retrieveData()
   }, [])
