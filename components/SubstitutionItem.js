@@ -6,7 +6,7 @@ import {Feather, Ionicons} from '@expo/vector-icons'
 import {backgroundColor} from 'react-native-calendars/src/style'
 import {colors} from '../assets/styles/colors'
 
-const SubstitutionItem = ({ substitution, navigation }) => {
+const SubstitutionItem = ({ substitution, navigation, isBookmarked }) => {
 
   const getDistance = () => {
     return calculateDistance(parseFloat(substitution.item.coordinates.latitude), parseFloat(substitution.item.coordinates.longitude), 65.05941, 25.46642, false)
@@ -59,6 +59,11 @@ const SubstitutionItem = ({ substitution, navigation }) => {
 
         <View style={styles.substitutionPreviewComponentBottomElement}>
           <View style={{ flexDirection: 'row', justifyContent: 'space-between'}}>
+            {!isBookmarked? null : (
+              <View style={{alignSelf: 'center'}}>
+                <Ionicons name='bookmark' color={colors.krBlueDark} size={20} />
+              </View>
+            )}
             <View style={{ flexDirection: 'column', justifyContent: 'flex-start'}}>
               <View style={{ flexDirection: 'row', alignItems: 'flex-start'}}>
                 <Ionicons name="cash-outline" size={15} style={styles.blackText} />

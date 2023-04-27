@@ -4,7 +4,7 @@ import styles from '../assets/styles/styles'
 import { colors } from '../assets/styles/colors'
 import DropDownPicker from 'react-native-dropdown-picker'
 
-const FilterModal = ({ substitutions, selectedOrder, selectedShift, search, value, setValue, filterSubstitutions}) => {
+const FilterModal = ({ substitutions, selectedOrder, showSavedOnly, selectedShift, search, value, setValue, filterSubstitutions}) => {
 
   const FILTER_OPTIONS = {
     NEWEST_FIRST: 0,
@@ -39,31 +39,38 @@ const FilterModal = ({ substitutions, selectedOrder, selectedShift, search, valu
 
   return (
     <View style={stylesTest.filterContainer}>
+      <Pressable style={showSavedOnly? stylesTest.filterButtonActive : stylesTest.filterButton} onPress={() => 
+        filterSubstitutions(selectedOrder, selectedShift, 
+          !showSavedOnly,
+          search)
+      }>
+        <Text style={showSavedOnly? stylesTest.filterButtonTextActive : stylesTest.filterButtonText}>Näytä vain tallennetut</Text>
+      </Pressable>
       <Text style={styles.h2}>Järjestys</Text>
       <View style={stylesTest.sortOptionContainer}>
-        <Pressable style={selectedOrder === FILTER_OPTIONS.NEWEST_FIRST ? stylesTest.filterButtonActive : stylesTest.filterButton} onPress={() => filterSubstitutions(FILTER_OPTIONS.NEWEST_FIRST, selectedShift, search)}>
+        <Pressable style={selectedOrder === FILTER_OPTIONS.NEWEST_FIRST ? stylesTest.filterButtonActive : stylesTest.filterButton} onPress={() => filterSubstitutions(FILTER_OPTIONS.NEWEST_FIRST, selectedShift, showSavedOnly, search)}>
           <Text style={selectedOrder === FILTER_OPTIONS.NEWEST_FIRST ? stylesTest.filterButtonTextActive : stylesTest.filterButtonText}>Aika</Text>
         </Pressable>
-        <Pressable style={selectedOrder === FILTER_OPTIONS.BEST_PAID_FIRST ? stylesTest.filterButtonActive : stylesTest.filterButton} onPress={() => filterSubstitutions(FILTER_OPTIONS.BEST_PAID_FIRST, selectedShift, search)}>
+        <Pressable style={selectedOrder === FILTER_OPTIONS.BEST_PAID_FIRST ? stylesTest.filterButtonActive : stylesTest.filterButton} onPress={() => filterSubstitutions(FILTER_OPTIONS.BEST_PAID_FIRST, selectedShift, showSavedOnly, search)}>
           <Text style={selectedOrder === FILTER_OPTIONS.BEST_PAID_FIRST ? stylesTest.filterButtonTextActive : stylesTest.filterButtonText}>Palkka</Text>
         </Pressable>
-        <Pressable style={selectedOrder === FILTER_OPTIONS.CLOSEST_FIRST ? stylesTest.filterButtonActive : stylesTest.filterButton} onPress={() => filterSubstitutions(FILTER_OPTIONS.CLOSEST_FIRST, selectedShift, search)}>
+        <Pressable style={selectedOrder === FILTER_OPTIONS.CLOSEST_FIRST ? stylesTest.filterButtonActive : stylesTest.filterButton} onPress={() => filterSubstitutions(FILTER_OPTIONS.CLOSEST_FIRST, selectedShift, showSavedOnly, search)}>
           <Text style={selectedOrder === FILTER_OPTIONS.CLOSEST_FIRST ? stylesTest.filterButtonTextActive : stylesTest.filterButtonText}>Etäisyys</Text>
         </Pressable>
       </View>
 
       <Text style={styles.h2}>Vuoro</Text>
       <View style={stylesTest.sortOptionContainer}>
-        <Pressable style={selectedShift === SHIFT_OPTIONS.ALL ? stylesTest.filterButtonActive : stylesTest.filterButton} onPress={() => filterSubstitutions(selectedOrder, SHIFT_OPTIONS.ALL, search)}>
+        <Pressable style={selectedShift === SHIFT_OPTIONS.ALL ? stylesTest.filterButtonActive : stylesTest.filterButton} onPress={() => filterSubstitutions(selectedOrder, SHIFT_OPTIONS.ALL, showSavedOnly, search)}>
           <Text style={selectedShift === SHIFT_OPTIONS.ALL ? stylesTest.filterButtonTextActive : stylesTest.filterButtonText}>Kaikki käy</Text>
         </Pressable>
-        <Pressable style={selectedShift === SHIFT_OPTIONS.MORNING ? stylesTest.filterButtonActive : stylesTest.filterButton} onPress={() => filterSubstitutions(selectedOrder, SHIFT_OPTIONS.MORNING, search)}>
+        <Pressable style={selectedShift === SHIFT_OPTIONS.MORNING ? stylesTest.filterButtonActive : stylesTest.filterButton} onPress={() => filterSubstitutions(selectedOrder, SHIFT_OPTIONS.MORNING, showSavedOnly, search)}>
           <Text style={selectedShift === SHIFT_OPTIONS.MORNING ? stylesTest.filterButtonTextActive : stylesTest.filterButtonText}>Aamu</Text>
         </Pressable>
-        <Pressable style={selectedShift === SHIFT_OPTIONS.EVENING ? stylesTest.filterButtonActive : stylesTest.filterButton} onPress={() => filterSubstitutions(selectedOrder, SHIFT_OPTIONS.EVENING, search)}>
+        <Pressable style={selectedShift === SHIFT_OPTIONS.EVENING ? stylesTest.filterButtonActive : stylesTest.filterButton} onPress={() => filterSubstitutions(selectedOrder, SHIFT_OPTIONS.EVENING, showSavedOnly, search)}>
           <Text style={selectedShift === SHIFT_OPTIONS.EVENING ? stylesTest.filterButtonTextActive : stylesTest.filterButtonText}>Ilta</Text>
         </Pressable>
-        <Pressable style={selectedShift === SHIFT_OPTIONS.NIGHT ? stylesTest.filterButtonActive : stylesTest.filterButton} onPress={() => filterSubstitutions(selectedOrder, SHIFT_OPTIONS.NIGHT, search)}>
+        <Pressable style={selectedShift === SHIFT_OPTIONS.NIGHT ? stylesTest.filterButtonActive : stylesTest.filterButton} onPress={() => filterSubstitutions(selectedOrder, SHIFT_OPTIONS.NIGHT, showSavedOnly, search)}>
           <Text style={selectedShift === SHIFT_OPTIONS.NIGHT ? stylesTest.filterButtonTextActive : stylesTest.filterButtonText}>Yö</Text>
         </Pressable>
       </View>
@@ -80,7 +87,7 @@ const FilterModal = ({ substitutions, selectedOrder, selectedShift, search, valu
         placeholder={'Valitse halutessasi mistä kunnista haluat tuloksia'}
         mode={'BADGE'}
         extendableBadgeContainer={true}
-        onClose={() => filterSubstitutions(selectedOrder, selectedShift, search)}
+        onClose={() => filterSubstitutions(selectedOrder, selectedShift, showSavedOnly, search)}
       />
     </View>
   )
