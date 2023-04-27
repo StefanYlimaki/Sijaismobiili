@@ -12,7 +12,7 @@ import substitutions from '../../assets/data/substitutionsData_new.json'
 import { BottomSheetModal, BottomSheetModalProvider } from '@gorhom/bottom-sheet'
 import FilterModal from '../FilterModal'
 
-const AllSubstitutions = ({ navigation }) => {
+const AllSubstitutions = ({ navigation, route }) => {
 
   const FILTER_OPTIONS = {
     NEWEST_FIRST: 0,
@@ -39,7 +39,7 @@ const AllSubstitutions = ({ navigation }) => {
 
   const [search, setSearch] = useState('')
 
-  useEffect(() => {
+  useState(() => {
     const retrieveData = async () => {
       const userData = await getUserData()
 
@@ -54,7 +54,26 @@ const AllSubstitutions = ({ navigation }) => {
     retrieveData()
   }, [])
 
-  updateSearch = (search) => {
+  //Run when route params are updated
+  useEffect(() => {
+    if (route.params?.showSavedOnly) {
+      setOnlySaved(true)
+      filterSubstitutions(selectedOrder, selectedShift, true, search)
+    }
+  }, [route.params])
+
+  
+  //If route params have been set, change state and reset params
+  /*
+  if (route.params?.showSavedOnly && !showSavedOnly) {
+    setOnlySaved(true)
+    route.params.showSavedOnly = false
+    console.log(showSavedOnly)
+    filterSubstitutions(selectedOrder, selectedShift, true, search)
+  }
+  */
+
+  const updateSearch = (search) => {
     setSearch(search)
     filterSubstitutions(selectedOrder, selectedShift, showSavedOnly, search)
   }

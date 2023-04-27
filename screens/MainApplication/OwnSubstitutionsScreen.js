@@ -8,6 +8,8 @@ import SubstitutionsList from '../../components/SubstitutionsList'
 import substitutions from '../../assets/data/substitutionsData_new.json'
 import UpcomingGigs from '../../components/UpcomingGigs'
 import { getUserData } from '../../utils'
+import NavigateToSavedSubstitutionsButton from '../../components/NavigateToSavedSubstitutionsButton'
+
 
 const OwnSubstitutionsScreen = ({ navigation }) => {
 
@@ -54,6 +56,7 @@ const OwnSubstitutionsScreen = ({ navigation }) => {
 
   return (
     <View style= {{justifyContent: 'space-between'}}>
+      <NavigateToSavedSubstitutionsButton navigation={navigation}/>
       <View style ={Styles.calendar}>
         <Calendar 
           style ={Styles.calendar}
