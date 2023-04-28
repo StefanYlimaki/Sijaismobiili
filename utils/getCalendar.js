@@ -5,7 +5,6 @@ import { LocaleContext } from '../contexts/LocaleContext'
 import { Pressable, Text, View, TouchableHighlight } from 'react-native'
 import { Calendar, LocaleConfig, DateData, CalendarProvider, CalendarContext, WeekCalendar, ExpandableCalendar } from 'react-native-calendars'
 import React, { useState, useEffect, useContext, Fragment, useCallback } from 'react'
-import { AntDesign, FontAwesome } from '@expo/vector-icons'
 
 import { ScrollView, TouchableWithoutFeedback } from 'react-native-gesture-handler'
 
@@ -75,28 +74,12 @@ export function getCalendar(isMonth) {
             initialPosition='closed'
             allowShadow = {false}
             firstDay={1}
-
-
-           /* style={Styles.calendar}
-            headerStyle={{ paddingTop: 5 }}
-            allowShadow={false}
-
-            current={selected}
-            markingType={'custom'}
-
-            theme={{
-              backgroundColor: '#ffffff',
-              calendarBackground: '#ffffff',
-              textSectionTitleColor: '#b6c1cd',
-              selectedDayBackgroundColor: '#00adf5',
-              selectedDayTextColor: colors.krGreen,
-              textDisabledColor: '',
-            }}*/
           />
         </View>
       </CalendarProvider>
 
       <View style={Styles.agenda}>
+        
         <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
           <Text style={{ textAlign: 'left', fontWeight: 'bold' }}>
             {selectedDay}{i18n.t('dayMonthDivider')}{selectedMonthString}
