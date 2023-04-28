@@ -64,8 +64,8 @@ export function getCalendar(isMonth) {
   return (
     <ScrollView >
       <CalendarProvider 
-      date={selected}
-      onDayPress={day => setSelected(day.dateString)}
+        date={selected}
+        onDayPress={day => setSelected(day.dateString)}
       >
         <View>
           <ExpandableCalendar
