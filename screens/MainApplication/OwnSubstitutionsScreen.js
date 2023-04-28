@@ -5,6 +5,8 @@ import { colors } from '../../assets/styles/colors'
 
 import UpcomingGigs from '../../components/UpcomingGigs'
 import { getUserData } from '../../utils'
+import NavigateToSavedSubstitutionsButton from '../../components/NavigateToSavedSubstitutionsButton'
+
 
 const OwnSubstitutionsScreen = ({ navigation }) => {
 
@@ -27,6 +29,7 @@ const OwnSubstitutionsScreen = ({ navigation }) => {
 
   return (
     <View style= {{justifyContent: 'space-between'}}>
+      <NavigateToSavedSubstitutionsButton navigation={navigation}/>
       <View style ={Styles.calendar}>
         <Calendar 
           style ={Styles.calendar}

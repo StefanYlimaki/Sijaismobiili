@@ -237,11 +237,12 @@ const style = StyleSheet.create({
     paddingTop: 30,
   },
   substItemOrganisationText: {
-    color: colors.textLight,
+    color: colors.textDark,
     fontFamily: 'Inter-DisplaySemiBold',
     fontSize: 12,
+    marginRight: 15,
     opacity: 0.85,
-    textAlign: 'right',
+    textAlign: 'left',
   },
   substItemOrganisationTextDark: {
     color: colors.textDark,
@@ -362,8 +363,6 @@ const style = StyleSheet.create({
     backgroundColor: colors.krGreen,
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
-    flexDirection: 'row',
-    minHeight: 50,
     paddingHorizontal: 16,
     paddingVertical: 8,
   },

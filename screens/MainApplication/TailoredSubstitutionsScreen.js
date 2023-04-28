@@ -27,10 +27,12 @@ const TailoredSubsitutions = ({ route, navigation }) => {
   }
   
   useEffect(() => {
-    setInterval(async () => {
-      await callOrderAndFilterSubstitutionsByPreferences()
-    }, 1000)
-  }, [])
+    const unsubscribe = navigation.addListener('focus', () => {
+      callOrderAndFilterSubstitutionsByPreferences()
+    })
+
+    return unsubscribe
+  }, [navigation])
   
   if(loading){
     return(

@@ -38,8 +38,31 @@ function substitutionHasStartTimeInThePast(substitution){
   return false
 }
 
+function calculateMultiplier(number) {
+  // 'reverse' the index
+  number = 4 - number
+  // normalize to range 1 - 2, ((number - rangeMin) / (rangeMax - rangeMin)) * (desiredMax - desiredMin) + desiredMin
+  number = ((number - 1) / (4 - 1)) * (2 - 1) + 1
+
+  return number
+}
+
 function rateSubstitutions(substitutions, preferences){
-  const { morning, evening, night, fullShift, pay} = preferences // get the prefenrences to as seperate variables
+  const { morning, evening, night, fullShift, pay, preferenceOrder, distance} = preferences // get the prefenrences to as seperate variables
+
+  const mappedOrder = preferenceOrder.map(item => item.key)
+  const locationMultiplier = calculateMultiplier(mappedOrder.indexOf('location'))
+  const payMultiplier = calculateMultiplier(mappedOrder.indexOf('pay'))
+  const shiftMultiplier = calculateMultiplier(mappedOrder.indexOf('shift'))
+  const historyMultiplier = calculateMultiplier(mappedOrder.indexOf('history'))
+
+  /*
+    UPDATE TO BELOW
+      Added points for location
+        If the location is on the upper half of the desired range, subtract 0.8. If it's on the lower half, add 0.8
+      Added multipliers based on user ordered preferences.
+        Multipliers are normalized to range 1-2. historyMultiplier is not used yet because user gig histories are not tracked
+  */
 
   /* For each substitution to be rated 
      1. Compare the type of the shift to preferences
@@ -100,57 +123,79 @@ function rateSubstitutions(substitutions, preferences){
   */
   substitutions.forEach(s => {
     let points = 0
+    let shiftPoints = 0
+    let payPoints = 0
+    let locationPoints = 0
+
+    /* Points for desired shift */
     let type = getShiftOfSubstitution(s)
     if(type === 'morning'){
       if(morning === 2){
-        points -= 0.4
+        shiftPoints -= 0.4
       } else if(morning === 4){
-        points += 0.4    
+        shiftPoints += 0.4    
       } else if(morning === 5){
-        points += 0.8  
+        shiftPoints += 0.8  
       }
     }
     if(type === 'evening'){
       if(evening === 2){
-        points -= 0.4    
+        shiftPoints -= 0.4
       } else if(evening === 4){
-        points += 0.4    
+        shiftPoints += 0.4
       } else if(evening === 5){
-        points += 0.8    
+        shiftPoints += 0.8
       }
     }
     if(type === 'night'){
       if(night === 2){
-        points -= 0.4    
+        shiftPoints -= 0.4    
       } else if(night === 4){
-        points += 0.4    
+        shiftPoints += 0.4    
       } else if(night === 5){
-        points += 0.8   
+        shiftPoints += 0.8   
       }
     }
 
     if(s.timing.duration > 300 && fullShift !== 3){
       if(fullShift === 1){
-        points -= 0.8
+        shiftPoints -= 0.8
       } else if(fullShift === 2){
-        points -= 0.4
+        shiftPoints -= 0.4
       } else if(fullShift === 4){
-        points += 0.4
+        shiftPoints += 0.4
       } else if(fullShift === 5){
-        points += 0.8
+        shiftPoints += 0.8
       }
     }
 
+    // Apply multiplier and add to total points
+    points = points + shiftPoints * shiftMultiplier
+
+    /* Points for hourlyPay */
     if(pay === 2){
-      points += (s.hourlyPay/10)
+      payPoints += (s.hourlyPay/10)
     } else if(pay === 3){
-      points += (s.hourlyPay/8)
+      payPoints += (s.hourlyPay/8)
     } else if(pay === 4){
-      points += (s.hourlyPay/7)
+      payPoints += (s.hourlyPay/7)
     } else if(pay === 5){
-      points += (s.hourlyPay/6)
+      payPoints += (s.hourlyPay/6)
     }
+
+    // Apply multiplier and add to total points
+    points = points + payPoints * payMultiplier
     
+    /* Points for desired location */
+    if (distance / 2 < calculateDistance(65.021545, 25.469885, s.coordinates.latitude, s.coordinates.longitude, true)) {
+      locationPoints -= 0.8
+    } else {
+      locationPoints += 0.8
+    }
+
+    // Apply multiplier and add to total points
+    points = points + locationPoints * locationMultiplier
+
     s.points = points
   })
   return substitutions
