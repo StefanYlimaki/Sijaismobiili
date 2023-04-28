@@ -1,14 +1,50 @@
 
-import React from 'react'
-import {View, Text, Button, Pressable} from 'react-native'
+import React, { useState, useEffect } from 'react'
+import {View, Text, Button, Pressable, ActivityIndicator} from 'react-native'
 import RecommendationView from './RecommendationView'
 
 import { colors } from '../../assets/styles/colors'
 import {CommonActions} from '@react-navigation/native'
 import { AntDesign } from '@expo/vector-icons'
 
+import { orderAndFilterSubstitutionsByPreferences } from '../../utils/orderAndFilterSubstitutionsByPreferences'
+import substitutions from '../../assets/data/substitutionsData_new.json'
+import {krBlue} from '../../assets/styles/colors'
+
+//Count of cards shown to the user
+const CARD_COUNT = 5
 
 const SwipeScreen = ({ navigation }) => {
+  const [tailoredSubstitutions, setTailoredSubstitutions] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    async function callOrderAndFilterSubstitutionsByPreferences() {
+      const result = await orderAndFilterSubstitutionsByPreferences(substitutions)
+      let amountOfSubstitutions
+  
+      // If there are no applicable substitutions ==> navigate to mainapplication.
+      if(result.length === 0){
+        skipScreen()
+      }
+  
+      // If there are more than five applicable substitutions ==> limit card count to CARD_COUNT
+      if(result.length > 5){
+        amountOfSubstitutions = CARD_COUNT
+      }
+  
+      // Get the substitutions to show in recommendation view.
+      setTailoredSubstitutions(result.slice(0, amountOfSubstitutions))
+
+      // If there are at least 1 substitution to be shown ==> set loading to false.
+      // In a case, where there are no substitutions, user is redirected to main application (code above)
+      if(result.length !== 0){
+        setLoading(false)
+      }
+    }
+    
+    callOrderAndFilterSubstitutionsByPreferences()
+  }, [])
     
   function navito() {
     navigation.navigate('MainApplication')
@@ -29,14 +65,28 @@ const SwipeScreen = ({ navigation }) => {
     navito()
     dispatcher()
   }
-    
+
+  if(loading){
+    return(
+      <View
+        style={{
+          flex: 1,
+          justifyContent: 'center',
+          alignItems: 'center',
+          flexDirection: 'row',
+        }}>
+        <ActivityIndicator size="large" color= {krBlue} />
+      </View>
+    )
+  }
+
   return(
     <View style={{height:'100%'}}>
       <View style={{
-        marginHorizontal: -20,
-        marginVertical: -50,
+        marginHorizontal: '-5%',
+        marginVertical: '-15%',
         paddingVertical: 60,
-        height: 170,
+        height: '23%',
         backgroundColor: colors.krGreen, 
         marginBottom: 10, 
         alignContent: 'center',
@@ -64,18 +114,14 @@ const SwipeScreen = ({ navigation }) => {
           {'Tervetuloa takaisin!'}
         </Text>
       </View>
-      <RecommendationView navigation={navigation}/>
+      <RecommendationView navigation={navigation} substitutions={tailoredSubstitutions}/>
       <View style={{
         alignSelf: 'center',
         position: 'absolute',
         bottom: 0,
         marginBottom: 15
       }}>
-
-        <Pressable
-          onPress={() => skipScreen()}
-
-        >
+        <Pressable onPress={() => skipScreen()}>
           <View style={{
             padding: 20,
             backgroundColor: colors.krGreen,
@@ -101,6 +147,10 @@ const SwipeScreen = ({ navigation }) => {
       </View>
     </View>
   )
+  
+
+    
+  
 }
 
 export default SwipeScreen

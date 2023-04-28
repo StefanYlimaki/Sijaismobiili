@@ -20,6 +20,7 @@ import DenyBookmarkAndAcceptButton from '../components/DenyBookmarkAndAcceptButt
 import acceptSubstitution from '../utils/acceptSubstitution'
 import { colors } from '../assets/styles/colors'
 import {LinearGradient} from 'expo-linear-gradient'
+import saveSubstitution from '../utils/saveSubstitution'
 
 const SCREEN_HEIGHT = Dimensions.get('window').height
 const SCREEN_WIDTH = Dimensions.get('window').width - 50
@@ -27,12 +28,12 @@ const SCREEN_WIDTH = Dimensions.get('window').width - 50
 //Threshold for registering swipes
 const SWIPE_THRESHOLD = 120
 
-const logo = { uri: 'https://www.sttinfo.fi/data/images/00063/de7b594d-309c-4622-8e66-b8d8b84dafd3-w_300_h_100.png' }
+const TOUCH_THRESHOLD = 20
 
+const logo = { uri: 'https://www.sttinfo.fi/data/images/00063/de7b594d-309c-4622-8e66-b8d8b84dafd3-w_300_h_100.png' }
 
 const SubstitutionCard = ({route}) => {
   return (
-
     <View style={ {backgroundColor: 'rgba(0,0,0,0.3)'} }>
       <BlurView intensity={10} style={ {height: '100%'} }>
         <View style={{flexDirection: 'column', marginTop: Constants.statusBarHeight + 20}}>
@@ -40,7 +41,6 @@ const SubstitutionCard = ({route}) => {
         </View>
       </BlurView>
     </View>
-
   )
 }
 
@@ -51,24 +51,37 @@ const navigateToPopUp = (navigation, item) => {
   })
 }
 
+const navigateToSingleSubstitutionScreen = (navigation, item) => { 
+  navigation.navigate('SingleSubstitution', {
+    substitution: item,
+    caller: 'SubstitutionCard',
+  })
+}
+
 const renderSubstitution = (item, navigation) => {
+
   //Position variable for card on top
   const position = useRef(new Animated.ValueXY()).current
-
 
   //Create panresponder for swiping cards
   const panResponder = useRef(
     PanResponder.create({
-      onMoveShouldSetPanResponder: () => true,
-      onStartShouldSetPanResponder: () => true,
+      onMoveShouldSetPanResponder: (e, gestureState) => {
+        const {dx, dy} = gestureState
+
+        return (Math.abs(dx) > TOUCH_THRESHOLD || (Math.abs(dy) > TOUCH_THRESHOLD))
+      },
+      onStartShouldSetPanResponder: () => false,
 
       onMoveShouldSetPanResponderCapture: (evt, gestureState) => {
         return gestureState.dx !== 0 && gestureState.dy !== 0
       },
 
-      //Update position variable when moved
-      onPanResponderMove: Animated.event([null, {dx: position.x,
-        dy: position.y}], {useNativeDriver: false}),
+      //animate movement of card with native driver
+      onPanResponderMove: Animated.event(
+        [null, {dx: position.x, dy: position.y}],
+        {useNativeDriver: false}
+      ),
 
       //Called when card is released
       onPanResponderRelease: (evt, gestureState) => {
@@ -76,7 +89,7 @@ const renderSubstitution = (item, navigation) => {
         if (gestureState.dx > SWIPE_THRESHOLD) {
           Animated.spring(position, {
             toValue: {x: SCREEN_WIDTH + 100, y: gestureState.dy},
-            useNativeDriver: false,
+            useNativeDriver: true,
             speed: 24
           }
           ).start(() => {
@@ -87,7 +100,7 @@ const renderSubstitution = (item, navigation) => {
         } else if (gestureState.dx < -SWIPE_THRESHOLD) {
           Animated.spring(position, {
             toValue: {x: -SCREEN_WIDTH - 100, y: gestureState.dy},
-            useNativeDriver: false
+            useNativeDriver: true
           }
           ).start(() => {
             navigation.pop()
@@ -98,10 +111,9 @@ const renderSubstitution = (item, navigation) => {
           Animated.spring(position, {
             toValue: {x: 0, y: 0},
             friction: 4,
-            useNativeDriver: false
+            useNativeDriver: true
           }).start()
         }
-
       }
     })
   ).current
@@ -109,7 +121,7 @@ const renderSubstitution = (item, navigation) => {
   //Rotate card based on how far it has been dragged
   const rotatePosition = position.x.interpolate({
     inputRange: [-SCREEN_WIDTH / 2, 0, SCREEN_WIDTH / 2],
-    outputRange: ['-10deg', '0deg', '0deg'],
+    outputRange: ['-10deg', '0deg', '10deg'],
     extrapolate: 'clamp'
   })
 
@@ -118,9 +130,7 @@ const renderSubstitution = (item, navigation) => {
     transform: [
       {rotate: rotatePosition},
       {translateX: position.x},
-      {translateY: position.y},
-      {rotateY: position.x.interpolate({ inputRange: [-SCREEN_WIDTH / 2, 0, SCREEN_WIDTH / 2], outputRange: ['90deg', '0deg', '0deg'], extrapolate: 'clamp' })},
-      {scale: position.x.interpolate({ inputRange: [-SCREEN_WIDTH / 2, 0, SCREEN_WIDTH / 2], outputRange: [0.7, 1, 1.1], extrapolate: 'clamp' })},
+      {translateY: position.y}
     ]
   }
 
@@ -257,8 +267,8 @@ const renderSubstitution = (item, navigation) => {
       </View>
 
       <View style={{paddingHorizontal: 16, flex: 3}}>
-        <Pressable >
-          <Text>{item.description}</Text>
+        <Pressable style={{ paddingHorizontal: 16, height: 50, borderColor: '#000', borderStyle: 'solid', borderWidth: 1 }} onPress={() => {console.log('m'), navigateToSingleSubstitutionScreen(navigation, item)}} >
+          <Text >{item.description}</Text>
         </Pressable>
       </View>
 
@@ -267,6 +277,7 @@ const renderSubstitution = (item, navigation) => {
           navigation.pop()
         }}
         bookmarkCallback={()=>{
+          saveSubstitution(item)
           navigation.pop()
         }}
         acceptCallback={()=>{

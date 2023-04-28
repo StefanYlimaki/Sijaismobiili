@@ -2,8 +2,11 @@ import { View, Text, StyleSheet, Pressable , Animated} from 'react-native'
 import { formatHourlyPay, formatDate, formatTime } from '../utils'
 import styles from '../assets/styles/styles'
 import calculateDistance from '../utils/calculateDistance'
+import {Feather, Ionicons} from '@expo/vector-icons'
+import {backgroundColor} from 'react-native-calendars/src/style'
+import {colors} from '../assets/styles/colors'
 
-const SubstitutionItem = ({ substitution, navigation }) => {
+const SubstitutionItem = ({ substitution, navigation, isBookmarked }) => {
 
   const getDistance = () => {
     return calculateDistance(parseFloat(substitution.item.coordinates.latitude), parseFloat(substitution.item.coordinates.longitude), 65.05941, 25.46642, false)
@@ -12,72 +15,98 @@ const SubstitutionItem = ({ substitution, navigation }) => {
   return (
     <Animated.View style={styles.substitutionItemContainer}>
       <Pressable
-        onPress={() =>
+        onPress={() => {
           navigation.navigate('SubstitutionCard', {
             substitution: substitution,
             navigation: navigation
-          })
+          })}
         }
         style={({ pressed }) => pressed && styles.pressedSubstitutionItem}
       >
         <View style={styles.substitutionPreviewComponent}>
           <View style={styles.substitutionPreviewComponentTopElement}>
-            <View style={{flexDirection: 'column', flex: 1, justifyContent: 'space-between'}}>
-              <Text style={styles.whiteText}>
-                {formatDate(substitution.item.timing.startTime)}
-              </Text>
-              <Text style={styles.whiteText}>
-                {formatTime(substitution.item.timing.startTime, substitution.item.timing.duration)}
-              </Text>
-            </View>
-            <View style={{flexDirection: 'column', alignItems: 'flex-end', flex:2}}>
-              <Text style={styles.substItemOrganisationText}>
-                {substitution.item.organisation}
-              </Text>
-              <Text style={styles.whiteText}>
-                {getDistance(substitution.item.location)}
-              </Text>
+            <View style={{flexDirection: 'row', flex: 1}}>
+              <View style={{flexDirection: 'column', flex: 1, justifyContent: 'space-between'}}>
+                <View style={{flexDirection: 'row', flex: 1}}>
+                  <View style={{flexDirection: 'row', alignItems: 'flex-start', flex: 1}}>
+                    <Feather name='calendar' size={15} color='white'/>
+                    <Text style={[styles.whiteText, { marginLeft: 5}]}>
+                      {formatDate(substitution.item.timing.startTime)}
+                    </Text>
+                  </View>
+
+                  <View style={{flexDirection: 'row', flex: 1, alignItems: 'flex-start'}}>
+                    <Feather name='clock' size={15} color='white'/>
+                    <Text style={[styles.whiteText, { marginLeft: 5 }]}>
+                      {formatTime(substitution.item.timing.startTime, substitution.item.timing.duration)}
+                    </Text>
+                  </View>
+                </View>
+              </View>
+
+              <View style={{flexDirection: 'column', alignItems: 'flex-end', flex:1}}>
+                <View style={{flexDirection: 'row'}}>
+                  <Feather name='map-pin' size={15} color='white'/>
+                  <Text style={[styles.whiteText, { marginLeft: 5}]}>
+                    {getDistance(substitution.item.location)}
+                  </Text>
+                </View>
+              </View>
             </View>
           </View>
-          <View style={styles.substitutionPreviewComponentBottomElement}>
 
-            <View style={{ flexDirection: 'row', justifyContent: 'space-between'}}>
-              <View style={{ flexDirection: 'column', justifyContent: 'center'}}>
-                <Text style={[styles.blackText, { fontSize: 20, fontFamily: 'Inter-DisplayBold'}]}>
-                  {substitution.item.title}
+        </View>
+
+        <View style={styles.substitutionPreviewComponentBottomElement}>
+          <View style={{ flexDirection: 'row', justifyContent: 'space-between'}}>
+            {!isBookmarked? null : (
+              <View style={{alignSelf: 'center'}}>
+                <Ionicons name='bookmark' color={colors.krBlueDark} size={20} />
+              </View>
+            )}
+            <View style={{ flexDirection: 'column', justifyContent: 'flex-start'}}>
+              <View style={{ flexDirection: 'row', alignItems: 'flex-start'}}>
+                <Ionicons name="cash-outline" size={15} style={styles.blackText} />
+                <Text style={ [styles.blackText, { fontWeight: 'bold'}]}>
+                  {formatHourlyPay(substitution.item.hourlyPay)}€/h
                 </Text>
-                <Text style={[styles.blackText, { paddingRight: 8, fontFamily: 'Inter-DisplayMedium', fontSize: 15}]}>
-                  {substitution.item.department}
+                <Text style={ styles.blackText }>
+                  (~{formatHourlyPay((substitution.item.timing.duration / 60) * substitution.item.hourlyPay)} €)
                 </Text>
               </View>
 
-              <View style={{ flexDirection: 'column'}}>
-                <View style={{ flexDirection: 'row', justifyContent: 'flex-start'}}>
-                  <Text style={ [styles.blackText, { paddingRight: 8, fontWeight: 'bold'}]}>
-                    {formatHourlyPay(substitution.item.hourlyPay)}€/h
-                  </Text>
-                  <Text style={ [styles.blackText, { paddingRight: 16 }]}>
-                    (~{formatHourlyPay((substitution.item.timing.duration / 60) * substitution.item.hourlyPay)} €)
-                  </Text>
+              <Text style={[styles.blackText, { fontSize: 20, fontFamily: 'Inter-DisplayBold'}]}>
+                {substitution.item.title}
+              </Text>
+              <Text style={[styles.blackText, { paddingRight: 8, fontFamily: 'Inter-DisplayMedium', fontSize: 15}]}>
+                {substitution.item.department}
+              </Text>
+              <Text>
+                {substitution.item.organisation}
+              </Text>
+            </View>
+            <View style={{ flexDirection: 'column'}}>
+
+
+
+
+              {substitution.item.benefits.length !== 0
+                ? <View>
+                  {substitution.item.benefits.map(b => 
+                    <View key={ b } style={styles.substitutionItemBenefitsItem} >
+                      <Text style={styles.whiteText} >
+                        {b}
+                      </Text>
+                    </View>
+                  )}
                 </View>
-                {substitution.item.benefits.length !== 0
-                  ? <View>
-                    {substitution.item.benefits.map(b => 
-                      <View key={ b } style={styles.substitutionItemBenefitsItem} >
-                        <Text style={styles.whiteText} >
-                          {b}
-                        </Text>
-                      </View>
-                    )}
-                  </View>
-                  :<></>
-                }
-                {/* for testing purposes, displays scores of the tailored substitution list
+                :<></>
+              }
+              {/* for testing purposes, displays scores of the tailored substitution list
                   <Text>
                     {substitution.item.points}
                   </Text>
                 */}
-              </View>
             </View>
           </View>
         </View>

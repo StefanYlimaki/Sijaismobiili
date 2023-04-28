@@ -82,7 +82,7 @@ const SingleSubstitutionScreen = ({ route, navigation }) => {
       </View>
       <DenyBookmarkAndAcceptButton
         denyCallback={()=>console.log('deny')}
-        acceptCallback={()=>acceptSubstitution(substitution.item.id)}
+        acceptCallback={()=>acceptSubstitution(substitution.item)}
         bookmarkCallback={()=>console.log('bookmark')}
       />
     </View>
