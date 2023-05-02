@@ -9,6 +9,7 @@ import substitutions from '../../assets/data/substitutionsData_new.json'
 import UpcomingGigs from '../../components/UpcomingGigs'
 import { getUserData } from '../../utils'
 import NavigateToSavedSubstitutionsButton from '../../components/NavigateToSavedSubstitutionsButton'
+import Payslip from '../../components/Payslip'
 
 
 const OwnSubstitutionsScreen = ({ navigation }) => {
@@ -98,6 +99,7 @@ const OwnSubstitutionsScreen = ({ navigation }) => {
       
       
       {userSubstitutions && <UpcomingGigs substIDs={userSubstitutions} navigation={navigation}/>}
+      <Payslip navigation={navigation}/>
     </View>
   )
 }
