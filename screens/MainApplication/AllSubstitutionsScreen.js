@@ -44,7 +44,7 @@ const AllSubstitutions = ({ navigation, route }) => {
       const userData = await getUserData()
 
       //Filter accepted substitutions to unique ids
-      if (typeof userData.savedSubstitutios != 'undefined') {
+      if (typeof userData.savedSubstitutions == 'object') {
         const uniqueSubstitutions = userData.savedSubstitutions.filter(
           (value, index, array) => array.indexOf(value) === index
         )
