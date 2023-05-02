@@ -228,7 +228,7 @@ const style = StyleSheet.create({
     paddingTop: 30,
   },
   substItemOrganisationText: {
-    color: colors.textDark,
+    color: colors.textLight,
     fontFamily: 'Inter-DisplaySemiBold',
     fontSize: 12,
     marginRight: 15,
