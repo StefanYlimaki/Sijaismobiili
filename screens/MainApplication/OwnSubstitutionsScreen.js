@@ -1,4 +1,4 @@
-import { Pressable, Text, View } from 'react-native'
+import { Pressable, Text, View, ScrollView } from 'react-native'
 import React, { useState, useContext, useEffect } from 'react'
 import Styles from '../../assets/styles/styles'
 import { colors } from '../../assets/styles/colors'
@@ -6,6 +6,7 @@ import { colors } from '../../assets/styles/colors'
 import UpcomingGigs from '../../components/UpcomingGigs'
 import { getUserData } from '../../utils'
 import NavigateToSavedSubstitutionsButton from '../../components/NavigateToSavedSubstitutionsButton'
+import Payslip from '../../components/Payslip'
 
 
 const OwnSubstitutionsScreen = ({ navigation }) => {
@@ -28,7 +29,7 @@ const OwnSubstitutionsScreen = ({ navigation }) => {
   })
 
   return (
-    <View style= {{justifyContent: 'space-between'}}>
+    <ScrollView contentContainerStyle={{paddingBottom: 300}}>
       <NavigateToSavedSubstitutionsButton navigation={navigation}/>
       <View style ={Styles.calendar}>
         <Calendar 
@@ -66,18 +67,14 @@ const OwnSubstitutionsScreen = ({ navigation }) => {
 
       <View style={{ paddingHorizontal: '5%' }}>
         <View>
-          <Text style={Styles.h2}>{i18n.t('nextShift')}</Text>
+          <Text style={[Styles.h2, {textAlign: 'left', marginLeft: 25}]}>{i18n.t('nextShift')}</Text>
           {userSubstitutions && <UpcomingGigs substIDs={userSubstitutions} navigation={navigation} />}
         </View>
 
-        <Text style={Styles.h2}>Palkkakuitti</Text>
-        <View style={{ alignItems: 'center', alignSelf: 'center', backgroundColor: colors.krGray, borderColor: colors.textDark, borderRadius: 9, borderWidth: 1, padding: '5%', width: '100%' }}>
-          <Text>Kuluneen kuun aikana olet ansainnut{'\n'}</Text>
-          <Text style={{ fontFamily: 'Inter-DisplaySemiBold', fontSize: 20 }}>noin 0 €</Text>
-          <Text>{'\n'}Tarkastele palkkakuittiasi</Text>
-        </View>
+        <Text style={[Styles.h2, {textAlign: 'left', marginLeft: 25}]}>Palkkakuitti</Text>
+        <Payslip navigation={navigation}/>
       </View>
-    </View>
+    </ScrollView>
   )
 }
 
