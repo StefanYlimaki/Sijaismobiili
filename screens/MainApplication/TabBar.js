@@ -61,13 +61,8 @@ const window = Dimensions.get('window')
 
 const styles = StyleSheet.create({
   containerStyle: {
-    alignSelf: 'center',
     backgroundColor: colors.krGreen,
-    borderRadius: 1000,
-    height: window.width * 3.1,
-    marginTop: -1070,
-    overflow: 'hidden',
-    width: window.width * 3.1,
+    height: 105,
   }
 })
 
