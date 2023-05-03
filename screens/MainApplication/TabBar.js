@@ -64,10 +64,10 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     backgroundColor: colors.krGreen,
     borderRadius: 1000,
-    height: window.width * 4,
-    marginTop: -1420,
+    height: window.width * 3.1,
+    marginTop: -1070,
     overflow: 'hidden',
-    width: window.width * 4,
+    width: window.width * 3.1,
   }
 })
 
