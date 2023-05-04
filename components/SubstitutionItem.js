@@ -5,6 +5,7 @@ import calculateDistance from '../utils/calculateDistance'
 import {Feather, Ionicons} from '@expo/vector-icons'
 import {backgroundColor} from 'react-native-calendars/src/style'
 import {colors} from '../assets/styles/colors'
+import { fontSizes } from '../assets/styles/styles'
 
 const SubstitutionItem = ({ substitution, navigation, isBookmarked }) => {
 
@@ -65,7 +66,7 @@ const SubstitutionItem = ({ substitution, navigation, isBookmarked }) => {
               </View>
             )}
             <View style={{ flexDirection: 'column', justifyContent: 'flex-start'}}>
-              <View style={{ flexDirection: 'row', alignItems: 'flex-start'}}>
+              <View style={{ flexDirection: 'row', alignItems: 'flex-start', paddingBottom: 4}}>
                 <Ionicons name="cash-outline" size={15} style={styles.blackText} />
                 <Text style={ [styles.blackText, { fontWeight: 'bold'}]}>
                   {formatHourlyPay(substitution.item.hourlyPay)}€/h
@@ -75,14 +76,11 @@ const SubstitutionItem = ({ substitution, navigation, isBookmarked }) => {
                 </Text>
               </View>
 
-              <Text style={[styles.blackText, { fontSize: 20, fontFamily: 'Inter-DisplayBold'}]}>
+              <Text style={[styles.blackText, { fontSize: fontSizes.xl, fontFamily: 'Inter-DisplayBold'}]}>
                 {substitution.item.title}
               </Text>
-              <Text style={[styles.blackText, { paddingRight: 8, fontFamily: 'Inter-DisplayMedium', fontSize: 15}]}>
+              <Text style={[styles.blackText, { paddingRight: 8, fontFamily: 'Inter-DisplayMedium', fontSize: fontSizes.md}]}>
                 {substitution.item.department}
-              </Text>
-              <Text>
-                {substitution.item.organisation}
               </Text>
             </View>
             <View style={{ flexDirection: 'column'}}>
