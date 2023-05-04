@@ -107,7 +107,6 @@ const AllSubstitutions = ({ navigation, route }) => {
         }
       })
     }
-    
 
     // How shifts are determined while filtering (starting times) /  TODO: Do the times make sense? 
     // morning shift: 06:00 - 13:59
@@ -116,61 +115,61 @@ const AllSubstitutions = ({ navigation, route }) => {
 
     // Filtering by shift
     switch (shiftOption) {
-    case SHIFT_OPTIONS.ALL:
-      break
-    case SHIFT_OPTIONS.MORNING:
-      filtered = filtered.filter(subst => {
-        const start = new Date(subst.timing.startTime)
-        let startLimit = new Date(start)
-        startLimit.setHours(6)
-        startLimit.setMinutes(0)
-        let endLimit = new Date(start)
-        endLimit.setHours(13)
-        endLimit.setMinutes(59)
-        return start >= startLimit && start <= endLimit
-      })
-      break
-    case SHIFT_OPTIONS.EVENING:
-      filtered = filtered.filter(subst => {
-        const start = new Date(subst.timing.startTime)
-        let startLimit = new Date(start)
-        startLimit.setHours(14)
-        startLimit.setMinutes(0)
-        let endLimit = new Date(start)
-        endLimit.setHours(21)
-        endLimit.setMinutes(59)
-        return start >= startLimit && start <= endLimit
-      })
-      break
-    case SHIFT_OPTIONS.NIGHT:
-      filtered = filtered.filter(subst => {
-        const start = new Date(subst.timing.startTime)
-        let startLimit = new Date(start)
-        startLimit.setHours(22)
-        startLimit.setMinutes(0)
-        let endLimit = new Date(start)
-        endLimit.setDate(endLimit.getDate() + 1)
-        endLimit.setHours(5)
-        endLimit.setMinutes(59)
-        return start >= startLimit && start <= endLimit
-      })
-      break
+      case SHIFT_OPTIONS.ALL:
+        break
+      case SHIFT_OPTIONS.MORNING:
+        filtered = filtered.filter(subst => {
+          const start = new Date(subst.timing.startTime)
+          let startLimit = new Date(start)
+          startLimit.setHours(6)
+          startLimit.setMinutes(0)
+          let endLimit = new Date(start)
+          endLimit.setHours(13)
+          endLimit.setMinutes(59)
+          return start >= startLimit && start <= endLimit
+        })
+        break
+      case SHIFT_OPTIONS.EVENING:
+        filtered = filtered.filter(subst => {
+          const start = new Date(subst.timing.startTime)
+          let startLimit = new Date(start)
+          startLimit.setHours(14)
+          startLimit.setMinutes(0)
+          let endLimit = new Date(start)
+          endLimit.setHours(21)
+          endLimit.setMinutes(59)
+          return start >= startLimit && start <= endLimit
+        })
+        break
+      case SHIFT_OPTIONS.NIGHT:
+        filtered = filtered.filter(subst => {
+          const start = new Date(subst.timing.startTime)
+          let startLimit = new Date(start)
+          startLimit.setHours(22)
+          startLimit.setMinutes(0)
+          let endLimit = new Date(start)
+          endLimit.setDate(endLimit.getDate() + 1)
+          endLimit.setHours(5)
+          endLimit.setMinutes(59)
+          return start >= startLimit && start <= endLimit
+        })
+        break
     }
 
     // Sorting the substitution
     switch (sortOption) {
-    case FILTER_OPTIONS.NEWEST_FIRST:
-      filtered.sort((a, b) => { return a.date.localeCompare(b.date) })
-      break
-    case FILTER_OPTIONS.BEST_PAID_FIRST:
-      filtered.sort((a, b) => { return b.hourlyPay - a.hourlyPay })
-      break
-    case FILTER_OPTIONS.CLOSEST_FIRST:
-      filtered.sort((a, b) => {
-        return calculateDistance(parseFloat(a.coordinates.latitude), parseFloat(a.coordinates.longitude), 65.05941, 25.46642, true)
+      case FILTER_OPTIONS.NEWEST_FIRST:
+        filtered.sort((a, b) => { return a.date.localeCompare(b.date) })
+        break
+      case FILTER_OPTIONS.BEST_PAID_FIRST:
+        filtered.sort((a, b) => { return b.hourlyPay - a.hourlyPay })
+        break
+      case FILTER_OPTIONS.CLOSEST_FIRST:
+        filtered.sort((a, b) => {
+          return calculateDistance(parseFloat(a.coordinates.latitude), parseFloat(a.coordinates.longitude), 65.05941, 25.46642, true)
             - calculateDistance(parseFloat(b.coordinates.latitude), parseFloat(b.coordinates.longitude), 65.05941, 25.46642, true)
-      })
-      break
+        })
+        break
     }
     setSubstList(filtered)
   }
@@ -180,8 +179,11 @@ const AllSubstitutions = ({ navigation, route }) => {
       <BottomSheetModalProvider>
         <View>
           <View style={searchStyles.searchHeader}>
-            <View style={{flex: 9, justifyContent: 'center'}}>
+            <View style={{ flex: 9, justifyContent: 'center' }}>
               <SearchBar
+                accessibilityRole='search'
+                accessibilityLabel="Hae sijaisuuksia"
+                accessibilityHint='Avaa näppäimistön'
                 placeholder='Hae sijaisuuksia'
                 onChangeText={updateSearch}
                 value={search}
@@ -191,14 +193,18 @@ const AllSubstitutions = ({ navigation, route }) => {
                 round={true}
               />
             </View>
-            <View style={{flex: 1, justifyContent: 'center', marginRight: 15}}>
-              <Pressable onPress={() => BottomSheetModalRef.current?.present()}>
-                <Icon name='tune-variant' type="material-community" size={27} color={colors.textDark}/>
+            <View style={{ flex: 1, justifyContent: 'center', marginRight: 15 }}>
+              <Pressable
+                accessibilityRole='button'
+                accessibilityLabel="Suodata"
+                accessibilityHint='Avaa alalaitaan suodatuskortin'
+                onPress={() => BottomSheetModalRef.current?.present()}>
+                <Icon name='tune-variant' type="material-community" size={27} color={colors.textDark} />
               </Pressable>
             </View>
           </View>
           <View style={{ height: '95%' }}>
-            {showSavedOnly? (
+            {showSavedOnly ? (
               <View style={{
                 backgroundColor: colors.krGreen,
                 width: '33%',
@@ -206,9 +212,8 @@ const AllSubstitutions = ({ navigation, route }) => {
                 marginLeft: 16,
                 borderRadius: 10,
                 marginBottom: 2
-
               }}>
-                <Text style={{color: colors.textLight, textAlign: 'center'}}>Tallennetut</Text>
+                <Text style={{ color: colors.textLight, textAlign: 'center' }}>Tallennetut</Text>
               </View>
             ) : null}
             <SubstitutionsList navigation={navigation} substitutions={substList} />

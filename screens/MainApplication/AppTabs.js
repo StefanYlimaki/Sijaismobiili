@@ -50,9 +50,9 @@ const AppTabs = ({ navigation, route }) => {
       tabBar={props => <TabBar {...props}/>}
       initialRouteName={'Sinulle'}
     >
-      <Tab.Screen name="Omat keikat" component={ OwnSubstitutionsScreen } />
-      <Tab.Screen name="Sinulle" component={ TailoredSubstitutionsScreen }/>
-      <Tab.Screen name="Haku" component={ AllSubstitutionsScreen }/>
+      <Tab.Screen accessibilityRole='button' name="Omat keikat" component={ OwnSubstitutionsScreen } />
+      <Tab.Screen accessibilityRole='button' name="Sinulle" component={ TailoredSubstitutionsScreen }/>
+      <Tab.Screen accessibilityRole='button' name="Haku" component={ AllSubstitutionsScreen }/>
     </Tab.Navigator>
   )
 }

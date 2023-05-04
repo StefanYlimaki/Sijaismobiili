@@ -72,7 +72,11 @@ function UpcomingGigs({ substIDs, navigation }) {
             </View>
           </View>
 
-          <Pressable onPress={() => { navigation.navigate('UpcomingGigsList', { sortedGigs: sortedGigs }) }}>
+          <Pressable 
+            accessibilityRole="button"
+            accessibilityLabel="Kaikki tulevat vuorot"
+            accessibilityHint='Johtaa koko näytön listaukseen'
+            onPress={() => { navigation.navigate('UpcomingGigsList', { sortedGigs: sortedGigs }) }}>
             <View style={cardStyles.cardFooter}>
               <Text style={{ textAlign: 'center' }}>Näytä kaikki tulevat vuorot ({sortedGigs.length})</Text>
             </View>

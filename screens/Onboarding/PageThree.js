@@ -24,8 +24,8 @@ const PageThree = ({ navigation, handleChange }) => {
     fetchUserData()
   }, [])
 
-  if(loading){
-    return(
+  if (loading) {
+    return (
       <View
         style={{
           flex: 1,
@@ -33,14 +33,14 @@ const PageThree = ({ navigation, handleChange }) => {
           alignItems: 'center',
           flexDirection: 'row',
         }}>
-        <ActivityIndicator size="large" color= {colors.krBlue} />
+        <ActivityIndicator size="large" color={colors.krBlue} />
       </View>
     )
   }
 
-  return(
+  return (
     <KeyboardAvoidingView behavior='height'>
-      <View style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', paddingTop: 36, paddingBottom: 12}}>
+      <View style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', paddingTop: 36, paddingBottom: 12 }}>
         <Text style={{ fontSize: 24, fontWeight: '900' }}>Kerro vielä kuka olet</Text>
       </View>
       <View style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
@@ -48,7 +48,7 @@ const PageThree = ({ navigation, handleChange }) => {
       </View>
       <ScrollView style={{ paddingTop: 20 }}>
         <View style={styles.userContent}>
-          <Text style={{display: 'none'}}>
+          <Text style={{ display: 'none' }}>
             <Text style={[styles.h2, styles.blackText]}>Moi! Tämä on täydellisen turha ostsikko, mutta ajakoot nyt placeholderin paikkaa!</Text>
           </Text>
           <View style={styles.userInfoList}
@@ -115,8 +115,8 @@ const PageThree = ({ navigation, handleChange }) => {
             </ListItem>
             <ListItem containerStyle={styles.listItemContainer} bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Postitoimipaikka</Text></ListItem.Title>
               <ListItem.Input
-                disabled 
-                value = {postalAddress}
+                disabled
+                value={postalAddress}
 
               />
             </ListItem>
@@ -139,8 +139,11 @@ const PageThree = ({ navigation, handleChange }) => {
           borderRadius: 50,
           elevation: 2,
           backgroundColor: colors.krBlue
-        }} 
-        onPress={() => navigation.navigate('MainApplication')}>
+        }}
+          accessibilityRole='button'
+          accessibilityLabel="Jatka"
+          accessibilityHint='Tallentaa tietosi ja siirtyy listaukseen keikoista'
+          onPress={() => navigation.navigate('MainApplication')}>
           <Text style={{ color: '#fff', fontSize: 20, fontWeight: '600' }}>Jatka</Text>
         </Pressable>
       </View>

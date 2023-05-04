@@ -62,7 +62,11 @@ const AcceptSubstitutionPopUp = ({route, navigation}) => {
             </View>
           </View>
           <View style={{borderRadius: 20, backgroundColor: colors.success, marginTop: 20}}>
-            <Pressable style={styles.acceptButton} onPress={()=> {
+            <Pressable style={styles.acceptButton} 
+              accessibilityRole="button"
+              accessibilityLabel="Hyväksy keikka"
+              accessibilityHint='Hyväksy painamalla painiketta'
+              onPress={()=> {
               const nowInMillis = new Date().getTime()
               const subStartTime = new Date(route.params.substitution.timing.startTime)
               const subsStartTimeInMillis = subStartTime.getTime()
@@ -72,7 +76,6 @@ const AcceptSubstitutionPopUp = ({route, navigation}) => {
               } else {
                 acceptSubstitution(route.params.substitution)
               }
-            
 
               if (route.params.caller == 'RecommendationView') {
                 navigation.navigate('MainApplication')

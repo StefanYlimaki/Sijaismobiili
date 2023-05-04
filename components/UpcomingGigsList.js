@@ -97,7 +97,6 @@ function GigListItem({ substitution, navigation }) {
           </View>
         }
       </Pressable>
-      
     </View>
   )
 }

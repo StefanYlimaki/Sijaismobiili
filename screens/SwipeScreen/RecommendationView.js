@@ -17,10 +17,6 @@ const SCREEN_WIDTH = Dimensions.get('window').width
 
 //Threshold for registering swipes
 const SWIPE_THRESHOLD = 120
-
-
-
-
 const TOUCH_THRESHOLD = 20
 
 const placeholder = {uri: 'https://images.unsplash.com/photo-1584432810601-6c7f27d2362b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8'}
@@ -62,7 +58,6 @@ const RecommendationCards = ({navigation, substitutions, cardCount}) => {
     PanResponder.create({
       onMoveShouldSetPanResponder: (e, gestureState) => {
         const {dx, dy} = gestureState
-
         return (Math.abs(dx) > TOUCH_THRESHOLD || (Math.abs(dy) > TOUCH_THRESHOLD))
       },
 
@@ -243,10 +238,10 @@ const RecommendationCards = ({navigation, substitutions, cardCount}) => {
           </View>
           <View style={localStyles.recommendationCardSalaryElement}>
             <Text style={{fontWeight:'bold', textAlign:'right'}}>
-              {item.hourlyPay + '€/h'}
+              {item.hourlyPay + ' €/h'}
             </Text>
             <Text>
-              {'(~' + Math.floor(item.hourlyPay * (item.timing.duration/60)) + '€)'}
+              {' (~' + Math.floor(item.hourlyPay * (item.timing.duration/60)) + ' €)'}
             </Text>
           </View>
           <View style={{paddingHorizontal: 20}}>

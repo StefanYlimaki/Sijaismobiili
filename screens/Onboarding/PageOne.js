@@ -12,8 +12,6 @@ import thumbIcon from '../../utils/thumbIcon'
 import thumbTheme from '../../utils/thumbTheme'
 import calculateDistance from '../../utils/calculateDistance'
 
-
-
 const PageOne = ({ handleChange, setStep }) => {
 
   const [morning, setMorning] = useState()
@@ -24,11 +22,11 @@ const PageOne = ({ handleChange, setStep }) => {
       setMorning(user.preferences.morning)
     }
     fetchUserData()
-  },[])
+  }, [])
 
-  return(
+  return (
     <View>
-      <View style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', paddingTop: 36, paddingBottom: 12}}>
+      <View style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', paddingTop: 36, paddingBottom: 12 }}>
         <Text style={{ fontSize: 24, fontWeight: '600' }}>Keikkoja, joista pidät</Text>
       </View>
       <View style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
@@ -39,19 +37,18 @@ const PageOne = ({ handleChange, setStep }) => {
       </View>
 
       {morning > 3
-        ? 
+        ?
         <>
-          <SubstitutionElement substitution={substitutions[5]}/>
-          <SubstitutionElement substitution={substitutions[1]}/>
+          <SubstitutionElement substitution={substitutions[5]} />
+          <SubstitutionElement substitution={substitutions[1]} />
         </>
-        : 
+        :
         <>
-          <SubstitutionElement substitution={substitutions[1]}/>
-          <SubstitutionElement substitution={substitutions[5]}/>
+          <SubstitutionElement substitution={substitutions[1]} />
+          <SubstitutionElement substitution={substitutions[5]} />
         </>
       }
-      
-      
+
       <View style={{ paddingHorizontal: 10, paddingTop: 20 }}>
         <View>
           <Text style={styles.label}>
@@ -59,6 +56,9 @@ const PageOne = ({ handleChange, setStep }) => {
           </Text>
         </View>
         <Slider
+          accessibilityRole='adjustable'
+          accessibilityLabel="Aamuvuoroliukuri"
+          accessibilityHint='Pyyhi vasemmalle, jos et pidä aamuvuoroista'
           style={styles.prefSlider}
           maximumValue={5}
           minimumValue={1}
@@ -94,8 +94,11 @@ const PageOne = ({ handleChange, setStep }) => {
           borderRadius: 50,
           elevation: 2,
           backgroundColor: colors.krBlue
-        }} 
-        onPress={() => setStep(2)}>
+        }}
+          accessibilityRole='button'
+          accessibilityLabel="Jatka"
+          accessibilityHint='Tallentaa valintasi ja siirtyy eteenpäin'
+          onPress={() => setStep(2)}>
           <Text style={{ color: '#fff', fontSize: 20, fontWeight: '600' }}>Jatka</Text>
         </Pressable>
       </View>
@@ -108,10 +111,10 @@ const SubstitutionElement = ({ substitution }) => {
     return calculateDistance(parseFloat(substitution.item.coordinates.latitude), parseFloat(substitution.item.coordinates.longitude), 65.05941, 25.46642, false)
   }
   substitution.item = substitution
-  return(
+  return (
     <View style={{ paddingVertical: 12, paddingHorizontal: 20 }}>
       <View style={styles.substitutionPreviewComponentTopElement}>
-        <View style={{flexDirection: 'column', flex: 1, justifyContent: 'space-between'}}>
+        <View style={{ flexDirection: 'column', flex: 1, justifyContent: 'space-between' }}>
           <Text style={styles.whiteText}>
             {formatDate(substitution.item.timing.startTime)}
           </Text>
@@ -119,7 +122,7 @@ const SubstitutionElement = ({ substitution }) => {
             {formatTime(substitution.item.timing.startTime, substitution.item.timing.duration)}
           </Text>
         </View>
-        <View style={{flexDirection: 'column', alignItems: 'flex-end', flex:2}}>
+        <View style={{ flexDirection: 'column', alignItems: 'flex-end', flex: 2 }}>
           <Text style={styles.substItemOrganisationText}>
             {substitution.item.organisation}
           </Text>
@@ -129,40 +132,39 @@ const SubstitutionElement = ({ substitution }) => {
         </View>
       </View>
       <View style={styles.substitutionPreviewComponentBottomElement}>
-        <View style={{ flexDirection: 'row', justifyContent: 'space-between'}}>
-          <View style={{ flexDirection: 'column', justifyContent: 'center'}}>
-            <Text style={[styles.blackText, { fontSize: 20, fontFamily: 'Inter-DisplayBold'}]}>
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+          <View style={{ flexDirection: 'column', justifyContent: 'center' }}>
+            <Text style={[styles.blackText, { fontSize: 20, fontFamily: 'Inter-DisplayBold' }]}>
               {substitution.item.title}
             </Text>
-            <Text style={[styles.blackText, { paddingRight: 8, fontFamily: 'Inter-DisplayMedium', fontSize: 15}]}>
+            <Text style={[styles.blackText, { paddingRight: 8, fontFamily: 'Inter-DisplayMedium', fontSize: 15 }]}>
               {substitution.item.department}
             </Text>
           </View>
-          <View style={{ flexDirection: 'column'}}>
-            <View style={{ flexDirection: 'row', justifyContent: 'flex-start'}}>
-              <Text style={ [styles.blackText, { paddingRight: 8, fontWeight: 'bold'}]}>
+          <View style={{ flexDirection: 'column' }}>
+            <View style={{ flexDirection: 'row', justifyContent: 'flex-start' }}>
+              <Text style={[styles.blackText, { paddingRight: 8, fontWeight: 'bold' }]}>
                 {formatHourlyPay(substitution.item.hourlyPay)}€/h
               </Text>
-              <Text style={ [styles.blackText, { paddingRight: 16 }]}>
-                    (~{formatHourlyPay((substitution.item.timing.duration / 60) * substitution.item.hourlyPay)} €)
+              <Text style={[styles.blackText, { paddingRight: 16 }]}>
+                (~{formatHourlyPay((substitution.item.timing.duration / 60) * substitution.item.hourlyPay)} €)
               </Text>
             </View>
             {substitution.item.benefits.length !== 0
               ? <View>
-                {substitution.item.benefits.map(b => 
-                  <View key={ b } style={styles.substitutionItemBenefitsItem} >
+                {substitution.item.benefits.map(b =>
+                  <View key={b} style={styles.substitutionItemBenefitsItem} >
                     <Text style={styles.whiteText} >
                       {b}
                     </Text>
                   </View>
                 )}
               </View>
-              :<></>
+              : <></>
             }
             <Text>
               {substitution.item.points}
             </Text>
-                
           </View>
         </View>
       </View>

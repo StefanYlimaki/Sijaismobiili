@@ -96,7 +96,6 @@ const OwnSubstitutionsScreen = ({ navigation }) => {
         </View>
       </View>
       
-      
       {userSubstitutions && <UpcomingGigs substIDs={userSubstitutions} navigation={navigation}/>}
     </View>
   )

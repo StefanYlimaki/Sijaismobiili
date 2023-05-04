@@ -1,27 +1,31 @@
 import React from 'react'
-import {StyleSheet, View, Text, Pressable, ScrollView} from 'react-native'
+import { StyleSheet, View, Text, Pressable, ScrollView } from 'react-native'
 import styles from '../assets/styles/styles'
 import { formatDate, formatHourlyPay } from '../utils'
 import { colors } from '../assets/styles/colors'
 import { Icon } from '@rneui/themed'
-import {BlurView} from 'expo-blur'
+import { BlurView } from 'expo-blur'
 
 const GigConfirmedPopup = ({ route, navigation }) => {
 
-  const { substitution, waitingForConfirmation} = route.params
+  const { substitution, waitingForConfirmation } = route.params
 
   if (!waitingForConfirmation) {
     return (
-      <View style={{flex: 1, justifyContent: 'flex-end'}}>
+      <View style={{ flex: 1, justifyContent: 'flex-end' }}>
         <View style={popupStyles.popupContainer}>
-          <View style={[popupStyles.popupHeader, {backgroundColor: colors.success}]}>
-            <View style={{flex: 1}}/>
-            <View style={{flex: 8, alignItems: 'center'}}>
+          <View style={[popupStyles.popupHeader, { backgroundColor: colors.success }]}>
+            <View style={{ flex: 1 }} />
+            <View style={{ flex: 8, alignItems: 'center' }}>
               <Text style={[styles.whiteText, { fontSize: 22 }]}>Paikka on sinun!</Text>
             </View>
-            <View style={{flex: 1, marginRight: 7}}>
-              <Pressable onPress={() => {navigation.pop()}}>
-                <Icon name='close-circle-outline' type="material-community" color={colors.textLight}/>
+            <View style={{ flex: 1, marginRight: 7 }}>
+              <Pressable
+                accessibilityRole="button"
+                accessibilityLabel="Sulje"
+                accessibilityHint='Palaa edelliseen ruutuun'
+                onPress={() => { navigation.pop() }}>
+                <Icon name='close-circle-outline' type="material-community" color={colors.textLight} />
               </Pressable>
             </View>
           </View>
@@ -60,16 +64,20 @@ const GigConfirmedPopup = ({ route, navigation }) => {
     )
   } else {
     return (
-      <View style={{flex: 1, justifyContent: 'flex-end'}}>
+      <View style={{ flex: 1, justifyContent: 'flex-end' }}>
         <View style={popupStyles.popupContainer}>
-          <View style={[popupStyles.popupHeader, {backgroundColor: '#13912A'}]}>
-            <View style={{flex: 1}}/>
-            <View style={{flex: 8, alignItems: 'center'}}>
+          <View style={[popupStyles.popupHeader, { backgroundColor: '#13912A' }]}>
+            <View style={{ flex: 1 }} />
+            <View style={{ flex: 8, alignItems: 'center' }}>
               <Text style={[styles.whiteText, { fontSize: 22, fontFamily: 'Figtree-ExtraBold' }]}>Olet ehdolla sijaiseksi!</Text>
             </View>
-            <View style={{flex: 1, marginRight: 7}}>
-              <Pressable onPress={() => {navigation.pop()}}>
-                <Icon name='close-circle-outline' type="material-community" color={colors.textLight}/>
+            <View style={{ flex: 1, marginRight: 7 }}>
+              <Pressable
+                accessibilityRole="button"
+                accessibilityLabel="Sulje"
+                accessibilityHint='Palaa edelliseen ruutuun'
+                onPress={() => { navigation.pop() }}>
+                <Icon name='close-circle-outline' type="material-community" color={colors.textLight} />
               </Pressable>
             </View>
           </View>

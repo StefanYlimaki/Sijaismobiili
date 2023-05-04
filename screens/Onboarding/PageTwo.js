@@ -24,13 +24,12 @@ const PageTwo = ({ setStep, handleChange }) => {
       setPay(user.preferences.pay)
       setFullShift(user.preferences.fullShift)
     }
-
     fetchUserData()
-  },[])
+  }, [])
 
-  return(
+  return (
     <View>
-      <View style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', paddingTop: 36, paddingBottom: 12}}>
+      <View style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', paddingTop: 36, paddingBottom: 12 }}>
         <Text style={{ fontSize: 24, fontWeight: '600' }}>Kerro mieltymyksesi</Text>
       </View>
       <View style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', paddingBottom: 36 }}>
@@ -39,19 +38,19 @@ const PageTwo = ({ setStep, handleChange }) => {
       <View>
         <View style={styles.h2AndInfoButton}>
           <Text style={styles.h2}>
-              Mieltymykset
+            Mieltymykset
           </Text>
-          <View style={{paddingLeft: 12.5}}>
-            <AntDesign name="infocirlceo" size={24} color="black" />
-          </View>
         </View>
-        <View style={[styles.sliderList,{textAlign:'center'}]}>
+        <View style={[styles.sliderList, { textAlign: 'center' }]}>
           <View>
             <Text style={styles.label}>
-                Iltavuorot
+              Iltavuorot
             </Text>
           </View>
           <Slider
+            accessibilityRole='adjustable'
+            accessibilityLabel="Iltavuoroliukuri"
+            accessibilityHint='Pyyhi vasemmalle, jos et pidä iltavuoroista'
             style={styles.prefSlider}
             maximumValue={5}
             minimumValue={1}
@@ -79,10 +78,13 @@ const PageTwo = ({ setStep, handleChange }) => {
           />
           <View>
             <Text style={styles.label}>
-                Yövuorot
+              Yövuorot
             </Text>
           </View>
           <Slider
+            accessibilityRole='adjustable'
+            accessibilityLabel="Yövuoroliukuri"
+            accessibilityHint='Pyyhi vasemmalle, jos et pidä yövuoroista'
             style={styles.prefSlider}
             maximumValue={5}
             minimumValue={1}
@@ -110,41 +112,13 @@ const PageTwo = ({ setStep, handleChange }) => {
           />
           <View>
             <Text style={styles.label}>
-                Palkka
+              Täydet vuorot
             </Text>
           </View>
           <Slider
-            style={styles.prefSlider}
-            maximumValue={5}
-            minimumValue={1}
-            minimumTrackTintColor={'#d9d9d9'}
-            maximumTrackTintColor={'#d9d9d9'}
-            thumbProps={{
-              children: (
-                <Icon
-                  name={thumbIcon(pay)}
-                  type="material-community"
-                  size={20}
-                  reverse
-                  containerStyle={{ bottom: 20, right: 20 }}
-                  color={thumbTheme(pay)}
-                />
-              ),
-            }}
-            step={1}
-            allowTouchTrack={true}
-            trackStyle={{ height: 10, backgroundColor: 'transparent', borderRadius: 10 }}
-            thumbStyle={{ height: 20, width: 20, backgroundColor: 'transparent' }}
-            value={pay}
-            onSlidingComplete={(event) => handleChange(event, 'preferences', 'pay')}
-            onValueChange={(event) => setPay(event)}
-          />
-          <View>
-            <Text style={styles.label}>
-                Täydet vuorot
-            </Text>
-          </View>
-          <Slider
+            accessibilityRole='adjustable'
+            accessibilityLabel="Täysi vuoro -liukuri"
+            accessibilityHint='Pyyhi oikealle, jos pidät kahdeksan tunnin vuoroista'
             style={styles.prefSlider}
             maximumValue={5}
             minimumValue={1}
@@ -181,8 +155,11 @@ const PageTwo = ({ setStep, handleChange }) => {
           borderRadius: 50,
           elevation: 2,
           backgroundColor: colors.krBlue
-        }} 
-        onPress={() => setStep(3)}>
+        }}
+          accessibilityRole='button'
+          accessibilityLabel="Jatka"
+          accessibilityHint='Tallentaa valintasi ja siirtyy eteenpäin'
+          onPress={() => setStep(3)}>
           <Text style={{ color: '#fff', fontSize: 20, fontWeight: '600' }}>Jatka</Text>
         </Pressable>
       </View>
