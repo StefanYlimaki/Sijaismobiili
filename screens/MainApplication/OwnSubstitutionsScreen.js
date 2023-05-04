@@ -1,4 +1,4 @@
-import { Text, View } from 'react-native'
+import { Text, View, Button } from 'react-native'
 import {Calendar, LocaleConfig, DateData, CalendarProvider, CalendarContext} from 'react-native-calendars'
 import React, { useState, useEffect } from 'react'
 
@@ -90,6 +90,7 @@ const OwnSubstitutionsScreen = ({ navigation }) => {
         <View style={Styles.agenda}>
           <Text style={{textAlign: 'left', fontWeight: 'bold'}}>{selected}{selected == today ? <Text> (tänään)</Text>: null}{'\n'}{'\n'}</Text>
           <Text style={{textAlign: 'center'}}>Ei merkintöjä.{'\n'}{'\n'}</Text>
+          <Button title={'nappi'} onPress={() => navigation.navigate('EditAvailabilityScreen')}/>
         </View>
       </View>
       
