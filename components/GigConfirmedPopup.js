@@ -1,6 +1,6 @@
 import React from 'react'
 import {StyleSheet, View, Text, Pressable, ScrollView} from 'react-native'
-import styles from '../assets/styles/styles'
+import styles, {fontSizes} from '../assets/styles/styles'
 import { formatDate, formatHourlyPay } from '../utils'
 import { colors } from '../assets/styles/colors'
 import { Icon } from '@rneui/themed'
@@ -17,7 +17,7 @@ const GigConfirmedPopup = ({ route, navigation }) => {
           <View style={[popupStyles.popupHeader, {backgroundColor: colors.success}]}>
             <View style={{flex: 1}}/>
             <View style={{flex: 8, alignItems: 'center'}}>
-              <Text style={[styles.whiteText, { fontSize: 22 }]}>Paikka on sinun!</Text>
+              <Text style={[styles.whiteText, { fontSize: fontSizes.xxl }]}>Paikka on sinun!</Text>
             </View>
             <View style={{flex: 1, marginRight: 7}}>
               <Pressable onPress={() => {navigation.pop()}}>
@@ -29,8 +29,8 @@ const GigConfirmedPopup = ({ route, navigation }) => {
           <ScrollView>
             <View style={{ marginHorizontal: 15 }}>
               <View style={popupStyles.infoBlock}>
-                <Text style={[styles.blackText, { fontSize: 18 }]}>{substitution.title}</Text>
-                <Text style={[styles.blackText, { fontWeight: 'bold', fontSize: 18 }]}>{substitution.department}</Text>
+                <Text style={[styles.blackText, { fontSize: fontSizes.lg }]}>{substitution.title}</Text>
+                <Text style={[styles.blackText, { fontWeight: 'bold', fontSize: fontSizes.lg }]}>{substitution.department}</Text>
                 <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 5 }}>
                   <Text>{formatDate(substitution.timing.startTime)}</Text>
                   <Text style={{ fontWeight: 'bold', color: '#1D847E' }}>{formatHourlyPay(substitution.hourlyPay)} €/h (~placeholder)</Text>
@@ -65,7 +65,7 @@ const GigConfirmedPopup = ({ route, navigation }) => {
           <View style={[popupStyles.popupHeader, {backgroundColor: '#13912A'}]}>
             <View style={{flex: 1}}/>
             <View style={{flex: 8, alignItems: 'center'}}>
-              <Text style={[styles.whiteText, { fontSize: 22, fontFamily: 'Figtree-ExtraBold' }]}>Olet ehdolla sijaiseksi!</Text>
+              <Text style={[styles.whiteText, { fontSize: fontSizes.xxl, fontFamily: 'Figtree-ExtraBold' }]}>Olet ehdolla sijaiseksi!</Text>
             </View>
             <View style={{flex: 1, marginRight: 7}}>
               <Pressable onPress={() => {navigation.pop()}}>

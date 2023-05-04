@@ -5,6 +5,7 @@ import calculateDistance from '../utils/calculateDistance'
 import {Feather, Ionicons} from '@expo/vector-icons'
 import {backgroundColor} from 'react-native-calendars/src/style'
 import {colors} from '../assets/styles/colors'
+import { fontSizes } from '../assets/styles/styles'
 
 const SubstitutionItem = ({ substitution, navigation, isBookmarked }) => {
 
@@ -75,7 +76,7 @@ const SubstitutionItem = ({ substitution, navigation, isBookmarked }) => {
                 </Text>
               </View>
 
-              <Text style={[styles.blackText, { fontSize: 20, fontFamily: 'Inter-DisplayBold'}]}>
+              <Text style={[styles.blackText, { fontSize: fontSizes.xl, fontFamily: 'Inter-DisplayBold'}]}>
                 {substitution.item.title}
               </Text>
               <Text style={[styles.blackText, { paddingRight: 8, fontFamily: 'Inter-DisplayMedium', fontSize: 15}]}>
