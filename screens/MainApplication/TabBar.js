@@ -6,17 +6,19 @@ import Styles from '../../assets/styles/styles'
 import { colors } from '../../assets/styles/colors'
 
 
-const TabBar = ({ state, descriptors, navigation,  }) => {
+const TabBar = ({ state, descriptors, navigation, }) => {
   return (
     <View>
-      <View style={styles.containerStyle}/>
-
+      <View style={styles.containerStyle} />
       <View style={{ display:'flex', flexDirection: 'row', backgroundColor: colors.krGreen, position: 'absolute', flex: 1}}>
         <View style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', paddingLeft: 20}}><Text style={{ fontSize: 20, color: '#fff', fontWeight: '600' }}>LOGO</Text></View>
         <View style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', paddingLeft: 10}}><Text style={{ fontSize: 20, color: '#fff' }}>Keikat</Text></View>
 
         <View style={{ alignItems: 'flex-end', flex: 1, flexDirection: 'column' }}>
-          <Pressable onPress={() => { navigation.navigate('UserInfoScreen') }}>
+          <Pressable 
+            accessibilityRole="button"
+            accessibilityLabel="Oma profiili"
+            onPress={() => { navigation.navigate('UserInfoScreen') }}>
             <View style={{ height: 50, width: 50, display: 'flex', alignItems: 'flex-end', justifyContent: 'center', marginRight: 15 }}>
               <AntDesign name="user" size={24} color="white" />
             </View>
@@ -28,7 +30,7 @@ const TabBar = ({ state, descriptors, navigation,  }) => {
         {state.routes.map((route, index) => {
           const isFocused = state.index === index
           const { options } = descriptors[route.key]
-        
+
           const onPress = () => {
             const event = navigation.emit({
               type: 'tabPress',
@@ -38,7 +40,7 @@ const TabBar = ({ state, descriptors, navigation,  }) => {
               navigation.navigate(route.name)
             }
           }
-        
+
           return (
             <TouchableOpacity
               key={index}
@@ -71,28 +73,28 @@ const styles = StyleSheet.create({
 })
 
 const TopTab = ({ type, size = 24, isFocused, index, navigation }) => {
-  switch(index) {
+  switch (index) {
   case 0:
-    if(isFocused){
-      return(
-        <View style={{  padding: 5, borderRadius: 10, marginLeft: 20 }}><Text style={{ fontFamily: 'Inter-DisplaySemiBold', color: '#fff'}}>Omat keikat</Text></View>
+    if (isFocused) {
+      return (
+        <View style={{ padding: 5, borderRadius: 10, marginLeft: 20 }}><Text style={{ fontFamily: 'Inter-DisplaySemiBold', color: '#fff' }}>Omat keikat</Text></View>
       )
     }
-    return(<View style={{ padding: 5, marginLeft: 20 }}><Text style={{ color: '#fff' }}>Omat keikat</Text></View>)
+    return (<View style={{ padding: 5, marginLeft: 20 }}><Text style={{ color: '#fff' }}>Omat keikat</Text></View>)
   case 1:
-    if(isFocused){
-      return(
-        <View style={{  padding: 5, borderRadius: 10 }}><Text style={{ fontFamily: 'Inter-DisplaySemiBold', color: '#fff'}}>Sinulle</Text></View>
+    if (isFocused) {
+      return (
+        <View style={{ padding: 5, borderRadius: 10 }}><Text style={{ fontFamily: 'Inter-DisplaySemiBold', color: '#fff' }}>Sinulle</Text></View>
       )
     }
-    return(<View style={{ padding: 5 }}><Text style={{ color: '#fff' }}>Sinulle</Text></View>)
+    return (<View style={{ padding: 5 }}><Text style={{ color: '#fff' }}>Sinulle</Text></View>)
   case 2:
-    if(isFocused){
-      return(
-        <View style={{  padding: 5, borderRadius: 10, marginRight: 40 }}><Text style={{ fontFamily: 'Inter-DisplaySemiBold', color: '#fff'}}>Haku</Text></View>
+    if (isFocused) {
+      return (
+        <View style={{ padding: 5, borderRadius: 10, marginRight: 40 }}><Text style={{ fontFamily: 'Inter-DisplaySemiBold', color: '#fff' }}>Haku</Text></View>
       )
     }
-    return(<View style={{ padding: 5, marginRight: 40 }}><Text style={{ color: '#fff' }}>Haku</Text></View>)
+    return (<View style={{ padding: 5, marginRight: 40 }}><Text style={{ color: '#fff' }}>Haku</Text></View>)
   }
 }
 

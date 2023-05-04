@@ -4,7 +4,7 @@ import {View, Text, Button, Pressable, ActivityIndicator, Dimensions} from 'reac
 import RecommendationView from './RecommendationView'
 
 import { colors } from '../../assets/styles/colors'
-import {CommonActions} from '@react-navigation/native'
+import { CommonActions } from '@react-navigation/native'
 import { AntDesign } from '@expo/vector-icons'
 
 import { orderAndFilterSubstitutionsByPreferences } from '../../utils/orderAndFilterSubstitutionsByPreferences'
@@ -25,34 +25,34 @@ const SwipeScreen = ({ navigation }) => {
     async function callOrderAndFilterSubstitutionsByPreferences() {
       const result = await orderAndFilterSubstitutionsByPreferences(substitutions)
       let amountOfSubstitutions
-  
+
       // If there are no applicable substitutions ==> navigate to mainapplication.
-      if(result.length === 0){
+      if (result.length === 0) {
         skipScreen()
       }
-  
+
       // If there are more than five applicable substitutions ==> limit card count to CARD_COUNT
-      if(result.length > 5){
+      if (result.length > 5) {
         amountOfSubstitutions = CARD_COUNT
       }
-  
+
       // Get the substitutions to show in recommendation view.
       setTailoredSubstitutions(result.slice(0, amountOfSubstitutions))
 
       // If there are at least 1 substitution to be shown ==> set loading to false.
       // In a case, where there are no substitutions, user is redirected to main application (code above)
-      if(result.length !== 0){
+      if (result.length !== 0) {
         setLoading(false)
       }
     }
-    
+
     callOrderAndFilterSubstitutionsByPreferences()
   }, [])
-    
+
   function navito() {
     navigation.navigate('MainApplication')
   }
-    
+
   function dispatcher() {
     navigation.dispatch(
       CommonActions.reset({
@@ -69,8 +69,8 @@ const SwipeScreen = ({ navigation }) => {
     dispatcher()
   }
 
-  if(loading){
-    return(
+  if (loading) {
+    return (
       <View
         style={{
           flex: 1,
@@ -78,7 +78,7 @@ const SwipeScreen = ({ navigation }) => {
           alignItems: 'center',
           flexDirection: 'row',
         }}>
-        <ActivityIndicator size="large" color= {krBlue} />
+        <ActivityIndicator size="large" color={krBlue} />
       </View>
     )
   }
@@ -113,6 +113,8 @@ const SwipeScreen = ({ navigation }) => {
               </Text>
             </View>
             <Pressable style={{flex: 1, justifyContent: 'flex-end', flexDirection: 'row'}} 
+              accessibilityRole="button"
+              accessibilityLabel="Oma profiili"
               onPress={() => { navigation.navigate('UserInfoScreen') }}>
               <View style={{ height: 50, width: 50}}>
                 <AntDesign name="user" size={24} color="black" />
@@ -134,7 +136,11 @@ const SwipeScreen = ({ navigation }) => {
         bottom: 0,
         marginBottom: 15
       }}>
-        <Pressable onPress={() => skipScreen()}>
+        <Pressable
+          accessibilityRole="button"
+          accessibilityLabel="Selaan räätälöityjä suosituksia taas huomenna"
+          accessibilityHint='Johtaa listanäkymään'
+          onPress={() => skipScreen()}>
           <View style={{
             padding: 20,
             backgroundColor: colors.krGreen,
@@ -145,11 +151,15 @@ const SwipeScreen = ({ navigation }) => {
               color: 'white',
               fontFamily: 'Inter-Display'
             }}>
-            Selaan räätälöityjä suosituksia taas huomenna
+              Selaan räätälöityjä suosituksia taas huomenna
             </Text>
           </View>
         </Pressable>
-        <Pressable onPress={()=> skipScreen()}>
+        <Pressable
+          accessibilityRole="button"
+          accessibilityLabel="En halua nähdä enää räätälöityjä suosituksia"
+          accessibilityHint='Johtaa listanäkymään'
+          onPress={() => skipScreen()}>
           <View>
             <Text style={{textAlign: 'center', color: colors.danger, fontFamily: 'Inter-Display', margin: 15}}>
               En halua nähdä enää räätälöityjä suosituksia              
@@ -159,10 +169,6 @@ const SwipeScreen = ({ navigation }) => {
       </View>
     </View>
   )
-  
-
-    
-  
 }
 
 export default SwipeScreen

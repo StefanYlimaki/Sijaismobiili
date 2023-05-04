@@ -9,11 +9,11 @@ import {
 } from 'react-native'
 import { Slider } from '@rneui/themed'
 import styles from '../../assets/styles/styles'
-import {Icon} from '@rneui/base'
+import { Icon } from '@rneui/base'
 import { getUserData } from '../../utils'
 import { setUserData } from '../../utils/setUserData'
 import { AntDesign } from '@expo/vector-icons'
-import {colors} from '../../assets/styles/colors.js'
+import { colors } from '../../assets/styles/colors.js'
 import OrderPreferences from '../../components/OrderPreferences'
 import { NestableScrollContainer } from 'react-native-draggable-flatlist'
 
@@ -45,7 +45,7 @@ function UserPreferencesScreen() {
     }
 
     fetchUserData()
-  },[])
+  }, [])
 
   //Used by OrderPreferences to update the set data to memory
   const handleOrderChange = (data) => {
@@ -64,10 +64,10 @@ function UserPreferencesScreen() {
     setPreferenceOrder(updatedData)
     // Update internal storage
     try {
-      const newUser = {...user}
+      const newUser = { ...user }
       delete newUser['preferences']['preferenceOrder']
       newUser['preferences']['preferenceOrder'] = updatedData
-      
+
       setUserData(newUser)
       setUser(newUser)
     } catch (error) {
@@ -77,8 +77,8 @@ function UserPreferencesScreen() {
 
   const handleChange = async (event, key, subKey) => {
     try {
-      const newUser = {...user}
-      if(subKey){
+      const newUser = { ...user }
+      if (subKey) {
         delete newUser[key][subKey]
         newUser[key][subKey] = event
       } else {
@@ -93,8 +93,8 @@ function UserPreferencesScreen() {
     }
   }
 
-  if(loading){
-    return(
+  if (loading) {
+    return (
       <View
         style={{
           flex: 1,
@@ -102,7 +102,7 @@ function UserPreferencesScreen() {
           alignItems: 'center',
           flexDirection: 'row',
         }}>
-        <ActivityIndicator size="large" color= {colors.krBlue} />
+        <ActivityIndicator size="large" color={colors.krBlue} />
       </View>
     )
   }
@@ -120,20 +120,20 @@ function UserPreferencesScreen() {
                 <Text style={{ color: colors.krBlue, fontFamily: 'Inter-DisplayExtraBold' }}> {user.firstname}!</Text>
               </Text>
             </View>
-          
+
             <View>
               <View style={styles.h2AndInfoButton}>
                 <Text style={styles.h2}>
-                Enimmäisetäisyys
+                  Enimmäisetäisyys
                 </Text>
-                <View style={{paddingLeft: 12.5}}>
-                  <AntDesign name="infocirlceo" size={24} color="black" />
-                </View>
               </View>
               <Text style={styles.currentDistance}>
                 {distance} km
               </Text>
               <Slider
+                accessibilityRole='adjustable'
+                accessibilityLabel="Etäisyysliukuri"
+                accessibilityHint='Pyyhi oikealle suurentaaksesi etäisyyttä'
                 maximumValue={300}
                 minimumValue={1}
                 minimumTrackTintColor={colors.blueBright}
@@ -147,19 +147,19 @@ function UserPreferencesScreen() {
             </View>
             <View style={styles.h2AndInfoButton}>
               <Text style={styles.h2}>
-              Mieltymykset
+                Mieltymykset
               </Text>
-              <View style={{paddingLeft: 12.5}}>
-                <AntDesign name="infocirlceo" size={24} color="black" />
-              </View>
             </View>
-            <View style={[styles.sliderList,{textAlign:'center'}]}>
+            <View style={[styles.sliderList, { textAlign: 'center' }]}>
               <View >
                 <Text style={styles.label}>
-                Aamuvuorot
+                  Aamuvuorot
                 </Text>
               </View>
               <Slider
+                accessibilityRole='adjustable'
+                accessibilityLabel="Aamuuoroliukuri"
+                accessibilityHint='Pyyhi vasemmalle, jos et pidä aamuvuoroista'
                 style={styles.prefSlider}
                 maximumValue={5}
                 minimumValue={1}
@@ -187,10 +187,13 @@ function UserPreferencesScreen() {
               />
               <View>
                 <Text style={styles.label}>
-                Iltavuorot
+                  Iltavuorot
                 </Text>
               </View>
               <Slider
+                accessibilityRole='adjustable'
+                accessibilityLabel="Iltavuoroliukuri"
+                accessibilityHint='Pyyhi vasemmalle, jos et pidä iltavuoroista'
                 style={styles.prefSlider}
                 maximumValue={5}
                 minimumValue={1}
@@ -218,10 +221,13 @@ function UserPreferencesScreen() {
               />
               <View>
                 <Text style={styles.label}>
-                Yövuorot
+                  Yövuorot
                 </Text>
               </View>
               <Slider
+                accessibilityRole='adjustable'
+                accessibilityLabel="Yövuoroliukuri"
+                accessibilityHint='Pyyhi vasemmalle, jos et pidä yövuoroista'
                 style={styles.prefSlider}
                 maximumValue={5}
                 minimumValue={1}
@@ -249,41 +255,13 @@ function UserPreferencesScreen() {
               />
               <View>
                 <Text style={styles.label}>
-                Palkka
+                  Täydet vuorot
                 </Text>
               </View>
               <Slider
-                style={styles.prefSlider}
-                maximumValue={5}
-                minimumValue={1}
-                minimumTrackTintColor={'#d9d9d9'}
-                maximumTrackTintColor={'#d9d9d9'}
-                thumbProps={{
-                  children: (
-                    <Icon
-                      name={thumbIcon(pay)}
-                      type="material-community"
-                      size={20}
-                      reverse
-                      containerStyle={{ bottom: 20, right: 20 }}
-                      color={thumbTheme(pay)}
-                    />
-                  ),
-                }}
-                step={1}
-                allowTouchTrack={true}
-                trackStyle={{ height: 10, backgroundColor: 'transparent', borderRadius: 10 }}
-                thumbStyle={{ height: 20, width: 20, backgroundColor: 'transparent' }}
-                value={pay}
-                onSlidingComplete={(event) => handleChange(event, 'preferences', 'pay')}
-                onValueChange={(event) => setPay(event)}
-              />
-              <View>
-                <Text style={styles.label}>
-                Täydet vuorot
-                </Text>
-              </View>
-              <Slider
+                accessibilityRole='adjustable'
+                accessibilityLabel="Täydet vuorot -liukuri"
+                accessibilityHint='Pyyhi oikealle, jos haluat kahdeksan tunnin vuoroja'
                 style={styles.prefSlider}
                 maximumValue={5}
                 minimumValue={1}
@@ -314,11 +292,8 @@ function UserPreferencesScreen() {
               <Text style={styles.h2}>
                 Tärkeintä minulle on...
               </Text>
-              <View style={{paddingLeft: 12.5}}>
-                <AntDesign name="infocirlceo" size={24} color="black" />
-              </View>
             </View>
-            { preferenceOrder && <OrderPreferences preferenceOrder={preferenceOrder} setPreferenceOrder={handleOrderChange}/> }
+            {preferenceOrder && <OrderPreferences preferenceOrder={preferenceOrder} setPreferenceOrder={handleOrderChange} />}
           </ScrollView>
         </NestableScrollContainer>
       </TouchableWithoutFeedback>
