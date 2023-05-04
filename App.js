@@ -124,7 +124,7 @@ export default function App() {
                 <Stack.Screen name='SubstitutionCard' component={SubstitutionCard} options={{ presentation: 'transparentModal', headerShown: false }}/>
                 <Stack.Screen name="ConfirmSubstitution" component={AcceptSubstitutionPopUp} options={{ presentation: 'transparentModal', headerShown: false}}/>
                 <Stack.Screen name="UpcomingGigsList" component={UpcomingGigsList} options={{ headerShown: true, title: 'Kaikki tulevat keikat' }}/>
-                <Stack.Screen name="GigConfirmedPopup" component={GigConfirmedPopup} options={{ presentation: 'transparentModal', headerShown: false}}/>
+                <Stack.Screen name="GigConfirmedPopup" component={GigConfirmedPopup}/>
                 <Stack.Screen name="PayslipScreen" component={PayslipScreen} options={{ headerShown: true, title: 'Palkkakuitti' }}/>
               </Stack.Navigator>
             </View>
