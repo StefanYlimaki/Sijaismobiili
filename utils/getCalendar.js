@@ -28,13 +28,10 @@ export function getCalendar(isMonth) {
         <Calendar
           style={Styles.calendar}
           headerStyle={{ paddingTop: 5 }}
-
-          firstDay={1}
           current={selected}
-          markingType={'custom'}
+          firstDay={1}
           hideExtraDays={true}
-
-          onDayPress={day => setSelected(day.dateString)}
+          markedDates={{[selected]: {selected: true}}}
           theme={{
             backgroundColor: '#ffffff',
             calendarBackground: '#ffffff',
@@ -43,6 +40,7 @@ export function getCalendar(isMonth) {
             selectedDayTextColor: colors.krGreen,
             textDisabledColor: '',
           }}
+          onDayPress={day => setSelected(day.dateString)}
         />
         <View style={Styles.agenda}>
           <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
@@ -65,7 +63,7 @@ export function getCalendar(isMonth) {
     <ScrollView >
       <CalendarProvider 
         date={selected}
-        onDayPress={day => setSelected(day.dateString)}
+        onDateChanged={day => setSelected(day)}
       >
         <View>
           <ExpandableCalendar
