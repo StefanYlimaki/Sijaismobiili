@@ -34,9 +34,17 @@ const OwnSubstitutionsScreen = ({ navigation }) => {
     <ScrollView contentContainerStyle={{paddingBottom: 300}}>
       <NavigateToSavedSubstitutionsButton navigation={navigation}/>
 
-      <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-        <Pressable onPress={() => setIsMonth(true)}><Text>{i18n.t('month')}</Text></Pressable>
-        <Pressable onPress={() => setIsMonth(false)}><Text>{i18n.t('week')}</Text></Pressable>
+      <View style={{ flexDirection: 'row', marginHorizontal: '5%', marginTop: 15 }}>
+        <Pressable
+          style={{borderRadius: 10, backgroundColor: isMonth ? '#B6D3D2' : '#D9D9D9', padding: 5, marginRight: 5}}
+          onPress={() => setIsMonth(true)}>
+          <Text>{i18n.t('month')}</Text>
+        </Pressable>
+        <Pressable
+          style={{borderRadius: 10, backgroundColor: isMonth ? '#D9D9D9' : '#B6D3D2', padding: 5, marginRight: 5}}
+          onPress={() => setIsMonth(false)}>
+          <Text>{i18n.t('week')}</Text>
+        </Pressable>
       </View>
 
       {getCalendar(isMonth)}
