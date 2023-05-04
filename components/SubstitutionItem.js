@@ -60,11 +60,8 @@ const SubstitutionItem = ({ substitution, navigation, isBookmarked }) => {
 
         <View style={styles.substitutionPreviewComponentBottomElement}>
           <View style={{ flexDirection: 'row', justifyContent: 'space-between'}}>
-            {!isBookmarked? null : (
-              <View style={{alignSelf: 'center'}}>
-                <Ionicons name='bookmark' color={colors.krBlueDark} size={20} />
-              </View>
-            )}
+
+
             <View style={{ flexDirection: 'column', justifyContent: 'flex-start'}}>
               <View style={{ flexDirection: 'row', alignItems: 'flex-start', paddingBottom: 4}}>
                 <Ionicons name="cash-outline" size={15} style={styles.blackText} />
@@ -75,7 +72,6 @@ const SubstitutionItem = ({ substitution, navigation, isBookmarked }) => {
                   (~{formatHourlyPay((substitution.item.timing.duration / 60) * substitution.item.hourlyPay)} €)
                 </Text>
               </View>
-
               <Text style={[styles.blackText, { fontSize: fontSizes.xl, fontFamily: 'Inter-DisplayBold'}]}>
                 {substitution.item.title}
               </Text>
@@ -83,10 +79,11 @@ const SubstitutionItem = ({ substitution, navigation, isBookmarked }) => {
                 {substitution.item.department}
               </Text>
             </View>
-            <View style={{ flexDirection: 'column'}}>
+            <View style={{ flexDirection: 'column', alignContent: 'flex-end'}}>
 
-
-
+              {!isBookmarked? null : (
+                <Ionicons name='bookmark' color={colors.krBlueDark} size={fontSizes.xxl} style={{ marginRight: 10, alignSelf: 'flex-end'}} />
+              )}
 
               {substitution.item.benefits.length !== 0
                 ? <View>

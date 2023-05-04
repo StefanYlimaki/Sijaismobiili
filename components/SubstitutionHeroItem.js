@@ -3,6 +3,7 @@ import { formatHourlyPay, formatDate, formatTime } from '../utils'
 import styles, {fontSizes} from '../assets/styles/styles'
 import calculateDistance from '../utils/calculateDistance'
 import { LinearGradient } from 'expo-linear-gradient'
+import {Feather} from '@expo/vector-icons'
 const placeholder = {uri: 'https://images.unsplash.com/photo-1584432810601-6c7f27d2362b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8'}
 const logo = { uri: 'https://www.sttinfo.fi/data/images/00063/de7b594d-309c-4622-8e66-b8d8b84dafd3-w_300_h_100.png' }
 const SubstitutionItem = ({ substitution, navigation }) => {
@@ -41,21 +42,33 @@ const SubstitutionItem = ({ substitution, navigation }) => {
         <View style={styles.substitutionPreviewComponent}>
 
           <View style={styles.substitutionPreviewComponentTopElement}>
-            <View style={{flexDirection: 'column', flex: 1, justifyContent: 'space-between'}}>
-              <Text style={styles.whiteText}>
-                {formatDate(substitution.item.timing.startTime)}
-              </Text>
-              <Text style={styles.whiteText}>
-                {formatTime(substitution.item.timing.startTime, substitution.item.timing.duration)}
-              </Text>
-            </View>
-            <View style={{flexDirection: 'column', alignItems: 'flex-end', flex:2}}>
-              <Text style={styles.substItemOrganisationText}>
-                {substitution.item.organisation}
-              </Text>
-              <Text style={styles.whiteText}>
-                {getDistance(substitution.item.location)}
-              </Text>
+            <View style={{flexDirection: 'row', flex: 1}}>
+              <View style={{flexDirection: 'column', flex: 5, justifyContent: 'space-between'}}>
+                <View style={{flexDirection: 'row', flex: 1}}>
+                  <View style={{flexDirection: 'row', alignItems: 'flex-start', flex: 1}}>
+                    <Feather name='calendar' size={fontSizes.md} color='white'/>
+                    <Text style={[styles.whiteText, { marginLeft: 5, fontSize: fontSizes.md }]}>
+                      {formatDate(substitution.item.timing.startTime)}
+                    </Text>
+                  </View>
+
+                  <View style={{flexDirection: 'row', flex: 2, alignItems: 'flex-start'}}>
+                    <Feather name='clock' size={fontSizes.md} color='white'/>
+                    <Text style={[styles.whiteText, { marginLeft: 5, fontSize: fontSizes.md }]}>
+                      {formatTime(substitution.item.timing.startTime, substitution.item.timing.duration)}
+                    </Text>
+                  </View>
+                </View>
+              </View>
+
+              <View style={{flexDirection: 'column', alignItems: 'flex-end', flexBasis: 50}}>
+                <View style={{flexDirection: 'row'}}>
+                  <Feather name='map-pin' size={fontSizes.md} color='white'/>
+                  <Text style={[styles.whiteText, { marginLeft: 5}]}>
+                    {getDistance(substitution.item.location)}
+                  </Text>
+                </View>
+              </View>
             </View>
           </View>
 
