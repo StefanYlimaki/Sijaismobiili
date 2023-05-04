@@ -28,7 +28,16 @@ const style = StyleSheet.create({
     overflow: 'hidden',
     resizeMode: 'cover',
   },
-
+  bigButton: {
+    alignItems: 'center',
+    alignSelf: 'center',
+    backgroundColor: colors.krGreen,
+    borderRadius: 26,
+    borderWidth: 0,
+    height: '16%',
+    paddingVertical: '5%',
+    width: '78%',
+  },
   blackText: {
     color: colors.textDark,
     opacity: 0.85,
@@ -185,7 +194,7 @@ const style = StyleSheet.create({
   settingsButton: {
     alignItems: 'center',
     alignSelf: 'center',
-    backgroundColor: colors.info,
+    backgroundColor: colors.blueBright,
     borderRadius: 100,
     marginTop: 20,
     paddingBottom: 8,
