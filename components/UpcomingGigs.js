@@ -99,7 +99,6 @@ const cardStyles = StyleSheet.create({
     paddingVertical: 8,
   },
   cardContainer: {
-    marginHorizontal: 20,
     minHeight: 130
   },
   cardFooter: {

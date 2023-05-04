@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react'
-import { View, Text, Pressable, ActivityIndicator } from 'react-native'
+import {View, Text, Button, Pressable, ActivityIndicator, Dimensions} from 'react-native'
 import RecommendationView from './RecommendationView'
 
 import { colors } from '../../assets/styles/colors'
@@ -9,10 +9,13 @@ import { AntDesign } from '@expo/vector-icons'
 
 import { orderAndFilterSubstitutionsByPreferences } from '../../utils/orderAndFilterSubstitutionsByPreferences'
 import substitutions from '../../assets/data/substitutionsData_new.json'
-import { krBlue } from '../../assets/styles/colors'
+import {krBlue} from '../../assets/styles/colors'
+import {LinearGradient} from 'expo-linear-gradient'
 
 //Count of cards shown to the user
 const CARD_COUNT = 5
+const SCREEN_HEIGHT = Dimensions.get('window').height
+const SCREEN_WIDTH = Dimensions.get('window').width
 
 const SwipeScreen = ({ navigation }) => {
   const [tailoredSubstitutions, setTailoredSubstitutions] = useState([])
@@ -80,45 +83,53 @@ const SwipeScreen = ({ navigation }) => {
     )
   }
 
-  return (
-    <View style={{ height: '100%' }}>
-      <View style={{
-        marginHorizontal: '-5%',
-        marginVertical: '-15%',
-        paddingVertical: 60,
-        height: '23%',
-        backgroundColor: colors.krGreen,
-        marginBottom: 10,
-        alignContent: 'center',
-        borderRadius: 150,
-      }}>
-        <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
-          <View style={{ flex: 1 }} />
-          <View style={{ flex: 1, alignSelf: 'center' }}>
-            <Text style={{
-              textAlign: 'center', color: 'white',
-              fontFamily: 'Inter-DisplayExtraBold', fontSize: 20, alignSelf: 'center'
-            }}>
-              LOGO
-            </Text>
-          </View>
-          <Pressable style={{ flex: 1, justifyContent: 'flex-end', flexDirection: 'row' }}
-            accessibilityRole="button"
-            accessibilityLabel="Oma profiili"
-            onPress={() => { navigation.navigate('UserInfoScreen') }}>
-            <View style={{ height: 50, width: 50 }}>
-              <AntDesign name="user" size={24} color="black" />
-            </View>
-          </Pressable>
-        </View>
-        <Text style={{
-          textAlign: 'center', color: 'white',
-          fontFamily: 'Inter-Display', fontSize: 15
+  return(
+    <View style={{height:'100%'}}>
+      <LinearGradient
+        colors={[colors.krGreen, colors.krBlue]}
+        start={{x: 0.5, y: 0.5 }}
+        style={{
+          marginHorizontal: '-15%',
+          marginVertical: '-15%',
+          paddingVertical: 60,
+          height: SCREEN_HEIGHT * 0.2,
+          backgroundColor: colors.krGreen,
+          marginBottom: 10,
+          alignContent: 'center',
+          borderBottomLeftRadius: SCREEN_WIDTH/2,
+          borderBottomRightRadius: SCREEN_WIDTH/2,
         }}>
-          {'Tervetuloa takaisin!'}
-        </Text>
-      </View>
-      <RecommendationView navigation={navigation} substitutions={tailoredSubstitutions} />
+
+        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'
+
+        }}>
+          <View style={{flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
+            <View style={{flex: 1}}/>
+            <View style={{flex:1, alignSelf: 'center'}}>
+              <Text style={{textAlign: 'center', color: 'white', 
+                fontFamily:'Inter-DisplayExtraBold', fontSize: 20, alignSelf:'center'
+              }}>
+          LOGO  
+              </Text>
+            </View>
+            <Pressable style={{flex: 1, justifyContent: 'flex-end', flexDirection: 'row'}} 
+              accessibilityRole="button"
+              accessibilityLabel="Oma profiili"
+              onPress={() => { navigation.navigate('UserInfoScreen') }}>
+              <View style={{ height: 50, width: 50}}>
+                <AntDesign name="user" size={24} color="black" />
+              </View>
+            </Pressable>
+          </View>
+          <Text style={{textAlign: 'center', color: 'white',
+            fontFamily: 'Inter-Display', fontSize: 15
+          }}>
+            {'Tervetuloa takaisin!'}
+          </Text>
+        </View>
+      </LinearGradient>
+
+      <RecommendationView navigation={navigation} substitutions={tailoredSubstitutions}/>
       <View style={{
         alignSelf: 'center',
         position: 'absolute',
@@ -134,7 +145,6 @@ const SwipeScreen = ({ navigation }) => {
             padding: 20,
             backgroundColor: colors.krGreen,
             borderRadius: 50,
-            marginBottom: 5
           }}
           >
             <Text style={{
@@ -151,8 +161,8 @@ const SwipeScreen = ({ navigation }) => {
           accessibilityHint='Johtaa listanäkymään'
           onPress={() => skipScreen()}>
           <View>
-            <Text style={{ textAlign: 'center', color: colors.danger, fontFamily: 'Inter-Display' }}>
-              En halua nähdä enää räätälöityjä suosituksia
+            <Text style={{textAlign: 'center', color: colors.danger, fontFamily: 'Inter-Display', margin: 15}}>
+              En halua nähdä enää räätälöityjä suosituksia              
             </Text>
           </View>
         </Pressable>
