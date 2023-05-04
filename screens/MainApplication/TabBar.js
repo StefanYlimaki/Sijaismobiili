@@ -11,11 +11,20 @@ const TabBar = ({ state, descriptors, navigation,  }) => {
     <View>
       <View style={styles.containerStyle}/>
 
-      <View style={{ display:'flex', flexDirection: 'row', backgroundColor: colors.krGreen, position: 'absolute'}}>
-        <View style={{ height: 50, display: 'flex', justifyContent: 'center', paddingLeft: 20}}><Text style={{ fontSize: 20, color: '#fff', fontWeight: '600' }}>LOGO</Text></View>
-        <View style={{ height: 50, display: 'flex', justifyContent: 'center', paddingLeft: 10}}><Text style={{ fontSize: 20, color: '#fff' }}>Keikat</Text></View>
+      <View style={{ display:'flex', flexDirection: 'row', backgroundColor: colors.krGreen, position: 'absolute', flex: 1}}>
+        <View style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', paddingLeft: 20}}><Text style={{ fontSize: 20, color: '#fff', fontWeight: '600' }}>LOGO</Text></View>
+        <View style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', paddingLeft: 10}}><Text style={{ fontSize: 20, color: '#fff' }}>Keikat</Text></View>
+
+        <View style={{ alignItems: 'flex-end', flex: 1, flexDirection: 'column' }}>
+          <Pressable onPress={() => { navigation.navigate('UserInfoScreen') }}>
+            <View style={{ height: 50, width: 50, display: 'flex', alignItems: 'flex-end', justifyContent: 'center', marginRight: 15 }}>
+              <AntDesign name="user" size={24} color="white" />
+            </View>
+          </Pressable>
+        </View>
       </View>
-      <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center', height: 50, height: 50, position: 'absolute', marginTop: 50, width: window.width }}>
+
+      <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center', height: 50, position: 'absolute', marginTop: 50, width: window.width }}>
         {state.routes.map((route, index) => {
           const isFocused = state.index === index
           const { options } = descriptors[route.key]
@@ -47,11 +56,6 @@ const TabBar = ({ state, descriptors, navigation,  }) => {
             </TouchableOpacity>
           )
         })}
-        <Pressable onPress={() => { navigation.navigate('UserInfoScreen') }}>
-          <View style={{ height: 50, width: 50, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <AntDesign name="user" size={24} color="white" />
-          </View>
-        </Pressable>
       </View>
     </View>
   )
