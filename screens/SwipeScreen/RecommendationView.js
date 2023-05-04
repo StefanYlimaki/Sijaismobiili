@@ -1,6 +1,6 @@
-import {  Text, View, Dimensions, Animated, PanResponder, ImageBackground } from 'react-native'
+import {Text, View, Dimensions, Animated, PanResponder, ImageBackground, Image, Pressable} from 'react-native'
 import React, {useRef, useState} from 'react'
-import styles from '../../assets/styles/styles'
+import styles, {fontSizes} from '../../assets/styles/styles'
 import calculateDistance from '../../utils/calculateDistance'
 import { formatDate, formatTime } from '../../utils'
 import DenyBookmarkAndAcceptButton from '../../components/DenyBookmarkAndAcceptButtons'
@@ -11,6 +11,7 @@ import { StyleSheet } from 'react-native-web'
 import { colors } from '../../assets/styles/colors'
 import { LinearGradient } from 'expo-linear-gradient'
 import saveSubstitution from '../../utils/saveSubstitution'
+import {Feather} from '@expo/vector-icons'
 
 const SCREEN_HEIGHT = Dimensions.get('window').height
 const SCREEN_WIDTH = Dimensions.get('window').width
@@ -19,6 +20,7 @@ const SCREEN_WIDTH = Dimensions.get('window').width
 const SWIPE_THRESHOLD = 120
 const TOUCH_THRESHOLD = 20
 
+const logo = { uri: 'https://www.sttinfo.fi/data/images/00063/de7b594d-309c-4622-8e66-b8d8b84dafd3-w_300_h_100.png' }
 const placeholder = {uri: 'https://images.unsplash.com/photo-1584432810601-6c7f27d2362b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8'}
 
 const RecommendationView = ({navigation, substitutions}) => {
@@ -160,12 +162,28 @@ const RecommendationCards = ({navigation, substitutions, cardCount}) => {
         )
       })
 
+      const placeholder = { uri: 'https://images.unsplash.com/photo-1584432810601-6c7f27d2362b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8' }
+      const test = { uri: 'https://images.unsplash.com/photo-1584432810601-6c7f27d2362b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8' }
+
+      const getDistance = () => {
+        return calculateDistance(parseFloat(item.coordinates.latitude), parseFloat(item.coordinates.longitude), 65.05941, 25.46642, false)
+      }
+
       const image = () => {
         if (item.image) {
-          return {uri: item.image}
+          return { uri: item.image }
         } else {
           return placeholder
-        }  
+        }
+      }
+
+      const logoImage = () => {
+        if (item.logo) {
+          //return {uri: substitution.item.logo}
+          return logo
+        } else {
+          return logo
+        }
       }
 
       return (
@@ -189,74 +207,116 @@ const RecommendationCards = ({navigation, substitutions, cardCount}) => {
         >
           <ImageBackground
             source={image()}
-            imageStyle={{borderTopRightRadius: 10, borderTopLeftRadius: 10}}
-            style={{flex: 1}}
+            imageStyle={{ borderTopRightRadius: 10, borderTopLeftRadius: 10 }}
           >
             <LinearGradient
               colors={['transparent', 'rgba(0,0,0,0.5)']}
-              start={{ x: 0, y: 0.3}}
-              end={{x: 0.0, y: 0.8}}
-              style={{borderTopRightRadius: 10, borderTopLeftRadius: 10, flex: 1}}>
-              <View style={{paddingTop:10}}>
-                {benefits}
-              </View>
-              <View style={{flex: 1}}/>
-              <View style={localStyles.recommendationCardInfoElement}>
-                <Text style={[styles.whiteText, {fontSize: 20, fontFamily: 'Figtree-ExtraBold'}]}>
-                  {item.title}
-                </Text>
-                <Text style={[styles.whiteText, {fontWeight: 'bold', fontSize: 30, fontFamily: 'Inter-Display'}]}>
-                  {item.department}
-                </Text>
+              start={{ x: 0, y: 0.3 }}
+              end={{ x: 0.0, y: 0.8 }}
+              style={{ borderTopRightRadius: 10, borderTopLeftRadius: 10 }}>
+              <View style={styles.substitutionHeroPreviewComponentBottomElement}>
 
+                <View style={{ flexDirection: 'row', alignContent: 'space-between' }}>
+
+                  <View style={{
+                    backgroundColor: '#FAFAFA', marginTop: 15, padding: 5, borderRadius: 10, flexDirection: 'row', alignItems: 'center',
+                    alignSelf: 'flex-start',
+                  }}>
+                    <Image
+                      source={logoImage()}
+                      style={{ maxWidth: 100, maxHeight: 50, margin: 5, width: 80, height: 40 }}
+                      resizeMode={'contain'}
+                    />
+
+                  </View>
+
+                  <View style={{ flex: 1, paddingTop: '5%' }}>
+                    {benefits}
+                  </View>
+
+                </View>
+
+
+                <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginBottom: 25, flex: 5 }}>
+                  <View style={{ flexDirection: 'column', justifyContent: 'flex-end' }}>
+                    <Text style={[styles.whiteText, { fontSize: 33, fontFamily: 'Figtree-ExtraBold' }]}>
+                      {item.title}
+                    </Text>
+                    <Pressable onPress={() => navigation.navigate('Haku', {searchParam: item.department})}>
+                      <Text style={[styles.whiteText, { paddingRight: 8, fontWeight: 'bold', fontSize: 20}]}>
+                        {item.department}
+                      </Text>
+                    </Pressable>
+                  </View>
+
+                </View>
               </View>
             </LinearGradient>
           </ImageBackground>
 
-          <View style={localStyles.recommendationCardInfoBarElement}>
-            <View style={{flex:1}}>
-              <Text style={localStyles.recommendationCardInfoBarLeftElement}>
-                {formatDate(item.date)} 
-              </Text>
-              <Text style={localStyles.recommendationCardInfoBarLeftElement}>
-                {formatTime(item.date, item.timing.duration)} 
-              </Text>
-            </View>
-            <View style={{flex:2, flexShrink: 5}}>
-              <Text style={localStyles.recommendationCardInfoBarRightElement}>
-                {item.organisation}
-              </Text>
-              <Text style={localStyles.recommendationCardInfoBarRightElement}>
-                {calculateDistance(
-                  parseFloat(item.coordinates.latitude), 
-                  parseFloat(item.coordinates.longitude),
-                  userData.location.lat,
-                  userData.location.lng,
-                )}
-              </Text>
+
+          <View style={[styles.substitutionPreviewComponentTopElement, {height: fontSizes.md * 2, backgroundColor: colors.krGreen, borderTopLeftRadius: 0, borderTopRightRadius: 0}]}>
+            <View style={{flexDirection: 'row', flex: 1}}>
+              <View style={{flexDirection: 'column', flex: 5, justifyContent: 'space-between'}}>
+                <View style={{flexDirection: 'row', flex: 1}}>
+                  <View style={{flexDirection: 'row', alignItems: 'flex-start', flex: 1}}>
+                    <Feather name='calendar' size={fontSizes.md} color='white'/>
+                    <Text style={[styles.whiteText, { marginLeft: 5, fontSize: fontSizes.md }]}>
+                      {formatDate(item.timing.startTime)}
+                    </Text>
+                  </View>
+
+                  <View style={{flexDirection: 'row', flex: 2, alignItems: 'flex-start'}}>
+                    <Feather name='clock' size={fontSizes.md} color='white'/>
+                    <Text style={[styles.whiteText, { marginLeft: 5, fontSize: fontSizes.md }]}>
+                      {formatTime(item.timing.startTime, item.timing.duration)}
+                    </Text>
+                  </View>
+                </View>
+              </View>
+
+              <View style={{flexDirection: 'column', alignItems: 'flex-end', flexBasis: 50}}>
+                <View style={{flexDirection: 'row'}}>
+                  <Feather name='map-pin' size={fontSizes.md} color='white'/>
+                  <Text style={[styles.whiteText, { marginLeft: 5}]}>
+                    {getDistance(item.location)}
+                  </Text>
+                </View>
+              </View>
             </View>
           </View>
-          <View style={localStyles.recommendationCardSalaryElement}>
-            <Text style={{fontWeight:'bold', textAlign:'right'}}>
+
+          <View style={styles.substitutionCardSalaryItem}>
+            <Text style={{ fontWeight: 'bold', textAlign: 'right' }}>
               {item.hourlyPay + ' €/h'}
             </Text>
             <Text>
-              {' (~' + Math.floor(item.hourlyPay * (item.timing.duration/60)) + ' €)'}
+              {' (~' + Math.floor(item.hourlyPay * (item.timing.duration / 60)) + ' €)'}
             </Text>
+
           </View>
-          <View style={{paddingHorizontal: 20}}>
-            <Text style={{textAlign: 'center'}}>
-              {item.description}
-            </Text>
+
+          <View style={{ paddingHorizontal: 16, flex: 3 }}>
+            <Pressable style={{ paddingHorizontal: 16, height: 50 }}
+              accessibilityRole="button"
+              accessibilityLabel="Avaa lisätiedot"
+              accessibilityHint='Avaa keikan tiedot koko näytön näkymään'
+              onPress={() => { console.log('m'), navigateToSingleSubstitutionScreen(navigation, item) }} >
+              <Text >{item.description}</Text>
+            </Pressable>
           </View>
+
           <DenyBookmarkAndAcceptButton
-            denyCallback={()=>incrementIndex(prevIndex => prevIndex + 1)}
-            bookmarkCallback={()=> {
-              incrementIndex(prevIndex => prevIndex + 1)
-              saveSubstitution(item)
+            denyCallback={() => {
+              navigation.pop()
             }}
-            acceptCallback={()=> {
-              navigateToPopUp(navigation, currentIndex, substitutions)
+            bookmarkCallback={() => {
+              saveSubstitution(item)
+              updateList()
+              navigation.pop()
+            }}
+            acceptCallback={() => {
+              navigateToPopUp(navigation, item)
             }}
           />
         </Animated.View>
@@ -271,41 +331,6 @@ const localStyles = StyleSheet.create({
     backgroundColor: '#F6F6F6',
     borderRadius: 20,
     position: 'absolute',
-  },
-  recommendationCardInfoBarElement: {
-    backgroundColor: colors.krBlue,
-    flexDirection: 'row',
-    flexGrow: 0.2,
-    height:'auto',
-    justifyContent: 'space-between',
-    padding: 10
-  },
-  recommendationCardInfoBarLeftElement: {
-    alignSelf: 'flex-start',
-    color: 'white',
-    fontFamily: 'Inter-DisplaySemiBold',
-    fontSize: 13,
-    opacity: 0.85
-  },
-  recommendationCardInfoBarRightElement: {
-    alignSelf: 'flex-end',
-    color: 'white',
-    flex: 2,
-    flexDirection: 'column',
-    fontFamily: 'Inter-DisplaySemiBold',
-    fontSize: 13,
-    opacity: 0.85,
-  },
-  recommendationCardInfoElement: {
-    flexDirection: 'column',
-    paddingLeft: 10,
-    //paddingTop: '25%'
-  },
-  recommendationCardSalaryElement: {
-    flexDirection: 'row',
-    flexWrap: 'nowrap',
-    justifyContent: 'flex-end',
-    padding: 10
   },
 })
 

@@ -230,9 +230,7 @@ const style = StyleSheet.create({
     backgroundColor: colors.krGreen,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginTop: '6%',
     paddingHorizontal: 16,
-    paddingVertical: 10,
     width: '100%'
   },
   singleSubstitutionTopElement: {
