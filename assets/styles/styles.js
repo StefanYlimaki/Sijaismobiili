@@ -428,7 +428,7 @@ const style = StyleSheet.create({
     flex: 3,
     flexDirection: 'row',
     justifyContent: 'center',
-    margin: -900,
+    margin: 20,
   },
   userTabItem: {
     borderRadius: 1000,
