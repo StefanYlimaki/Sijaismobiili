@@ -10,7 +10,7 @@ export const fontSizes = {
   lg: 18,
   xl: 20,
   xxl: 24,
-  xyl: 35,
+  xyl: 34,
 }
 
 const style = StyleSheet.create({
