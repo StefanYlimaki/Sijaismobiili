@@ -39,7 +39,7 @@ const AllSubstitutions = ({ navigation, route }) => {
 
   const [search, setSearch] = useState('')
 
-  useState(() => {
+  useEffect(() => {
     const retrieveData = async () => {
       const userData = await getUserData()
 
@@ -56,7 +56,7 @@ const AllSubstitutions = ({ navigation, route }) => {
       //Filter all substitutions to ones that match the id
     }
     retrieveData()
-  }, [])
+  }, [showSavedOnly])
 
   //Run when route params are updated
   useEffect(() => {

@@ -9,6 +9,7 @@ import { Text } from 'react-native'
 
 const SubstitutionsList = ({ navigation, substitutions }) => {
   const [savedSubstitutions, setData] = useState(null)
+  const [shouldUpdate, update] = useState(false)
 
   useEffect(() => {
     const retrieveData = async () => {
@@ -23,9 +24,10 @@ const SubstitutionsList = ({ navigation, substitutions }) => {
       }
 
       setData(uniqueSubstitutions)
+      update(false)
     }
     retrieveData()
-  }, [])
+  }, [shouldUpdate])
 
   //If saved substitutions have been retrieved
   if (savedSubstitutions) {
@@ -39,6 +41,7 @@ const SubstitutionsList = ({ navigation, substitutions }) => {
                 <SubstitutionHeroItem
                   substitution={substitution}
                   navigation={navigation}
+                  update={update}
                 />
               )
             }
@@ -46,6 +49,7 @@ const SubstitutionsList = ({ navigation, substitutions }) => {
               <SubstitutionItem
                 substitution={substitution}
                 navigation={navigation}
+                update={update}
                 isBookmarked={savedSubstitutions.includes(substitution.item.id)}
               />
             )
