@@ -4,8 +4,6 @@ import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs
 import UserInfoScreen from './UserInfoScreen'
 import UserPreferencesScreen from './UserPreferencesScreen'
 
-
-
 const Tab = createMaterialTopTabNavigator()
 
 function UserTabs({ navigation, route })  {

@@ -17,7 +17,6 @@ function UserInfoScreen({navigation}) {
       setUser(user)
       setLoading(false)
     }
-
     fetchUserData()
   }, [])
   
@@ -33,7 +32,6 @@ function UserInfoScreen({navigation}) {
         <ActivityIndicator size="large" color= {krBlue} />
       </View>
     )
-    
   }
   return(<UserInfoView user={user} setUser={setUser} navigation={navigation}/>)
 }

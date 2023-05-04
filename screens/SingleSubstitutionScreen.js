@@ -64,10 +64,10 @@ const SingleSubstitutionScreen = ({ route, navigation }) => {
         <View>
           <View style={{alignSelf: 'flex-end', flexDirection: 'row'}}>
             <Text style={{color: 'white', fontWeight: 'bold'}}>
-              {formatHourlyPay(substitution.item.hourlyPay)}€/h
+              {formatHourlyPay(substitution.item.hourlyPay)} €/h
             </Text>
             <Text style={{color:'white'}}>
-              {'(~' + Math.floor(substitution.item.hourlyPay * (substitution.item.timing.duration/60)) + '€)'}
+              {' (~' + Math.floor(substitution.item.hourlyPay * (substitution.item.timing.duration/60)) + ' €)'}
             </Text>
           </View>
           <View style={{alignSelf: 'flex-end'}}>
