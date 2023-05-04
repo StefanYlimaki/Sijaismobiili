@@ -13,17 +13,16 @@ const SubstitutionsList = ({ navigation, substitutions }) => {
   useEffect(() => {
     const retrieveData = async () => {
       const userData = await getUserData()
+      let uniqueSubstitutions = []
 
       //Filter accepted substitutions to unique ids
-      const uniqueSubstitutions = userData.savedSubstitutions.filter(
-        (value, index, array) => array.indexOf(value) === index
-      )
-
-      if (uniqueSubstitutions.length == 0) {
-        setData(true)
-      } else {
-        setData(uniqueSubstitutions)
+      if (userData.savedSubstitutions != undefined) {
+        uniqueSubstitutions = userData.savedSubstitutions.filter(
+          (value, index, array) => array.indexOf(value) === index
+        )
       }
+
+      setData(uniqueSubstitutions)
     }
     retrieveData()
   }, [])

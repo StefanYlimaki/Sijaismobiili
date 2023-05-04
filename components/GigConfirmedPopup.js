@@ -1,6 +1,6 @@
 import React from 'react'
 import {StyleSheet, View, Text, Pressable, ScrollView, ImageBackground, Image} from 'react-native'
-import styles from '../assets/styles/styles'
+import styles, {fontSizes} from '../assets/styles/styles'
 import { formatDate, formatHourlyPay } from '../utils'
 import { colors } from '../assets/styles/colors'
 import { Icon } from '@rneui/themed'
@@ -27,7 +27,7 @@ const GigConfirmedPopup = ({ route, navigation }) => {
           <View style={popupStyles.popupHeader}>
             <View style={{flex: 1}}/>
             <View style={{flex: 8, alignItems: 'center'}}>
-              <Text style={[styles.whiteText, { fontSize: 22 }]}>Paikka on sinun!</Text>
+              <Text style={[styles.whiteText, { fontSize: fontSizes.xxl }]}>Paikka on sinun!</Text>
             </View>
             <View style={{flex: 1, marginRight: 7}}>
               <Pressable onPress={() => {navigation.pop()}}>
@@ -46,8 +46,8 @@ const GigConfirmedPopup = ({ route, navigation }) => {
             start={{ x: 0, y: 0.0}}
             end={{x: 0.0, y: 0.5}}>
             <View style={popupStyles.imageContent}>
-              <Text style={[styles.blackText, { fontSize: 22 }]}>{substitution.title}</Text>
-              <Text style={[styles.blackText, { fontWeight: 'bold', fontSize: 22 }]}>{substitution.department}</Text>
+              <Text style={[styles.blackText, { fontSize: fontSizes.lg }]}>{substitution.title}</Text>
+              <Text style={[styles.blackText, { fontWeight: 'bold', fontSize: fontSizes.lg }]}>{substitution.department}</Text>
             </View>
           </LinearGradient>
         </ImageBackground>
@@ -96,7 +96,7 @@ const GigConfirmedPopup = ({ route, navigation }) => {
           <View style={popupStyles.popupHeader}>
             <View style={{flex: 1}}/>
             <View style={{flex: 8, alignItems: 'center'}}>
-              <Text style={[styles.whiteText, { fontSize: 22 }]}>Olet ehdolla sijaiseksi!</Text>
+              <Text style={[styles.whiteText, { fontSize: fontSizes.xxl, fontFamily: 'Figtree-ExtraBold' }]}>Olet ehdolla sijaiseksi!</Text>
             </View>
             <View style={{flex: 1, marginRight: 7}}>
               <Pressable onPress={() => {navigation.pop()}}>
