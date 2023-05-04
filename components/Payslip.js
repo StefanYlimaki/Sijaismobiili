@@ -21,7 +21,6 @@ function Payslip({ navigation }) {
 
 const payslipStyles = StyleSheet.create({
   cardContainer: {
-    marginHorizontal: 20,
   },
   iconContainer: {
     backgroundColor: colors.krBlue,

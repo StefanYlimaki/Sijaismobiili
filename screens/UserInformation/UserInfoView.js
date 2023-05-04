@@ -1,18 +1,17 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import {
   View,
   Text,
   ScrollView,
   KeyboardAvoidingView,
   TouchableWithoutFeedback,
-  Button,
   Pressable,
 } from 'react-native'
 import {logUserData} from '../../utils/logUserData'
-import * as Colors from '../../assets/styles/colors.js'
+import { colors } from '../../assets/styles/colors.js'
 import styles from '../../assets/styles/styles'
 import { setUserData } from '../../utils/setUserData'
-import {ListItem} from '@rneui/base'
+import { ListItem } from '@rneui/base'
 import postCode from '../../assets/data/postcode_map_light.json'
 import { getPostalAddressByPostCode } from '../../utils/getPostalAddressByPostCode'
 
@@ -20,8 +19,8 @@ const UserInfoView = ({ user, setUser, navigation }) => {
   const [postalAddress, setPostalAddress] = useState(getPostalAddressByPostCode(user.postNumber))
   const handleChange = async (event, key, subKey) => {
     try {
-      const newUser = {...user}
-      if(subKey){
+      const newUser = { ...user }
+      if (subKey) {
         delete newUser[key][subKey]
         newUser[key][subKey] = event
       } else {
@@ -41,7 +40,7 @@ const UserInfoView = ({ user, setUser, navigation }) => {
       <ScrollView>
         <View style={styles.userContent}>
           <View>
-            <Text style={[styles.h2, styles.blackText, {textAlign: 'center'}]}>Henkilötiedot</Text>
+            <Text style={[styles.h2, styles.blackText, { textAlign: 'center' }]}>Henkilötiedot</Text>
           </View>
           <View style={styles.userInfoList}
             importantForAutofill={'yes'} >
@@ -107,8 +106,8 @@ const UserInfoView = ({ user, setUser, navigation }) => {
             </ListItem>
             <ListItem containerStyle={styles.listItemContainer} bottomDivider><ListItem.Title><Text style={styles.textfieldlist}>Postitoimipaikka</Text></ListItem.Title>
               <ListItem.Input
-                disabled 
-                value = {postalAddress}
+                disabled
+                value={postalAddress}
 
               />
             </ListItem>
@@ -122,7 +121,11 @@ const UserInfoView = ({ user, setUser, navigation }) => {
           </View>
         </View>
       </ScrollView>
-      <Pressable style={styles.settingsButton} onPress={() => {navigation.navigate('Settings')}}>
+      <Pressable style={styles.settingsButton}
+        accessibilityRole="button"
+        accessibilityLabel="Asetukset"
+        accessibilityHint='Johtaa asetuksiin'
+        onPress={() => { navigation.navigate('Settings') }}>
         <Text style={styles.buttonText}>Asetukset</Text>
       </Pressable>
     </KeyboardAvoidingView>

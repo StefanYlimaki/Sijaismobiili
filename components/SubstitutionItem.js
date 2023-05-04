@@ -20,10 +20,10 @@ const SubstitutionItem = ({ substitution, navigation, isBookmarked }) => {
           navigation.navigate('SubstitutionCard', {
             substitution: substitution,
             navigation: navigation
-          })}
+          })
         }
-        style={({ pressed }) => pressed && styles.pressedSubstitutionItem}
-      >
+        }
+        style={({ pressed }) => pressed && styles.pressedSubstitutionItem}>
         <View style={styles.substitutionPreviewComponent}>
           <View style={styles.substitutionPreviewComponentTopElement}>
             <View style={{flexDirection: 'row', flex: 1}}>
@@ -44,10 +44,11 @@ const SubstitutionItem = ({ substitution, navigation, isBookmarked }) => {
                   </View>
                 </View>
               </View>
-
               <View style={{flexDirection: 'column', alignItems: 'flex-end', flexBasis: 50}}>
                 <View style={{flexDirection: 'row'}}>
-                  <Feather name='map-pin' size={fontSizes.md} color='white'/>
+                  <Feather
+                    accessibilityLabel="Etäisyys"
+                    name='map-pin' size={fontSizes.md} color='white'/>
                   <Text style={[styles.whiteText, { marginLeft: 5}]}>
                     {getDistance(substitution.item.location)}
                   </Text>
@@ -65,13 +66,14 @@ const SubstitutionItem = ({ substitution, navigation, isBookmarked }) => {
             <View style={{ flexDirection: 'column', justifyContent: 'flex-start'}}>
               <View style={{ flexDirection: 'row', alignItems: 'flex-start', paddingBottom: 4}}>
                 <Ionicons name="cash-outline" size={15} style={styles.blackText} />
-                <Text style={ [styles.blackText, { fontWeight: 'bold'}]}>
+                <Text style={[styles.blackText, { fontWeight: 'bold' }]}>
                   {formatHourlyPay(substitution.item.hourlyPay)}€/h
                 </Text>
-                <Text style={ styles.blackText }>
+                <Text style={styles.blackText}>
                   (~{formatHourlyPay((substitution.item.timing.duration / 60) * substitution.item.hourlyPay)} €)
                 </Text>
               </View>
+
               <Text style={[styles.blackText, { fontSize: fontSizes.xl, fontFamily: 'Inter-DisplayBold'}]}>
                 {substitution.item.title}
               </Text>
@@ -87,15 +89,15 @@ const SubstitutionItem = ({ substitution, navigation, isBookmarked }) => {
 
               {substitution.item.benefits.length !== 0
                 ? <View>
-                  {substitution.item.benefits.map(b => 
-                    <View key={ b } style={styles.substitutionItemBenefitsItem} >
+                  {substitution.item.benefits.map(b =>
+                    <View key={b} style={styles.substitutionItemBenefitsItem} >
                       <Text style={styles.whiteText} >
                         {b}
                       </Text>
                     </View>
                   )}
                 </View>
-                :<></>
+                : <></>
               }
               {/* for testing purposes, displays scores of the tailored substitution list
                   <Text>

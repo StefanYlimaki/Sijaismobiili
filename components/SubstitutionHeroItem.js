@@ -14,10 +14,11 @@ const SubstitutionItem = ({ substitution, navigation }) => {
 
   const image = () => {
     if (substitution.item.image) {
-      return {uri: substitution.item.image}
+      return { uri: substitution.item.image }
     } else {
       return placeholder
-    }  }
+    }
+  }
 
   const logoImage = () => {
     if (substitution.item.logo) {
@@ -78,41 +79,41 @@ const SubstitutionItem = ({ substitution, navigation }) => {
           >
             <LinearGradient
               colors={['transparent', 'rgba(0,0,0,0.5)']}
-              start={{ x: 0, y: 0.3}}
-              end={{x: 0.0, y: 0.8}}
-              style={{borderRadius: 10}}>
+              start={{ x: 0, y: 0.3 }}
+              end={{ x: 0.0, y: 0.8 }}
+              style={{ borderRadius: 10 }}>
               <View style={styles.substitutionHeroPreviewComponentBottomElement}>
-                
-                <View style={{ flexDirection: 'row', alignContent: 'space-between'}}>
-
-                  <View style={{ backgroundColor: '#FAFAFA', marginTop: 10, padding:5, borderRadius: 10, flexDirection: 'row', alignItems: 'center',
-                    alignSelf: 'flex-start',}}>
+                <View style={{ flexDirection: 'row', alignContent: 'space-between' }}>
+                  <View style={{
+                    backgroundColor: '#FAFAFA', marginTop: 10, padding: 5, borderRadius: 10, flexDirection: 'row', alignItems: 'center',
+                    alignSelf: 'flex-start',
+                  }}>
                     <Image
+                      accessibilityRole="image"
+                      accessibilityLabel="Logo"
                       source={logoImage()}
                       style={{maxWidth: 100, maxHeight: 50, margin: 5, width: 80, height: 40}}
                       resizeMode={'contain'}
                     />
-
                   </View>
 
-                  <View style={{ flex: 1, paddingTop: 20}}>
+                  <View style={{ flex: 1, paddingTop: 20 }}>
                     {substitution.item.benefits.length !== 0
-                      ? <View style={{alignSelf: 'flex-end'}}>
+                      ? <View style={{ alignSelf: 'flex-end' }}>
                         {substitution.item.benefits.map(b =>
-                          <View key={ b } style={styles.substitutionItemBenefitsItem} >
-                            <Text style={[styles.whiteText, {fontFamily: 'Inter-DisplaySemiBold', textAlign: 'right',
+                          <View key={b} style={styles.substitutionItemBenefitsItem} >
+                            <Text style={[styles.whiteText, {
+                              fontFamily: 'Inter-DisplaySemiBold', textAlign: 'right',
                             }]} >
                               {b}
                             </Text>
                           </View>
                         )}
                       </View>
-                      :<></>
+                      : <></>
                     }
                   </View>
-
                 </View>
-
 
                 <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginBottom: 25, flex: 5}}>
                   <View style={{ flexDirection: 'column', justifyContent: 'flex-end'}}>
@@ -122,16 +123,15 @@ const SubstitutionItem = ({ substitution, navigation }) => {
                     <Text style={[styles.whiteText, { paddingRight: 8, fontWeight: 'bold', fontSize: fontSizes.xl}]}>
                       {substitution.item.department}
                     </Text>
-                    <View style={{flexDirection: 'row'}}>
-                      <Text style={ styles.hourlypay}>
-                        {formatHourlyPay(substitution.item.hourlyPay)}€/h
+                    <View style={{ flexDirection: 'row' }}>
+                      <Text style={styles.hourlypay}>
+                        {formatHourlyPay(substitution.item.hourlyPay)} €/h
                       </Text>
-                      <Text style={ styles.hourlypayTotal}>
-                        (~{formatHourlyPay((substitution.item.timing.duration / 60) * substitution.item.hourlyPay)} €)
+                      <Text style={styles.hourlypayTotal}>
+                         (~{formatHourlyPay((substitution.item.timing.duration / 60) * substitution.item.hourlyPay)} €)
                       </Text>
                     </View>
                   </View>
-
                 </View>
               </View>
             </LinearGradient>

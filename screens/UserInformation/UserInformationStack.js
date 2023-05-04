@@ -3,7 +3,6 @@ import UserInfoScreen from './UserInfoScreen'
 import SettingsScreen from './SettingsScreen'
 import UserTabs from './UserTabs'
 
-
 const UserInfoStack = createNativeStackNavigator()
 
 export function UserInformationStack() {

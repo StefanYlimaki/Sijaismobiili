@@ -29,9 +29,13 @@ const GigConfirmedPopup = ({ route, navigation }) => {
             <View style={{flex: 8, alignItems: 'center'}}>
               <Text style={[styles.whiteText, { fontSize: fontSizes.xxl }]}>Paikka on sinun!</Text>
             </View>
-            <View style={{flex: 1, marginRight: 7}}>
-              <Pressable onPress={() => {navigation.pop()}}>
-                <Icon name='close-circle-outline' type="material-community" color={colors.textLight}/>
+            <View style={{ flex: 1, marginRight: 7 }}>
+              <Pressable
+                accessibilityRole="button"
+                accessibilityLabel="Sulje"
+                accessibilityHint='Palaa edelliseen ruutuun'
+                onPress={() => { navigation.pop() }}>
+                <Icon name='close-circle-outline' type="material-community" color={colors.textLight} />
               </Pressable>
             </View>
           </View>
@@ -98,9 +102,13 @@ const GigConfirmedPopup = ({ route, navigation }) => {
             <View style={{flex: 8, alignItems: 'center'}}>
               <Text style={[styles.whiteText, { fontSize: fontSizes.xxl, fontFamily: 'Figtree-ExtraBold' }]}>Olet ehdolla sijaiseksi!</Text>
             </View>
-            <View style={{flex: 1, marginRight: 7}}>
-              <Pressable onPress={() => {navigation.pop()}}>
-                <Icon name='close-circle-outline' type="material-community" color={colors.textLight}/>
+            <View style={{ flex: 1, marginRight: 7 }}>
+              <Pressable
+                accessibilityRole="button"
+                accessibilityLabel="Sulje"
+                accessibilityHint='Palaa edelliseen ruutuun'
+                onPress={() => { navigation.pop() }}>
+                <Icon name='close-circle-outline' type="material-community" color={colors.textLight} />
               </Pressable>
             </View>
           </View>

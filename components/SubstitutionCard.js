@@ -10,16 +10,16 @@ import {
   ImageBackground,
   Alert
 } from 'react-native'
-import React, {useRef, useState} from 'react'
+import React, { useRef, useState } from 'react'
 import Constants from 'expo-constants'
 import { BlurView } from 'expo-blur'
 import styles from '../assets/styles/styles'
-import {formatDate, formatHourlyPay, formatTime} from '../utils'
+import { formatDate, formatHourlyPay, formatTime } from '../utils'
 import calculateDistance from '../utils/calculateDistance'
 import DenyBookmarkAndAcceptButton from '../components/DenyBookmarkAndAcceptButtons'
 import acceptSubstitution from '../utils/acceptSubstitution'
 import { colors } from '../assets/styles/colors'
-import {LinearGradient} from 'expo-linear-gradient'
+import { LinearGradient } from 'expo-linear-gradient'
 import saveSubstitution from '../utils/saveSubstitution'
 
 const SCREEN_HEIGHT = Dimensions.get('window').height
@@ -32,11 +32,11 @@ const TOUCH_THRESHOLD = 20
 
 const logo = { uri: 'https://www.sttinfo.fi/data/images/00063/de7b594d-309c-4622-8e66-b8d8b84dafd3-w_300_h_100.png' }
 
-const SubstitutionCard = ({route}) => {
+const SubstitutionCard = ({ route }) => {
   return (
-    <View style={ {backgroundColor: 'rgba(0,0,0,0.3)'} }>
-      <BlurView intensity={10} style={ {height: '100%'} }>
-        <View style={{flexDirection: 'column', marginTop: Constants.statusBarHeight + 20}}>
+    <View style={{ backgroundColor: 'rgba(0,0,0,0.3)' }}>
+      <BlurView intensity={10} style={{ height: '100%' }}>
+        <View style={{ flexDirection: 'column', marginTop: Constants.statusBarHeight + 20 }}>
           {renderSubstitution(route.params.substitution.item, route.params.navigation)}
         </View>
       </BlurView>
@@ -51,7 +51,7 @@ const navigateToPopUp = (navigation, item) => {
   })
 }
 
-const navigateToSingleSubstitutionScreen = (navigation, item) => { 
+const navigateToSingleSubstitutionScreen = (navigation, item) => {
   navigation.navigate('SingleSubstitution', {
     substitution: item,
     caller: 'SubstitutionCard',
@@ -67,7 +67,7 @@ const renderSubstitution = (item, navigation) => {
   const panResponder = useRef(
     PanResponder.create({
       onMoveShouldSetPanResponder: (e, gestureState) => {
-        const {dx, dy} = gestureState
+        const { dx, dy } = gestureState
 
         return (Math.abs(dx) > TOUCH_THRESHOLD || (Math.abs(dy) > TOUCH_THRESHOLD))
       },
@@ -79,8 +79,8 @@ const renderSubstitution = (item, navigation) => {
 
       //animate movement of card with native driver
       onPanResponderMove: Animated.event(
-        [null, {dx: position.x, dy: position.y}],
-        {useNativeDriver: false}
+        [null, { dx: position.x, dy: position.y }],
+        { useNativeDriver: false }
       ),
 
       //Called when card is released
@@ -88,7 +88,7 @@ const renderSubstitution = (item, navigation) => {
         //Accept / Right swipe
         if (gestureState.dx > SWIPE_THRESHOLD) {
           Animated.spring(position, {
-            toValue: {x: SCREEN_WIDTH + 100, y: gestureState.dy},
+            toValue: { x: SCREEN_WIDTH + 100, y: gestureState.dy },
             useNativeDriver: true,
             speed: 24
           }
@@ -96,20 +96,20 @@ const renderSubstitution = (item, navigation) => {
             navigateToPopUp(navigation, item)
           })
 
-        //Deny / Left swipe
+          //Deny / Left swipe
         } else if (gestureState.dx < -SWIPE_THRESHOLD) {
           Animated.spring(position, {
-            toValue: {x: -SCREEN_WIDTH - 100, y: gestureState.dy},
+            toValue: { x: -SCREEN_WIDTH - 100, y: gestureState.dy },
             useNativeDriver: true
           }
           ).start(() => {
             navigation.pop()
           })
 
-        //Return card to original position
+          //Return card to original position
         } else {
           Animated.spring(position, {
-            toValue: {x: 0, y: 0},
+            toValue: { x: 0, y: 0 },
             friction: 4,
             useNativeDriver: true
           }).start()
@@ -128,9 +128,9 @@ const renderSubstitution = (item, navigation) => {
   //Move and rotate card
   const rotateAndTranslate = {
     transform: [
-      {rotate: rotatePosition},
-      {translateX: position.x},
-      {translateY: position.y}
+      { rotate: rotatePosition },
+      { translateX: position.x },
+      { translateY: position.y }
     ]
   }
 
@@ -157,17 +157,18 @@ const renderSubstitution = (item, navigation) => {
     )
   })
 
-  const placeholder = {uri: 'https://images.unsplash.com/photo-1584432810601-6c7f27d2362b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8'}
-  const test = {uri: 'https://images.unsplash.com/photo-1584432810601-6c7f27d2362b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8'}
+  const placeholder = { uri: 'https://images.unsplash.com/photo-1584432810601-6c7f27d2362b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8' }
+  const test = { uri: 'https://images.unsplash.com/photo-1584432810601-6c7f27d2362b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8' }
 
 
 
   const image = () => {
     if (item.image) {
-      return {uri: item.image}
+      return { uri: item.image }
     } else {
       return placeholder
-    }  }
+    }
+  }
 
   const logoImage = () => {
     if (item.logo) {
@@ -180,7 +181,7 @@ const renderSubstitution = (item, navigation) => {
 
 
   return (
-    <Animated.View 
+    <Animated.View
       {...panResponder.panHandlers}
       style={[
         rotateAndTranslate,
@@ -193,22 +194,24 @@ const renderSubstitution = (item, navigation) => {
     >
       <ImageBackground
         source={image()}
-        imageStyle={{borderTopRightRadius: 10, borderTopLeftRadius: 10 }}
+        imageStyle={{ borderTopRightRadius: 10, borderTopLeftRadius: 10 }}
       >
         <LinearGradient
           colors={['transparent', 'rgba(0,0,0,0.5)']}
-          start={{ x: 0, y: 0.3}}
-          end={{x: 0.0, y: 0.8}}
-          style={{borderTopRightRadius: 10, borderTopLeftRadius: 10}}>
+          start={{ x: 0, y: 0.3 }}
+          end={{ x: 0.0, y: 0.8 }}
+          style={{ borderTopRightRadius: 10, borderTopLeftRadius: 10 }}>
           <View style={styles.substitutionHeroPreviewComponentBottomElement}>
 
-            <View style={{ flexDirection: 'row', alignContent: 'space-between'}}>
+            <View style={{ flexDirection: 'row', alignContent: 'space-between' }}>
 
-              <View style={{ backgroundColor: '#FAFAFA', marginTop: 15, padding:5, borderRadius: 10, flexDirection: 'row', alignItems: 'center',
-                alignSelf: 'flex-start',}}>
+              <View style={{
+                backgroundColor: '#FAFAFA', marginTop: 15, padding: 5, borderRadius: 10, flexDirection: 'row', alignItems: 'center',
+                alignSelf: 'flex-start',
+              }}>
                 <Image
                   source={logoImage()}
-                  style={{maxWidth: 100, maxHeight: 50, margin: 5, width: 80, height: 40}}
+                  style={{ maxWidth: 100, maxHeight: 50, margin: 5, width: 80, height: 40 }}
                   resizeMode={'contain'}
                 />
 
@@ -221,14 +224,16 @@ const renderSubstitution = (item, navigation) => {
             </View>
 
 
-            <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginBottom: 25, flex: 5}}>
-              <View style={{ flexDirection: 'column', justifyContent: 'flex-end'}}>
-                <Text style={[styles.whiteText, { fontSize: 33, fontFamily: 'Figtree-ExtraBold'}]}>
+            <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginBottom: 25, flex: 5 }}>
+              <View style={{ flexDirection: 'column', justifyContent: 'flex-end' }}>
+                <Text style={[styles.whiteText, { fontSize: 33, fontFamily: 'Figtree-ExtraBold' }]}>
                   {item.title}
                 </Text>
-                <Text style={[styles.whiteText, { paddingRight: 8, fontWeight: 'bold', fontSize: 20}]}>
-                  {item.department}
-                </Text>
+                <Pressable onPress={() => navigation.navigate('Haku', {searchParam: item.department})}>
+                  <Text style={[styles.whiteText, { paddingRight: 8, fontWeight: 'bold', fontSize: 20}]}>
+                    {item.department}
+                  </Text>
+                </Pressable>
               </View>
 
             </View>
@@ -238,7 +243,7 @@ const renderSubstitution = (item, navigation) => {
 
 
       <View style={styles.recommendationCardInfoBarElement}>
-        <View style={{flexDirection: 'column', flex: 1, justifyContent: 'space-between'}}>
+        <View style={{ flexDirection: 'column', flex: 1, justifyContent: 'space-between' }}>
           <Text style={styles.whiteText}>
             {formatDate(item.timing.startTime)}
           </Text>
@@ -246,7 +251,7 @@ const renderSubstitution = (item, navigation) => {
             {formatTime(item.timing.startTime, item.timing.duration)}
           </Text>
         </View>
-        <View style={{flexDirection: 'column', alignItems: 'flex-end', flex:2}}>
+        <View style={{ flexDirection: 'column', alignItems: 'flex-end', flex: 2 }}>
           <Text style={styles.substItemOrganisationText}>
             {item.organisation}
           </Text>
@@ -257,30 +262,34 @@ const renderSubstitution = (item, navigation) => {
       </View>
 
       <View style={styles.substitutionCardSalaryItem}>
-        <Text style={{fontWeight:'bold', textAlign:'right'}}>
-          {item.hourlyPay + '€/h'}
+        <Text style={{ fontWeight: 'bold', textAlign: 'right' }}>
+          {item.hourlyPay + ' €/h'}
         </Text>
         <Text>
-          {'(~' + Math.floor(item.hourlyPay * (item.timing.duration/60)) + '€)'}
+          {' (~' + Math.floor(item.hourlyPay * (item.timing.duration / 60)) + ' €)'}
         </Text>
 
       </View>
 
-      <View style={{paddingHorizontal: 16, flex: 3}}>
-        <Pressable style={{ paddingHorizontal: 16, height: 50, borderColor: '#000', borderStyle: 'solid', borderWidth: 1 }} onPress={() => {console.log('m'), navigateToSingleSubstitutionScreen(navigation, item)}} >
+      <View style={{ paddingHorizontal: 16, flex: 3 }}>
+        <Pressable style={{ paddingHorizontal: 16, height: 50 }}
+          accessibilityRole="button"
+          accessibilityLabel="Avaa lisätiedot"
+          accessibilityHint='Avaa keikan tiedot koko näytön näkymään'
+          onPress={() => { console.log('m'), navigateToSingleSubstitutionScreen(navigation, item) }} >
           <Text >{item.description}</Text>
         </Pressable>
       </View>
 
       <DenyBookmarkAndAcceptButton
-        denyCallback={()=>{
+        denyCallback={() => {
           navigation.pop()
         }}
-        bookmarkCallback={()=>{
+        bookmarkCallback={() => {
           saveSubstitution(item)
           navigation.pop()
         }}
-        acceptCallback={()=>{
+        acceptCallback={() => {
           navigateToPopUp(navigation, item)
         }}
       />
