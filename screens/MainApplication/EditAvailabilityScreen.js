@@ -3,8 +3,12 @@ import { View, Text, Pressable, StyleSheet } from 'react-native'
 import { colors } from '../../assets/styles/colors'
 import style from '../../assets/styles/styles'
 import { Icon } from '@rneui/themed'
+import { Calendar } from 'react-native-calendars'
+import { formatDate, getUserData } from '../../utils'
+import { setUserData } from '../../utils/setUserData'
 
-function saveAvailability(startDate, endDate, monday, tuesday, wednesday, thursday, friday, saturday, sunday) {
+async function saveAvailability(startDate, endDate, monday, tuesday, wednesday, thursday, friday, saturday, sunday, navigation) {
+  const userData = await getUserData()
   let recurringDates = []
 
   if(sunday) {
@@ -40,14 +44,20 @@ function saveAvailability(startDate, endDate, monday, tuesday, wednesday, thursd
    */
   const availability = {
     startDate: startDate,
-    endDate: endDate ? endDate : '-',
+    endDate: endDate ? new Date(endDate) : '-',
     recurring: recurringDates
   }
 
-  console.log('TODO: Add to a list in user data')
+  if (!userData.availability) {
+    userData.availability = []
+  } 
+  userData.availability.push(availability)
+  await setUserData(userData)
+
+  navigation.pop()
 }
 
-function EditAvailabilityScreen() {
+function EditAvailabilityScreen({ navigation }) {
 
   const [startDate, setStartDate] = useState(new Date())
   const [endDate, setEndDate] = useState()
@@ -59,6 +69,9 @@ function EditAvailabilityScreen() {
   const [saturday, setSaturday] = useState(false)
   const [sunday, setSunday] = useState(false)
 
+  const [showCalendar, setShowCalendar] = useState(false)
+  console.log(endDate)
+
   return (
     <View style={availabilityStyles.screenContainer}>
       <Text style={[style.blackText, {fontWeight: 'bold', marginVertical: 10, marginLeft: 10}]}>Aseta poissaolo</Text>
@@ -66,18 +79,40 @@ function EditAvailabilityScreen() {
         <View>
           <Text style={style.blackText}>Alkaen</Text>
           <View style={availabilityStyles.dateContainer}>
-            <Text style={[style.blackText, {textAlign: 'center'}]}>{startDate.getDate() + '.' + (startDate.getMonth() + 1) + '.' + startDate.getFullYear()}</Text>
+            <Text style={[style.blackText, {textAlign: 'center'}]}>{formatDate(startDate)}</Text>
           </View>
         </View>
         <View>
           <Text style={style.blackText}>Päättyen</Text>
-          <Pressable style={availabilityStyles.dateContainer} onPress={() => console.log('TODO: open calendar')}>
-            <Text style={[style.blackText, {textAlign: 'center'}]}>-</Text>
+          <Pressable style={availabilityStyles.dateContainer} onPress={() => setShowCalendar(!showCalendar)}>
+            <Text style={[style.blackText, {textAlign: 'center'}]}>{endDate ? formatDate(new Date(endDate)) : '-'}</Text>
           </Pressable>
         </View>
       </View>
 
-      <View style={availabilityStyles.sectionDivider} />
+      { showCalendar &&
+        <>
+          <View style={availabilityStyles.sectionDivider} />
+          <Calendar
+            headerStyle={{ paddingTop: 5 }}
+            current={endDate}
+            firstDay={1}
+            hideExtraDays={true}
+            markedDates={{[endDate]: {selected: true}}}
+            theme={{
+              backgroundColor: '#ffffff',
+              calendarBackground: '#ffffff',
+              textSectionTitleColor: '#b6c1cd',
+              selectedDayBackgroundColor: '#00adf5',
+              selectedDayTextColor: colors.krGreen,
+              textDisabledColor: '',
+            }}
+            onDayPress={day => setEndDate(day.dateString)}
+          />
+        </>
+      }
+
+      <View style={[availabilityStyles.sectionDivider, {marginTop: 10}]} />
 
       <Text style={[style.blackText, {fontWeight: 'bold', marginTop: 20, marginLeft: 10}]}>Toistuu</Text>
 
@@ -115,7 +150,7 @@ function EditAvailabilityScreen() {
       <View style={availabilityStyles.sectionDivider} />
 
       <View style={availabilityStyles.saveSection}>
-        <Pressable style={availabilityStyles.saveButton} onPress={() => saveAvailability(startDate, endDate, monday, tuesday, wednesday, thursday, friday, saturday, sunday)}>
+        <Pressable style={availabilityStyles.saveButton} onPress={() => saveAvailability(startDate, endDate, monday, tuesday, wednesday, thursday, friday, saturday, sunday, navigation)}>
           <Text style={[style.buttonText, {textAlign: 'center'}]}>Tallenna</Text>
         </Pressable>
       </View>

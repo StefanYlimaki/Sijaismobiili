@@ -23,7 +23,7 @@ function SubstItem({substitution}) {
   )
 }
 
-export function getCalendar(isMonth) {
+export function getCalendar(isMonth, navigation) {
 
   let today = new Date().toDateString()
   const { i18n, locale, setLocale } = useContext(LocaleContext)
@@ -87,7 +87,7 @@ export function getCalendar(isMonth) {
               {'\n'}{'\n'}
             </Text>
             <Pressable style={{ backgroundColor: colors.krGray, borderRadius: 9, height: '42%', width: '55%' }}>
-              <Text style={{ textAlign: 'center' }}>{i18n.t('editAvailability')}</Text>
+              <Text onPress={() => navigation.navigate('EditAvailabilityScreen')} style={{ textAlign: 'center' }}>{i18n.t('editAvailability')}</Text>
             </Pressable>
           </View>
 

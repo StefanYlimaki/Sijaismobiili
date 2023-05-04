@@ -6,19 +6,15 @@ import { getUserData } from './getUserData'
  * Return a boolean accordingly
  */
 export default async function isDuringAbsence(substitution) {
-  const user = await getUserData()
+  const userData = await getUserData()
 
-  const availability = [
-    {
-      startDate: '2022-04-28T09:21:29Z',
-      endDate: '2024-04-28T09:21:29Z',
-      recurring: [-1]
-    }
-  ]
+  if (!userData.availability) {
+    userData.availability = []
+  }
 
-  for (item of availability) {
-    const startDate = new Date(item.startDate)
-    const substDate = new Date(substitution.timing.startTime)
+  for (item of userData.availability) {
+    let startDate = new Date(item.startDate)
+    let substDate = new Date(substitution.timing.startTime)
     // Parse out the hours for easier comparisons
     startDate = new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate())
     substDate = new Date(substDate.getFullYear(), substDate.getMonth(), substDate.getDate())
@@ -29,7 +25,7 @@ export default async function isDuringAbsence(substitution) {
         return (startDate.getTime() === substDate.getTime())
       }
       // If user has given a time range
-      const endDate = new Date(item.endDate)
+      let endDate = new Date(item.endDate)
       endDate = new Date(endDate.getFullYear(), endDate.getMonth(), endDate.getDate())
       return (startDate.getTime() <= substDate.getTime() && endDate.getTime() >= substDate.getTime())
     } else { // User has set a recurring weekly absence
@@ -40,7 +36,7 @@ export default async function isDuringAbsence(substitution) {
       }
 
       // If an end date has been set
-      const endDate = new Date(item.endDate)
+      let endDate = new Date(item.endDate)
       endDate = new Date(endDate.getFullYear(), endDate.getMonth(), endDate.getDate())
       return (item.recurring.includes(substDate.getDay()) && substDate <= endDate)
     }
