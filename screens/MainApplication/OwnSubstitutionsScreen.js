@@ -31,7 +31,7 @@ const OwnSubstitutionsScreen = ({ navigation }) => {
   })
 
   return (
-    <ScrollView contentContainerStyle={{paddingBottom: 300}}>
+    <ScrollView contentContainerStyle={{paddingBottom: 300, marginTop: 10}}>
       <NavigateToSavedSubstitutionsButton navigation={navigation}/>
 
       <View style={{ flexDirection: 'row', marginHorizontal: '5%', marginTop: 15 }}>
@@ -47,7 +47,7 @@ const OwnSubstitutionsScreen = ({ navigation }) => {
         </Pressable>
       </View>
 
-      {getCalendar(isMonth)}
+      {getCalendar(isMonth, navigation)}
 
       <View style={{ paddingHorizontal: '5%' }}>
         <View>

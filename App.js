@@ -22,6 +22,7 @@ import {colors} from './assets/styles/colors'
 import GigConfirmedPopup from './components/GigConfirmedPopup'
 import OnboardingScreen from './screens/Onboarding/OnboardingScreen'
 import { getUserData } from './utils'
+import EditAvailabilityScreen from './screens/MainApplication/EditAvailabilityScreen'
 import PayslipScreen from './screens/MainApplication/PayslipScreen'
 
 const Stack = createNativeStackNavigator()
@@ -126,6 +127,7 @@ export default function App() {
                 <Stack.Screen name="UpcomingGigsList" component={UpcomingGigsList} options={{ headerShown: true, title: 'Kaikki tulevat keikat' }}/>
                 <Stack.Screen name="GigConfirmedPopup" component={GigConfirmedPopup}/>
                 <Stack.Screen name="PayslipScreen" component={PayslipScreen} options={{ headerShown: true, title: 'Palkkakuitti' }}/>
+                <Stack.Screen name="EditAvailabilityScreen" component={EditAvailabilityScreen} options={{ headerShown: true, title: 'Muokkaa käytettävyyttä' }}/>
               </Stack.Navigator>
             </View>
           </NavigationContainer>
