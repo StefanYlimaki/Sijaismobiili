@@ -236,7 +236,7 @@ const renderSubstitution = (item, navigation, updateList) => {
                   {item.title}
                 </Text>
                 <Pressable onPress={() => navigation.navigate('Haku', {searchParam: item.department})}>
-                  <Text style={[styles.whiteText, { paddingRight: 8, fontWeight: 'bold', fontSize: 20}]}>
+                  <Text style={[styles.whiteText, { paddingRight: 8, fontWeight: 'bold', fontSize: fontSizes.xl}]}>
                     {item.department}
                   </Text>
                 </Pressable>
