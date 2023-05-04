@@ -60,6 +60,10 @@ const AllSubstitutions = ({ navigation, route }) => {
 
   //Run when route params are updated
   useEffect(() => {
+    if (route.params?.searchParam) {
+      setSearch(route.params.searchParam)
+      filterSubstitutions(selectedOrder, selectedShift, showSavedOnly, route.params.searchParam)
+    }
     if (route.params?.showSavedOnly) {
       setOnlySaved(true)
       filterSubstitutions(selectedOrder, selectedShift, true, search)
