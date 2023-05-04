@@ -13,7 +13,7 @@ import {
 import React, { useRef, useState } from 'react'
 import Constants from 'expo-constants'
 import { BlurView } from 'expo-blur'
-import styles from '../assets/styles/styles'
+import styles, {fontSizes} from '../assets/styles/styles'
 import { formatDate, formatHourlyPay, formatTime } from '../utils'
 import calculateDistance from '../utils/calculateDistance'
 import DenyBookmarkAndAcceptButton from '../components/DenyBookmarkAndAcceptButtons'
@@ -21,6 +21,7 @@ import acceptSubstitution from '../utils/acceptSubstitution'
 import { colors } from '../assets/styles/colors'
 import { LinearGradient } from 'expo-linear-gradient'
 import saveSubstitution from '../utils/saveSubstitution'
+import {Feather} from '@expo/vector-icons'
 
 const SCREEN_HEIGHT = Dimensions.get('window').height
 const SCREEN_WIDTH = Dimensions.get('window').width - 50
@@ -43,6 +44,7 @@ const SubstitutionCard = ({ route }) => {
     </View>
   )
 }
+
 
 const navigateToPopUp = (navigation, item) => {
   navigation.navigate('ConfirmSubstitution', {
@@ -132,6 +134,10 @@ const renderSubstitution = (item, navigation, updateList) => {
       { translateX: position.x },
       { translateY: position.y }
     ]
+  }
+
+  const getDistance = () => {
+    return calculateDistance(parseFloat(item.coordinates.latitude), parseFloat(item.coordinates.longitude), 65.05941, 25.46642, false)
   }
 
   //Render cards from JSON
@@ -242,22 +248,34 @@ const renderSubstitution = (item, navigation, updateList) => {
       </ImageBackground>
 
 
-      <View style={styles.recommendationCardInfoBarElement}>
-        <View style={{ flexDirection: 'column', flex: 1, justifyContent: 'space-between' }}>
-          <Text style={styles.whiteText}>
-            {formatDate(item.timing.startTime)}
-          </Text>
-          <Text style={styles.whiteText}>
-            {formatTime(item.timing.startTime, item.timing.duration)}
-          </Text>
-        </View>
-        <View style={{ flexDirection: 'column', alignItems: 'flex-end', flex: 2 }}>
-          <Text style={styles.substItemOrganisationText}>
-            {item.organisation}
-          </Text>
-          <Text style={styles.whiteText}>
-            {calculateDistance(item.location)}
-          </Text>
+      <View style={[styles.substitutionPreviewComponentTopElement, {height: fontSizes.md * 2, backgroundColor: colors.krGreen, borderTopLeftRadius: 0, borderTopRightRadius: 0}]}>
+        <View style={{flexDirection: 'row', flex: 1}}>
+          <View style={{flexDirection: 'column', flex: 5, justifyContent: 'space-between'}}>
+            <View style={{flexDirection: 'row', flex: 1}}>
+              <View style={{flexDirection: 'row', alignItems: 'flex-start', flex: 1}}>
+                <Feather name='calendar' size={fontSizes.md} color='white'/>
+                <Text style={[styles.whiteText, { marginLeft: 5, fontSize: fontSizes.md }]}>
+                  {formatDate(item.timing.startTime)}
+                </Text>
+              </View>
+
+              <View style={{flexDirection: 'row', flex: 2, alignItems: 'flex-start'}}>
+                <Feather name='clock' size={fontSizes.md} color='white'/>
+                <Text style={[styles.whiteText, { marginLeft: 5, fontSize: fontSizes.md }]}>
+                  {formatTime(item.timing.startTime, item.timing.duration)}
+                </Text>
+              </View>
+            </View>
+          </View>
+
+          <View style={{flexDirection: 'column', alignItems: 'flex-end', flexBasis: 50}}>
+            <View style={{flexDirection: 'row'}}>
+              <Feather name='map-pin' size={fontSizes.md} color='white'/>
+              <Text style={[styles.whiteText, { marginLeft: 5}]}>
+                {getDistance(item.location)}
+              </Text>
+            </View>
+          </View>
         </View>
       </View>
 
