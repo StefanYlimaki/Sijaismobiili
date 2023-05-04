@@ -58,7 +58,7 @@ const TailoredSubsitutions = ({ route, navigation }) => {
   }
 
   return (
-    <View>
+    <View style={{ marginTop: 10 }}>
       <SubstitutionsList navigation={navigation} substitutions={tailoredSubstitutions}/>
     </View>
   )

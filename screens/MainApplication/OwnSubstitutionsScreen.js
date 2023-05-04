@@ -1,4 +1,4 @@
-import { Text, View, Button } from 'react-native'
+import { Text, View, ScrollView, Button } from 'react-native'
 import {Calendar, LocaleConfig, DateData, CalendarProvider, CalendarContext} from 'react-native-calendars'
 import React, { useState, useEffect } from 'react'
 
@@ -8,6 +8,9 @@ import SubstitutionsList from '../../components/SubstitutionsList'
 import substitutions from '../../assets/data/substitutionsData_new.json'
 import UpcomingGigs from '../../components/UpcomingGigs'
 import { getUserData } from '../../utils'
+import NavigateToSavedSubstitutionsButton from '../../components/NavigateToSavedSubstitutionsButton'
+import Payslip from '../../components/Payslip'
+
 
 const OwnSubstitutionsScreen = ({ navigation }) => {
 
@@ -53,7 +56,8 @@ const OwnSubstitutionsScreen = ({ navigation }) => {
   })
 
   return (
-    <View style= {{justifyContent: 'space-between'}}>
+    <ScrollView contentContainerStyle={{paddingBottom: 300}}>
+      <NavigateToSavedSubstitutionsButton navigation={navigation}/>
       <View style ={Styles.calendar}>
         <Calendar 
           style ={Styles.calendar}
@@ -86,7 +90,7 @@ const OwnSubstitutionsScreen = ({ navigation }) => {
         />
       </View>
         
-      <View style={{paddingHorizontal: '5%'}}>
+      <View style={{paddingHorizontal: 20}}>
         <View style={Styles.agenda}>
           <Text style={{textAlign: 'left', fontWeight: 'bold'}}>{selected}{selected == today ? <Text> (tänään)</Text>: null}{'\n'}{'\n'}</Text>
           <Text style={{textAlign: 'center'}}>Ei merkintöjä.{'\n'}{'\n'}</Text>
@@ -94,9 +98,12 @@ const OwnSubstitutionsScreen = ({ navigation }) => {
         </View>
       </View>
       
-      
+      <Text style={[Styles.h2, {textAlign: 'left', marginLeft: 25}]}>Tulevat vuorot</Text>
       {userSubstitutions && <UpcomingGigs substIDs={userSubstitutions} navigation={navigation}/>}
-    </View>
+
+      <Text style={[Styles.h2, {textAlign: 'left', marginLeft: 25}]}>Palkkakuitti</Text>
+      <Payslip navigation={navigation}/>
+    </ScrollView>
   )
 }
 

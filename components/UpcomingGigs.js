@@ -1,13 +1,13 @@
 import { View, Text, StyleSheet, Pressable } from 'react-native'
-import { useState } from 'react'
-import styles from '../assets/styles/styles'
+import style from '../assets/styles/styles'
 import { formatDate, formatTime } from '../utils'
 import calculateDistance from '../utils/calculateDistance'
 import substitutions from '../assets/data/substitutionsData_new.json'
+import { colors } from '../assets/styles/colors'
 
 function EmptyGigs() {
   return (
-    <View style={cardStyles.upcomingGigsCard}>
+    <View style={cardStyles.cardContainer}>
       <View style={cardStyles.emptyCard}>
         <Text style={{ textAlign: 'center' }}>
           Et ole vielä kiinnittäytynyt keikkoihin.
@@ -32,7 +32,7 @@ function UpcomingGigs({ substIDs, navigation }) {
     const nextGig = sortedGigs[0]
 
     return (
-      <View style={cardStyles.upcomingGigsCard}>
+      <View style={cardStyles.cardContainer}>
         <Pressable
           onPress={() =>
             navigation.navigate('SingleSubstitution', {
@@ -40,22 +40,22 @@ function UpcomingGigs({ substIDs, navigation }) {
               navigation: navigation
             })
           }
-          style={({ pressed }) => pressed && styles.pressedSubstitutionItem}
+          style={({ pressed }) => pressed && style.pressedSubstitutionItem}
         >
-          <View style={[styles.substitutionPreviewComponentTopElement, cardStyles.cardHeader]}>
+          <View style={[style.substitutionPreviewComponentTopElement, cardStyles.cardHeader]}>
             <View style={{ flexDirection: 'column', flex: 1, justifyContent: 'space-between' }}>
-              <Text style={styles.whiteText}>
+              <Text style={style.whiteText}>
                 {formatDate(nextGig.timing.startTime)}
               </Text>
-              <Text style={styles.whiteText}>
+              <Text style={style.whiteText}>
                 {formatTime(nextGig.timing.startTime, nextGig.timing.duration)}
               </Text>
             </View>
             <View style={{ flexDirection: 'column', alignItems: 'flex-end', flex: 2 }}>
-              <Text style={styles.substItemOrganisationText}>
+              <Text style={cardStyles.organisationText}>
                 {nextGig.organisation}
               </Text>
-              <Text style={styles.whiteText}>
+              <Text style={style.whiteText}>
                 {getDistance(nextGig)}
               </Text>
             </View>
@@ -63,10 +63,10 @@ function UpcomingGigs({ substIDs, navigation }) {
 
           <View style={cardStyles.cardBody}>
             <View style={{ flexDirection: 'column', justifyContent: 'flex-end' }}>
-              <Text style={[styles.blackText, { fontSize: 20, fontFamily: 'Inter-DisplayBold' }]}>
+              <Text style={[style.blackText, { fontSize: 20, fontFamily: 'Inter-DisplayBold' }]}>
                 {nextGig.title}
               </Text>
-              <Text style={[styles.blackText, { paddingRight: 8, fontFamily: 'Inter-DisplayMedium', fontSize: 15 }]}>
+              <Text style={[style.blackText, { paddingRight: 8, fontFamily: 'Inter-DisplayMedium', fontSize: 15 }]}>
                 {nextGig.department}
               </Text>
             </View>
@@ -94,6 +94,10 @@ const cardStyles = StyleSheet.create({
     paddingLeft: 16,
     paddingVertical: 8,
   },
+  cardContainer: {
+    marginHorizontal: 20,
+    minHeight: 130
+  },
   cardFooter: {
     backgroundColor: '#AAC4C5',
     borderBottomLeftRadius: 10,
@@ -103,6 +107,7 @@ const cardStyles = StyleSheet.create({
   },
   cardHeader: {
     borderWidth: 1,
+    flexDirection: 'row'
   },
   emptyCard: {
     backgroundColor: '#D9D9D9',
@@ -110,10 +115,14 @@ const cardStyles = StyleSheet.create({
     borderWidth: 1,
     flexDirection: 'column',
     justifyContent: 'center',
-    minHeight: 110
+    minHeight: 130
   },
-  upcomingGigsCard: {
-    marginHorizontal: 15,
+  organisationText: {
+    color: colors.textLight,
+    fontFamily: 'Inter-DisplaySemiBold',
+    fontSize: 12,
+    opacity: 0.85,
+    textAlign: 'right',
   }
 })
 

@@ -1,6 +1,16 @@
 import {StyleSheet, Dimensions } from 'react-native'
 import { colors } from './colors.js'
 const {width: W} = Dimensions.get('window')
+export const fontSizes = {
+  xs: 10,
+  sm: 12,
+  ms: 14,
+  md: 16,
+  lg: 18,
+  xl: 20,
+  xxl: 24,
+  xyl: 34,
+}
 
 const style = StyleSheet.create({
 
@@ -68,12 +78,12 @@ const style = StyleSheet.create({
   },
   h1: {
     fontFamily: 'Inter-DisplaySemiBold',
-    fontSize: 35,
+    fontSize: fontSizes.xyl,
     textAlign: 'center',
   },
   h2: {
     fontFamily: 'Inter-DisplayBlack',
-    fontSize: 18,
+    fontSize: fontSizes.lg,
     paddingBottom: 10,
     paddingTop: 10,
     textAlign: 'center',
@@ -98,7 +108,7 @@ const style = StyleSheet.create({
   label: {
     color: colors.textDark,
     fontFamily: 'Inter-DisplayExtraBold',
-    fontSize: 13,
+    fontSize: fontSizes.sm,
     paddingHorizontal: '3%',
     paddingVertical: '1%',
   //  textTransform: 'uppercase',
@@ -168,7 +178,7 @@ const style = StyleSheet.create({
   removeAccountButtonText: {
     color: colors.textLight,
     fontFamily: 'Inter-DisplayBlack',
-    fontSize: 20,
+    fontSize: fontSizes.xl,
     opacity: 0.85,
     textAlign: 'center'
   },
@@ -230,14 +240,15 @@ const style = StyleSheet.create({
   substItemOrganisationText: {
     color: colors.textLight,
     fontFamily: 'Inter-DisplaySemiBold',
-    fontSize: 12,
+    fontSize: fontSizes.sm,
+    marginRight: 15,
     opacity: 0.85,
-    textAlign: 'right',
+    textAlign: 'left',
   },
   substItemOrganisationTextDark: {
     color: colors.textDark,
     fontFamily: 'Inter-DisplaySemiBold',
-    fontSize: 12,
+    fontSize: fontSizes.sm,
     opacity: 0.85,
     textAlign: 'right',
   },
@@ -257,12 +268,12 @@ const style = StyleSheet.create({
   substitutionCardInfoBarLeftElement: {
     alignSelf: 'flex-start',
     color: 'white',
-    fontSize: 13
+    fontSize: fontSizes.sm
   },
   substitutionCardInfoBarRighBotElement: {
     alignSelf: 'flex-end',
     color: 'white',
-    fontSize: 13
+    fontSize: fontSizes.sm,
   },
   substitutionCardInfoBarRightTopElement: {
     alignItems: 'flex-start',
@@ -270,7 +281,7 @@ const style = StyleSheet.create({
     color: 'white',
     flexDirection: 'column',
     flex:2,
-    fontSize: 13
+    fontSize: fontSizes.sm
   },
   substitutionCardInfoElement: {
     alignItems: 'flex-start',
@@ -353,8 +364,6 @@ const style = StyleSheet.create({
     backgroundColor: colors.krGreen,
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
-    flexDirection: 'row',
-    minHeight: 50,
     paddingHorizontal: 16,
     paddingVertical: 8,
   },
@@ -419,7 +428,7 @@ const style = StyleSheet.create({
     flex: 3,
     flexDirection: 'row',
     justifyContent: 'center',
-    margin: -900,
+    margin: 20,
   },
   userTabItem: {
     borderRadius: 1000,

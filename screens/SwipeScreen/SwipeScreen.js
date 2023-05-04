@@ -83,10 +83,10 @@ const SwipeScreen = ({ navigation }) => {
   return(
     <View style={{height:'100%'}}>
       <View style={{
-        marginHorizontal: -20,
-        marginVertical: -50,
+        marginHorizontal: '-5%',
+        marginVertical: '-15%',
         paddingVertical: 60,
-        height: 170,
+        height: '23%',
         backgroundColor: colors.krGreen, 
         marginBottom: 10, 
         alignContent: 'center',

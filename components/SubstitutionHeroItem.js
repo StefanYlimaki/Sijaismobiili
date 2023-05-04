@@ -1,6 +1,6 @@
 import {View, Text, Pressable, Animated, ImageBackground, Image} from 'react-native'
 import { formatHourlyPay, formatDate, formatTime } from '../utils'
-import styles from '../assets/styles/styles'
+import styles, {fontSizes} from '../assets/styles/styles'
 import calculateDistance from '../utils/calculateDistance'
 import { LinearGradient } from 'expo-linear-gradient'
 const placeholder = {uri: 'https://images.unsplash.com/photo-1584432810601-6c7f27d2362b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8'}
@@ -103,10 +103,10 @@ const SubstitutionItem = ({ substitution, navigation }) => {
 
                 <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginBottom: 25, flex: 5}}>
                   <View style={{ flexDirection: 'column', justifyContent: 'flex-end'}}>
-                    <Text style={[styles.whiteText, { fontSize: 33, fontFamily: 'Figtree-ExtraBold'}]}>
+                    <Text style={[styles.whiteText, { fontSize: fontSizes.xyl, fontFamily: 'Figtree-ExtraBold'}]}>
                       {substitution.item.title}
                     </Text>
-                    <Text style={[styles.whiteText, { paddingRight: 8, fontWeight: 'bold', fontSize: 20}]}>
+                    <Text style={[styles.whiteText, { paddingRight: 8, fontWeight: 'bold', fontSize: fontSizes.xl}]}>
                       {substitution.item.department}
                     </Text>
                     <View style={{flexDirection: 'row'}}>

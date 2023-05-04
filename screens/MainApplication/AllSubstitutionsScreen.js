@@ -1,8 +1,10 @@
 import { View, Button, StyleSheet, Pressable } from 'react-native'
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
+import { Text } from 'react-native'
 import { SearchBar } from '@rneui/base'
 import { Icon } from '@rneui/themed'
-import * as Colors from '../../assets/styles/colors'
+import { colors } from '../../assets/styles/colors'
+import { getUserData } from '../../utils'
 
 import calculateDistance from '../../utils/calculateDistance'
 import SubstitutionsList from '../../components/SubstitutionsList'
@@ -10,7 +12,7 @@ import substitutions from '../../assets/data/substitutionsData_new.json'
 import { BottomSheetModal, BottomSheetModalProvider } from '@gorhom/bottom-sheet'
 import FilterModal from '../FilterModal'
 
-const AllSubstitutions = ({ navigation }) => {
+const AllSubstitutions = ({ navigation, route }) => {
 
   const FILTER_OPTIONS = {
     NEWEST_FIRST: 0,
@@ -28,6 +30,8 @@ const AllSubstitutions = ({ navigation }) => {
   const [substList, setSubstList] = useState(substitutions)
   const [selectedOrder, setSelectedOrder] = useState(FILTER_OPTIONS.NEWEST_FIRST)
   const [selectedShift, setSelectedShift] = useState(SHIFT_OPTIONS.ALL)
+  const [showSavedOnly, setOnlySaved] = useState(false)
+  const [savedSubstitutionIds, setIds] = useState(null)
   const [value, setValue] = useState([])
 
   const BottomSheetModalRef = useRef(null)
@@ -35,14 +39,43 @@ const AllSubstitutions = ({ navigation }) => {
 
   const [search, setSearch] = useState('')
 
-  updateSearch = (search) => {
+  useState(() => {
+    const retrieveData = async () => {
+      const userData = await getUserData()
+
+      //Filter accepted substitutions to unique ids
+      if (typeof userData.savedSubstitutions == 'object') {
+        const uniqueSubstitutions = userData.savedSubstitutions.filter(
+          (value, index, array) => array.indexOf(value) === index
+        )
+        setIds(uniqueSubstitutions)
+      } else {
+        setIds([]) 
+      }
+
+      //Filter all substitutions to ones that match the id
+    }
+    retrieveData()
+  }, [])
+
+  //Run when route params are updated
+  useEffect(() => {
+    if (route.params?.showSavedOnly) {
+      setOnlySaved(true)
+      filterSubstitutions(selectedOrder, selectedShift, true, search)
+    }
+  }, [route.params])
+
+
+  const updateSearch = (search) => {
     setSearch(search)
-    filterSubstitutions(selectedOrder, selectedShift, search)
+    filterSubstitutions(selectedOrder, selectedShift, showSavedOnly, search)
   }
 
-  const filterSubstitutions = (sortOption, shiftOption, search) => {
+  const filterSubstitutions = (sortOption, shiftOption, showSavedOption, search) => {
     setSelectedOrder(sortOption)
     setSelectedShift(shiftOption)
+    setOnlySaved(showSavedOption)
 
     let filtered = [...substitutions]
 
@@ -65,6 +98,17 @@ const AllSubstitutions = ({ navigation }) => {
           }
         }
         return false
+      })
+    }
+
+    // Filter by saved only, if showSavedOnly value is true
+    if (showSavedOption) {
+      filtered = filtered.filter(subst => {
+        if (savedSubstitutionIds.includes(subst.id)) {
+          return true
+        } else {
+          return false
+        }
       })
     }
     
@@ -135,44 +179,70 @@ const AllSubstitutions = ({ navigation }) => {
     setSubstList(filtered)
   }
 
-  return (
-    <BottomSheetModalProvider>
-      <View>
-        <View style={searchStyles.searchHeader}>
-          <View style={{flex: 9, justifyContent: 'center'}}>
-            <SearchBar
-              placeholder='Hae sijaisuuksia'
-              onChangeText={updateSearch}
-              value={search}
-              containerStyle={searchStyles.searchContainer}
-              inputContainerStyle={searchStyles.inputContainer}
-              lightTheme={true}
-              round={true}
+  if (savedSubstitutionIds) {
+    return (
+      <BottomSheetModalProvider>
+        <View>
+          <View style={searchStyles.searchHeader}>
+            <View style={{flex: 9, justifyContent: 'center'}}>
+              <SearchBar
+                placeholder='Hae sijaisuuksia'
+                onChangeText={updateSearch}
+                value={search}
+                containerStyle={searchStyles.searchContainer}
+                inputContainerStyle={searchStyles.inputContainer}
+                lightTheme={true}
+                round={true}
+              />
+            </View>
+            <View style={{flex: 1, justifyContent: 'center', marginRight: 15}}>
+              <Pressable onPress={() => BottomSheetModalRef.current?.present()}>
+                <Icon name='tune-variant' type="material-community" size={27} color={colors.textDark}/>
+              </Pressable>
+            </View>
+          </View>
+          <View style={{ height: '95%' }}>
+            {showSavedOnly? (
+              <View style={{
+                backgroundColor: colors.krGreen,
+                width: '33%',
+                padding: 6,
+                marginLeft: 16,
+                borderRadius: 10,
+                marginBottom: 2
+
+              }}>
+                <Text style={{color: colors.textLight, textAlign: 'center'}}>Tallennetut</Text>
+              </View>
+            ) : null}
+            {savedSubstitutionIds.length == 0 && showSavedOnly? (
+              <View>
+                <Text>Et ole tallentanut yhtään sijaisuutta!</Text>
+              </View>
+            ) : (
+              <SubstitutionsList navigation={navigation} substitutions={substList} />
+            )}
+          </View>
+          <BottomSheetModal ref={BottomSheetModalRef} index={0} snapPoints={snapPoints}>
+            <FilterModal
+              substitutions={substitutions}
+              selectedOrder={selectedOrder}
+              selectedShift={selectedShift}
+              showSavedOnly={showSavedOnly}
+              search={search}
+              value={value}
+              setValue={setValue}
+              filterSubstitutions={filterSubstitutions}
             />
-          </View>
-          <View style={{flex: 1, justifyContent: 'center', marginRight: 15}}>
-            <Pressable onPress={() => BottomSheetModalRef.current?.present()}>
-              <Icon name='tune-variant' type="material-community" size={27} color={Colors.textDark}/>
-            </Pressable>
-          </View>
+          </BottomSheetModal>
         </View>
-        <View style={{ height: '95%' }}>
-          <SubstitutionsList navigation={navigation} substitutions={substList} />
-        </View>
-        <BottomSheetModal ref={BottomSheetModalRef} index={0} snapPoints={snapPoints}>
-          <FilterModal
-            substitutions={substitutions}
-            selectedOrder={selectedOrder}
-            selectedShift={selectedShift}
-            search={search}
-            value={value}
-            setValue={setValue}
-            filterSubstitutions={filterSubstitutions}
-          />
-        </BottomSheetModal>
-      </View>
-    </BottomSheetModalProvider>
-  )
+      </BottomSheetModalProvider>
+    )
+  } else {
+    <View>
+      <Text>Loading...</Text>
+    </View>
+  }
 }
 
 const searchStyles = StyleSheet.create({

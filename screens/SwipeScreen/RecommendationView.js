@@ -1,4 +1,4 @@
-import {  Text, View, Dimensions, Animated, PanResponder } from 'react-native'
+import {  Text, View, Dimensions, Animated, PanResponder, ImageBackground } from 'react-native'
 import React, {useRef, useState} from 'react'
 import styles from '../../assets/styles/styles'
 import calculateDistance from '../../utils/calculateDistance'
@@ -9,6 +9,8 @@ import { CommonActions } from '@react-navigation/native'
 import { orderAndFilterSubstitutionsByPreferences } from '../../utils/orderAndFilterSubstitutionsByPreferences'
 import { StyleSheet } from 'react-native-web'
 import { colors } from '../../assets/styles/colors'
+import { LinearGradient } from 'expo-linear-gradient'
+import saveSubstitution from '../../utils/saveSubstitution'
 
 const SCREEN_HEIGHT = Dimensions.get('window').height
 const SCREEN_WIDTH = Dimensions.get('window').width
@@ -16,18 +18,22 @@ const SCREEN_WIDTH = Dimensions.get('window').width
 //Threshold for registering swipes
 const SWIPE_THRESHOLD = 120
 
+
+
+
+const TOUCH_THRESHOLD = 20
+
+const placeholder = {uri: 'https://images.unsplash.com/photo-1584432810601-6c7f27d2362b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8'}
+
 const RecommendationView = ({navigation, substitutions}) => {
   return (
     <View style={{flex:1}}>
-      <View style={{flex:1}}>
-        <RecommendationCards navigation={navigation} substitutions={substitutions} cardCount={substitutions.length}/>
-      </View>
+      <RecommendationCards navigation={navigation} substitutions={substitutions} cardCount={substitutions.length}/>
     </View>
   )
-  
 }
 
-const navigateToPopUp = (navigation, currentIndex) => {
+const navigateToPopUp = (navigation, currentIndex, substitutions) => {
   navigation.navigate('ConfirmSubstitution', {
     substitution: substitutions[currentIndex],
     caller: 'RecommendationView',
@@ -54,8 +60,13 @@ const RecommendationCards = ({navigation, substitutions, cardCount}) => {
   //Create panresponder for swiping cards
   const panResponder = useRef(
     PanResponder.create({
-      onMoveShouldSetPanResponder: () => true,
-      onStartShouldSetPanResponder: () => true,
+      onMoveShouldSetPanResponder: (e, gestureState) => {
+        const {dx, dy} = gestureState
+
+        return (Math.abs(dx) > TOUCH_THRESHOLD || (Math.abs(dy) > TOUCH_THRESHOLD))
+      },
+
+      onStartShouldSetPanResponder: () => false,
 
       //Update position variable when moved
       onPanResponderMove: Animated.event([null, {dx: position.x,
@@ -72,7 +83,7 @@ const RecommendationCards = ({navigation, substitutions, cardCount}) => {
           ).start(() => {
             position.setValue({x: 0, y: 0})
             incrementIndex(prevIndex => prevIndex + 1)
-            navigateToPopUp(navigation, currentIndex)
+            navigateToPopUp(navigation, currentIndex, substitutions)
           })
 
         //Deny / Left swipe
@@ -129,6 +140,7 @@ const RecommendationCards = ({navigation, substitutions, cardCount}) => {
     extrapolate: 'clamp'
   })
 
+
   //Render cards from JSON
   return substitutions.map((item, i) => {
     if (currentIndex > cardCount - 1) {
@@ -153,6 +165,14 @@ const RecommendationCards = ({navigation, substitutions, cardCount}) => {
         )
       })
 
+      const image = () => {
+        if (item.image) {
+          return {uri: item.image}
+        } else {
+          return placeholder
+        }  
+      }
+
       return (
         <Animated.View 
           key={i}
@@ -172,17 +192,32 @@ const RecommendationCards = ({navigation, substitutions, cardCount}) => {
             localStyles.recommendationCardAnimated
           ]}
         >
-          <View style={{paddingTop:10}}>
-            {benefits}
-          </View>
-          <View style={localStyles.recommendationCardInfoElement}>
-            <Text style={{fontSize: 20, fontFamily: 'Inter-Display'}}>
-              {item.title}
-            </Text>
-            <Text style={{fontWeight: 'bold', fontSize: 30, fontFamily: 'Inter-Display'}}>
-              {item.department}
-            </Text>
-          </View>
+          <ImageBackground
+            source={image()}
+            imageStyle={{borderTopRightRadius: 10, borderTopLeftRadius: 10}}
+            style={{flex: 1}}
+          >
+            <LinearGradient
+              colors={['transparent', 'rgba(0,0,0,0.5)']}
+              start={{ x: 0, y: 0.3}}
+              end={{x: 0.0, y: 0.8}}
+              style={{borderTopRightRadius: 10, borderTopLeftRadius: 10, flex: 1}}>
+              <View style={{paddingTop:10}}>
+                {benefits}
+              </View>
+              <View style={{flex: 1}}/>
+              <View style={localStyles.recommendationCardInfoElement}>
+                <Text style={[styles.whiteText, {fontSize: 20, fontFamily: 'Figtree-ExtraBold'}]}>
+                  {item.title}
+                </Text>
+                <Text style={[styles.whiteText, {fontWeight: 'bold', fontSize: 30, fontFamily: 'Inter-Display'}]}>
+                  {item.department}
+                </Text>
+
+              </View>
+            </LinearGradient>
+          </ImageBackground>
+
           <View style={localStyles.recommendationCardInfoBarElement}>
             <View style={{flex:1}}>
               <Text style={localStyles.recommendationCardInfoBarLeftElement}>
@@ -221,9 +256,12 @@ const RecommendationCards = ({navigation, substitutions, cardCount}) => {
           </View>
           <DenyBookmarkAndAcceptButton
             denyCallback={()=>incrementIndex(prevIndex => prevIndex + 1)}
-            bookmarkCallback={()=>incrementIndex(prevIndex => prevIndex + 1)}
+            bookmarkCallback={()=> {
+              incrementIndex(prevIndex => prevIndex + 1)
+              saveSubstitution(item)
+            }}
             acceptCallback={()=> {
-              navigateToPopUp(navigation, currentIndex)
+              navigateToPopUp(navigation, currentIndex, substitutions)
             }}
           />
         </Animated.View>
@@ -242,10 +280,9 @@ const localStyles = StyleSheet.create({
   recommendationCardInfoBarElement: {
     backgroundColor: colors.krBlue,
     flexDirection: 'row',
-    flexGrow: 0.25,
+    flexGrow: 0.2,
     height:'auto',
     justifyContent: 'space-between',
-    marginTop: 20,
     padding: 10
   },
   recommendationCardInfoBarLeftElement: {
@@ -267,7 +304,7 @@ const localStyles = StyleSheet.create({
   recommendationCardInfoElement: {
     flexDirection: 'column',
     paddingLeft: 10,
-    paddingTop: '25%'
+    //paddingTop: '25%'
   },
   recommendationCardSalaryElement: {
     flexDirection: 'row',

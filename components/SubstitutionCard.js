@@ -20,12 +20,15 @@ import DenyBookmarkAndAcceptButton from '../components/DenyBookmarkAndAcceptButt
 import acceptSubstitution from '../utils/acceptSubstitution'
 import { colors } from '../assets/styles/colors'
 import {LinearGradient} from 'expo-linear-gradient'
+import saveSubstitution from '../utils/saveSubstitution'
 
 const SCREEN_HEIGHT = Dimensions.get('window').height
 const SCREEN_WIDTH = Dimensions.get('window').width - 50
 
 //Threshold for registering swipes
 const SWIPE_THRESHOLD = 120
+
+const TOUCH_THRESHOLD = 20
 
 const logo = { uri: 'https://www.sttinfo.fi/data/images/00063/de7b594d-309c-4622-8e66-b8d8b84dafd3-w_300_h_100.png' }
 
@@ -63,8 +66,12 @@ const renderSubstitution = (item, navigation) => {
   //Create panresponder for swiping cards
   const panResponder = useRef(
     PanResponder.create({
-      onMoveShouldSetPanResponder: () => true,
-      onStartShouldSetPanResponder: () => true,
+      onMoveShouldSetPanResponder: (e, gestureState) => {
+        const {dx, dy} = gestureState
+
+        return (Math.abs(dx) > TOUCH_THRESHOLD || (Math.abs(dy) > TOUCH_THRESHOLD))
+      },
+      onStartShouldSetPanResponder: () => false,
 
       onMoveShouldSetPanResponderCapture: (evt, gestureState) => {
         return gestureState.dx !== 0 && gestureState.dy !== 0
@@ -270,6 +277,7 @@ const renderSubstitution = (item, navigation) => {
           navigation.pop()
         }}
         bookmarkCallback={()=>{
+          saveSubstitution(item)
           navigation.pop()
         }}
         acceptCallback={()=>{
