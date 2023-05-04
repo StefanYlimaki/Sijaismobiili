@@ -229,9 +229,11 @@ const renderSubstitution = (item, navigation) => {
                 <Text style={[styles.whiteText, { fontSize: 33, fontFamily: 'Figtree-ExtraBold' }]}>
                   {item.title}
                 </Text>
-                <Text style={[styles.whiteText, { paddingRight: 8, fontWeight: 'bold', fontSize: 20 }]}>
-                  {item.department}
-                </Text>
+                <Pressable onPress={() => navigation.navigate('Haku', {searchParam: item.department})}>
+                  <Text style={[styles.whiteText, { paddingRight: 8, fontWeight: 'bold', fontSize: 20}]}>
+                    {item.department}
+                  </Text>
+                </Pressable>
               </View>
 
             </View>
@@ -270,7 +272,7 @@ const renderSubstitution = (item, navigation) => {
       </View>
 
       <View style={{ paddingHorizontal: 16, flex: 3 }}>
-        <Pressable style={{ paddingHorizontal: 16, height: 50, borderColor: '#000', borderStyle: 'solid', borderWidth: 1 }}
+        <Pressable style={{ paddingHorizontal: 16, height: 50 }}
           accessibilityRole="button"
           accessibilityLabel="Avaa lisätiedot"
           accessibilityHint='Avaa keikan tiedot koko näytön näkymään'
