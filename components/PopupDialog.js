@@ -1,27 +1,31 @@
-import { View, Text, StyleSheet, Pressable , Animated} from 'react-native'
+import { View, Text, StyleSheet, Pressable, Animated } from 'react-native'
 import { Icon } from '@rneui/themed'
 import styles from '../assets/styles/styles'
-import {BlurView} from 'expo-blur'
+import { BlurView } from 'expo-blur'
 
 function PopupDialog(props) {
-  return(
-    <BlurView intensity={10} style={ {height: '100%'} }>
-      <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+  return (
+    <BlurView intensity={10} style={{ height: '100%' }}>
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <View style={popupStyles.popupContainer}>
           <View style={{
             backgroundColor: props.headerColor,
             borderTopLeftRadius: 15,
             borderTopRightRadius: 15,
-            flexDirection:'row',
+            flexDirection: 'row',
             width: '100%'
           }}>
-            <View style={{flex:1}}/>
+            <View style={{ flex: 1 }} />
             <View style={popupStyles.popupHeaderTextContainer}>
               <Text style={popupStyles.popupHeaderText}>{props.headerText}</Text>
             </View>
-            <View style={{flex:1, marginTop: 7}}>
-              <Pressable onPress={() => {props.navigation.pop(props.popCount? props.popCount : 1)}}>
-                <Icon name='close-circle-outline' type="material-community" color={styles.whiteText}/>
+            <View style={{ flex: 1, marginTop: 7 }}>
+              <Pressable
+                accessibilityRole="button"
+                accessibilityLabel="Sulje"
+                accessibilityHint='Peruuta ja palaa edelliseen ruutuun'
+                onPress={() => { props.navigation.pop(props.popCount ? props.popCount : 1) }}>
+                <Icon name='close-circle-outline' type="material-community" color={styles.whiteText} />
               </Pressable>
             </View>
           </View>
@@ -61,10 +65,10 @@ const popupStyles = StyleSheet.create({
     textAlign: 'center'
   },
   popupHeaderTextContainer: {
-    flex:8,
+    flex: 8,
     justifyContent: 'center',
     marginBottom: 10,
-    marginTop:10,
+    marginTop: 10,
     minHeight: 50
   }
 })

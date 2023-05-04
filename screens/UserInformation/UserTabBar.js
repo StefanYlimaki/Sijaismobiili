@@ -1,5 +1,5 @@
 import React from 'react'
-import { AntDesign } from '@expo/vector-icons'
+import {AntDesign, Ionicons} from '@expo/vector-icons'
 import { View, Text } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import Styles from '../../assets/styles/styles'
@@ -8,6 +8,16 @@ const TabBar = ({ state, descriptors, navigation }) => {
 //style={Styles.userTabBar}
   return (
     <View style={Styles.userTabBar}>
+
+      <TouchableOpacity
+        style={{ height: 50, width: 50, display: 'flex', alignItems: 'flex-start', justifyContent: 'center', marginLeft: 15 }}
+        onPress={() => { navigation.navigate('MainApplication') }}
+        marginRight={10}
+        accessibilityRole="button"
+        accessibilityLabel="Poistumisnappi"
+        accessibilityHint='Johtaa listanäkymään'>
+        <Ionicons name="arrow-back" size={24} color="black" />
+      </TouchableOpacity>
       <View style={[Styles.userTab, {alignSelf: 'center', margin: 5}]}>
         {state.routes.map((route, index) => {
           const isFocused = state.index === index
@@ -40,15 +50,7 @@ const TabBar = ({ state, descriptors, navigation }) => {
           )
         })}
       </View>
-      <TouchableOpacity
-        style={{ height: 50, width: 50, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-        onPress={() => { navigation.navigate('MainApplication') }}
-        marginRight={10}
-        accessibilityRole="button"
-        accessibilityLabel="Poistumisnappi"
-        accessibilityHint='Johtaa listanäkymään'>
-        <AntDesign name="closecircleo" size={24} />
-      </TouchableOpacity>
+      <View style={{ height: 50, width: 50, display: 'flex', alignItems: 'flex-end', justifyContent: 'center', marginRight: 15 }}/>
     </View>
   )
 }

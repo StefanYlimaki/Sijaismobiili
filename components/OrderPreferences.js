@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { View, Text, StyleSheet, Pressable, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import DraggableFlatList, { NestableDraggableFlatList, OpacityDecorator } from 'react-native-draggable-flatlist'
 import { colors } from '../assets/styles/colors'
 import { Icon } from '@rneui/themed'

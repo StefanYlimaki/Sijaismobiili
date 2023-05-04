@@ -115,7 +115,6 @@ const AllSubstitutions = ({ navigation, route }) => {
         }
       })
     }
-    
 
     // How shifts are determined while filtering (starting times) /  TODO: Do the times make sense? 
     // morning shift: 06:00 - 13:59
@@ -188,8 +187,11 @@ const AllSubstitutions = ({ navigation, route }) => {
       <BottomSheetModalProvider>
         <View>
           <View style={searchStyles.searchHeader}>
-            <View style={{flex: 9, justifyContent: 'center'}}>
+            <View style={{ flex: 9, justifyContent: 'center' }}>
               <SearchBar
+                accessibilityRole='search'
+                accessibilityLabel="Hae sijaisuuksia"
+                accessibilityHint='Avaa näppäimistön'
                 placeholder='Hae sijaisuuksia'
                 onChangeText={updateSearch}
                 value={search}
@@ -199,14 +201,18 @@ const AllSubstitutions = ({ navigation, route }) => {
                 round={true}
               />
             </View>
-            <View style={{flex: 1, justifyContent: 'center', marginRight: 15}}>
-              <Pressable onPress={() => BottomSheetModalRef.current?.present()}>
-                <Icon name='tune-variant' type="material-community" size={27} color={colors.textDark}/>
+            <View style={{ flex: 1, justifyContent: 'center', marginRight: 15 }}>
+              <Pressable
+                accessibilityRole='button'
+                accessibilityLabel="Suodata"
+                accessibilityHint='Avaa alalaitaan suodatuskortin'
+                onPress={() => BottomSheetModalRef.current?.present()}>
+                <Icon name='tune-variant' type="material-community" size={27} color={colors.textDark} />
               </Pressable>
             </View>
           </View>
           <View style={{ height: '95%' }}>
-            {showSavedOnly? (
+            {showSavedOnly ? (
               <View style={{
                 backgroundColor: colors.krGreen,
                 width: '33%',
@@ -214,9 +220,8 @@ const AllSubstitutions = ({ navigation, route }) => {
                 marginLeft: 16,
                 borderRadius: 10,
                 marginBottom: 2
-
               }}>
-                <Text style={{color: colors.textLight, textAlign: 'center'}}>Tallennetut</Text>
+                <Text style={{ color: colors.textLight, textAlign: 'center' }}>Tallennetut</Text>
               </View>
             ) : null}
             {savedSubstitutionIds.length == 0 && showSavedOnly? (
