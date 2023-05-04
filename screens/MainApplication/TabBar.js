@@ -41,8 +41,8 @@ const TabBar = ({ state, descriptors, navigation,  }) => {
       })}
       <Pressable onPress={() => { navigation.navigate('UserInfoScreen') }}>
         <View style={{ height: 50, width: 50, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-        accessibilityRole="button"
-        accessibilityLabel="Oma profiili">
+          accessibilityRole="button"
+          accessibilityLabel="Oma profiili">
           <AntDesign name="user" size={24} color="black" />
         </View>
       </Pressable>

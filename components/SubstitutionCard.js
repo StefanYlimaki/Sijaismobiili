@@ -142,7 +142,7 @@ const renderSubstitution = (item, navigation) => {
         marginVertical: 5,
       }
       ]}
-        key={i}
+      key={i}
       >
         <Text style=
           {[styles.whiteText, {

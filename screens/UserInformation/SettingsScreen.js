@@ -118,15 +118,15 @@ function SettingsScreen({ navigation }) {
         </Pressable>
         <View style={styles.footerSettings}>
           <Pressable
-          accessibilityRole="button"
-          accessibilityLabel={i18n.t('settingsRestoreSettings')}>
+            accessibilityRole="button"
+            accessibilityLabel={i18n.t('settingsRestoreSettings')}>
             <Text style={styles.footerButtonText}>{i18n.t('settingsRestoreSettings')}</Text>
           </Pressable>
           <Pressable 
-          accessibilityRole="button"
-          accessibilityLabel={i18n.t('settingsRemoveAccount')}
-          accessibilityHint='Avaa varmistuskortin'
-          onPress={() => { removeAccount() }}>
+            accessibilityRole="button"
+            accessibilityLabel={i18n.t('settingsRemoveAccount')}
+            accessibilityHint='Avaa varmistuskortin'
+            onPress={() => { removeAccount() }}>
             <Text style={styles.footerButtonText}>{i18n.t('settingsRemoveAccount')}</Text>
           </Pressable>
         </View>

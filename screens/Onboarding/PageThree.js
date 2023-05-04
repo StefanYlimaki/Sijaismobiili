@@ -140,10 +140,10 @@ const PageThree = ({ navigation, handleChange }) => {
           elevation: 2,
           backgroundColor: colors.krBlue
         }}
-          accessibilityRole='button'
-          accessibilityLabel="Jatka"
-          accessibilityHint='Tallentaa tietosi ja siirtyy listaukseen keikoista'
-          onPress={() => navigation.navigate('MainApplication')}>
+        accessibilityRole='button'
+        accessibilityLabel="Jatka"
+        accessibilityHint='Tallentaa tietosi ja siirtyy listaukseen keikoista'
+        onPress={() => navigation.navigate('MainApplication')}>
           <Text style={{ color: '#fff', fontSize: 20, fontWeight: '600' }}>Jatka</Text>
         </Pressable>
       </View>

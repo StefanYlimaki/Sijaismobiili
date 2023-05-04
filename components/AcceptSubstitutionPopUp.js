@@ -67,25 +67,25 @@ const AcceptSubstitutionPopUp = ({route, navigation}) => {
               accessibilityLabel="Hyväksy keikka"
               accessibilityHint='Hyväksy painamalla painiketta'
               onPress={()=> {
-              const nowInMillis = new Date().getTime()
-              const subStartTime = new Date(route.params.substitution.timing.startTime)
-              const subsStartTimeInMillis = subStartTime.getTime()
+                const nowInMillis = new Date().getTime()
+                const subStartTime = new Date(route.params.substitution.timing.startTime)
+                const subsStartTimeInMillis = subStartTime.getTime()
   
-              if(nowInMillis > subsStartTimeInMillis){
-                Alert.alert('Kiinnittäytyminen ei onnistunut','Et voi kiinnittäytyä jo alkaneeseen vuoroon', [{ text: 'Selvä', style: 'cancel' }])
-              } else {
-                acceptSubstitution(route.params.substitution)
-              }
+                if(nowInMillis > subsStartTimeInMillis){
+                  Alert.alert('Kiinnittäytyminen ei onnistunut','Et voi kiinnittäytyä jo alkaneeseen vuoroon', [{ text: 'Selvä', style: 'cancel' }])
+                } else {
+                  acceptSubstitution(route.params.substitution)
+                }
 
-              if (route.params.caller == 'RecommendationView') {
-                navigation.navigate('MainApplication')
-                dispatcher()
-                navigation.navigate('GigConfirmedPopup', {substitution: route.params.substitution, waitingForConfirmation: route.params.substitution.needsConfirmation})
-              } else if (route.params.caller == 'SubstitutionCard') {
-                navigation.pop(2)
-                navigation.navigate('GigConfirmedPopup', {substitution: route.params.substitution, waitingForConfirmation: route.params.substitution.needsConfirmation})
-              }
-            }}>
+                if (route.params.caller == 'RecommendationView') {
+                  navigation.navigate('MainApplication')
+                  dispatcher()
+                  navigation.navigate('GigConfirmedPopup', {substitution: route.params.substitution, waitingForConfirmation: route.params.substitution.needsConfirmation})
+                } else if (route.params.caller == 'SubstitutionCard') {
+                  navigation.pop(2)
+                  navigation.navigate('GigConfirmedPopup', {substitution: route.params.substitution, waitingForConfirmation: route.params.substitution.needsConfirmation})
+                }
+              }}>
               <Text style={styles.buttonText}>{'Otan keikan!'}</Text>
             </Pressable>
           </View>

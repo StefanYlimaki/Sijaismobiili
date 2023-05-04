@@ -95,10 +95,10 @@ const PageOne = ({ handleChange, setStep }) => {
           elevation: 2,
           backgroundColor: colors.krBlue
         }}
-          accessibilityRole='button'
-          accessibilityLabel="Jatka"
-          accessibilityHint='Tallentaa valintasi ja siirtyy eteenpäin'
-          onPress={() => setStep(2)}>
+        accessibilityRole='button'
+        accessibilityLabel="Jatka"
+        accessibilityHint='Tallentaa valintasi ja siirtyy eteenpäin'
+        onPress={() => setStep(2)}>
           <Text style={{ color: '#fff', fontSize: 20, fontWeight: '600' }}>Jatka</Text>
         </Pressable>
       </View>
