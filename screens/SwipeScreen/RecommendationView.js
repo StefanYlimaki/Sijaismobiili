@@ -181,8 +181,8 @@ const RecommendationCards = ({navigation, substitutions, cardCount}) => {
             //If card is NOT on top, apply opacity
             (i != currentIndex? {opacity: nextCardOpacity}: null),
             {
-              height: SCREEN_HEIGHT - 250,
-              width: SCREEN_WIDTH - 30,
+              height: SCREEN_HEIGHT / 1.5,
+              width: SCREEN_WIDTH / 1.1,
             },
             localStyles.recommendationCardAnimated
           ]}

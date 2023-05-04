@@ -7,8 +7,8 @@ import {
   TouchableWithoutFeedback,
   Pressable,
 } from 'react-native'
-import { logUserData } from '../../utils/logUserData'
-import * as Colors from '../../assets/styles/colors.js'
+import {logUserData} from '../../utils/logUserData'
+import { colors } from '../../assets/styles/colors.js'
 import styles from '../../assets/styles/styles'
 import { setUserData } from '../../utils/setUserData'
 import { ListItem } from '@rneui/base'
