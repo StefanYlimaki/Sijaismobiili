@@ -72,7 +72,7 @@ function UpcomingGigs({ substIDs, navigation }) {
             </View>
           </View>
 
-          <Pressable 
+          <Pressable
             accessibilityRole="button"
             accessibilityLabel="Kaikki tulevat vuorot"
             accessibilityHint='Johtaa koko näytön listaukseen'
@@ -92,8 +92,6 @@ function UpcomingGigs({ substIDs, navigation }) {
 const cardStyles = StyleSheet.create({
   cardBody: {
     backgroundColor: '#D9D9D9',
-    borderLeftWidth: 1,
-    borderRightWidth: 1,
     paddingBottom: 16,
     paddingLeft: 16,
     paddingVertical: 8,
@@ -105,7 +103,6 @@ const cardStyles = StyleSheet.create({
     backgroundColor: '#AAC4C5',
     borderBottomLeftRadius: 10,
     borderBottomRightRadius: 10,
-    borderWidth: 1,
     paddingVertical: 4,
   },
   cardHeader: {
@@ -115,7 +112,6 @@ const cardStyles = StyleSheet.create({
   emptyCard: {
     backgroundColor: '#D9D9D9',
     borderRadius: 10,
-    borderWidth: 1,
     flexDirection: 'column',
     justifyContent: 'center',
     minHeight: 130

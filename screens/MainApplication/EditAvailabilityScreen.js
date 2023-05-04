@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { View, Text, Pressable, StyleSheet } from 'react-native'
 import { colors } from '../../assets/styles/colors'
-import style from '../../assets/styles/styles'
+import style, {fontSizes} from '../../assets/styles/styles'
 import { Icon } from '@rneui/themed'
 import { Calendar } from 'react-native-calendars'
 import { formatDate, getUserData } from '../../utils'
@@ -119,31 +119,31 @@ function EditAvailabilityScreen({ navigation }) {
       <View style={availabilityStyles.checkboxContainer}>
         <Pressable style={availabilityStyles.checkbox} onPress={() => setMonday(!monday)}>
           <Text>Ma</Text>
-          <Icon name={monday ? 'checkbox-marked' : 'checkbox-blank-outline'} type="material-community" size={30} color={style.blackText}/>
+          <Icon name={monday ? 'checkbox-marked' : 'checkbox-blank-outline'} type="material-community" size={30} color={colors.krBlue}/>
         </Pressable>
         <Pressable style={availabilityStyles.checkbox} onPress={() => setTuesday(!tuesday)}>
           <Text>Ti</Text>
-          <Icon name={tuesday ? 'checkbox-marked' : 'checkbox-blank-outline'} type="material-community" size={30} color={style.blackText}/>
+          <Icon name={tuesday ? 'checkbox-marked' : 'checkbox-blank-outline'} type="material-community" size={30} color={colors.krBlue}/>
         </Pressable>
         <Pressable style={availabilityStyles.checkbox} onPress={() => setWednesday(!wednesday)}>
           <Text>Ke</Text>
-          <Icon name={wednesday ? 'checkbox-marked' : 'checkbox-blank-outline'} type="material-community" size={30} color={style.blackText}/>
+          <Icon name={wednesday ? 'checkbox-marked' : 'checkbox-blank-outline'} type="material-community" size={30} color={colors.krBlue}/>
         </Pressable>
         <Pressable style={availabilityStyles.checkbox} onPress={() => setThursday(!thursday)}>
           <Text>To</Text>
-          <Icon name={thursday ? 'checkbox-marked' : 'checkbox-blank-outline'} type="material-community" size={30} color={style.blackText}/>
+          <Icon name={thursday ? 'checkbox-marked' : 'checkbox-blank-outline'} type="material-community" size={30} color={colors.krBlue}/>
         </Pressable>
         <Pressable style={availabilityStyles.checkbox} onPress={() => setFriday(!friday)}>
           <Text>Pe</Text>
-          <Icon name={friday ? 'checkbox-marked' : 'checkbox-blank-outline'} type="material-community" size={30} color={style.blackText}/>
+          <Icon name={friday ? 'checkbox-marked' : 'checkbox-blank-outline'} type="material-community" size={30} color={colors.krBlue}/>
         </Pressable>
         <Pressable style={availabilityStyles.checkbox} onPress={() => setSaturday(!saturday)}>
           <Text>La</Text>
-          <Icon name={saturday ? 'checkbox-marked' : 'checkbox-blank-outline'} type="material-community" size={30} color={style.blackText}/>
+          <Icon name={saturday ? 'checkbox-marked' : 'checkbox-blank-outline'} type="material-community" size={30} color={colors.krBlue}/>
         </Pressable>
         <Pressable style={availabilityStyles.checkbox} onPress={() => setSunday(!sunday)}>
           <Text>Su</Text>
-          <Icon name={sunday ? 'checkbox-marked' : 'checkbox-blank-outline'} type="material-community" size={30} color={style.blackText}/>
+          <Icon name={sunday ? 'checkbox-marked' : 'checkbox-blank-outline'} type="material-community" size={30} color={colors.krBlue}/>
         </Pressable>
       </View>
 
@@ -180,8 +180,11 @@ const availabilityStyles = StyleSheet.create({
     marginBottom: 20
   },
   saveButton: {
-    backgroundColor: colors.krGreen,
-    borderRadius: 7,
+    backgroundColor: colors.success,
+    borderRadius: 20,
+    fontSize: fontSizes.xl,
+    height: 40,
+    justifyContent: 'center',
     paddingVertical: 5,
     width: 90
   },
