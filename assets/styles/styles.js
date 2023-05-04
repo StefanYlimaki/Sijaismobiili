@@ -1,7 +1,6 @@
 import {StyleSheet, Dimensions } from 'react-native'
 import { colors } from './colors.js'
 const {width: W} = Dimensions.get('window')
-
 export const fontSizes = {
   xs: 10,
   sm: 12,
