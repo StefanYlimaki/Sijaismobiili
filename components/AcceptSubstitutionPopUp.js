@@ -4,6 +4,7 @@ import { colors } from '../assets/styles/colors'
 import { formatDate, formatTime } from '../utils'
 import acceptSubstitution from '../utils/acceptSubstitution'
 import { CommonActions } from '@react-navigation/native'
+import {fontSizes} from '../assets/styles/styles'
 
 const AcceptSubstitutionPopUp = ({route, navigation}) => {
 
@@ -37,10 +38,10 @@ const AcceptSubstitutionPopUp = ({route, navigation}) => {
         </View>
         <View style={{justifyContent: 'center', paddingVertical: 25, paddingHorizontal: 15}}>
           <View>
-            <Text style={{fontWeight:'600', fontSize:16}}>
+            <Text style={{fontWeight:'600', fontSize: fontSizes.md}}>
               {route.params.substitution.title}
             </Text>
-            <Text style={{fontWeight:'600', fontSize:19}}>
+            <Text style={{fontWeight:'600', fontSize: fontSizes.lg}}>
               {route.params.substitution.department}
             </Text>
           </View>
@@ -105,7 +106,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center', 
     color: colors.textLight,
     fontFamily: 'Inter-DisplayBlack',
-    fontSize: 25, 
+    fontSize: fontSizes.xxl,
     fontWeight: 'bold'
   },
   substitutionInfoContainer: {

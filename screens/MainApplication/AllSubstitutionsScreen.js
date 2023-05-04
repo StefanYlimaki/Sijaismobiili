@@ -44,12 +44,16 @@ const AllSubstitutions = ({ navigation, route }) => {
       const userData = await getUserData()
 
       //Filter accepted substitutions to unique ids
-      const uniqueSubstitutions = userData.savedSubstitutions.filter(
-        (value, index, array) => array.indexOf(value) === index
-      )
+      if (typeof userData.savedSubstitutions == 'object') {
+        const uniqueSubstitutions = userData.savedSubstitutions.filter(
+          (value, index, array) => array.indexOf(value) === index
+        )
+        setIds(uniqueSubstitutions)
+      } else {
+        setIds([]) 
+      }
 
       //Filter all substitutions to ones that match the id
-      setIds(uniqueSubstitutions)
     }
     retrieveData()
   }, [])
@@ -216,7 +220,13 @@ const AllSubstitutions = ({ navigation, route }) => {
                 <Text style={{ color: colors.textLight, textAlign: 'center' }}>Tallennetut</Text>
               </View>
             ) : null}
-            <SubstitutionsList navigation={navigation} substitutions={substList} />
+            {savedSubstitutionIds.length == 0 && showSavedOnly? (
+              <View>
+                <Text>Et ole tallentanut yhtään sijaisuutta!</Text>
+              </View>
+            ) : (
+              <SubstitutionsList navigation={navigation} substitutions={substList} />
+            )}
           </View>
           <BottomSheetModal ref={BottomSheetModalRef} index={0} snapPoints={snapPoints}>
             <FilterModal
