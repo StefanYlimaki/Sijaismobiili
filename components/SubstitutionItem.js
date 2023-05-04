@@ -27,27 +27,27 @@ const SubstitutionItem = ({ substitution, navigation, isBookmarked }) => {
         <View style={styles.substitutionPreviewComponent}>
           <View style={styles.substitutionPreviewComponentTopElement}>
             <View style={{flexDirection: 'row', flex: 1}}>
-              <View style={{flexDirection: 'column', flex: 1, justifyContent: 'space-between'}}>
+              <View style={{flexDirection: 'column', flex: 5, justifyContent: 'space-between'}}>
                 <View style={{flexDirection: 'row', flex: 1}}>
                   <View style={{flexDirection: 'row', alignItems: 'flex-start', flex: 1}}>
-                    <Feather name='calendar' size={15} color='white'/>
-                    <Text style={[styles.whiteText, { marginLeft: 5}]}>
+                    <Feather name='calendar' size={fontSizes.md} color='white'/>
+                    <Text style={[styles.whiteText, { marginLeft: 5, fontSize: fontSizes.md }]}>
                       {formatDate(substitution.item.timing.startTime)}
                     </Text>
                   </View>
 
-                  <View style={{flexDirection: 'row', flex: 1, alignItems: 'flex-start'}}>
-                    <Feather name='clock' size={15} color='white'/>
-                    <Text style={[styles.whiteText, { marginLeft: 5 }]}>
+                  <View style={{flexDirection: 'row', flex: 2, alignItems: 'flex-start'}}>
+                    <Feather name='clock' size={fontSizes.md} color='white'/>
+                    <Text style={[styles.whiteText, { marginLeft: 5, fontSize: fontSizes.md }]}>
                       {formatTime(substitution.item.timing.startTime, substitution.item.timing.duration)}
                     </Text>
                   </View>
                 </View>
               </View>
 
-              <View style={{flexDirection: 'column', alignItems: 'flex-end', flex:1}}>
+              <View style={{flexDirection: 'column', alignItems: 'flex-end', flexBasis: 50}}>
                 <View style={{flexDirection: 'row'}}>
-                  <Feather name='map-pin' size={15} color='white'/>
+                  <Feather name='map-pin' size={fontSizes.md} color='white'/>
                   <Text style={[styles.whiteText, { marginLeft: 5}]}>
                     {getDistance(substitution.item.location)}
                   </Text>
