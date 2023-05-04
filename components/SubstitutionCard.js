@@ -37,7 +37,7 @@ const SubstitutionCard = ({ route }) => {
     <View style={{ backgroundColor: 'rgba(0,0,0,0.3)' }}>
       <BlurView intensity={10} style={{ height: '100%' }}>
         <View style={{ flexDirection: 'column', marginTop: Constants.statusBarHeight + 20 }}>
-          {renderSubstitution(route.params.substitution.item, route.params.navigation)}
+          {renderSubstitution(route.params.substitution.item, route.params.navigation, route.params.updateList)}
         </View>
       </BlurView>
     </View>
@@ -58,7 +58,7 @@ const navigateToSingleSubstitutionScreen = (navigation, item) => {
   })
 }
 
-const renderSubstitution = (item, navigation) => {
+const renderSubstitution = (item, navigation, updateList) => {
 
   //Position variable for card on top
   const position = useRef(new Animated.ValueXY()).current
@@ -287,6 +287,7 @@ const renderSubstitution = (item, navigation) => {
         }}
         bookmarkCallback={() => {
           saveSubstitution(item)
+          updateList()
           navigation.pop()
         }}
         acceptCallback={() => {

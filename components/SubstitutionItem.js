@@ -7,7 +7,7 @@ import {backgroundColor} from 'react-native-calendars/src/style'
 import {colors} from '../assets/styles/colors'
 import { fontSizes } from '../assets/styles/styles'
 
-const SubstitutionItem = ({ substitution, navigation, isBookmarked }) => {
+const SubstitutionItem = ({ substitution, navigation, isBookmarked, update }) => {
 
   const getDistance = () => {
     return calculateDistance(parseFloat(substitution.item.coordinates.latitude), parseFloat(substitution.item.coordinates.longitude), 65.05941, 25.46642, false)
@@ -19,7 +19,8 @@ const SubstitutionItem = ({ substitution, navigation, isBookmarked }) => {
         onPress={() => {
           navigation.navigate('SubstitutionCard', {
             substitution: substitution,
-            navigation: navigation
+            navigation: navigation,
+            updateList: () => {update(true)}
           })
         }
         }

@@ -6,7 +6,7 @@ import { LinearGradient } from 'expo-linear-gradient'
 import {Feather} from '@expo/vector-icons'
 const placeholder = {uri: 'https://images.unsplash.com/photo-1584432810601-6c7f27d2362b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8'}
 const logo = { uri: 'https://www.sttinfo.fi/data/images/00063/de7b594d-309c-4622-8e66-b8d8b84dafd3-w_300_h_100.png' }
-const SubstitutionItem = ({ substitution, navigation }) => {
+const SubstitutionItem = ({ substitution, navigation, update }) => {
 
   const getDistance = () => {
     return calculateDistance(parseFloat(substitution.item.coordinates.latitude), parseFloat(substitution.item.coordinates.longitude), 65.05941, 25.46642, false)
@@ -35,7 +35,8 @@ const SubstitutionItem = ({ substitution, navigation }) => {
         onPress={() =>
           navigation.navigate('SubstitutionCard', {
             substitution: substitution,
-            navigation: navigation
+            navigation: navigation,
+            updateList: () => {update(true)}
           })
         }
         style={({ pressed }) => pressed && styles.pressedSubstitutionItem}
