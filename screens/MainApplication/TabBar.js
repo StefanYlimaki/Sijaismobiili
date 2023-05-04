@@ -70,27 +70,27 @@ const styles = StyleSheet.create({
 
 const TopTab = ({ type, size = 24, isFocused, index, navigation }) => {
   switch (index) {
-    case 0:
-      if (isFocused) {
-        return (
-          <View style={{ padding: 5, borderRadius: 10, marginLeft: 20 }}><Text style={{ fontFamily: 'Inter-DisplaySemiBold', color: '#fff' }}>Omat keikat</Text></View>
-        )
-      }
-      return (<View style={{ padding: 5, marginLeft: 20 }}><Text style={{ color: '#fff' }}>Omat keikat</Text></View>)
-    case 1:
-      if (isFocused) {
-        return (
-          <View style={{ padding: 5, borderRadius: 10 }}><Text style={{ fontFamily: 'Inter-DisplaySemiBold', color: '#fff' }}>Sinulle</Text></View>
-        )
-      }
-      return (<View style={{ padding: 5 }}><Text style={{ color: '#fff' }}>Sinulle</Text></View>)
-    case 2:
-      if (isFocused) {
-        return (
-          <View style={{ padding: 5, borderRadius: 10, marginRight: 40 }}><Text style={{ fontFamily: 'Inter-DisplaySemiBold', color: '#fff' }}>Haku</Text></View>
-        )
-      }
-      return (<View style={{ padding: 5, marginRight: 40 }}><Text style={{ color: '#fff' }}>Haku</Text></View>)
+  case 0:
+    if (isFocused) {
+      return (
+        <View style={{ padding: 5, borderRadius: 10, marginLeft: 20 }}><Text style={{ fontFamily: 'Inter-DisplaySemiBold', color: '#fff' }}>Omat keikat</Text></View>
+      )
+    }
+    return (<View style={{ padding: 5, marginLeft: 20 }}><Text style={{ color: '#fff' }}>Omat keikat</Text></View>)
+  case 1:
+    if (isFocused) {
+      return (
+        <View style={{ padding: 5, borderRadius: 10 }}><Text style={{ fontFamily: 'Inter-DisplaySemiBold', color: '#fff' }}>Sinulle</Text></View>
+      )
+    }
+    return (<View style={{ padding: 5 }}><Text style={{ color: '#fff' }}>Sinulle</Text></View>)
+  case 2:
+    if (isFocused) {
+      return (
+        <View style={{ padding: 5, borderRadius: 10, marginRight: 40 }}><Text style={{ fontFamily: 'Inter-DisplaySemiBold', color: '#fff' }}>Haku</Text></View>
+      )
+    }
+    return (<View style={{ padding: 5, marginRight: 40 }}><Text style={{ color: '#fff' }}>Haku</Text></View>)
   }
 }
 
