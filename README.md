@@ -36,3 +36,10 @@
 
 #### 3. Scan the QR-code on your devices or launch open in a simulator of your choice 
 
+
+# Updating the application test data
+
+#### In order to see mock substitutions in the application, you must have up-to-date test data in ./assets/data/. This is because the application filters out substitutions set to happen in the past.
+##### To update this data:
+##### 0. Have python3 installed on your machine
+##### 1. Navigate to ./assets/data/ and run the script data_generator.py. This will replace the existing json with fresh data.
